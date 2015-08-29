@@ -5,7 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     public float StrafeSpeed = 5f;
     public float ForwardSpeed = 5f;
+
     private CharacterController controller;
+    private Animator meshAnimator;
     private float fallSpeed;
 
     private float yawTarget;
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        meshAnimator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -30,5 +33,8 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity*Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
+
+        // Locomotion
+        meshAnimator.SetFloat("Speed", move.z);
     }
 }
