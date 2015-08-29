@@ -243,7 +243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FocusTransform: {fileID: 1871016109}
-  Offset: {x: 0, y: 0, z: -10}
+  Distance: 5
+  Offset: {x: 0, y: 2, z: 0}
+  CatchupSpeed: 25
 --- !u!1 &1062841305
 GameObject:
   m_ObjectHideFlags: 0
