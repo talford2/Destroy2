@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 1
-  m_FogColor: {r: .34827587, g: .282785833, b: .253524333, a: 1}
+  m_FogColor: {r: .217241377, g: .135775864, b: .135775864, a: 1}
   m_FogMode: 2
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
@@ -226,11 +226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFog: 1
-  useRadialDistance: 0
-  heightFog: 1
-  height: 1
-  heightDensity: 1.87
-  startDistance: 0
+  useRadialDistance: 1
+  heightFog: 0
+  height: 0
+  heightDensity: 4.57000017
+  startDistance: 69.3099976
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &25819867
 MonoBehaviour:
@@ -362,8 +362,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: .956862748, b: .657999992, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: .815999985, b: .657999992, a: 1}
+  m_Intensity: .800000012
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
