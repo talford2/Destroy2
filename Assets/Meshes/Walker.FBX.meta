@@ -1,61 +1,65 @@
 fileFormatVersion: 2
-guid: cffe214d592fd23458d8ddf6b3d043d6
-timeCreated: 1440858083
-licenseType: Free
+guid: 757c45c48579506478edad5a27f39058
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: FootLeftBone
     100002: FootRightBone
-    100004: Ground
-    100006: HeadBone
-    100008: IK Chain001
-    100010: IK Chain002
-    100012: IK Chain003
-    100014: IK Chain004
-    100016: LeftFootDust
-    100018: LeftFootHelper
-    100020: LeftToe
-    100022: LowerLegLeftBone
-    100024: LowerLegRightBone
-    100026: PelvisBone
-    100028: RightFootDust
-    100030: RightFootHelper
-    100032: RightToe
-    100034: ShootPointLeft
-    100036: ShootPointRight
-    100038: TurretBone
-    100040: UpperLegLeftBone
-    100042: UpperLegRightBone
-    100044: //RootNode
-    100046: Walker
+    100004: HeadBone
+    100006: LowerLegLeftBone
+    100008: LowerLegRightBone
+    100010: PelvisBone
+    100012: TurretBone
+    100014: UpperLegLeftBone
+    100016: UpperLegRightBone
+    100018: //RootNode
+    100020: Walker
+    100022: IK Chain001
+    100024: IK Chain002
+    100026: IK Chain003
+    100028: IK Chain004
+    100030: LeftFootHelper
+    100032: LeftToe
+    100034: RightFootHelper
+    100036: RightToe
+    100038: Ground
+    100040: ShootPointLeft
+    100042: ShootPointRight
+    100044: LeftFootDust
+    100046: RightFootDust
     400000: FootLeftBone
     400002: FootRightBone
-    400004: Ground
-    400006: HeadBone
-    400008: IK Chain001
-    400010: IK Chain002
-    400012: IK Chain003
-    400014: IK Chain004
-    400016: LeftFootDust
-    400018: LeftFootHelper
-    400020: LeftToe
-    400022: LowerLegLeftBone
-    400024: LowerLegRightBone
-    400026: PelvisBone
-    400028: RightFootDust
-    400030: RightFootHelper
-    400032: RightToe
-    400034: ShootPointLeft
-    400036: ShootPointRight
-    400038: TurretBone
-    400040: UpperLegLeftBone
-    400042: UpperLegRightBone
-    400044: //RootNode
-    400046: Walker
+    400004: HeadBone
+    400006: LowerLegLeftBone
+    400008: LowerLegRightBone
+    400010: PelvisBone
+    400012: TurretBone
+    400014: UpperLegLeftBone
+    400016: UpperLegRightBone
+    400018: //RootNode
+    400020: Walker
+    400022: IK Chain001
+    400024: IK Chain002
+    400026: IK Chain003
+    400028: IK Chain004
+    400030: LeftFootHelper
+    400032: LeftToe
+    400034: RightFootHelper
+    400036: RightToe
+    400038: Ground
+    400040: ShootPointLeft
+    400042: ShootPointRight
+    400044: LeftFootDust
+    400046: RightFootDust
     4300000: Walker
-    7400000: Take 001
+    7400000: Walk
+    7400002: Idle
+    7400004: StartWalk
+    7400006: TurnHeadRight
+    7400008: IdleHead
+    7400010: TurnHeadLeft
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Walker
   materials:
     importMaterials: 1
@@ -66,21 +70,487 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 
-    animationImportWarnings: 
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
-    clipAnimations: []
+    extraExposedTransformPaths:
+    - Ground/PelvisBone/HeadBone
+    - RightFootHelper
+    - LeftFootHelper
+    - Ground/PelvisBone/HeadBone/TurretBone/ShootPointRight
+    - Ground/PelvisBone/HeadBone/TurretBone/ShootPointLeft
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 31
+      lastFrame: 70
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: .497890264
+        functionName: RightFootStomp
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .995780528
+        functionName: LeftFootStomp
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/PelvisBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointLeft
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointRight
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone/LeftToe
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone/RightToe
+        weight: 1
+      - path: LeftFootHelper
+        weight: 1
+      - path: LeftFootHelper/IK Chain003
+        weight: 1
+      - path: LeftFootHelper/IK Chain004
+        weight: 1
+      - path: LeftFootHelper/LeftFootDust
+        weight: 1
+      - path: RightFootHelper
+        weight: 1
+      - path: RightFootHelper/IK Chain001
+        weight: 1
+      - path: RightFootHelper/IK Chain002
+        weight: 1
+      - path: RightFootHelper/RightFootDust
+        weight: 1
+      - path: Walker
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/PelvisBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointLeft
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointRight
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone/LeftToe
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone/RightToe
+        weight: 1
+      - path: LeftFootHelper
+        weight: 1
+      - path: LeftFootHelper/IK Chain003
+        weight: 1
+      - path: LeftFootHelper/IK Chain004
+        weight: 1
+      - path: LeftFootHelper/LeftFootDust
+        weight: 1
+      - path: RightFootHelper
+        weight: 1
+      - path: RightFootHelper/IK Chain001
+        weight: 1
+      - path: RightFootHelper/IK Chain002
+        weight: 1
+      - path: RightFootHelper/RightFootDust
+        weight: 1
+      - path: Walker
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StartWalk
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: .997267723
+        functionName: LeftFootStomp
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/PelvisBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointLeft
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointRight
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone/LeftToe
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone/RightToe
+        weight: 1
+      - path: LeftFootHelper
+        weight: 1
+      - path: LeftFootHelper/IK Chain003
+        weight: 1
+      - path: LeftFootHelper/IK Chain004
+        weight: 1
+      - path: LeftFootHelper/LeftFootDust
+        weight: 1
+      - path: RightFootHelper
+        weight: 1
+      - path: RightFootHelper/IK Chain001
+        weight: 1
+      - path: RightFootHelper/IK Chain002
+        weight: 1
+      - path: RightFootHelper/RightFootDust
+        weight: 1
+      - path: Walker
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: TurnHeadRight
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 90.0999985
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ground
+        weight: 0
+      - path: Ground/PelvisBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointLeft
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointRight
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone/LeftToe
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone/RightToe
+        weight: 0
+      - path: LeftFootHelper
+        weight: 0
+      - path: LeftFootHelper/IK Chain003
+        weight: 0
+      - path: LeftFootHelper/IK Chain004
+        weight: 0
+      - path: LeftFootHelper/LeftFootDust
+        weight: 0
+      - path: RightFootHelper
+        weight: 0
+      - path: RightFootHelper/IK Chain001
+        weight: 0
+      - path: RightFootHelper/IK Chain002
+        weight: 0
+      - path: RightFootHelper/RightFootDust
+        weight: 0
+      - path: Walker
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: IdleHead
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: .100000001
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ground
+        weight: 0
+      - path: Ground/PelvisBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointLeft
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointRight
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone/LeftToe
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone/RightToe
+        weight: 0
+      - path: LeftFootHelper
+        weight: 0
+      - path: LeftFootHelper/IK Chain003
+        weight: 0
+      - path: LeftFootHelper/IK Chain004
+        weight: 0
+      - path: LeftFootHelper/LeftFootDust
+        weight: 0
+      - path: RightFootHelper
+        weight: 0
+      - path: RightFootHelper/IK Chain001
+        weight: 0
+      - path: RightFootHelper/IK Chain002
+        weight: 0
+      - path: RightFootHelper/RightFootDust
+        weight: 0
+      - path: Walker
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: TurnHeadLeft
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 110.099998
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ground
+        weight: 0
+      - path: Ground/PelvisBone
+        weight: 0
+      - path: Ground/PelvisBone/HeadBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointLeft
+        weight: 1
+      - path: Ground/PelvisBone/HeadBone/TurretBone/ShootPointRight
+        weight: 1
+      - path: Ground/PelvisBone/UpperLegLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegLeftBone/LowerLegLeftBone/FootLeftBone/LeftToe
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone
+        weight: 0
+      - path: Ground/PelvisBone/UpperLegRightBone/LowerLegRightBone/FootRightBone/RightToe
+        weight: 0
+      - path: LeftFootHelper
+        weight: 0
+      - path: LeftFootHelper/IK Chain003
+        weight: 0
+      - path: LeftFootHelper/IK Chain004
+        weight: 0
+      - path: LeftFootHelper/LeftFootDust
+        weight: 0
+      - path: RightFootHelper
+        weight: 0
+      - path: RightFootHelper/IK Chain001
+        weight: 0
+      - path: RightFootHelper/IK Chain002
+        weight: 0
+      - path: RightFootHelper/RightFootDust
+        weight: 0
+      - path: Walker
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -88,13 +558,11 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
-    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -112,10 +580,8 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Ground
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   additionalBone: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
