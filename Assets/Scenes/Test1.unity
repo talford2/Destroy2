@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FocusTransform: {fileID: 1871016109}
-  Distance: 5
-  Offset: {x: 0, y: 2, z: 0}
+  Distance: 10
+  Offset: {x: 0, y: 6, z: 0}
   CatchupSpeed: 25
 --- !u!114 &25819868
 MonoBehaviour:
