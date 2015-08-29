@@ -101,8 +101,8 @@ GameObject:
   - 81: {fileID: 25819860}
   - 114: {fileID: 25819866}
   - 114: {fileID: 25819865}
-  - 114: {fileID: 25819867}
   - 114: {fileID: 25819868}
+  - 114: {fileID: 25819867}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -258,13 +258,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Radius: .400000006
+  m_Radius: .200000003
   m_SampleCount: 2
-  m_OcclusionIntensity: 1.20000005
+  m_OcclusionIntensity: 1
   m_Blur: 2
-  m_Downsampling: 2
+  m_Downsampling: 1
   m_OcclusionAttenuation: 1.49000001
-  m_MinZ: .00999999978
+  m_MinZ: .00100000005
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!1 &1062841305
@@ -425,7 +425,7 @@ ReflectionProbe:
   m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 256
+  m_Resolution: 1024
   m_UpdateFrequency: 0
   m_Importance: 1
   m_BoxSize: {x: 500, y: 100, z: 500}
