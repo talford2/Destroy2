@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         yawTarget += Input.GetAxis("Mouse X");
-        pitchTarget += Input.GetAxis("Mouse Y");
+        pitchTarget -= Input.GetAxis("Mouse Y");
         var move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         fallSpeed += -9.81f*Time.deltaTime;
 
