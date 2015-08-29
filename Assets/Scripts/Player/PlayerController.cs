@@ -23,9 +23,11 @@ public class PlayerController : MonoBehaviour
         yawTarget += Input.GetAxis("Mouse X");
         pitchTarget -= Input.GetAxis("Mouse Y");
         var move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        fallSpeed += -9.81f*Time.deltaTime;
 
+        fallSpeed += -9.81f*Time.deltaTime;
         var velocity = transform.right*move.x*strafeSpeed + Vector3.up*fallSpeed + transform.forward*move.z*forwardSpeed;
+        pitchTarget = Mathf.Clamp(pitchTarget, 0f, 80f);
+
         controller.Move(velocity*Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(pitchTarget, yawTarget, 0f), 25f*Time.deltaTime);
     }
