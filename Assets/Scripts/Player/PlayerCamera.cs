@@ -3,7 +3,9 @@
 public class PlayerCamera : MonoBehaviour
 {
     public Transform FocusTransform;
-    public Vector3 Offset;
+    public float Distance = 5f;
+    public Vector3 Offset = new Vector3(0f, 2f, 0);
+    public float CatchupSpeed = 25f;
 
     private float targetPitch;
     private float targetYaw;
@@ -20,7 +22,6 @@ public class PlayerCamera : MonoBehaviour
         current = this;
     }
 
-    // Not sure if this will be used yet?
     public void SetTargetPitchYaw(float pitch, float yaw)
     {
         targetPitch = pitch;
@@ -29,8 +30,10 @@ public class PlayerCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        var targetPosition = FocusTransform.position + Quaternion.Euler(targetPitch, targetYaw, 0)*Offset;
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 25f*Time.deltaTime);
-        transform.LookAt(FocusTransform.position);
+        var targetPosition = FocusTransform.position + Quaternion.Euler(targetPitch, targetYaw, 0)*Vector3.forward*-Distance;
+        targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, 1f, 100f), targetPosition.z);
+
+        transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed*Time.deltaTime);
+        transform.LookAt(FocusTransform.position + Offset);
     }
 }
