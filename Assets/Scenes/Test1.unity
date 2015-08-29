@@ -103,6 +103,7 @@ GameObject:
   - 114: {fileID: 25819865}
   - 114: {fileID: 25819868}
   - 114: {fileID: 25819867}
+  - 114: {fileID: 25819869}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -267,6 +268,29 @@ MonoBehaviour:
   m_MinZ: .00100000005
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+--- !u!114 &25819869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25819859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e318a6043c1cb4a8ce1c8805bab930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolution: 1
+  screenBlendMode: 0
+  sunTransform: {fileID: 0}
+  radialBlurIterations: 2
+  sunColor: {r: 1, g: .882352948, b: .522000015, a: 1}
+  sunThreshold: {r: .870000005, g: .74000001, b: .649999976, a: 1}
+  sunShaftBlurRadius: 2.5
+  sunShaftIntensity: 1.14999998
+  maxRadius: .75
+  useDepthTexture: 1
+  sunShaftsShader: {fileID: 4800000, guid: d3b1c8c1036784176946f5cfbfb7fe4c, type: 3}
+  simpleClearShader: {fileID: 4800000, guid: f688f89ed5eb847c5b19c934a0f1e772, type: 3}
 --- !u!1 &1062841305
 GameObject:
   m_ObjectHideFlags: 0
