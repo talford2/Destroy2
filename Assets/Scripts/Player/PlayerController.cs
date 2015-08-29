@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour
         var velocity = transform.right*move.x*strafeSpeed + Vector3.up*fallSpeed + transform.forward*move.z*forwardSpeed;
         pitchTarget = Mathf.Clamp(pitchTarget, 0f, 80f);
 
+        PlayerCamera.Current.SetTargetPitchYaw(pitchTarget, yawTarget);
+
         controller.Move(velocity*Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(pitchTarget, yawTarget, 0f), 25f*Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
     }
 }
