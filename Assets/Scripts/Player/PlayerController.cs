@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             gun.TriggerShoot(gun.GetShootPointsCentre() + transform.forward * 100f, 0f);
+            if (gun.GetClipRemaining() == 0)
+                gun.TriggerReload(gun.ClipCapacity);
         }
         else
         {
