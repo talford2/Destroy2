@@ -71,8 +71,6 @@ public abstract class Missile : MonoBehaviour
         return Owner;
     }
 
-    public abstract void ShiftUniverse(Vector3 shift);
-
     public void HandleCollision(RaycastHit hit, Vector3 shootDirection)
     {
         if (hit.collider != null)

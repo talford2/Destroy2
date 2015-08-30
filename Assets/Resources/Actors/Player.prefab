@@ -713,7 +713,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 757c45c48579506478edad5a27f39058, type: 3}
   m_Controller: {fileID: 9100000, guid: aa8e742a5daa6c0449882030c51c39a1, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -733,6 +733,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StrafeSpeed: 5
   ForwardSpeed: 5
+  PrimaryWeapon: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680, type: 2}
+  ShootPoints:
+  - {fileID: 457270}
+  - {fileID: 431792}
 --- !u!137 &13743878
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -740,10 +744,10 @@ SkinnedMeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109696}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: afc82f2a1a3c96746a633304fbdab103, type: 2}
+  - {fileID: 2100000, guid: 8cd023a61c1d04d4796b603005c5f6a9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -815,6 +819,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryWeapon
+      value: 
+      objectReference: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 173210}
