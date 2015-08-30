@@ -48,7 +48,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
-  ClipCapacity: 10
+  ClipCapacity: 20
   ReloadTime: 1
   RequireTargetLock: 0
   TargetLockTime: 0
@@ -116,7 +116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ClipCapacity
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime

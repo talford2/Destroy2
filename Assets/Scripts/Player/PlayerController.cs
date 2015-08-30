@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         gun.SetVelocityReference(new VelocityReference { Value = velocity });
         gun.InitGun(ShootPoints, gameObject);
         gun.SetClipRemaining(100);
+        gun.OnFinishReload += OnReloadFinish;
         current = this;
     }
 
@@ -64,5 +65,11 @@ public class PlayerController : MonoBehaviour
 
         // Locomotion
         meshAnimator.SetFloat("Speed", move.z);
+    }
+
+    private void OnReloadFinish()
+    {
+        gun.SetClipRemaining(gun.ClipCapacity);
+        Debug.Log("RELOAD FINISHED!");
     }
 }

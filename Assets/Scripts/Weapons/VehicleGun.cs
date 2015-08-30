@@ -122,7 +122,7 @@ public class VehicleGun : MonoBehaviour
     private void AddMissileInstance()
     {
         var missileGameObject = Instantiate(MissileGameObject);
-        //missileGameObject.transform.parent = GameSpace.MissileContainer;
+        missileGameObject.transform.parent = SceneManager.MissileContainer;
         var missile = missileGameObject.GetComponent<Missile>();
         missile.Initialize(gunOwner, MissileDamage, MissilePower, MissileRadius);
         missiles.Add(missile);
