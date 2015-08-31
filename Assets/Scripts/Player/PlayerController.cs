@@ -42,6 +42,9 @@ public class PlayerController : MonoBehaviour
 
         screenCentre = new Vector3(0.5f, 0.5f, 0f);
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         current = this;
     }
 
