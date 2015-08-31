@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 velocity;
 
+    // Aiming
+    private Vector3 screenCentre;
+    private Vector3 aimAt;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -34,6 +38,9 @@ public class PlayerController : MonoBehaviour
         gun.InitGun(ShootPoints, gameObject);
         gun.SetClipRemaining(100);
         gun.OnFinishReload += OnReloadFinish;
+
+        screenCentre = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+
         current = this;
     }
 
@@ -53,10 +60,22 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity*Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
 
+        // Aiming
+        var targetRay = PlayerCamera.Current.GetComponent<Camera>().ScreenPointToRay(screenCentre);
+        RaycastHit targetHit;
+        if (Physics.Raycast(targetRay, out targetHit, 1000f, ~LayerMask.GetMask("Player")))
+        {
+            aimAt = targetHit.point;
+        }
+        else
+        {
+            aimAt = targetRay.GetPoint(1000f);
+        }
+
         // Shooting
         if (Input.GetButton("Fire1"))
         {
-            gun.TriggerShoot(gun.GetShootPointsCentre() + transform.forward * 100f, 0f);
+            gun.TriggerShoot(aimAt, 0f);
             if (gun.GetClipRemaining() == 0)
                 gun.TriggerReload(gun.ClipCapacity);
         }
@@ -73,5 +92,11 @@ public class PlayerController : MonoBehaviour
     {
         gun.SetClipRemaining(gun.ClipCapacity);
         Debug.Log("RELOAD FINISHED!");
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(aimAt, 0.5f);
     }
 }
