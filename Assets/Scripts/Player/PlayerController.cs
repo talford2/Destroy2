@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float ForwardSpeed = 5f;
     public VehicleGun PrimaryWeapon;
     public Transform[] ShootPoints;
+    public float MaxAimDistance = 1000f;
 
     private static PlayerController current;
     public static PlayerController Current {get{ return current;}}
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
         gun.SetClipRemaining(100);
         gun.OnFinishReload += OnReloadFinish;
 
-        screenCentre = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        screenCentre = new Vector3(0.5f, 0.5f, 0f);
 
         current = this;
     }
@@ -61,15 +62,15 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
 
         // Aiming
-        var targetRay = PlayerCamera.Current.GetComponent<Camera>().ScreenPointToRay(screenCentre);
+        var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
         RaycastHit targetHit;
-        if (Physics.Raycast(targetRay, out targetHit, 1000f, ~LayerMask.GetMask("Player")))
+        if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player")))
         {
             aimAt = targetHit.point;
         }
         else
         {
-            aimAt = targetRay.GetPoint(1000f);
+            aimAt = targetRay.GetPoint(MaxAimDistance);
         }
 
         // Shooting
