@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442636}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FootRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445624}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417732}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FootLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,8 +54,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 420416}
   - 95: {fileID: 9563286}
+  - 143: {fileID: 14390588}
   - 114: {fileID: 11421088}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498012}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +86,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401666}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RightToe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +101,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404874}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RightFootDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +117,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472264}
   - 137: {fileID: 13765376}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +132,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404586}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LowerLegLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +147,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 421544}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ShootPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +162,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442036}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +177,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456346}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TurretBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +192,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495118}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: HeadBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +207,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442092}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LeftFootDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +222,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 422388}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LeftToe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +237,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470078}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RightFootHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +252,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 419158}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: UpperLegLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +267,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455316}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +282,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444844}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ShootPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +297,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409452}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: UpperLegRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +312,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486544}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LowerLegRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +327,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404868}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LeftFootHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +342,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470292}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +357,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424356}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PelvisBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +705,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ForwardSpeed: 5
   StrafeSpeed: 5
-  PrimaryWeapon: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680, type: 2}
+  PrimaryWeaponPrefab: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+    type: 2}
   PrimaryWeaponShootPoints:
   - {fileID: 421544}
   - {fileID: 444844}
@@ -754,13 +756,39 @@ SkinnedMeshRenderer:
     m_Center: {x: 7.08699226e-05, y: -.536415815, z: -.921169758}
     m_Extent: {x: 1.84606242, y: 1.82001567, z: 2.6797142}
   m_DirtyAABB: 0
+--- !u!143 &14390588
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: .5
+  m_SlopeLimit: 45
+  m_StepOffset: .300000012
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: .00100000005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryWeaponPrefab
+      value: 
+      objectReference: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114410}

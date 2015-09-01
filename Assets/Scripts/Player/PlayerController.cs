@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         current = this;
+
+        Debug.Break();
     }
 
     private void InitVehicle(GameObject prefab)
@@ -37,6 +39,10 @@ public class PlayerController : MonoBehaviour
         vehicle.transform.parent = transform;
         vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
         vehicle.Initialize();
+    }
+
+    private void Start()
+    {
         PlayerCamera.Current.FocusTransform = vehicle.transform;
     }
 
@@ -51,9 +57,6 @@ public class PlayerController : MonoBehaviour
 
             var pitchTarget = Mathf.Clamp(walker.GetPitchTarget(), -40f, 80f);
             PlayerCamera.Current.SetTargetPitchYaw(pitchTarget, walker.GetYawTarget());
-
-            //controller.Move(velocity*Time.deltaTime);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
 
             // Aiming
             var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
