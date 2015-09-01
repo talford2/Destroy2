@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-public abstract class Vehicle : MonoBehaviour
+public abstract class Vehicle : Killable
 {
+    [Header("Vehicle")]
     public float CameraDistance;
 
     public Vector3 CameraOffset;

@@ -40,7 +40,7 @@ public class Walker : Vehicle
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
     }
 
-    private void Update()
+    public override void LiveUpdate()
     {
         fallSpeed += -9.81f * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);

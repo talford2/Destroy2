@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class NpcSoldierController : Killable
+public class NpcSoldierController : MonoBehaviour
 {
     public Collider HeadCollider;
     public GameObject CorpsePrefab;
+    public Vehicle VehiclePrefab;
+
+    private Vehicle vehicle;
 
     private NpcSoldierState lastState;
     private NpcSoldierState state;
@@ -13,69 +16,21 @@ public class NpcSoldierController : Killable
 
     private void Awake()
     {
+        InitVehicle(VehiclePrefab.gameObject);
         state = NpcSoldierState.Idle;
     }
 
-    public override void LiveUpdate()
+    private void InitVehicle(GameObject prefab)
+    {
+        vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
+        vehicle.transform.parent = transform;
+        //vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
+        vehicle.Initialize();
+    }
+
+    private void Update()
     {
         lastState = state;
-    }
-
-    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
-    {
-        killPosition = position;
-        killDirection = direction;
-        killPower = power;
-        if (hitCollider == HeadCollider)
-        {
-            Debug.Log("HEAD DAMAGE!");
-            ApplyDamage(damage * 10f, attacker);
-        }
-        else
-        {
-            base.Damage(hitCollider, position, direction, power, damage, attacker);
-        }
-    }
-
-    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, Missile missile)
-    {
-        killPosition = position;
-        killDirection = direction;
-        killPower = missile.GetPower();
-        if (hitCollider == HeadCollider)
-        {
-            Debug.Log("HEADSHOT!");
-            ApplyDamage(missile.GetDamage()*10f, missile.GetOwner());
-        }
-        else
-        {
-            base.Damage(hitCollider, position, direction, missile);
-        }
-    }
-
-    public override void Die(GameObject attacker)
-    {
-        var colliders = GetComponentsInChildren<Collider>();
-        foreach (var curCollider in colliders)
-        {
-            curCollider.enabled = false;
-        }
-        var corpse = (GameObject)Instantiate(CorpsePrefab, transform.position, transform.rotation);
-        corpse.transform.parent = SceneManager.CorpseContainer;
-        var corpseColliders = corpse.GetComponentsInChildren<Collider>();
-        foreach (var corpseCollider in corpseColliders)
-        {
-            var killRay = new Ray(killPosition - 5f*killDirection.normalized, killDirection);
-            RaycastHit killHit;
-            if (corpseCollider.Raycast(killRay, out killHit, 10f))
-            {
-                Debug.Log("KILLED!");
-                corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, killHit.point, ForceMode.Impulse);
-            }
-        }
-
-        base.Die(attacker);
-        Destroy(gameObject);
     }
 
     public enum NpcSoldierState

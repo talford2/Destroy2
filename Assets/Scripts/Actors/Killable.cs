@@ -2,6 +2,7 @@
 
 public abstract class Killable : MonoBehaviour
 {
+    [Header("Killable")]
     public bool IsLive = true;
     public float MaxHealth;
     public float Health;
