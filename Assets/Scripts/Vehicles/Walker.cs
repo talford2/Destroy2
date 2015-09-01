@@ -42,38 +42,33 @@ public class Walker : Vehicle
 
     private void Update()
     {
-        controller.Move(velocity*Time.deltaTime);
+        fallSpeed += -9.81f * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
         // Locomotion
         meshAnimator.SetFloat("Speed", move.z);
     }
 
-    public void SetMove(float forward, float strafe)
+    public override void SetMove(float forward, float strafe)
     {
         move = new Vector3(strafe, 0f, forward);
-        fallSpeed += -9.81f * Time.deltaTime;
         velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
     }
 
-    public void SetAimAt(Vector3 position)
+    public override void SetAimAt(Vector3 position)
     {
         aimAt = position;
     }
 
-    public void SetPitchYaw(float pitch, float yaw)
+    public override void SetPitchYaw(float pitch, float yaw)
     {
         pitchTarget -= pitch;
         yawTarget += yaw;
     }
 
-    public float GetPitchTarget()
+    public override Vector2 GetPitchYaw()
     {
-        return pitchTarget;
-    }
-
-    public float GetYawTarget()
-    {
-        return yawTarget;
+        return new Vector2(pitchTarget, yawTarget);
     }
 
     public override void TriggerPrimaryWeapon()

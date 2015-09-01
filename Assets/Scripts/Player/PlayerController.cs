@@ -46,47 +46,44 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        var walker = vehicle as Walker;
-        if (walker != null)
+        // Movement
+        vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+
+        var pitchYawTarget = vehicle.GetPitchYaw();
+        var pitchTarget = Mathf.Clamp(pitchYawTarget.x, -40f, 80f);
+        PlayerCamera.Current.SetTargetPitchYaw(pitchTarget, pitchYawTarget.y);
+
+        // Aiming
+        var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
+        RaycastHit targetHit;
+        var isTargetInSight = false;
+        if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player")))
         {
-            // Movement
-            walker.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-            walker.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
-
-            var pitchTarget = Mathf.Clamp(walker.GetPitchTarget(), -40f, 80f);
-            PlayerCamera.Current.SetTargetPitchYaw(pitchTarget, walker.GetYawTarget());
-
-            // Aiming
-            var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
-            RaycastHit targetHit;
-            var isTargetInSight = false;
-            if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player")))
+            aimAt = targetHit.point;
+            var aimKillable = targetHit.collider.GetComponentInParent<Killable>();
+            if (aimKillable != null)
             {
-                aimAt = targetHit.point;
-                var aimKillable = targetHit.collider.GetComponentInParent<Killable>();
-                if (aimKillable != null)
-                {
-                    isTargetInSight = true;
-                }
+                isTargetInSight = true;
             }
-            else
-            {
-                aimAt = targetRay.GetPoint(MaxAimDistance);
-            }
+        }
+        else
+        {
+            aimAt = targetRay.GetPoint(MaxAimDistance);
+        }
 
-            walker.SetAimAt(aimAt);
+        vehicle.SetAimAt(aimAt);
 
-            HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
+        HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
 
-            // Shooting
-            if (Input.GetButton("Fire1"))
-            {
-                walker.TriggerPrimaryWeapon();
-            }
-            else
-            {
-                walker.ReleasePrimaryWeapon();
-            }
+        // Shooting
+        if (Input.GetButton("Fire1"))
+        {
+            vehicle.TriggerPrimaryWeapon();
+        }
+        else
+        {
+            vehicle.ReleasePrimaryWeapon();
         }
     }
 
