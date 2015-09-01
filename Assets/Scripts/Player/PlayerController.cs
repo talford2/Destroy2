@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         // Movement
         vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        vehicle.SetRun(Input.GetButton("Fire3"));
         vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
         var pitchYawTarget = vehicle.GetPitchYaw();
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
         HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
 
         // Shooting
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && !vehicle.IsRun())
         {
             vehicle.TriggerPrimaryWeapon();
         }

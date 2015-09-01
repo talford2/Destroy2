@@ -15,6 +15,10 @@ public abstract class Vehicle : Killable
 
     public abstract Vector2 GetPitchYaw();
 
+    public abstract void SetRun(bool value);
+
+    public abstract bool IsRun();
+
     public abstract void SetAimAt(Vector3 position);
 
     public abstract void TriggerPrimaryWeapon();

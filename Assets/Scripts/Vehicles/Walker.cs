@@ -27,6 +27,7 @@ public class Walker : Vehicle
 
     // Locomotion
     private Animator meshAnimator;
+    private bool isRunning;
 
     public override void Initialize()
     {
@@ -53,6 +54,16 @@ public class Walker : Vehicle
     {
         move = new Vector3(strafe, 0f, forward);
         velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
+    }
+
+    public override void SetRun(bool value)
+    {
+        isRunning = value;
+    }
+
+    public override bool IsRun()
+    {
+        return isRunning;
     }
 
     public override void SetAimAt(Vector3 position)

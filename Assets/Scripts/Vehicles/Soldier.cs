@@ -29,6 +29,7 @@ public class Soldier : Vehicle
 
     // Locomotion
     private Animator meshAnimator;
+    private bool isRunning;
 
     // Death
     private Vector3 killPosition;
@@ -54,7 +55,7 @@ public class Soldier : Vehicle
         controller.Move(velocity * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
         // Locomotion
-        meshAnimator.SetBool("IsAim", true);
+        meshAnimator.SetBool("IsAim", !isRunning);
         meshAnimator.SetFloat("Speed", move.z);
         meshAnimator.SetFloat("VerticalSpeed", move.z);
         meshAnimator.SetFloat("HorizontalSpeed", move.x);
@@ -65,6 +66,16 @@ public class Soldier : Vehicle
         move = new Vector3(strafe, 0f, forward);
         //velocity = Vector3.up*fallSpeed;
         //velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
+    }
+
+    public override void SetRun(bool value)
+    {
+        isRunning = value;
+    }
+
+    public override bool IsRun()
+    {
+        return isRunning;
     }
 
     public override void SetAimAt(Vector3 position)
