@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc470f0677ef1ab419333d740132eb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VehiclePrefab: {fileID: 11421088, guid: 38c445fd579c1964fa782845cb78f46d, type: 2}
+  VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
   MaxAimDistance: 1000
 --- !u!117 &466437049
 Texture3D:

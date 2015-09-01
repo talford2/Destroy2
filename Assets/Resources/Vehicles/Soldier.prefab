@@ -1268,11 +1268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f97909872616c8408b03b45dd0df7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 5
+  CameraDistance: 3
   CameraOffset: {x: 0, y: 2, z: 0}
   ForwardSpeed: 5
   StrafeSpeed: 5
-  PrimaryWeaponPrefab: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+  PrimaryWeaponPrefab: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16,
     type: 2}
   PrimaryWeaponShootPoints:
   - {fileID: 465550}
@@ -1370,7 +1370,16 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 7e7b72af1fae85648b91f3dd946dbb6e, type: 2}
     - target: {fileID: 0}
       propertyPath: CameraDistance
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryWeaponPrefab
+      value: 
+      objectReference: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: CameraOffset.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
