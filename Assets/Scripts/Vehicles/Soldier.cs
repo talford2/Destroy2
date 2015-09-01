@@ -54,7 +54,8 @@ public class Soldier : Vehicle
     public override void SetMove(float forward, float strafe)
     {
         move = new Vector3(strafe, 0f, forward);
-        velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
+        velocity = Vector3.up*fallSpeed;
+        //velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
     }
 
     public override void SetAimAt(Vector3 position)
