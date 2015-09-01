@@ -1,0 +1,1896 @@
+fileFormatVersion: 2
+guid: ca8f2c0d2c8f770449129d3d271667c8
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: AnkleLeft
+    100004: AnkleRight
+    100006: Fingers1Left
+    100008: Fingers1Right
+    100010: Fingers2Left
+    100012: Fingers2Left 1
+    100014: Fingers2Right
+    100016: Fingers2Right 1
+    100018: FootHelperLeft
+    100020: FootHelperRight
+    100022: FootLeft
+    100024: FootRight
+    100026: Ground
+    100028: HandHelperLeft
+    100030: HandHelperRight
+    100032: Head
+    100034: IK Chain001
+    100036: IK Chain002
+    100038: IK Chain003
+    100040: IK Chain004
+    100042: LowerArmLeft
+    100044: LowerArmRight
+    100046: LowerLegLeft
+    100048: LowerLegRight
+    100050: MidTorso
+    100052: Neck
+    100054: Pelvis
+    100056: ShoulderLeft
+    100058: ShoulderRight
+    100060: Soldier
+    100062: ThumbLeft
+    100064: ThumbRight
+    100066: ToeLeft
+    100068: ToeRight
+    100070: UpperArmLeft
+    100072: UpperArmRight
+    100074: UpperLegLeft
+    100076: UpperLegRight
+    100078: UpperTorso
+    100080: WristLeft
+    100082: WristRight
+    100084: GunPlaceholder
+    400000: //RootNode
+    400002: AnkleLeft
+    400004: AnkleRight
+    400006: Fingers1Left
+    400008: Fingers1Right
+    400010: Fingers2Left
+    400012: Fingers2Left 1
+    400014: Fingers2Right
+    400016: Fingers2Right 1
+    400018: FootHelperLeft
+    400020: FootHelperRight
+    400022: FootLeft
+    400024: FootRight
+    400026: Ground
+    400028: HandHelperLeft
+    400030: HandHelperRight
+    400032: Head
+    400034: IK Chain001
+    400036: IK Chain002
+    400038: IK Chain003
+    400040: IK Chain004
+    400042: LowerArmLeft
+    400044: LowerArmRight
+    400046: LowerLegLeft
+    400048: LowerLegRight
+    400050: MidTorso
+    400052: Neck
+    400054: Pelvis
+    400056: ShoulderLeft
+    400058: ShoulderRight
+    400060: Soldier
+    400062: ThumbLeft
+    400064: ThumbRight
+    400066: ToeLeft
+    400068: ToeRight
+    400070: UpperArmLeft
+    400072: UpperArmRight
+    400074: UpperLegLeft
+    400076: UpperLegRight
+    400078: UpperTorso
+    400080: WristLeft
+    400082: WristRight
+    400084: GunPlaceholder
+    2300000: //RootNode
+    2300002: GunPlaceholder
+    3300000: //RootNode
+    3300002: GunPlaceholder
+    4300000: Soldier
+    4300002: GunPlaceholder
+    7400000: Crouching
+    7400002: Idle
+    7400004: Walking
+    7400006: Shooting
+    7400008: Running
+    7400010: IdleTorso
+    7400012: StartCrouch
+    7400014: EndCrouch
+    7400016: BackPedal
+    7400018: StrafeLeft
+    7400020: StrafeRight
+    7400022: AimIdleTorso
+    7400024: ShootKick
+    7400026: CrouchShoot
+    7400028: CrouchAim
+    9500000: //RootNode
+    13700000: Soldier
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: -3.07999992
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Crouching
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 420
+      lastFrame: 440
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Shooting
+      takeName: Take 001
+      firstFrame: 270
+      lastFrame: 273
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 0
+      - path: FootHelperLeft/IK Chain002
+        weight: 0
+      - path: FootHelperLeft/IK Chain004
+        weight: 0
+      - path: FootHelperRight
+        weight: 0
+      - path: FootHelperRight/IK Chain001
+        weight: 0
+      - path: FootHelperRight/IK Chain003
+        weight: 0
+      - path: Ground
+        weight: 0
+      - path: Ground/Pelvis
+        weight: 0
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 0
+      - path: Soldier
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Running
+      takeName: Take 001
+      firstFrame: 650
+      lastFrame: 669
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: IdleTorso
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 0
+      - path: FootHelperLeft/IK Chain002
+        weight: 0
+      - path: FootHelperLeft/IK Chain004
+        weight: 0
+      - path: FootHelperRight
+        weight: 0
+      - path: FootHelperRight/IK Chain001
+        weight: 0
+      - path: FootHelperRight/IK Chain003
+        weight: 0
+      - path: Ground
+        weight: 0
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 0
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StartCrouch
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: StartCrouch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: EndCrouch
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: .986889362
+        functionName: EndCrouch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: BackPedal
+      takeName: Take 001
+      firstFrame: 450
+      lastFrame: 470
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: .5
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StrafeLeft
+      takeName: Take 001
+      firstFrame: 480
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StrafeRight
+      takeName: Take 001
+      firstFrame: 510
+      lastFrame: 530
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: .5
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimIdleTorso
+      takeName: Take 001
+      firstFrame: 540
+      lastFrame: 640
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 0
+      - path: FootHelperLeft/IK Chain002
+        weight: 0
+      - path: FootHelperLeft/IK Chain004
+        weight: 0
+      - path: FootHelperRight
+        weight: 0
+      - path: FootHelperRight/IK Chain001
+        weight: 0
+      - path: FootHelperRight/IK Chain003
+        weight: 0
+      - path: Ground
+        weight: 0
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 0
+      - path: Soldier
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ShootKick
+      takeName: Take 001
+      firstFrame: 645
+      lastFrame: 647
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 0
+      - path: FootHelperLeft/IK Chain002
+        weight: 0
+      - path: FootHelperLeft/IK Chain004
+        weight: 0
+      - path: FootHelperRight
+        weight: 0
+      - path: FootHelperRight/IK Chain001
+        weight: 0
+      - path: FootHelperRight/IK Chain003
+        weight: 0
+      - path: Ground
+        weight: 0
+      - path: Ground/Pelvis
+        weight: 0
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 0
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 0
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CrouchShoot
+      takeName: Take 001
+      firstFrame: 680
+      lastFrame: 682
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CrouchAim
+      takeName: Take 001
+      firstFrame: 680
+      lastFrame: 680.099976
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FootHelperLeft
+        weight: 1
+      - path: FootHelperLeft/IK Chain002
+        weight: 1
+      - path: FootHelperLeft/IK Chain004
+        weight: 1
+      - path: FootHelperRight
+        weight: 1
+      - path: FootHelperRight/IK Chain001
+        weight: 1
+      - path: FootHelperRight/IK Chain003
+        weight: 1
+      - path: Ground
+        weight: 1
+      - path: Ground/Pelvis
+        weight: 1
+      - path: Ground/Pelvis/MidTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+          1
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+        weight: 1
+      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+        weight: 1
+      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+        weight: 1
+      - path: Soldier
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: Ground
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

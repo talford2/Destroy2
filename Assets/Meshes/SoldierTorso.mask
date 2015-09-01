@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SoldierTorso
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: FootHelperLeft
+    m_Weight: 0
+  - m_Path: FootHelperLeft/IK Chain002
+    m_Weight: 0
+  - m_Path: FootHelperLeft/IK Chain004
+    m_Weight: 0
+  - m_Path: FootHelperRight
+    m_Weight: 0
+  - m_Path: FootHelperRight/IK Chain001
+    m_Weight: 0
+  - m_Path: FootHelperRight/IK Chain003
+    m_Weight: 0
+  - m_Path: Ground
+    m_Weight: 0
+  - m_Path: Ground/Pelvis
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/MidTorso
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/Neck
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
+      1
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/HandHelperLeft
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
+      1
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/HandHelperRight/GunPlaceholder
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
+    m_Weight: 1
+  - m_Path: Ground/Pelvis/UpperLegLeft
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegRight
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegRight/LowerLegRight
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
+    m_Weight: 0
+  - m_Path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
+    m_Weight: 0
+  - m_Path: Soldier
+    m_Weight: 1
