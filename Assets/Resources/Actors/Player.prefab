@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 455396}
   - 95: {fileID: 9581558}
-  - 114: {fileID: 11463734}
+  - 114: {fileID: 11428996}
   m_Layer: 8
   m_Name: Walker
   m_TagString: Untagged
@@ -739,7 +739,7 @@ MonoBehaviour:
   - {fileID: 457270}
   - {fileID: 431792}
   MaxAimDistance: 1000
---- !u!114 &11463734
+--- !u!114 &11428996
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac062e79fa617bb4f87901fcfc9fed62, type: 3}
+  m_Script: {fileID: 11500000, guid: 77485489a7b249c48aed9702f989f2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!137 &13743878
