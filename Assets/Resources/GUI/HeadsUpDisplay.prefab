@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 429768}
   - 114: {fileID: 11441856}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HeadsUpDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
