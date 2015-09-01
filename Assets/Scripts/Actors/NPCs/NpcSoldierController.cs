@@ -36,12 +36,12 @@ public class NpcSoldierController : Killable
         var corpseColliders = corpse.GetComponentsInChildren<Collider>();
         foreach (var corpseCollider in corpseColliders)
         {
-            var killRay = new Ray(killPosition - 5f*killDirection, killDirection);
-            var KillHit = new RaycastHit();
-            if (corpseCollider.Raycast(killRay, out KillHit, 10f))
+            var killRay = new Ray(killPosition - 5f*killDirection.normalized, killDirection);
+            RaycastHit killHit;
+            if (corpseCollider.Raycast(killRay, out killHit, 10f))
             {
-                Debug.Log("YEAH!");
-                corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, KillHit.point, ForceMode.Impulse);
+                Debug.Log("KILLED!");
+                corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, killHit.point, ForceMode.Impulse);
             }
         }
 
