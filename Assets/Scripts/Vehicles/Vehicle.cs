@@ -2,6 +2,10 @@
 
 public abstract class Vehicle : MonoBehaviour
 {
+    public float CameraDistance;
+
+    public Vector3 CameraOffset;
+
     public abstract void Initialize();
 
     public abstract void SetMove(float forward, float strafe);

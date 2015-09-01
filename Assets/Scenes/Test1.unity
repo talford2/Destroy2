@@ -177,7 +177,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &25819865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353139a3ec2356147983ac89c3a42be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FocusTransform: {fileID: 1871016109}
+  FocusTransform: {fileID: 0}
   Distance: 15
   Offset: {x: 0, y: 8, z: 0}
   CatchupSpeed: 25
@@ -903,7 +903,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1877652609
 GameObject:
   m_ObjectHideFlags: 0

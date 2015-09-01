@@ -39,9 +39,16 @@ public class PlayerController : MonoBehaviour
         vehicle.Initialize();
     }
 
-    private void Start()
+    private void SetUpCamera()
     {
         PlayerCamera.Current.FocusTransform = vehicle.transform;
+        PlayerCamera.Current.Distance = vehicle.CameraDistance;
+        PlayerCamera.Current.Offset = vehicle.CameraOffset;
+    }
+
+    private void Start()
+    {
+        SetUpCamera();
     }
 
     private void Update()
