@@ -1356,6 +1356,7 @@ MonoBehaviour:
   IsLive: 1
   MaxHealth: 20
   Health: 20
+  HeadCollider: {fileID: 13581186}
   CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
 --- !u!135 &13581186
 SphereCollider:

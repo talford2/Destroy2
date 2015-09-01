@@ -2,6 +2,7 @@
 
 public class NpcSoldierController : Killable
 {
+    public Collider HeadCollider;
     public GameObject CorpsePrefab;
 
     private Vector3 killPosition;
@@ -16,20 +17,36 @@ public class NpcSoldierController : Killable
     {
     }
 
-    public override void Damage(Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
+    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
         killPosition = position;
         killDirection = direction;
         killPower = power;
-        base.Damage(position, direction, power, damage, attacker);
+        if (hitCollider == HeadCollider)
+        {
+            Debug.Log("HEAD DAMAGE!");
+            ApplyDamage(damage * 10f, attacker);
+        }
+        else
+        {
+            base.Damage(hitCollider, position, direction, power, damage, attacker);
+        }
     }
 
-    public override void Damage(Vector3 position, Vector3 direction, Missile missile)
+    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, Missile missile)
     {
         killPosition = position;
         killDirection = direction;
         killPower = missile.GetPower();
-        base.Damage(position, direction, missile);
+        if (hitCollider == HeadCollider)
+        {
+            Debug.Log("HEADSHOT!");
+            ApplyDamage(missile.GetDamage()*10f, missile.GetOwner());
+        }
+        else
+        {
+            base.Damage(hitCollider, position, direction, missile);
+        }
     }
 
     public override void Die(GameObject attacker)

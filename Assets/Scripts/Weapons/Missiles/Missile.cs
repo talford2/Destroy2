@@ -93,7 +93,7 @@ public abstract class Missile : MonoBehaviour
             if (hitKillable != null)
             {
                 Debug.Log("HIT COLLIDER: " + hit.collider.name);
-                hitKillable.Damage(hit.point, shootDirection, this);
+                hitKillable.Damage(hit.collider, hit.point, shootDirection, this);
             }
         }
     }
