@@ -57,7 +57,7 @@ public class NpcSoldierController : Killable
             curCollider.enabled = false;
         }
         var corpse = (GameObject)Instantiate(CorpsePrefab, transform.position, transform.rotation);
-
+        corpse.transform.parent = SceneManager.CorpseContainer;
         var corpseColliders = corpse.GetComponentsInChildren<Collider>();
         foreach (var corpseCollider in corpseColliders)
         {
