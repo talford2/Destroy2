@@ -82,7 +82,7 @@ public abstract class Missile : MonoBehaviour
             var hitKillable = hit.collider.GetComponentInParent<Killable>();
             if (hitKillable != null)
             {
-                hitKillable.Damage(hit.point, shootDirection, Damage, Owner);
+                hitKillable.Damage(hit.point, shootDirection, Power, Damage, Owner);
             }
         }
     }

@@ -1325,8 +1325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLive: 1
-  MaxHealth: 100
-  Health: 100
+  MaxHealth: 20
+  Health: 20
   CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
 --- !u!136 &13661944
 CapsuleCollider:
@@ -1426,11 +1426,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MaxHealth
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Health
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

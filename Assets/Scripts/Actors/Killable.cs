@@ -24,7 +24,7 @@ public abstract class Killable : MonoBehaviour
 
     public abstract void LiveUpdate();
 
-    public virtual void Damage(Vector3 position, Vector3 direction, float damage, GameObject attacker)
+    public virtual void Damage(Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
         if (IsLive)
             ApplyDamage(damage, attacker);
