@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngineInternal;
 
 [RequireComponent(typeof (CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -67,21 +66,33 @@ public class PlayerController : MonoBehaviour
         // Aiming
         var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
         RaycastHit targetHit;
+        var isTargetInSight = false;
         if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player")))
         {
             aimAt = targetHit.point;
+            var aimKillable = targetHit.collider.GetComponentInParent<Killable>();
+            if (aimKillable != null)
+            {
+                // Aiming at someone change crosshair?
+                isTargetInSight = true;
+            }
         }
         else
         {
             aimAt = targetRay.GetPoint(MaxAimDistance);
         }
 
+        HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
+
         // Shooting
         if (Input.GetButton("Fire1"))
         {
             gun.TriggerShoot(aimAt, 0f);
             if (gun.GetClipRemaining() == 0)
+            {
+                gun.ReleaseTriggerShoot();
                 gun.TriggerReload(gun.ClipCapacity);
+            }
         }
         else
         {

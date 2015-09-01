@@ -49,7 +49,7 @@ MonoBehaviour:
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
   ClipCapacity: 20
-  ReloadTime: 1
+  ReloadTime: 0
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
@@ -120,7 +120,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

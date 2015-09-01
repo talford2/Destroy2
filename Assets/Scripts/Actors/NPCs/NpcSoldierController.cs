@@ -5,16 +5,20 @@ public class NpcSoldierController : Killable
     public Collider HeadCollider;
     public GameObject CorpsePrefab;
 
+    private NpcSoldierState lastState;
+    private NpcSoldierState state;
     private Vector3 killPosition;
     private Vector3 killDirection;
     private float killPower;
 
     private void Awake()
     {
+        state = NpcSoldierState.Idle;
     }
 
     public override void LiveUpdate()
     {
+        lastState = state;
     }
 
     public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
@@ -72,5 +76,11 @@ public class NpcSoldierController : Killable
 
         base.Die(attacker);
         Destroy(gameObject);
+    }
+
+    public enum NpcSoldierState
+    {
+        Idle,
+        Wander
     }
 }
