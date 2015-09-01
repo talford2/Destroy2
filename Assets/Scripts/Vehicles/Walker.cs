@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Walker : Vehicle
 {
     public float ForwardSpeed = 5f;
