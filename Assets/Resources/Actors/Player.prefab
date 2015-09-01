@@ -9,7 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 455396}
   - 95: {fileID: 9581558}
-  m_Layer: 0
+  - 114: {fileID: 11463734}
+  m_Layer: 8
   m_Name: Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 411938}
   - 137: {fileID: 13743878}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +41,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IK Chain001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +56,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PelvisBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UpperLegRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +86,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightToe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +101,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 472352}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IK Chain003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +116,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477612}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightFootHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +131,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerLegRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FootRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +161,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerLegLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +176,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 457270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +191,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IK Chain004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +206,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 431792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +221,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightFootDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +236,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftFootDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +251,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftToe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +268,7 @@ GameObject:
   - 4: {fileID: 414894}
   - 143: {fileID: 14369912}
   - 114: {fileID: 11410612}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +283,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +298,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TurretBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +313,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 439870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HeadBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +328,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IK Chain002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +343,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495440}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftFootHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +358,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 427798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UpperLegLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +373,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FootLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,6 +738,18 @@ MonoBehaviour:
   ShootPoints:
   - {fileID: 457270}
   - {fileID: 431792}
+  MaxAimDistance: 1000
+--- !u!114 &11463734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac062e79fa617bb4f87901fcfc9fed62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &13743878
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
