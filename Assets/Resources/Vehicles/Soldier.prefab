@@ -227,7 +227,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &131682
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -728,7 +728,7 @@ Transform:
   m_Children:
   - {fileID: 491520}
   m_Father: {fileID: 474158}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &417318
 Transform:
   m_ObjectHideFlags: 1
@@ -821,7 +821,7 @@ Transform:
   - {fileID: 481716}
   - {fileID: 469646}
   m_Father: {fileID: 474158}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &436818
 Transform:
   m_ObjectHideFlags: 1
@@ -841,11 +841,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131682}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.76999998, z: 0}
+  m_LocalRotation: {x: .706762433, y: .0132870497, z: .0155250514, w: .707155824}
+  m_LocalPosition: {x: .000209875143, y: -.0398088694, z: .076071009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 474158}
+  m_Father: {fileID: 497122}
   m_RootOrder: 0
 --- !u!4 &445844
 Transform:
@@ -899,7 +899,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 474158}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &451022
 Transform:
   m_ObjectHideFlags: 1
@@ -1038,7 +1038,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 443084}
   - {fileID: 435418}
   - {fileID: 474394}
   - {fileID: 412246}
@@ -1058,7 +1057,7 @@ Transform:
   - {fileID: 488524}
   - {fileID: 400946}
   m_Father: {fileID: 474158}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &476078
 Transform:
   m_ObjectHideFlags: 1
@@ -1222,7 +1221,8 @@ Transform:
   m_LocalRotation: {x: -2.91038305e-11, y: 7.4495894e-21, z: -2.55965943e-10, w: 1}
   m_LocalPosition: {x: -1.7881393e-09, y: -.0200000089, z: .0599999987}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 443084}
   m_Father: {fileID: 453892}
   m_RootOrder: 0
 --- !u!4 &499884
@@ -1297,6 +1297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f97909872616c8408b03b45dd0df7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLive: 1
+  MaxHealth: 20
+  Health: 20
   CameraDistance: 5
   CameraOffset: {x: 0, y: 3, z: 0}
   ForwardSpeed: 5
@@ -1305,6 +1308,8 @@ MonoBehaviour:
     type: 2}
   PrimaryWeaponShootPoints:
   - {fileID: 465550}
+  HeadCollider: {fileID: 13524778}
+  CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
 --- !u!135 &13524778
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1437,6 +1442,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MaxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Health
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

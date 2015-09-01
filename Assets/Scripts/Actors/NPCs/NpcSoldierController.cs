@@ -2,12 +2,9 @@
 
 public class NpcSoldierController : MonoBehaviour
 {
-    public Collider HeadCollider;
-    public GameObject CorpsePrefab;
     public Vehicle VehiclePrefab;
 
     private Vehicle vehicle;
-
     private NpcSoldierState lastState;
     private NpcSoldierState state;
     private Vector3 killPosition;
