@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
 public class Walker : Vehicle
 {
+    [Header("Movement")]
     public float ForwardSpeed = 5f;
     public float StrafeSpeed = 5f;
 
-    public VehicleGun PrimaryWeapon;
+    [Header("Primary Weapon")]
+    public VehicleGun PrimaryWeaponPrefab;
     public Transform[] PrimaryWeaponShootPoints;
 
+    private CharacterController controller;
     private VehicleGun primaryWeapon;
 
     // Movement
@@ -26,9 +30,10 @@ public class Walker : Vehicle
 
     public override void Initialize()
     {
+        controller = GetComponent<CharacterController>();
         meshAnimator = GetComponent<Animator>();
 
-        primaryWeapon = Instantiate(PrimaryWeapon).GetComponent<VehicleGun>();
+        primaryWeapon = Instantiate(PrimaryWeaponPrefab).GetComponent<VehicleGun>();
         primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
         primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
         primaryWeapon.SetClipRemaining(100);
@@ -37,6 +42,7 @@ public class Walker : Vehicle
 
     private void Update()
     {
+        controller.Move(velocity*Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
         // Locomotion
         meshAnimator.SetFloat("Speed", move.z);
@@ -60,12 +66,27 @@ public class Walker : Vehicle
         yawTarget += yaw;
     }
 
-    public void TriggerPrimaryWeapon()
+    public float GetPitchTarget()
     {
-        primaryWeapon.TriggerShoot(aimAt, 0f);
+        return pitchTarget;
     }
 
-    public void ReleasePrimaryWeapon()
+    public float GetYawTarget()
+    {
+        return yawTarget;
+    }
+
+    public override void TriggerPrimaryWeapon()
+    {
+        primaryWeapon.TriggerShoot(aimAt, 0f);
+        if (primaryWeapon.GetClipRemaining() == 0)
+        {
+            primaryWeapon.ReleaseTriggerShoot();
+            primaryWeapon.TriggerReload(primaryWeapon.ClipCapacity);
+        }
+    }
+
+    public override void ReleasePrimaryWeapon()
     {
         primaryWeapon.ReleaseTriggerShoot();
     }

@@ -1,27 +1,19 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof (CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public float StrafeSpeed = 5f;
-    public float ForwardSpeed = 5f;
-    public VehicleGun PrimaryWeapon;
-    public Transform[] ShootPoints;
+    public Vehicle VehiclePrefab;
     public float MaxAimDistance = 1000f;
 
     private static PlayerController current;
-    public static PlayerController Current {get{ return current;}}
 
-    private CharacterController controller;
-    private Animator meshAnimator;
+    public static PlayerController Current
+    {
+        get { return current; }
+    }
 
-    private VehicleGun gun;
-
-    private float fallSpeed;
-    private float yawTarget;
-    private float pitchTarget;
-
-    private Vector3 velocity;
+    // Vehicle
+    private Vehicle vehicle;
 
     // Aiming
     private Vector3 screenCentre;
@@ -29,15 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
-        meshAnimator = GetComponentInChildren<Animator>();
-
-        var gunInstance = Instantiate(PrimaryWeapon);
-        gun = gunInstance.GetComponent<VehicleGun>();
-        gun.SetVelocityReference(new VelocityReference { Value = velocity });
-        gun.InitGun(ShootPoints, gameObject);
-        gun.SetClipRemaining(100);
-        gun.OnFinishReload += OnReloadFinish;
+        InitVehicle(VehiclePrefab.gameObject);
 
         screenCentre = new Vector3(0.5f, 0.5f, 0f);
 
@@ -47,66 +31,62 @@ public class PlayerController : MonoBehaviour
         current = this;
     }
 
-    private void Update()
+    private void InitVehicle(GameObject prefab)
     {
-        // Movement
-        yawTarget += Input.GetAxis("Mouse X");
-        pitchTarget -= Input.GetAxis("Mouse Y");
-        var move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-
-        fallSpeed += -9.81f*Time.deltaTime;
-        velocity = transform.right*move.x*StrafeSpeed + Vector3.up*fallSpeed + transform.forward*move.z*ForwardSpeed;
-        pitchTarget = Mathf.Clamp(pitchTarget, -40f, 80f);
-
-        PlayerCamera.Current.SetTargetPitchYaw(pitchTarget, yawTarget);
-
-        controller.Move(velocity*Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
-
-        // Aiming
-        var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
-        RaycastHit targetHit;
-        var isTargetInSight = false;
-        if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player")))
-        {
-            aimAt = targetHit.point;
-            var aimKillable = targetHit.collider.GetComponentInParent<Killable>();
-            if (aimKillable != null)
-            {
-                // Aiming at someone change crosshair?
-                isTargetInSight = true;
-            }
-        }
-        else
-        {
-            aimAt = targetRay.GetPoint(MaxAimDistance);
-        }
-
-        HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
-
-        // Shooting
-        if (Input.GetButton("Fire1"))
-        {
-            gun.TriggerShoot(aimAt, 0f);
-            if (gun.GetClipRemaining() == 0)
-            {
-                gun.ReleaseTriggerShoot();
-                gun.TriggerReload(gun.ClipCapacity);
-            }
-        }
-        else
-        {
-            gun.ReleaseTriggerShoot();
-        }
-
-        // Locomotion
-        meshAnimator.SetFloat("Speed", move.z);
+        vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
+        vehicle.transform.parent = transform;
+        vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
+        vehicle.Initialize();
+        PlayerCamera.Current.FocusTransform = vehicle.transform;
     }
 
-    private void OnReloadFinish()
+    private void Update()
     {
-        gun.SetClipRemaining(gun.ClipCapacity);
-        Debug.Log("RELOAD FINISHED!");
+        var walker = vehicle as Walker;
+        if (walker != null)
+        {
+            // Movement
+            walker.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+            walker.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+
+            var pitchTarget = Mathf.Clamp(walker.GetPitchTarget(), -40f, 80f);
+            PlayerCamera.Current.SetTargetPitchYaw(pitchTarget, walker.GetYawTarget());
+
+            //controller.Move(velocity*Time.deltaTime);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
+
+            // Aiming
+            var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
+            RaycastHit targetHit;
+            var isTargetInSight = false;
+            if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player")))
+            {
+                aimAt = targetHit.point;
+                var aimKillable = targetHit.collider.GetComponentInParent<Killable>();
+                if (aimKillable != null)
+                {
+                    isTargetInSight = true;
+                }
+            }
+            else
+            {
+                aimAt = targetRay.GetPoint(MaxAimDistance);
+            }
+
+            walker.SetAimAt(aimAt);
+
+            HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
+
+            // Shooting
+            if (Input.GetButton("Fire1"))
+            {
+                walker.TriggerPrimaryWeapon();
+            }
+            else
+            {
+                walker.ReleasePrimaryWeapon();
+            }
+        }
     }
 
     private void OnDrawGizmos()
