@@ -46,6 +46,8 @@ public class Soldier : Vehicle
         primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
         primaryWeapon.SetClipRemaining(100);
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
+
+        yawTarget = transform.eulerAngles.y;
     }
 
     public override void LiveUpdate()
