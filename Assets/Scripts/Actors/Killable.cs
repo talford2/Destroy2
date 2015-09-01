@@ -11,7 +11,6 @@ public abstract class Killable : MonoBehaviour
 
     private void Awake()
     {
-
     }
 
     private void Update()
@@ -28,6 +27,12 @@ public abstract class Killable : MonoBehaviour
     {
         if (IsLive)
             ApplyDamage(damage, attacker);
+    }
+
+    public virtual void Damage(Vector3 position, Vector3 direction, Missile missile)
+    {
+        if (IsLive)
+            ApplyDamage(missile.GetDamage(), missile.GetOwner());
     }
 
     protected void ApplyDamage(float damage, GameObject attacker)

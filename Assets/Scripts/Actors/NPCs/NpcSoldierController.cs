@@ -16,12 +16,20 @@ public class NpcSoldierController : Killable
     {
     }
 
-    public override void Damage(Vector3 position, Vector3 direction,float power, float damage, GameObject attacker)
+    public override void Damage(Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
         killPosition = position;
         killDirection = direction;
         killPower = power;
         base.Damage(position, direction, power, damage, attacker);
+    }
+
+    public override void Damage(Vector3 position, Vector3 direction, Missile missile)
+    {
+        killPosition = position;
+        killDirection = direction;
+        killPower = missile.GetPower();
+        base.Damage(position, direction, missile);
     }
 
     public override void Die(GameObject attacker)

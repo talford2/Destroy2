@@ -71,6 +71,16 @@ public abstract class Missile : MonoBehaviour
         return Owner;
     }
 
+    public float GetDamage()
+    {
+        return Damage;
+    }
+
+    public float GetPower()
+    {
+        return Power;
+    }
+
     public void HandleCollision(RaycastHit hit, Vector3 shootDirection)
     {
         if (hit.collider != null)
@@ -82,7 +92,8 @@ public abstract class Missile : MonoBehaviour
             var hitKillable = hit.collider.GetComponentInParent<Killable>();
             if (hitKillable != null)
             {
-                hitKillable.Damage(hit.point, shootDirection, Power, Damage, Owner);
+                Debug.Log("HIT COLLIDER: " + hit.collider.name);
+                hitKillable.Damage(hit.point, shootDirection, this);
             }
         }
     }

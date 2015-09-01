@@ -31,6 +31,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &110646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 408470}
+  - 135: {fileID: 13581186}
+  m_Layer: 0
+  m_Name: HeadCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &111678
 GameObject:
   m_ObjectHideFlags: 1
@@ -555,7 +571,7 @@ GameObject:
   - 4: {fileID: 483320}
   - 136: {fileID: 13661944}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,6 +723,18 @@ Transform:
   - {fileID: 459264}
   m_Father: {fileID: 493420}
   m_RootOrder: 0
+--- !u!4 &408470
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.76999998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 422534}
+  m_RootOrder: 1
 --- !u!4 &409950
 Transform:
   m_ObjectHideFlags: 1
@@ -782,6 +810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462528}
+  - {fileID: 408470}
   - {fileID: 483320}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1185,7 +1214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 422534}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &488436
 Transform:
   m_ObjectHideFlags: 1
@@ -1328,6 +1357,18 @@ MonoBehaviour:
   MaxHealth: 20
   Health: 20
   CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
+--- !u!135 &13581186
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .150000006
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13661944
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1338,9 +1379,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .300000012
-  m_Height: 1.79999995
+  m_Height: 1.5
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: .899999976, z: 0}
 --- !u!137 &13749978
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
