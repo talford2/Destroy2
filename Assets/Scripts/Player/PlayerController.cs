@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         current = this;
-
-        Debug.Break();
     }
 
     private void InitVehicle(GameObject prefab)
