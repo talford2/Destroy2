@@ -50,7 +50,7 @@ MonoBehaviour:
   HasInfiniteAmmunition: 1
   ClipCapacity: 20
   ReloadTime: 0
-  EquipPrefab: {fileID: 177286, guid: 93d3f8482d0d5ee4184c94fb8298b498, type: 2}
+  EquipPrefab: {fileID: 195144, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
@@ -126,7 +126,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: EquipPrefab
       value: 
-      objectReference: {fileID: 177286, guid: 93d3f8482d0d5ee4184c94fb8298b498, type: 2}
+      objectReference: {fileID: 195144, guid: 03012da192f78c747a20e83fb597c000, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135538}
