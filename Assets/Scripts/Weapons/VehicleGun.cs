@@ -16,6 +16,7 @@ public class VehicleGun : MonoBehaviour
     public bool HasInfiniteAmmunition;
     public int ClipCapacity;
     public float ReloadTime;
+    public GameObject EquipPrefab;
 
     [Header("Target Locking")]
     public bool RequireTargetLock;

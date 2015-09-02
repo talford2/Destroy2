@@ -10,8 +10,9 @@ public class Soldier : Vehicle
     public VehicleGun PrimaryWeaponPrefab;
     public Transform[] PrimaryWeaponShootPoints;
 
-    [Header("Corpse")]
+    [Header("Parts")]
     public Collider HeadCollider;
+    public Transform WeaponPlaceholder;
     public GameObject CorpsePrefab;
 
     private CharacterController controller;
@@ -47,6 +48,13 @@ public class Soldier : Vehicle
         primaryWeapon.SetClipRemaining(100);
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
 
+        if (PrimaryWeaponPrefab.EquipPrefab != null)
+        {
+            var equippedWeapon = Instantiate(PrimaryWeaponPrefab.EquipPrefab);
+            equippedWeapon.transform.parent = WeaponPlaceholder;
+            equippedWeapon.transform.localPosition = Vector3.zero;
+            equippedWeapon.transform.localRotation = Quaternion.identity;
+        }
         yawTarget = transform.eulerAngles.y;
     }
 

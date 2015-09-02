@@ -614,7 +614,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 465550}
   - 33: {fileID: 3326412}
-  - 23: {fileID: 2357134}
   m_Layer: 0
   m_Name: GunPlaceholder
   m_TagString: Untagged
@@ -1238,30 +1237,6 @@ Transform:
   - {fileID: 465550}
   m_Father: {fileID: 446224}
   m_RootOrder: 1
---- !u!23 &2357134
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196612}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: ed26c310da4a21547b78672e4311e0b7, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!33 &3326412
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1309,6 +1284,7 @@ MonoBehaviour:
   PrimaryWeaponShootPoints:
   - {fileID: 465550}
   HeadCollider: {fileID: 13524778}
+  WeaponPlaceholder: {fileID: 465550}
   CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
 --- !u!135 &13524778
 SphereCollider:
