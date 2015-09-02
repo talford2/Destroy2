@@ -43,10 +43,6 @@ public class Soldier : Vehicle
         meshAnimator = GetComponent<Animator>();
 
         primaryWeapon = Instantiate(PrimaryWeaponPrefab).GetComponent<VehicleGun>();
-        primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
-        primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
-        primaryWeapon.SetClipRemaining(100);
-        primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
 
         if (PrimaryWeaponPrefab.EquipPrefab != null)
         {
@@ -54,7 +50,14 @@ public class Soldier : Vehicle
             equippedWeapon.transform.parent = WeaponPlaceholder;
             equippedWeapon.transform.localPosition = Vector3.zero;
             equippedWeapon.transform.localRotation = Quaternion.identity;
+            PrimaryWeaponShootPoints = equippedWeapon.GetComponent<EquipWeapon>().ShootPoints;
         }
+
+        primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
+        primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
+        primaryWeapon.SetClipRemaining(100);
+        primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
+
         yawTarget = transform.eulerAngles.y;
     }
 
