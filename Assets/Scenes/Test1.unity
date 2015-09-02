@@ -564,6 +564,7 @@ GameObject:
   - 4: {fileID: 1062841308}
   - 218: {fileID: 1062841307}
   - 154: {fileID: 1062841306}
+  - 114: {fileID: 1062841309}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -624,6 +625,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1062841309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062841305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2e83932b00f2f44a88e997c3e0c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 123482, guid: 43d5e8561fd7c364781fa7474c5d44f9, type: 2}
 --- !u!1 &1112190164
 GameObject:
   m_ObjectHideFlags: 0
