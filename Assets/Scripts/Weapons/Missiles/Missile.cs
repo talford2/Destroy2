@@ -56,7 +56,7 @@ public abstract class Missile : MonoBehaviour
 		var hitterEffect = hit.collider.gameObject.GetComponent<HitEffect>();
 		if (hitterEffect != null)
 		{
-			var hitterEffectInst = (GameObject)Instantiate(hitterEffect.Effect, hit.point, transform.rotation);
+			var hitterEffectInst = (GameObject)Instantiate(hitterEffect.Effect, hit.point, Quaternion.LookRotation(hit.normal));
 		}
 		Stop();
 	}
