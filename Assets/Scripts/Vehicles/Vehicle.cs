@@ -7,6 +7,9 @@ public abstract class Vehicle : Killable
 
     public Vector3 CameraOffset;
 
+    public delegate void OnVehicleDestroyedEvent();
+    public event OnVehicleDestroyedEvent OnVehicleDestroyed;
+
     public abstract void Initialize();
 
     public abstract void SetMove(float forward, float strafe);
@@ -24,4 +27,12 @@ public abstract class Vehicle : Killable
     public abstract void TriggerPrimaryWeapon();
 
     public abstract void ReleasePrimaryWeapon();
+
+    private void OnDestroy()
+    {
+        if (OnVehicleDestroyed != null)
+        {
+            OnVehicleDestroyed();
+        }
+    }
 }
