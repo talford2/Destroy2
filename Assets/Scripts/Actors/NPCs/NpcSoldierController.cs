@@ -145,4 +145,9 @@ public class NpcSoldierController : AutonomousAgent
         Idle,
         Wander
     }
+
+    public override Vehicle GetVehicle()
+    {
+        return vehicle;
+    }
 }

@@ -14,12 +14,12 @@ public class SteeringBehaviour
 
     public Vector3 SeekForce(Vector3 position)
     {
-        return (position - agent.transform.position).normalized;
+        return (position - agent.GetVehicle().transform.position).normalized;
     }
 
     public Vector3 FleeForce(Vector3 position)
     {
-        return (agent.transform.position - position).normalized;
+        return (agent.GetVehicle().transform.position - position).normalized;
     }
 
     public GroupForces CalculateGroupForces(List<AutonomousAgent> neighbours)

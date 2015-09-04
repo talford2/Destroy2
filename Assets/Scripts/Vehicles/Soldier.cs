@@ -72,7 +72,7 @@ public class Soldier : Vehicle
         // Locomotion
         meshAnimator.SetBool("IsAim", !isRunning);
         meshAnimator.SetBool("IsShooting", isShooting);
-        //meshAnimator.SetFloat("Speed", move.z);
+        meshAnimator.SetFloat("Speed", move.z);
         meshAnimator.SetFloat("VerticalSpeed", move.z);
         meshAnimator.SetFloat("HorizontalSpeed", move.x);
     }
