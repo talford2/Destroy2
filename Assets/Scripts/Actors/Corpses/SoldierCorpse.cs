@@ -19,8 +19,16 @@ public class SoldierCorpse : MonoBehaviour
     private IEnumerator DropItem(float delay)
     {
         yield return new WaitForSeconds(delay);
-        equipped.GetComponent<Rigidbody>().isKinematic = false;
+        var parentObject = equipped.transform.parent.GetComponentInParent<Rigidbody>();
+        var equippedRigidbody = equipped.GetComponent<Rigidbody>();
+        equippedRigidbody.isKinematic = false;
         equipped.GetComponent<Collider>().enabled = true;
         equipped.transform.parent = null;
+
+        if (parentObject != null)
+        {
+            equippedRigidbody.angularVelocity = parentObject.angularVelocity;
+            equippedRigidbody.velocity = parentObject.velocity;
+        }
     }
 }
