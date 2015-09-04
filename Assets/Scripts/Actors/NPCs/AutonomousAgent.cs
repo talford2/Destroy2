@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class AutonomousAgent : MonoBehaviour
 {
     public Vector3 Heading;
+    public Team Team;
     private List<AutonomousAgent> neighbours;
 
     public abstract Vehicle GetVehicle();
