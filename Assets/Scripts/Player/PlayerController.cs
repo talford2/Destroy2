@@ -42,9 +42,12 @@ public class PlayerController : MonoBehaviour
 
     private void SetUpCamera()
     {
-        PlayerCamera.Current.FocusTransform = vehicle.transform;
-        PlayerCamera.Current.Distance = vehicle.CameraDistance;
-        PlayerCamera.Current.Offset = vehicle.CameraOffset;
+        if (vehicle != null)
+        {
+            PlayerCamera.Current.FocusTransform = vehicle.transform;
+            PlayerCamera.Current.Distance = vehicle.CameraDistance;
+            PlayerCamera.Current.Offset = vehicle.CameraOffset;
+        }
     }
 
     private void Start()
@@ -85,15 +88,22 @@ public class PlayerController : MonoBehaviour
         vehicle.SetAimAt(aimAt);
 
         HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
-
-        if (isZoomed)
+        if (vehicle.IsLive)
         {
-            PlayerCamera.Current.FocusTransform = vehicle.ZoomPoint;
-            PlayerCamera.Current.Distance = 0f;
-            PlayerCamera.Current.Offset = Vector3.zero;
+            if (isZoomed)
+            {
+                PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
+                PlayerCamera.Current.FocusTransform = vehicle.ZoomPoint;
+            }
+            else
+            {
+                PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
+                SetUpCamera();
+            }
         }
         else
         {
+            PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
             SetUpCamera();
         }
 

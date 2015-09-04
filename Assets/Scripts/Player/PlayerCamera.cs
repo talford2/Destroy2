@@ -12,6 +12,8 @@ public class PlayerCamera : MonoBehaviour
     private float targetYaw;
     private Vector3 focusPosition;
 
+    private CameraMode mode;
+
     private static PlayerCamera current;
 
     public static PlayerCamera Current
@@ -23,6 +25,7 @@ public class PlayerCamera : MonoBehaviour
     {
         current = this;
         distance = Distance;
+        mode = CameraMode.Chase;
     }
 
     public void SetTargetPitchYaw(float pitch, float yaw)
@@ -33,15 +36,54 @@ public class PlayerCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        switch (mode)
+        {
+            case CameraMode.Chase:
+                Chase(Time.deltaTime);
+                break;
+            case CameraMode.Aim:
+                Aim(Time.deltaTime);
+                break;
+        }
+    }
+
+    public void SetMode(CameraMode value)
+    {
+        mode = value;
+    }
+
+    private void Chase(float deltaTime)
+    {
+        Debug.Log("CHASE");
         if (FocusTransform != null)
             focusPosition = FocusTransform.position;
 
-        distance = Mathf.Lerp(distance, Distance, Time.deltaTime);
+        distance = Mathf.Lerp(distance, Distance, deltaTime);
 
         var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
         targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, 1f, 100f), targetPosition.z);
 
-        transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed*Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
         transform.LookAt(focusPosition + Offset);
+    }
+
+    private void Aim(float deltaTime)
+    {
+        Debug.Log("AIM!");
+        if (FocusTransform != null)
+            focusPosition = FocusTransform.position;
+
+        var targetPosition = focusPosition;
+        targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, 1f, 100f), targetPosition.z);
+
+        transform.position =Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
+        var lookAt = Quaternion.Euler(targetPitch, targetYaw, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookAt, 5f*deltaTime);
+    }
+
+    public enum CameraMode
+    {
+        Chase,
+        Aim
     }
 }
