@@ -176,6 +176,7 @@ public class NpcSoldierController : AutonomousAgent
         if (NavMesh.CalculatePath(vehicle.transform.position, chaseTo, NavMesh.AllAreas, navPath))
         {
             path = navPath.corners;
+            curPathIndex = 0;
         }
         else
         {
@@ -259,11 +260,6 @@ public class NpcSoldierController : AutonomousAgent
             }
             if (curPathIndex < path.Length)
                 Gizmos.DrawLine(vehicle.transform.position, path[curPathIndex]);
-        }
-        Gizmos.color = Color.white;
-        foreach (var neighbour in GetNeighbours())
-        {
-            Gizmos.DrawLine(vehicle.transform.position + Vector3.up, neighbour.GetVehicle().transform.position + Vector3.up);
         }
     }
 

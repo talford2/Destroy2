@@ -176,7 +176,23 @@ public class Soldier : Vehicle
         }
         var corpse = (GameObject)Instantiate(CorpsePrefab, transform.position, transform.rotation);
         corpse.transform.parent = SceneManager.CorpseContainer;
+
+        var liveParts = transform.FindChild("Ground").GetComponentsInChildren<Transform>();
         var corpseColliders = corpse.GetComponentsInChildren<Collider>();
+
+        var deadParts = corpse.transform.FindChild("Soldier").GetComponentsInChildren<Transform>();
+        foreach (var livePart in liveParts)
+        {
+            foreach (var deadPart in deadParts)
+            {
+                if (livePart.name == deadPart.name)
+                {
+                    deadPart.transform.localPosition = livePart.transform.localPosition;
+                    deadPart.transform.localRotation = livePart.transform.localRotation;
+                }
+            }
+        }
+
         foreach (var corpseCollider in corpseColliders)
         {
             var killRay = new Ray(killPosition - 5f * killDirection.normalized, killDirection);
