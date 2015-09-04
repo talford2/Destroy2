@@ -40,6 +40,7 @@ public class Walker : Vehicle
         primaryWeapon.SetClipRemaining(100);
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
         primaryWeapon.transform.parent = transform;
+        primaryWeapon.transform.localPosition = Vector3.zero;
     }
 
     public override void LiveUpdate()

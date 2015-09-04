@@ -60,6 +60,7 @@ public class Soldier : Vehicle
         primaryWeapon.OnShoot += OnShootPrimaryWeapon;
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
         primaryWeapon.transform.parent = transform;
+        primaryWeapon.transform.localPosition = Vector3.zero;
 
         yawTarget = transform.eulerAngles.y;
     }
