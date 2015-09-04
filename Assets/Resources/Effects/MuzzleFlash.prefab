@@ -25,6 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 411540}
+  - 114: {fileID: 11447360}
   m_Layer: 0
   m_Name: MuzzleFlash
   m_TagString: Untagged
@@ -88,13 +89,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106298}
   m_Mesh: {fileID: 4300000, guid: e33276137848b5949807b25735c3ae97, type: 3}
+--- !u!114 &11447360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dbf05539761d94782c95c5ba83a20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseFlash: {fileID: 106298}
+  FlashTime: .100000001
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: BaseFlash
+      value: 
+      objectReference: {fileID: 106298}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149432}
