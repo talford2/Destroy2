@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
         RaycastHit targetHit;
         var isTargetInSight = false;
-        if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player")))
+        if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
         {
             aimAt = targetHit.point;
             var aimKillable = targetHit.collider.GetComponentInParent<Killable>();
@@ -93,6 +93,11 @@ public class PlayerController : MonoBehaviour
         {
             vehicle.ReleasePrimaryWeapon();
         }
+    }
+
+    public Vehicle GetVehicle()
+    {
+        return vehicle;
     }
 
     private void OnDrawGizmos()

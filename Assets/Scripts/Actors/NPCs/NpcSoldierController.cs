@@ -3,7 +3,7 @@
 public class NpcSoldierController : AutonomousAgent
 {
     public Vehicle VehiclePrefab;
-    
+
     // Navigation
     private SteeringBehaviour steering;
     private bool reachedPathEnd;
@@ -26,29 +26,23 @@ public class NpcSoldierController : AutonomousAgent
     {
         steering = new SteeringBehaviour(this);
         InitVehicle(VehiclePrefab.gameObject);
-        state = NpcSoldierState.Idle;
+        state = NpcSoldierState.Chase;
 
-        AssignWanderPosition();
+        //AssignWanderPosition();
     }
 
     private void InitVehicle(GameObject prefab)
     {
-        vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
+        vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
         //vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
         vehicle.OnVehicleDestroyed += OnVehicleDestroyed;
         vehicle.Initialize();
-    }
 
-    private void AssignWanderPosition()
-    {
-        var randomSpherePoint = Random.insideUnitSphere;
-        var wanderTo = vehicle.transform.position + vehicle.transform.forward * 10f + 10f*new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
-
-        var navPath = new NavMeshPath();
-        if (NavMesh.CalculatePath(vehicle.transform.position, wanderTo, NavMesh.AllAreas, navPath))
+        var neighrbourSensor = GetComponentInChildren<NeighbourSensor>();
+        if (neighrbourSensor != null)
         {
-            path = navPath.corners;
+            neighrbourSensor.transform.parent = vehicle.transform;
         }
     }
 
@@ -86,11 +80,66 @@ public class NpcSoldierController : AutonomousAgent
 
     private void Update()
     {
-        lastState = state;
         Heading = transform.forward;
+        switch (state)
+        {
+            case NpcSoldierState.Idle:
+                break;
+            case NpcSoldierState.Wander:
+                Wander();
+                break;
+            case NpcSoldierState.Chase:
+                Chase();
+                break;
+        }
+        lastState = state;
+    }
 
-        // Wander
-        var wanderForce = steering.SeekForce(path[curPathIndex]);
+    private void AssignWanderPosition()
+    {
+        var randomSpherePoint = Random.insideUnitSphere;
+        var wanderTo = vehicle.transform.position + vehicle.transform.forward*10f + 10f*new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
+
+        var navPath = new NavMeshPath();
+        if (NavMesh.CalculatePath(vehicle.transform.position, wanderTo, NavMesh.AllAreas, navPath))
+        {
+            path = navPath.corners;
+        }
+    }
+
+    private Vector3 GetWanderForce()
+    {
+        var groupForces = steering.CalculateGroupForces(GetNeighbours());
+
+        var steerForce = Vector3.zero;
+
+        steerForce += 0.3f*groupForces.SeparationForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+
+        steerForce += 0.3f*groupForces.CohesiveForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+
+        steerForce += 0.3f*groupForces.AlignmentForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+
+        // Destination Force
+        steerForce += 1f*steering.SeekForce(path[curPathIndex]);
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+
+        return steerForce.normalized;
+    }
+
+    private void Wander()
+    {
+        if (path == null)
+            AssignWanderPosition();
+
+        var wanderForce = GetWanderForce();
+
         var pitchYaw = GetSteerToPoint(path[curPathIndex]);
         vehicle.SetPitchYaw(0f, pitchYaw.y);
         var forward = Vector3.Dot(wanderForce, vehicle.transform.forward);
@@ -102,11 +151,9 @@ public class NpcSoldierController : AutonomousAgent
             var toPathDestination = path[curPathIndex] - vehicle.transform.position;
             if (toPathDestination.sqrMagnitude <= 1f)
             {
-                Debug.Log("INDEX: " + curPathIndex);
                 curPathIndex++;
                 if (curPathIndex == path.Length)
                 {
-                    Debug.Log("YAY!");
                     reachedPathEnd = true;
                 }
             }
@@ -119,6 +166,81 @@ public class NpcSoldierController : AutonomousAgent
             curPathIndex = 0;
             vehicle.SetMove(0f, 0f);
         }
+    }
+
+    private void AssignChasePosition()
+    {
+        var chaseTo = PlayerController.Current.GetVehicle().transform.position;
+
+        var navPath = new NavMeshPath();
+        if (NavMesh.CalculatePath(vehicle.transform.position, chaseTo, NavMesh.AllAreas, navPath))
+        {
+            path = navPath.corners;
+        }
+        else
+        {
+            path = new[] {vehicle.transform.position};
+            curPathIndex = 0;
+        }
+    }
+
+    private Vector3 GetChaseForce()
+    {
+        Debug.Log("NEIGHBOURS: " + GetNeighbours().Count);
+        var groupForces = steering.CalculateGroupForces(GetNeighbours());
+
+        var steerForce = Vector3.zero;
+
+        steerForce += 1f*groupForces.SeparationForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+
+        steerForce += 0.3f*groupForces.CohesiveForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+
+        steerForce += 0.3f*groupForces.AlignmentForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+
+        Debug.Log("PATH INDEX: " + curPathIndex);
+
+        // Destination Force
+        steerForce += 1f*steering.SeekForce(path[curPathIndex]);
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce;
+        return steerForce.normalized;
+    }
+
+    private void Chase()
+    {
+        AssignChasePosition();
+        if (!reachedPathEnd)
+        {
+            var toPathDestination = path[curPathIndex] - vehicle.transform.position;
+            if (toPathDestination.sqrMagnitude <= 1f)
+            {
+                curPathIndex++;
+                if (curPathIndex == path.Length)
+                {
+                    reachedPathEnd = true;
+                }
+            }
+        }
+
+        if (reachedPathEnd)
+        {
+            reachedPathEnd = false;
+            curPathIndex = 0;
+        }
+        
+        var chaseForce = GetChaseForce();
+
+        var pitchYaw = GetSteerToPoint(path[curPathIndex]);
+        vehicle.SetPitchYaw(0f, pitchYaw.y);
+        var forward = Vector3.Dot(chaseForce, vehicle.transform.forward);
+        var strafe = Vector3.Dot(chaseForce, vehicle.transform.right);
+        vehicle.SetMove(forward, strafe);
     }
 
     private void OnVehicleDestroyed()
@@ -138,12 +260,18 @@ public class NpcSoldierController : AutonomousAgent
             if (curPathIndex < path.Length)
                 Gizmos.DrawLine(vehicle.transform.position, path[curPathIndex]);
         }
+        Gizmos.color = Color.white;
+        foreach (var neighbour in GetNeighbours())
+        {
+            Gizmos.DrawLine(vehicle.transform.position + Vector3.up, neighbour.GetVehicle().transform.position + Vector3.up);
+        }
     }
 
     public enum NpcSoldierState
     {
         Idle,
-        Wander
+        Wander,
+        Chase
     }
 
     public override Vehicle GetVehicle()
