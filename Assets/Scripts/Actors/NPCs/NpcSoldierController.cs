@@ -170,7 +170,9 @@ public class NpcSoldierController : AutonomousAgent
 
     private void AssignChasePosition()
     {
-        var chaseTo = PlayerController.Current.GetVehicle().transform.position;
+        var targetPosition = PlayerController.Current.GetVehicle().transform.position;
+        var toTarget = targetPosition - vehicle.transform.position;
+        var chaseTo = targetPosition - 10f*toTarget.normalized;
 
         var navPath = new NavMeshPath();
         if (NavMesh.CalculatePath(vehicle.transform.position, chaseTo, NavMesh.AllAreas, navPath))
