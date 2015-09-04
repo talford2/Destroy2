@@ -176,6 +176,11 @@ public class Soldier : Vehicle
         }
         var corpse = (GameObject)Instantiate(CorpsePrefab, transform.position, transform.rotation);
         corpse.transform.parent = SceneManager.CorpseContainer;
+        var soldierCorpse = corpse.GetComponent<SoldierCorpse>();
+        if (soldierCorpse != null)
+        {
+            soldierCorpse.Equip(primaryWeapon.EquipPrefab);
+        }
 
         var liveParts = transform.FindChild("Ground").GetComponentsInChildren<Transform>();
         var corpseColliders = corpse.GetComponentsInChildren<Collider>();
