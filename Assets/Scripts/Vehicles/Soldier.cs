@@ -59,6 +59,7 @@ public class Soldier : Vehicle
         primaryWeapon.SetClipRemaining(100);
         primaryWeapon.OnShoot += OnShootPrimaryWeapon;
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
+        primaryWeapon.transform.parent = transform;
 
         yawTarget = transform.eulerAngles.y;
     }

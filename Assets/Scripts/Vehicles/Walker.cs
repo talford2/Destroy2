@@ -39,6 +39,7 @@ public class Walker : Vehicle
         primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
         primaryWeapon.SetClipRemaining(100);
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
+        primaryWeapon.transform.parent = transform;
     }
 
     public override void LiveUpdate()
