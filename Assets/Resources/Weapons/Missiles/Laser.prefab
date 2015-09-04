@@ -43,7 +43,7 @@ MonoBehaviour:
   HitEffect: {fileID: 0}
   CanLock: 0
   Speed: 400
-  TrailLength: 10
+  TrailLength: 20
 --- !u!120 &12067742
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -72,8 +72,8 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: .100000001
-    endWidth: .100000001
+    startWidth: .300000012
+    endWidth: .300000012
     m_StartColor:
       serializedVersion: 2
       rgba: 4294967295
@@ -102,11 +102,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Parameters.startWidth
-      value: .100000001
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Parameters.endWidth
-      value: .100000001
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Speed
@@ -116,6 +116,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 391eafdf4ff3a0d478c8b4b904c5979d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: TrailLength
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128166}
