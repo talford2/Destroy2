@@ -39,7 +39,7 @@ public class NpcSoldierController : AutonomousAgent
         //vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
         vehicle.OnVehicleDestroyed += OnVehicleDestroyed;
         vehicle.Initialize();
-
+        Targeting.AddTargetable(Team, vehicle);
         var neighrbourSensor = GetComponentInChildren<NeighbourSensor>();
         if (neighrbourSensor != null)
         {
@@ -302,6 +302,7 @@ public class NpcSoldierController : AutonomousAgent
 
     private void OnVehicleDestroyed()
     {
+        Targeting.RemoveTargetable(Team, vehicle);
         Destroy(gameObject);
     }
 

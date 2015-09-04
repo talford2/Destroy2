@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
         vehicle.OnVehicleDestroyed += OnDie;
         vehicle.Initialize();
+        Targeting.AddTargetable(Team, vehicle);
     }
 
     private void SetUpCamera()
@@ -133,6 +134,7 @@ public class PlayerController : MonoBehaviour
     private void OnDie()
     {
         Debug.Log("YOU DIED.");
+        Targeting.RemoveTargetable(Team, vehicle);
         HeadsUpDisplay.Current.FadeOutCrosshair(1f);
     }
 
