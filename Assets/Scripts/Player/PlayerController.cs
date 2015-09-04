@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         // Movement
         vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        var isZoomed = Input.GetButton("Fire2");
         vehicle.SetRun(Input.GetButton("Fire3"));
         vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
@@ -84,6 +85,17 @@ public class PlayerController : MonoBehaviour
         vehicle.SetAimAt(aimAt);
 
         HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
+
+        if (isZoomed)
+        {
+            PlayerCamera.Current.FocusTransform = vehicle.ZoomPoint;
+            PlayerCamera.Current.Distance = 0f;
+            PlayerCamera.Current.Offset = Vector3.zero;
+        }
+        else
+        {
+            SetUpCamera();
+        }
 
         // Shooting
         if (Input.GetButton("Fire1") && !vehicle.IsRun())
