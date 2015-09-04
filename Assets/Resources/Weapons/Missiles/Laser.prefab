@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445b4090ad2c12947a91c8428a3ccd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitEffect: {fileID: 0}
+  HitEffect: {fileID: 162874, guid: bbe357db5f640564093d273db3175dd9, type: 2}
   CanLock: 0
   Speed: 400
   TrailLength: 20
@@ -120,6 +120,10 @@ Prefab:
       propertyPath: TrailLength
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: HitEffect
+      value: 
+      objectReference: {fileID: 162874, guid: bbe357db5f640564093d273db3175dd9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128166}

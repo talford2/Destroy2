@@ -49,7 +49,7 @@ public abstract class Missile : MonoBehaviour
 	{
 		if (HitEffect != null)
 		{
-			var hitEffect = (GameObject)Instantiate(HitEffect, hit.point, transform.rotation);
+			var hitEffect = (GameObject)Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
 			hitEffect.transform.parent = hit.collider.transform;
 		}
 
