@@ -342,6 +342,7 @@ GameObject:
   - 95: {fileID: 9583544}
   - 143: {fileID: 14319636}
   - 114: {fileID: 11400122}
+  - 114: {fileID: 11400574}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -1315,6 +1316,18 @@ MonoBehaviour:
   HeadCollider: {fileID: 13524778}
   WeaponPlaceholder: {fileID: 465550}
   CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
+--- !u!114 &11400574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2e83932b00f2f44a88e997c3e0c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
 --- !u!135 &13524778
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1456,6 +1469,10 @@ Prefab:
       propertyPath: Health
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147068}
