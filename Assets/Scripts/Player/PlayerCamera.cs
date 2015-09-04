@@ -54,7 +54,6 @@ public class PlayerCamera : MonoBehaviour
 
     private void Chase(float deltaTime)
     {
-        Debug.Log("CHASE");
         if (FocusTransform != null)
             focusPosition = FocusTransform.position;
 
@@ -74,7 +73,6 @@ public class PlayerCamera : MonoBehaviour
 
     private void Aim(float deltaTime)
     {
-        Debug.Log("AIM!");
         if (FocusTransform != null)
             focusPosition = FocusTransform.position;
 
