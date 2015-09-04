@@ -264,14 +264,15 @@ public class NpcSoldierController : AutonomousAgent
         var forward = Vector3.Dot(chaseForce, vehicle.transform.forward);
         var strafe = Vector3.Dot(chaseForce, vehicle.transform.right);
         vehicle.SetMove(forward, strafe);
-
-        var targetVehicle = target.GetComponent<Vehicle>();
+        Vehicle targetVehicle = null;
+        if (target != null)
+            targetVehicle = target.GetComponent<Vehicle>();
         if (targetVehicle != null)
         {
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
             if (toTarget.sqrMagnitude < 50f*50f)
             {
-                var aimAt = targetVehicle.transform.position + Vector3.up + GetAimRadius(toTarget.sqrMagnitude) * Random.insideUnitSphere;
+                var aimAt = targetVehicle.transform.position + Vector3.up + GetAimRadius(toTarget.sqrMagnitude)*Random.insideUnitSphere;
                 var shootFrom = vehicle.GetPrimaryWeaponShootPoint();
                 var aimRay = new Ray(shootFrom, aimAt - shootFrom);
 
