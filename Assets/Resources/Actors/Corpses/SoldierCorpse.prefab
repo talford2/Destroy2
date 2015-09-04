@@ -1492,6 +1492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunPlaceholder: {fileID: 434710}
+  FocalPoint: {fileID: 474834}
 --- !u!135 &13508118
 SphereCollider:
   m_ObjectHideFlags: 1

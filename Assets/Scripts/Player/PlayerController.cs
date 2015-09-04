@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
     private void OnDie()
     {
         Debug.Log("YOU DIED.");
+        HeadsUpDisplay.Current.FadeOutCrosshair(1f);
     }
 
     private void OnDrawGizmos()
