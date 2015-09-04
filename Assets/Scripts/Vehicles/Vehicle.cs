@@ -6,6 +6,7 @@ public abstract class Vehicle : Killable
     public float CameraDistance;
 
     public Vector3 CameraOffset;
+    public Transform ZoomPoint;
 
     public delegate void OnVehicleDestroyedEvent();
     public event OnVehicleDestroyedEvent OnVehicleDestroyed;
