@@ -116,6 +116,11 @@ public class PlayerController : MonoBehaviour
         {
             vehicle.ReleasePrimaryWeapon();
         }
+
+		if (Input.GetKeyUp(KeyCode.LeftControl))
+		{
+			Debug.Break();
+		}
     }
 
     public Vehicle GetVehicle()
