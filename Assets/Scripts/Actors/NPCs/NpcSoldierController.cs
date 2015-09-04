@@ -3,7 +3,6 @@
 public class NpcSoldierController : AutonomousAgent
 {
     public Vehicle VehiclePrefab;
-    public Team Team;
 
     // Navigation
     private SteeringBehaviour steering;
@@ -18,6 +17,9 @@ public class NpcSoldierController : AutonomousAgent
     private NpcSoldierState lastState;
     private NpcSoldierState state;
 
+    // Chase / Attack
+    private Killable target;
+
     // Death
     private Vector3 killPosition;
     private Vector3 killDirection;
@@ -27,9 +29,11 @@ public class NpcSoldierController : AutonomousAgent
     {
         steering = new SteeringBehaviour(this);
         InitVehicle(VehiclePrefab.gameObject);
-        state = NpcSoldierState.Chase;
 
-        //AssignWanderPosition();
+        target = Targeting.FindNearest(Targeting.GetOpposingTeam(Team), vehicle.transform.position, 100f);
+        state = NpcSoldierState.Wander;
+
+        AssignWanderPosition();
     }
 
     private void InitVehicle(GameObject prefab)
@@ -45,6 +49,13 @@ public class NpcSoldierController : AutonomousAgent
         {
             neighrbourSensor.transform.parent = vehicle.transform;
         }
+    }
+
+    public void SetTarget(Killable value)
+    {
+        target = value;
+        if (value != null)
+            state = NpcSoldierState.Chase;
     }
 
     private Vector2 GetSteerToPoint(Vector3 point)
@@ -106,6 +117,11 @@ public class NpcSoldierController : AutonomousAgent
         {
             path = navPath.corners;
         }
+        else
+        {
+            path = new[] { vehicle.transform.position };
+        }
+        curPathIndex = 0;
     }
 
     private Vector3 GetWanderForce()
@@ -171,7 +187,9 @@ public class NpcSoldierController : AutonomousAgent
 
     private void AssignChasePosition()
     {
-        var targetVehicle = PlayerController.Current.GetVehicle();
+        Vehicle targetVehicle = null;
+        if (target != null)
+            targetVehicle = target.GetComponent<Vehicle>();
         if (targetVehicle != null)
         {
             var targetPosition = targetVehicle.transform.position;
@@ -247,7 +265,7 @@ public class NpcSoldierController : AutonomousAgent
         var strafe = Vector3.Dot(chaseForce, vehicle.transform.right);
         vehicle.SetMove(forward, strafe);
 
-        var targetVehicle = PlayerController.Current.GetVehicle();
+        var targetVehicle = target.GetComponent<Vehicle>();
         if (targetVehicle != null)
         {
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
