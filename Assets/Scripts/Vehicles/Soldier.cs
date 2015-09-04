@@ -186,6 +186,13 @@ public class Soldier : Vehicle
         if (soldierCorpse != null)
         {
             soldierCorpse.Equip(primaryWeapon.EquipPrefab);
+            var player = GetComponentInParent<PlayerController>();
+            if (player != null)
+            {
+                PlayerCamera.Current.Offset = Vector3.zero;
+                PlayerCamera.Current.FocusTransform = soldierCorpse.FocalPoint;
+                PlayerCamera.Current.Distance = 30f;
+            }
         }
 
         var liveParts = transform.FindChild("Ground").GetComponentsInChildren<Transform>();

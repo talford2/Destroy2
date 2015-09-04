@@ -7,6 +7,7 @@ public class PlayerCamera : MonoBehaviour
     public Vector3 Offset = new Vector3(0f, 2f, 0);
     public float CatchupSpeed = 25f;
 
+    private float distance;
     private float targetPitch;
     private float targetYaw;
     private Vector3 focusPosition;
@@ -21,6 +22,7 @@ public class PlayerCamera : MonoBehaviour
     private void Awake()
     {
         current = this;
+        distance = Distance;
     }
 
     public void SetTargetPitchYaw(float pitch, float yaw)
@@ -34,7 +36,9 @@ public class PlayerCamera : MonoBehaviour
         if (FocusTransform != null)
             focusPosition = FocusTransform.position;
 
-        var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -Distance;
+        distance = Mathf.Lerp(distance, Distance, Time.deltaTime);
+
+        var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
         targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, 1f, 100f), targetPosition.z);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed*Time.deltaTime);

@@ -4,6 +4,7 @@ using UnityEngine;
 public class SoldierCorpse : MonoBehaviour
 {
     public Transform GunPlaceholder;
+    public Transform FocalPoint;
 
     private GameObject equipped;
 
