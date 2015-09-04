@@ -250,9 +250,9 @@ public class NpcSoldierController : AutonomousAgent
         if (targetVehicle != null)
         {
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
-            if (toTarget.sqrMagnitude < 30f*30f)
+            if (toTarget.sqrMagnitude < 50f*50f)
             {
-                var aimAt = targetVehicle.transform.position + Vector3.up + 1f*Random.insideUnitSphere;
+                var aimAt = targetVehicle.transform.position + Vector3.up + GetAimRadius(toTarget.sqrMagnitude) * Random.insideUnitSphere;
                 var shootFrom = vehicle.GetPrimaryWeaponShootPoint();
                 var aimRay = new Ray(shootFrom, aimAt - shootFrom);
 
@@ -288,6 +288,15 @@ public class NpcSoldierController : AutonomousAgent
             vehicle.ReleasePrimaryWeapon();
             state = NpcSoldierState.Wander;
         }
+    }
+
+    private float GetAimRadius(float distanceSquared)
+    {
+        if (distanceSquared < 5f)
+            return 0;
+        if (distanceSquared < 30f*30f)
+            return 2*distanceSquared/(30f*30f);
+        return 2f;
     }
 
     private void OnVehicleDestroyed()
