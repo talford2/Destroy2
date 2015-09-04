@@ -135,8 +135,8 @@ public class NpcSoldierController : AutonomousAgent
                 Gizmos.color = i == 0 ? Color.yellow : Color.magenta;
                 Gizmos.DrawSphere(path[i], 0.5f);
             }
-
-            Gizmos.DrawLine(vehicle.transform.position, path[curPathIndex]);
+            if (curPathIndex < path.Length)
+                Gizmos.DrawLine(vehicle.transform.position, path[curPathIndex]);
         }
     }
 
