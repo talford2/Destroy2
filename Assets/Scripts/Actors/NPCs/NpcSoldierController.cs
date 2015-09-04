@@ -137,13 +137,13 @@ public class NpcSoldierController : AutonomousAgent
     {
         if (path == null)
             AssignWanderPosition();
-
         var wanderForce = GetWanderForce();
 
         var pitchYaw = GetSteerToPoint(path[curPathIndex]);
         vehicle.SetPitchYaw(0f, pitchYaw.y);
         var forward = Vector3.Dot(wanderForce, vehicle.transform.forward);
         var strafe = Vector3.Dot(wanderForce, vehicle.transform.right);
+        vehicle.SetRun(false);
         vehicle.SetMove(forward, strafe);
 
         if (!reachedPathEnd)
@@ -275,10 +275,12 @@ public class NpcSoldierController : AutonomousAgent
                 {
                     vehicle.ReleasePrimaryWeapon();
                 }
+                vehicle.SetRun(false);
             }
             else
             {
                 vehicle.ReleasePrimaryWeapon();
+                vehicle.SetRun(true);
             }
         }
         else
