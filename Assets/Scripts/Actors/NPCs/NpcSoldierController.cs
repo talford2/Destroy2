@@ -3,6 +3,7 @@
 public class NpcSoldierController : AutonomousAgent
 {
     public Vehicle VehiclePrefab;
+    public Team Team;
 
     // Navigation
     private SteeringBehaviour steering;

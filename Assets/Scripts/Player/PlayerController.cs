@@ -3,6 +3,8 @@
 public class PlayerController : MonoBehaviour
 {
     public Vehicle VehiclePrefab;
+    public Team Team;
+
     public float MaxAimDistance = 1000f;
 
     private static PlayerController current;
