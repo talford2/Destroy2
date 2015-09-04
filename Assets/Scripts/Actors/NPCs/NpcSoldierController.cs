@@ -285,7 +285,10 @@ public class NpcSoldierController : AutonomousAgent
                 {
                     var npc = aimHit.collider.GetComponentInParent<NpcSoldierController>();
                     if (npc != null)
-                        dontShoot = true;
+                    {
+                        if (npc.Team == Team)
+                            dontShoot = true;
+                    }
                 }
 
                 vehicle.SetAimAt(aimAt);
