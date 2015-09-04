@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Heading: {x: 0, y: 0, z: 0}
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
+  Team: 1
 --- !u!114 &11469418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +185,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Team
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
