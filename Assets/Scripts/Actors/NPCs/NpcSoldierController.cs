@@ -55,7 +55,9 @@ public class NpcSoldierController : AutonomousAgent
     {
         target = value;
         if (value != null)
+        {
             state = NpcSoldierState.Chase;
+        }
     }
 
     private Vector2 GetSteerToPoint(Vector3 point)
