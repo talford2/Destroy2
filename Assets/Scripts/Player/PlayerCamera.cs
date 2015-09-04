@@ -60,8 +60,13 @@ public class PlayerCamera : MonoBehaviour
 
         distance = Mathf.Lerp(distance, Distance, deltaTime);
 
+        var camMinY = 1f;
+        RaycastHit camDownHit;
+        if (Physics.Raycast(new Ray(transform.position, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
+            camMinY = camDownHit.point.y + 0.5f;
+
         var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
-        targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, 1f, 100f), targetPosition.z);
+        targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
         transform.LookAt(focusPosition + Offset);
@@ -78,7 +83,7 @@ public class PlayerCamera : MonoBehaviour
 
         transform.position =Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
         var lookAt = Quaternion.Euler(targetPitch, targetYaw, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookAt, 5f*deltaTime);
+        transform.rotation = lookAt;//Quaternion.Lerp(transform.rotation, lookAt, 5f*deltaTime);
     }
 
     public enum CameraMode
