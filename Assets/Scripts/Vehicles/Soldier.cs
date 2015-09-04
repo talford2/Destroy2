@@ -99,6 +99,11 @@ public class Soldier : Vehicle
         aimAt = position;
     }
 
+    public override Vector3 GetPrimaryWeaponShootPoint()
+    {
+        return primaryWeapon.GetShootPointsCentre();
+    }
+
     public override void SetPitchYaw(float pitch, float yaw)
     {
         pitchTarget -= pitch;
@@ -169,6 +174,7 @@ public class Soldier : Vehicle
 
     public override void Die(GameObject attacker)
     {
+        Destroy(primaryWeapon.gameObject);
         var colliders = GetComponentsInChildren<Collider>();
         foreach (var curCollider in colliders)
         {

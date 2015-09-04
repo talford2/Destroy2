@@ -71,6 +71,11 @@ public class Walker : Vehicle
         aimAt = position;
     }
 
+    public override Vector3 GetPrimaryWeaponShootPoint()
+    {
+        return primaryWeapon.GetShootPointsCentre();
+    }
+
     public override void SetPitchYaw(float pitch, float yaw)
     {
         pitchTarget -= pitch;

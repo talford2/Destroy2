@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
         vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
+        vehicle.OnVehicleDestroyed += OnDie;
         vehicle.Initialize();
     }
 
@@ -98,6 +99,11 @@ public class PlayerController : MonoBehaviour
     public Vehicle GetVehicle()
     {
         return vehicle;
+    }
+
+    private void OnDie()
+    {
+        Debug.Log("YOU DIED.");
     }
 
     private void OnDrawGizmos()

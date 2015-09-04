@@ -24,6 +24,8 @@ public abstract class Vehicle : Killable
 
     public abstract void SetAimAt(Vector3 position);
 
+    public abstract Vector3 GetPrimaryWeaponShootPoint();
+
     public abstract void TriggerPrimaryWeapon();
 
     public abstract void ReleasePrimaryWeapon();

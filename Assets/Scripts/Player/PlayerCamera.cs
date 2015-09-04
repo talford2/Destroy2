@@ -9,6 +9,7 @@ public class PlayerCamera : MonoBehaviour
 
     private float targetPitch;
     private float targetYaw;
+    private Vector3 focusPosition;
 
     private static PlayerCamera current;
 
@@ -30,10 +31,13 @@ public class PlayerCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        var targetPosition = FocusTransform.position + Quaternion.Euler(targetPitch, targetYaw, 0)*Vector3.forward*-Distance;
+        if (FocusTransform != null)
+            focusPosition = FocusTransform.position;
+
+        var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -Distance;
         targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, 1f, 100f), targetPosition.z);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed*Time.deltaTime);
-        transform.LookAt(FocusTransform.position + Offset);
+        transform.LookAt(focusPosition + Offset);
     }
 }
