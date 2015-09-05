@@ -32,7 +32,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &108290
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -418,7 +418,7 @@ Transform:
   - {fileID: 442036}
   - {fileID: 442092}
   m_Father: {fileID: 420416}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &404874
 Transform:
   m_ObjectHideFlags: 1
@@ -480,7 +480,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 447362}
   - {fileID: 445624}
   - {fileID: 404868}
   - {fileID: 470078}
@@ -587,19 +586,19 @@ Transform:
   m_Children:
   - {fileID: 424356}
   m_Father: {fileID: 420416}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &447362
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 5, z: -.5}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: -0, y: -.100000001, z: 2.4000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 420416}
-  m_RootOrder: 0
+  m_Father: {fileID: 495118}
+  m_RootOrder: 1
 --- !u!4 &455316
 Transform:
   m_ObjectHideFlags: 1
@@ -640,7 +639,7 @@ Transform:
   - {fileID: 470292}
   - {fileID: 404874}
   m_Father: {fileID: 420416}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &470292
 Transform:
   m_ObjectHideFlags: 1
@@ -664,7 +663,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420416}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &486544
 Transform:
   m_ObjectHideFlags: 1
@@ -689,6 +688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456346}
+  - {fileID: 447362}
   m_Father: {fileID: 424356}
   m_RootOrder: 0
 --- !u!4 &498012
@@ -837,7 +837,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
