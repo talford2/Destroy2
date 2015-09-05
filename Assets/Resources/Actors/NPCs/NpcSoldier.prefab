@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b306bb2e3c9d7794ab3701b80638b3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Team: 1
   Heading: {x: 0, y: 0, z: 0}
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
-  Team: 1
 --- !u!114 &11469418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,7 +146,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
@@ -177,7 +177,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: .200000003
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.y
