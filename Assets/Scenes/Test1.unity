@@ -584,6 +584,7 @@ Transform:
   - {fileID: 340266796}
   - {fileID: 2118454268}
   - {fileID: 1016540276}
+  - {fileID: 1468552526}
   m_Father: {fileID: 0}
   m_RootOrder: 12
 --- !u!1001 &306341051
@@ -1109,6 +1110,57 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
   m_PrefabInternal: {fileID: 1016540275}
+--- !u!1001 &1057197334
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 302647557}
+    m_Modifications:
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -61.8579102
+      objectReference: {fileID: 0}
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -24.3078308
+      objectReference: {fileID: 0}
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -177.004517
+      objectReference: {fileID: 0}
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 151946, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: m_Name
+      value: NpcWalker
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432188, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: VehiclePrefab
+      value: 
+      objectReference: {fileID: 11421088, guid: 38c445fd579c1964fa782845cb78f46d,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1062841305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,6 +1517,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
   m_PrefabInternal: {fileID: 1952464858}
+--- !u!4 &1468552526 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+  m_PrefabInternal: {fileID: 1057197334}
 --- !u!1001 &1556759012
 Prefab:
   m_ObjectHideFlags: 0
