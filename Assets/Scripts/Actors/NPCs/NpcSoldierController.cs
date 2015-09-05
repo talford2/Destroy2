@@ -41,6 +41,7 @@ public class NpcSoldierController : AutonomousAgent
         vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
         //vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
+        vehicle.OnVehicleDamage += OnVehicleDamaged;
         vehicle.OnVehicleDestroyed += OnVehicleDestroyed;
         vehicle.Initialize();
         Targeting.AddTargetable(Team, vehicle);
@@ -51,7 +52,7 @@ public class NpcSoldierController : AutonomousAgent
         }
     }
 
-    public void SetTarget(Killable value)
+    public override void SetTarget(Killable value)
     {
         target = value;
         if (value != null)
@@ -324,10 +325,34 @@ public class NpcSoldierController : AutonomousAgent
         return 2f;
     }
 
+    private void OnVehicleDamaged(GameObject attacker)
+    {
+        var targetCandidate = attacker.GetComponentInParent<ActorAgent>();
+        if (targetCandidate != null)
+        {
+            if (targetCandidate.Team == Targeting.GetOpposingTeam(Team))
+            {
+                Debug.Log("CHASE ATTACKER!");
+                target = targetCandidate.GetVehicle();
+                SetTarget(target);
+                AlertNeighbours(target);
+                state = NpcSoldierState.Chase;
+            }
+        }
+    }
+
     private void OnVehicleDestroyed()
     {
         Targeting.RemoveTargetable(Team, vehicle);
         Destroy(gameObject);
+    }
+
+    private void AlertNeighbours(Killable attacker)
+    {
+        foreach (var neighbour in GetNeighbours())
+        {
+            neighbour.SetTarget(attacker);
+        }
     }
 
     private void OnDrawGizmos()

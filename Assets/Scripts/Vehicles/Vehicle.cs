@@ -8,6 +8,9 @@ public abstract class Vehicle : Killable
     public Vector3 CameraOffset;
     public Transform ZoomPoint;
 
+    public delegate void OnVehicleDamageEvent(GameObject attacker);
+    public event OnVehicleDamageEvent OnVehicleDamage;
+
     public delegate void OnVehicleDestroyedEvent();
     public event OnVehicleDestroyedEvent OnVehicleDestroyed;
 
@@ -30,6 +33,14 @@ public abstract class Vehicle : Killable
     public abstract void TriggerPrimaryWeapon();
 
     public abstract void ReleasePrimaryWeapon();
+
+    public void OnDamage(GameObject attacker)
+    {
+        if (OnVehicleDamage != null)
+        {
+            OnVehicleDamage(attacker);
+        }
+    }
 
     private void OnDestroy()
     {

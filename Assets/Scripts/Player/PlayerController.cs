@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : ActorAgent
 {
     public Vehicle VehiclePrefab;
-    public Team Team;
 
     public float MaxAimDistance = 1000f;
 
@@ -126,7 +125,7 @@ public class PlayerController : MonoBehaviour
 		}
     }
 
-    public Vehicle GetVehicle()
+    public override Vehicle GetVehicle()
     {
         return vehicle;
     }

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AutonomousAgent : MonoBehaviour
+public abstract class AutonomousAgent : ActorAgent
 {
     public Vector3 Heading;
-    public Team Team;
+    
     private List<AutonomousAgent> neighbours;
 
-    public abstract Vehicle GetVehicle();
+    public abstract void SetTarget(Killable value);
 
     public virtual void AddNeighbour(AutonomousAgent neighbour)
     {
