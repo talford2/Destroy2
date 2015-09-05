@@ -32,6 +32,7 @@ public class Walker : Vehicle
     // Locomotion
     private Animator meshAnimator;
     private bool isRunning;
+    private float headYaw;
 
     public override void Initialize()
     {
@@ -57,23 +58,21 @@ public class Walker : Vehicle
         var turnSpeed = 2f*speed;
         var strafeAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget + strafeAngle, 0f), turnSpeed*Time.deltaTime);
-        yaw = Mathf.LerpAngle(yaw, yawTarget - transform.eulerAngles.y, 5f*Time.deltaTime);
+        headYaw = Mathf.LerpAngle(headYaw, yawTarget - transform.eulerAngles.y, 5f*Time.deltaTime);
         meshAnimator.SetFloat("Speed", speed);
     }
-
-    private float yaw;
 
     private void LateUpdate()
     {
         //yaw += 25f*Time.deltaTime;
-        HeadBone.transform.rotation *= Quaternion.Euler(0f, 0f, yaw);
+        HeadBone.transform.rotation *= Quaternion.Euler(0f, 0f, headYaw);
     }
 
     public override void SetMove(float forward, float strafe)
     {
         move = new Vector3(strafe, 0f, forward);
         velocity = Vector3.up*fallSpeed;
-        //velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
+        //velocity = HeadBone.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + HeadBone.forward * move.z * ForwardSpeed;
     }
 
     public override void SetRun(bool value)
