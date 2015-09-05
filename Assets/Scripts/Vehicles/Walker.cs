@@ -8,6 +8,8 @@ public class Walker : Vehicle
     public float ForwardSpeed = 5f;
     public float StrafeSpeed = 5f;
 
+	public AudioSource StepSound;
+
     [Header("Primary Weapon")]
     public VehicleGun PrimaryWeaponPrefab;
     public Transform[] PrimaryWeaponShootPoints;
@@ -111,12 +113,20 @@ public class Walker : Vehicle
 
     private void LeftFootStomp()
     {
+		if (StepSound != null)
+		{
+			StepSound.Play();
+		}
         Debug.Log("LEFT");
     }
 
     private void RightFootStomp()
     {
-        Debug.Log("RIGHT");
+		if (StepSound != null)
+		{
+			StepSound.Play();
+		}
+		Debug.Log("RIGHT");
     }
 
     public override void Die(GameObject attacker)
