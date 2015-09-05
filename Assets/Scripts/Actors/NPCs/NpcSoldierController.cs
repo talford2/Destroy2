@@ -319,7 +319,7 @@ public class NpcSoldierController : AutonomousAgent
 
     private float GetAimRadius(float distanceSquared)
     {
-        if (distanceSquared < 5f)
+        if (distanceSquared < 5f*5f)
             return 0;
         if (distanceSquared < 30f*30f)
             return 2*distanceSquared/(30f*30f);
