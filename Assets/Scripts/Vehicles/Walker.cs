@@ -54,14 +54,10 @@ public class Walker : Vehicle
         
         // Locomotion
         var speed = Mathf.Clamp(Mathf.Abs(move.z) + Mathf.Abs(move.x), 0f, 1f);
-
         var turnSpeed = 2f*speed;
-        var strafeAngle = move.x*90f;
-
+        var strafeAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget + strafeAngle, 0f), turnSpeed*Time.deltaTime);
-
         yaw = Mathf.LerpAngle(yaw, yawTarget - transform.eulerAngles.y, 5f*Time.deltaTime);
-        
         meshAnimator.SetFloat("Speed", speed);
     }
 
