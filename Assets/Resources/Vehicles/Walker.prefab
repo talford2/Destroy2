@@ -71,6 +71,7 @@ GameObject:
   - 95: {fileID: 9563286}
   - 143: {fileID: 14390588}
   - 114: {fileID: 11421088}
+  - 114: {fileID: 11498496}
   m_Layer: 0
   m_Name: Walker
   m_TagString: Untagged
@@ -845,6 +846,18 @@ MonoBehaviour:
   - {fileID: 421544}
   - {fileID: 444844}
   CorpsePrefab: {fileID: 117372, guid: e51b11bc11fd9a4489b97861de13ffcb, type: 2}
+--- !u!114 &11498496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2e83932b00f2f44a88e997c3e0c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 112998, guid: d0404889c11e8584093580d017cd8395, type: 2}
 --- !u!137 &13765376
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -960,6 +973,10 @@ Prefab:
       propertyPath: CorpsePrefab
       value: 
       objectReference: {fileID: 117372, guid: e51b11bc11fd9a4489b97861de13ffcb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 112998, guid: d0404889c11e8584093580d017cd8395, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114410}

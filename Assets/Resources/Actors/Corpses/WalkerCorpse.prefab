@@ -151,6 +151,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459624}
   - 114: {fileID: 11413000}
+  - 114: {fileID: 11477866}
   m_Layer: 0
   m_Name: WalkerCorpse
   m_TagString: Untagged
@@ -1434,6 +1435,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FocalPoint: {fileID: 498044}
+--- !u!114 &11477866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2e83932b00f2f44a88e997c3e0c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 112998, guid: d0404889c11e8584093580d017cd8395, type: 2}
 --- !u!137 &13772204
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1675,6 +1688,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 112998, guid: d0404889c11e8584093580d017cd8395, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117372}

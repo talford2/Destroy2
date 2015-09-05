@@ -545,6 +545,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 484540}
   - 114: {fileID: 11403872}
+  - 114: {fileID: 11494630}
   m_Layer: 0
   m_Name: SoldierCorpse
   m_TagString: Untagged
@@ -1491,8 +1492,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8217cbb0dd41cee469f65fa92b43b248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunPlaceholder: {fileID: 434710}
   FocalPoint: {fileID: 474834}
+  GunPlaceholder: {fileID: 434710}
+--- !u!114 &11494630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2e83932b00f2f44a88e997c3e0c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
 --- !u!135 &13508118
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2112,6 +2125,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163440}
