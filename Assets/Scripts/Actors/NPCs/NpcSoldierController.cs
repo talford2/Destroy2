@@ -133,7 +133,7 @@ public class NpcSoldierController : AutonomousAgent
 
         var steerForce = Vector3.zero;
 
-        steerForce += 0.3f*groupForces.SeparationForce;
+        steerForce += 1f*groupForces.SeparationForce;
         if (steerForce.sqrMagnitude > 1f)
             return steerForce;
 
@@ -351,7 +351,9 @@ public class NpcSoldierController : AutonomousAgent
     {
         foreach (var neighbour in GetNeighbours())
         {
-            neighbour.SetTarget(attacker);
+            var autoAgent = neighbour.GetComponent<AutonomousAgent>();
+            if (autoAgent != null)
+                autoAgent.SetTarget(attacker);
         }
     }
 

@@ -119,10 +119,12 @@ public class PlayerController : ActorAgent
             vehicle.ReleasePrimaryWeapon();
         }
 
-		if (Input.GetKeyUp(KeyCode.LeftControl))
-		{
-			Debug.Break();
-		}
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Debug.Break();
+        }
+        if (vehicle != null)
+            Heading = vehicle.transform.forward;
     }
 
     public override Vehicle GetVehicle()

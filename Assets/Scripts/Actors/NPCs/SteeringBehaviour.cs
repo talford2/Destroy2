@@ -21,7 +21,7 @@ public class SteeringBehaviour
         return (agent.GetVehicle().transform.position - position).normalized;
     }
 
-    public GroupForces CalculateGroupForces(List<AutonomousAgent> neighbours)
+    public GroupForces CalculateGroupForces(List<ActorAgent> neighbours)
     {
         if (neighbours != null && neighbours.Any())
         {
