@@ -49,16 +49,20 @@ public class Walker : Vehicle
 
     public override void LiveUpdate()
     {
-        fallSpeed += -9.81f * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        fallSpeed += -9.81f*Time.deltaTime;
+        controller.Move(velocity*Time.deltaTime);
+        
+        // Locomotion
+        var speed = Mathf.Clamp(Mathf.Abs(move.z) + Mathf.Abs(move.x), 0f, 1f);
 
-        var turnSpeed = 1f*move.z;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), turnSpeed * Time.deltaTime);
+        var turnSpeed = 2f*speed;
+        var strafeAngle = move.x*90f;
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget + strafeAngle, 0f), turnSpeed*Time.deltaTime);
 
         yaw = Mathf.LerpAngle(yaw, yawTarget - transform.eulerAngles.y, 5f*Time.deltaTime);
-
-        // Locomotion
-        meshAnimator.SetFloat("Speed", move.z);
+        
+        meshAnimator.SetFloat("Speed", speed);
     }
 
     private float yaw;
@@ -72,7 +76,8 @@ public class Walker : Vehicle
     public override void SetMove(float forward, float strafe)
     {
         move = new Vector3(strafe, 0f, forward);
-        velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
+        velocity = Vector3.up*fallSpeed;
+        //velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
     }
 
     public override void SetRun(bool value)
