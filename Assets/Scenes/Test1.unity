@@ -349,6 +349,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 25819863}
+    - target: {fileID: 11463202, guid: 6637a9e30c53c6e46bdffd59e80b6c92, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ad52e8d4d897a64c816a4ac17737494,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6637a9e30c53c6e46bdffd59e80b6c92, type: 2}
   m_IsPrefabParent: 0
@@ -481,7 +486,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 151946, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: m_Name
@@ -1043,7 +1048,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 151946, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: m_Name
@@ -1697,7 +1702,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 151946, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: m_Name
@@ -1751,7 +1756,7 @@ MeshRenderer:
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
@@ -2061,7 +2066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11432188, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
       propertyPath: Team
