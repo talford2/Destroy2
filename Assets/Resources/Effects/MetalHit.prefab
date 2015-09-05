@@ -443,7 +443,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 50
+    cnt0: 30
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -1286,7 +1286,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.cnt0
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MinDistance
