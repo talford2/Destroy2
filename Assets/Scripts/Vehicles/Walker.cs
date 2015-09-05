@@ -10,6 +10,8 @@ public class Walker : Vehicle
 
 	public AudioSource StepSound;
 
+    public Transform HeadBone;
+
     [Header("Primary Weapon")]
     public VehicleGun PrimaryWeaponPrefab;
     public Transform[] PrimaryWeaponShootPoints;
@@ -49,9 +51,22 @@ public class Walker : Vehicle
     {
         fallSpeed += -9.81f * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
+
+        var turnSpeed = 1f*move.z;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), turnSpeed * Time.deltaTime);
+
+        yaw = Mathf.LerpAngle(yaw, yawTarget - transform.eulerAngles.y, 5f*Time.deltaTime);
+
         // Locomotion
         meshAnimator.SetFloat("Speed", move.z);
+    }
+
+    private float yaw;
+
+    private void LateUpdate()
+    {
+        //yaw += 25f*Time.deltaTime;
+        HeadBone.transform.rotation *= Quaternion.Euler(0f, 0f, yaw);
     }
 
     public override void SetMove(float forward, float strafe)
