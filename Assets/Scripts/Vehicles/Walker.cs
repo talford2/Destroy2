@@ -70,9 +70,10 @@ public class Walker : Vehicle
 
     public override void SetMove(float forward, float strafe)
     {
-        move = new Vector3(strafe, 0f, forward);
-        velocity = Vector3.up*fallSpeed;
-        //velocity = HeadBone.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + HeadBone.forward * move.z * ForwardSpeed;
+        move = new Vector3(strafe, 0f, forward).normalized;
+        //velocity = Vector3.up*fallSpeed;
+        // Note: HeadBone.transform orientation is weird.
+        velocity = HeadBone.transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + HeadBone.transform.up * -move.z * ForwardSpeed;
     }
 
     public override void SetRun(bool value)
