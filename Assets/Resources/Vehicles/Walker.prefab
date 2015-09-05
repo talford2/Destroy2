@@ -844,6 +844,7 @@ MonoBehaviour:
   PrimaryWeaponShootPoints:
   - {fileID: 421544}
   - {fileID: 444844}
+  CorpsePrefab: {fileID: 117372, guid: e51b11bc11fd9a4489b97861de13ffcb, type: 2}
 --- !u!137 &13765376
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -955,6 +956,10 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CorpsePrefab
+      value: 
+      objectReference: {fileID: 117372, guid: e51b11bc11fd9a4489b97861de13ffcb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114410}

@@ -101,7 +101,7 @@ public abstract class Missile : MonoBehaviour
 				Debug.Log("HIT COLLIDER: " + hit.collider.name);
 				hitKillable.Damage(hit.collider, hit.point, shootDirection, this);
 			}
-		    var hitCorpse = hit.collider.GetComponentInParent<SoldierCorpse>();
+		    var hitCorpse = hit.collider.GetComponentInParent<Corpse>();
 		    if (hitCorpse != null)
 		    {
                 hit.collider.attachedRigidbody.AddForceAtPosition(shootDirection.normalized*Power, hit.point, ForceMode.Impulse);
