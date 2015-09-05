@@ -306,17 +306,12 @@ public class VehicleGun : MonoBehaviour
         }
     }
 
-    public Vector3[] GetSpreadDirections(Vector3 direction)
+    private Vector3 GetSpreadDirection(Vector3 direction)
     {
-        var directions = new Vector3[MissilesPerShot];
-        for (var i = 0; i < MissilesPerShot; i++)
-        {
-            var yawSpread = Random.Range(-Spread.x / 2f, Spread.x / 2f);
-            var pitchSpread = Random.Range(-Spread.y / 2f, Spread.y / 2f);
-            var spreadAim = Quaternion.Euler(pitchSpread, yawSpread, 0);
-            directions[i] = spreadAim * direction;
-        }
-        return directions;
+        var yawSpread = Random.Range(-Spread.x / 2f, Spread.x / 2f);
+        var pitchSpread = Random.Range(-Spread.y / 2f, Spread.y / 2f);
+        var spreadAim = Quaternion.Euler(pitchSpread, yawSpread, 0);
+        return spreadAim * direction;
     }
 
     public Vector3 GetShootPointsCentre()
@@ -355,7 +350,8 @@ public class VehicleGun : MonoBehaviour
 
                 var convergedShotDirection = shootAtPosition - shootPointTransforms[j].position;
                 var unconvergedShotDirection = shootAtPosition - shootPointsCentre;
-                shootDirection = convergedShotDirection * shotConvergence + (1f - shotConvergence) * unconvergedShotDirection;
+                shootDirection = GetSpreadDirection(convergedShotDirection * shotConvergence + (1f - shotConvergence) * unconvergedShotDirection);
+
                 /*
                 if (curMissile.CanLock)
                     curMissile.SetLockOnTarget(lockedTarget);
@@ -408,7 +404,7 @@ public class VehicleGun : MonoBehaviour
 
             var convergedShotDirection = shootAtPosition - curShootPoint.position;
             var unconvergedShotDirection = shootAtPosition - shootPointsCentre;
-            shootDirection = convergedShotDirection * shotConvergence + (1f - shotConvergence) * unconvergedShotDirection;
+            shootDirection = GetSpreadDirection(convergedShotDirection * shotConvergence + (1f - shotConvergence) * unconvergedShotDirection);
 
             /*
             if (curMissile.CanLock)
