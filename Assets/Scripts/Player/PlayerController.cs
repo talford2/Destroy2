@@ -36,7 +36,7 @@ public class PlayerController : ActorAgent
     {
         vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
-        vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
+        Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
         vehicle.OnVehicleDestroyed += OnDie;
         vehicle.Initialize();
         Targeting.AddTargetable(Team, vehicle);
