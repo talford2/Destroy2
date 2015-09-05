@@ -47,9 +47,10 @@ public class NpcSoldierController : AutonomousAgent
         Targeting.AddTargetable(Team, vehicle);
         var neighrbourSensor = GetComponentInChildren<NeighbourSensor>();
         if (neighrbourSensor != null)
-        {
             neighrbourSensor.transform.parent = vehicle.transform;
-        }
+        var soundSensor = GetComponentInChildren<SoundSensor>();
+        if (soundSensor != null)
+            soundSensor.transform.parent = vehicle.transform;
     }
 
     public override void SetTarget(Killable value)
@@ -351,9 +352,12 @@ public class NpcSoldierController : AutonomousAgent
     {
         foreach (var neighbour in GetNeighbours())
         {
-            var autoAgent = neighbour.GetComponent<AutonomousAgent>();
-            if (autoAgent != null)
-                autoAgent.SetTarget(attacker);
+            if (neighbour != null)
+            {
+                var autoAgent = neighbour.GetComponent<AutonomousAgent>();
+                if (autoAgent != null)
+                    autoAgent.SetTarget(attacker);
+            }
         }
     }
 
