@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SoldierCorpse : MonoBehaviour
+public class SoldierCorpse : Corpse
 {
     public Transform GunPlaceholder;
-    public Transform FocalPoint;
 
     private GameObject equipped;
 

@@ -222,7 +222,7 @@ public class Soldier : Vehicle
             if (corpseCollider.Raycast(killRay, out killHit, 10f))
             {
                 Debug.Log("KILLED!");
-                corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, killHit.point, ForceMode.Impulse);
+                corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, killHit.point, ForceMode.Force);
             }
         }
 

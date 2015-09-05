@@ -163,7 +163,7 @@ MonoBehaviour:
   CooldownRate: 0
   MissileGameObject: {fileID: 128166, guid: 976e6e5364571144b99ebdd66cfb0287, type: 2}
   MissileDamage: 10
-  MissilePower: 300
+  MissilePower: 30000
   MissileRadius: 0
   MissileCount: 20
 --- !u!1001 &100100000
@@ -183,7 +183,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilePower
-      value: 300
+      value: 30000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissileCount

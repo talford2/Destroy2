@@ -216,7 +216,7 @@ public class Walker : Vehicle
             RaycastHit killHit;
             if (corpseCollider.Raycast(killRay, out killHit, 10f))
             {
-                corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, killHit.point, ForceMode.Impulse);
+                corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, killHit.point, ForceMode.Force);
             }
         }
 
