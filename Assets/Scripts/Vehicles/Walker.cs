@@ -118,4 +118,16 @@ public class Walker : Vehicle
     {
         Debug.Log("RIGHT");
     }
+
+    public override void Die(GameObject attacker)
+    {
+        Destroy(primaryWeapon.gameObject);
+        var colliders = GetComponentsInChildren<Collider>();
+        foreach (var curCollider in colliders)
+        {
+            curCollider.enabled = false;
+        }
+        base.Die(attacker);
+        Destroy(gameObject);
+    }
 }
