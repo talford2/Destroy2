@@ -899,7 +899,7 @@ MonoBehaviour:
   LeftFoot: {fileID: 415180}
   RightFoot: {fileID: 434716}
   HeadBone: {fileID: 495118}
-  PrimaryWeaponPrefab: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+  PrimaryWeaponPrefab: {fileID: 11413606, guid: 4d301451dbcae5540a540230a5d60743,
     type: 2}
   PrimaryWeaponShootPoints:
   - {fileID: 421544}
@@ -994,7 +994,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: PrimaryWeaponPrefab
       value: 
-      objectReference: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+      objectReference: {fileID: 11413606, guid: 4d301451dbcae5540a540230a5d60743,
         type: 2}
     - target: {fileID: 0}
       propertyPath: CameraDistance
