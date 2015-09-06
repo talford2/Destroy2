@@ -8,8 +8,6 @@ public class PlayerCamera : MonoBehaviour
     public float CatchupSpeed = 25f;
 
     private float distance;
-    private float targetPitch;
-    private float targetYaw;
     private Vector3 focusPosition;
 
     private Vector3 lookAtPosition;
@@ -66,8 +64,8 @@ public class PlayerCamera : MonoBehaviour
             camMinY = camDownHit.point.y + 0.5f;
 
         var lookAngle = Quaternion.LookRotation(lookAtPosition - (focusPosition + Offset));
-        targetPitch = lookAngle.eulerAngles.x;
-        targetYaw = lookAngle.eulerAngles.y;
+        var targetPitch = lookAngle.eulerAngles.x;
+        var targetYaw = lookAngle.eulerAngles.y;
 
         var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
         targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);

@@ -15,15 +15,13 @@ public class PlayerController : ActorAgent
     private Vehicle vehicle;
 
     // Aiming
-    private Vector3 crosshairAt;
-    private Vector3 screenCentre;
+    private Vector3 pivotPoint;
+    private Vector2 pitchYaw;
     private Vector3 aimAt;
 
     private void Awake()
     {
         InitVehicle(VehiclePrefab.gameObject);
-
-        screenCentre = new Vector3(0.5f, 0.5f, 0f);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -66,14 +64,18 @@ public class PlayerController : ActorAgent
 
         // Aiming
         var maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
-        crosshairAt = vehicle.transform.position + vehicle.CameraOffset + Quaternion.Euler(Mathf.DeltaAngle(-vehicle.GetPitchYaw().x, 0f), Mathf.DeltaAngle(-vehicle.GetPitchYaw().y, 0f), 0f) * Vector3.forward * maxAimDistance;
-        var aimRay = new Ray(vehicle.transform.position + vehicle.CameraOffset, crosshairAt - (vehicle.transform.position + vehicle.CameraOffset));
+
+        pivotPoint = vehicle.transform.position + vehicle.CameraOffset;
+        pitchYaw = vehicle.GetPitchYaw();
+
+        aimAt = pivotPoint + Quaternion.Euler(Mathf.DeltaAngle(-pitchYaw.x, 0f), Mathf.DeltaAngle(-pitchYaw.y, 0f), 0f) * Vector3.forward * maxAimDistance;
+        var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
         RaycastHit aimHit;
         var isTargetInSight = false;
 
         if (Physics.Raycast(aimRay, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
         {
-            crosshairAt = aimHit.point;
+            aimAt = aimHit.point;
             var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
             if (aimKillable != null)
             {
@@ -81,10 +83,10 @@ public class PlayerController : ActorAgent
             }
         }
 
-        PlayerCamera.Current.SetLookAt(crosshairAt);
+        PlayerCamera.Current.SetLookAt(aimAt);
 
-        // This is incorrect!
-        vehicle.SetAimAt(crosshairAt);
+        // This is incorrect?
+        vehicle.SetAimAt(aimAt);
 
         HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
 
@@ -141,7 +143,5 @@ public class PlayerController : ActorAgent
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(aimAt, 0.5f);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(crosshairAt, 0.5f);
     }
 }
