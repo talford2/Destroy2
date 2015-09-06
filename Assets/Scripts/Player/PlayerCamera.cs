@@ -74,8 +74,8 @@ public class PlayerCamera : MonoBehaviour
 		targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);
 
 		transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
-	    var targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
-	    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, CatchupSpeed*deltaTime);
+		var targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, CatchupSpeed * deltaTime);
 		transform.LookAt(lookAtPosition);
 	}
 
@@ -92,7 +92,9 @@ public class PlayerCamera : MonoBehaviour
 
 	private float shakeCooldown = 0f;
 	private float shakeAmplitude = 0f;
-	private float frequency = 0.5f;
+	private float shakeFrequency = 0.5f;
+
+	private float shakeTotalTime = 0;
 
 	private float shakeInterval = 0;
 
@@ -100,6 +102,8 @@ public class PlayerCamera : MonoBehaviour
 
 	private void Update()
 	{
+		var totalFrac = shakeCooldown / shakeTotalTime;
+
 		if (shakeCooldown > 0)
 		{
 			shakeCooldown -= Time.deltaTime;
@@ -107,22 +111,24 @@ public class PlayerCamera : MonoBehaviour
 			shakeInterval -= Time.deltaTime;
 			if (shakeInterval < 0)
 			{
-			    curShakePos = shakeAmplitude*Random.onUnitSphere;
-				shakeInterval = frequency;
+				curShakePos = shakeAmplitude * totalFrac * Random.onUnitSphere;
+				shakeInterval = shakeFrequency;
 			}
 		}
 		else
 		{
 			curShakePos = Vector3.zero;
 		}
-        var frac = Mathf.Clamp(1 - (shakeInterval / frequency), 0f, 1f);
-        Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
+		var frac = Mathf.Clamp(1 - (shakeInterval / shakeFrequency), 0f, 1f);
+		Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
 	}
 
-	public void Shake(float time, float amplitude)
+	public void Shake(float time, float amplitude, float frequency)
 	{
+		shakeTotalTime = time;
 		shakeCooldown = time;
 		shakeAmplitude = amplitude;
+		shakeFrequency = frequency;
 
 		curShakePos = amplitude * Random.insideUnitSphere;
 		//prevShakePos = Vector3.zero;
