@@ -144,36 +144,36 @@ public class Walker : Vehicle
 		primaryWeapon.SetClipRemaining(primaryWeapon.ClipCapacity);
 	}
 
-	private void LeftFootStomp()
-	{
-		if (StepSound != null)
-		{
-			StepSound.Play();
-		}
-		if (StepEffect != null)
-		{
-			var step = Instantiate(StepEffect, LeftFoot.position, Quaternion.identity);
-		}
-		PlayerCamera.Current.Shake(0.2f, 0.4f, 0.05f);
-		Debug.Log("LEFT");
-	}
+    private void LeftFootStomp()
+    {
+        if (StepSound != null)
+        {
+            StepSound.Play();
+        }
+        if (StepEffect != null)
+        {
+            var step = Instantiate(StepEffect, LeftFoot.position, Quaternion.identity);
+        }
+        PlayerCamera.Current.Shake(LeftFoot.position, 20f, 100f, 0.2f, 0.4f, 0.05f);
+        Debug.Log("LEFT");
+    }
 
-	private void RightFootStomp()
-	{
-		if (StepSound != null)
-		{
-			StepSound.Play();
-		}
-		if (StepEffect != null)
-		{
-			var step = Instantiate(StepEffect, RightFoot.position, Quaternion.identity);
-		}
+    private void RightFootStomp()
+    {
+        if (StepSound != null)
+        {
+            StepSound.Play();
+        }
+        if (StepEffect != null)
+        {
+            var step = Instantiate(StepEffect, RightFoot.position, Quaternion.identity);
+        }
 
-		PlayerCamera.Current.Shake(0.2f, 0.4f, 0.05f);
-		Debug.Log("RIGHT");
-	}
+        PlayerCamera.Current.Shake(RightFoot.position, 20f, 100f, 0.2f, 0.4f, 0.05f);
+        Debug.Log("RIGHT");
+    }
 
-	public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
+    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
 	{
 		killPosition = position;
 		killDirection = direction;

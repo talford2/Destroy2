@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerCamera : MonoBehaviour
 {
@@ -18,6 +20,17 @@ public class PlayerCamera : MonoBehaviour
 	private CameraMode mode;
 
 	private static PlayerCamera current;
+
+    // Shake
+    private float shakeCooldown;
+    private float shakeAmplitude;
+    private float shakeFrequency = 0.5f;
+    private float shakeTotalTime;
+    private float shakeInterval;
+    private Vector3 curShakePos;
+    private Vector3 shakeAt;
+    private float shakeMinDistance;
+    private float shakeMaxDistance;
 
 	public static PlayerCamera Current
 	{
@@ -90,16 +103,6 @@ public class PlayerCamera : MonoBehaviour
 		transform.LookAt(lookAtPosition);
 	}
 
-	private float shakeCooldown;
-	private float shakeAmplitude;
-	private float shakeFrequency = 0.5f;
-
-	private float shakeTotalTime;
-
-	private float shakeInterval;
-
-	private Vector3 curShakePos = Vector3.zero;
-
 	private void Update()
 	{
 		var totalFrac = shakeCooldown / shakeTotalTime;
@@ -111,7 +114,7 @@ public class PlayerCamera : MonoBehaviour
 			shakeInterval -= Time.deltaTime;
 			if (shakeInterval < 0)
 			{
-				curShakePos = shakeAmplitude * totalFrac * Random.onUnitSphere;
+                curShakePos = GetAmplitude(shakeAt) * totalFrac * Random.onUnitSphere;
 				shakeInterval = shakeFrequency;
 			}
 		}
@@ -123,14 +126,25 @@ public class PlayerCamera : MonoBehaviour
 		Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
 	}
 
-	public void Shake(float time, float amplitude, float frequency)
+    private float GetAmplitude(Vector3 position)
+    {
+        var distSquared = (position - Cam.transform.position).sqrMagnitude;
+        if (distSquared < shakeMaxDistance*shakeMaxDistance)
+            return shakeAmplitude/Mathf.Clamp(distSquared - (shakeMinDistance*shakeMinDistance), 1f, shakeMaxDistance*shakeMaxDistance);
+        return 0f;
+    }
+
+    public void Shake(Vector3 atPosition, float minDistance, float maxDistance, float time, float amplitude, float frequency)
 	{
+	    shakeAt = atPosition;
+        shakeMinDistance = minDistance;
+	    shakeMaxDistance = maxDistance;
 		shakeTotalTime = time;
 		shakeCooldown = time;
 		shakeAmplitude = amplitude;
 		shakeFrequency = frequency;
 
-		curShakePos = amplitude * Random.onUnitSphere;
+		curShakePos = GetAmplitude(atPosition) * Random.onUnitSphere;
 	}
 
 	public enum CameraMode
