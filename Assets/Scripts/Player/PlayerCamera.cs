@@ -71,7 +71,9 @@ public class PlayerCamera : MonoBehaviour
         targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
-        transform.LookAt(lookAtPosition);
+        var targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, CatchupSpeed * deltaTime);
+        //transform.LookAt(lookAtPosition);
     }
 
     private void Aim(float deltaTime)
