@@ -33,7 +33,7 @@ public class Rocket : Missile
         CheckForHit(transform.position, shootDirection);
 
         var velocity = initialVelocity + shootDirection * Speed;
-        transform.Translate(velocity * Time.deltaTime);
+        //transform.Translate(velocity * Time.deltaTime);
 
         base.Shoot(fromPosition, direction, initVelocity);
     }
