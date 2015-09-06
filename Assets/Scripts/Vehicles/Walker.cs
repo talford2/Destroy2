@@ -104,6 +104,11 @@ public class Walker : Vehicle
         return primaryWeapon.GetShootPointsCentre();
     }
 
+    public override VehicleGun GetPrimaryWeapon()
+    {
+        return primaryWeapon;
+    }
+
     public override void SetPitchYaw(float pitch, float yaw)
     {
         pitchTarget -= pitch;

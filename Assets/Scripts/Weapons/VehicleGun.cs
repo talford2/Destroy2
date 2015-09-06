@@ -17,6 +17,7 @@ public class VehicleGun : MonoBehaviour
     public int ClipCapacity;
     public float ReloadTime;
     public GameObject EquipPrefab;
+    public float MaxAimDistance = 1000f;
 
     [Header("Target Locking")]
     public bool RequireTargetLock;
@@ -388,13 +389,13 @@ public class VehicleGun : MonoBehaviour
         Vector3 shootAt;
         var shootRay = new Ray(shootPoint.position, shootPoint.forward);
         RaycastHit shootHit;
-        if (Physics.Raycast(shootRay, out shootHit, 1000f, ~LayerMask.GetMask("Player", "Sensors")))
+        if (Physics.Raycast(shootRay, out shootHit, MaxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
         {
             shootAt = shootHit.point;
         }
         else
         {
-            shootAt = shootRay.GetPoint(1000f);
+            shootAt = shootRay.GetPoint(MaxAimDistance);
         }
         return shootAt;
     }

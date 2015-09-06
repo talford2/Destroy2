@@ -4,8 +4,6 @@ public class PlayerController : ActorAgent
 {
     public Vehicle VehiclePrefab;
 
-    public float MaxAimDistance = 1000f;
-
     private static PlayerController current;
 
     public static PlayerController Current
@@ -67,11 +65,13 @@ public class PlayerController : ActorAgent
         vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
         // Aiming
-        crosshairAt = vehicle.transform.position + vehicle.CameraOffset + Quaternion.Euler(Mathf.DeltaAngle(-vehicle.GetPitchYaw().x, 0f), Mathf.DeltaAngle(-vehicle.GetPitchYaw().y, 0f), 0f) * Vector3.forward * MaxAimDistance;
+        var maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
+        crosshairAt = vehicle.transform.position + vehicle.CameraOffset + Quaternion.Euler(Mathf.DeltaAngle(-vehicle.GetPitchYaw().x, 0f), Mathf.DeltaAngle(-vehicle.GetPitchYaw().y, 0f), 0f) * Vector3.forward * maxAimDistance;
         var aimRay = new Ray(vehicle.transform.position + vehicle.CameraOffset, crosshairAt - (vehicle.transform.position + vehicle.CameraOffset));
         RaycastHit aimHit;
         var isTargetInSight = false;
-        if (Physics.Raycast(aimRay, out aimHit, MaxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
+
+        if (Physics.Raycast(aimRay, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
         {
             crosshairAt = aimHit.point;
             var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
