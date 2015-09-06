@@ -39,6 +39,9 @@ public class VehicleGun : MonoBehaviour
     public float CooldownDelay;
     public float CooldownRate;
 
+    [Header("GUI")]
+    public Sprite Crosshair;
+
     [Header("Missiles")]
     public GameObject MissileGameObject;
     public float MissileDamage;

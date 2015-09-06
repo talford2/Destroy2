@@ -149,6 +149,7 @@ MonoBehaviour:
   ClipCapacity: 20
   ReloadTime: 0
   EquipPrefab: {fileID: 0}
+  MaxAimDistance: 1000
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   OverHeathCooldownDelay: 0
   CooldownDelay: 0
   CooldownRate: 0
+  Crosshair: {fileID: 21300000, guid: 7ad52e8d4d897a64c816a4ac17737494, type: 3}
   MissileGameObject: {fileID: 128166, guid: 976e6e5364571144b99ebdd66cfb0287, type: 2}
   MissileDamage: 10
   MissilePower: 30000
@@ -241,6 +243,11 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Crosshair
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ad52e8d4d897a64c816a4ac17737494,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135538}

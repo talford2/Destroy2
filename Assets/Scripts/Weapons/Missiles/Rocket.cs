@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Rocket : Missile
 {
@@ -113,12 +112,12 @@ public class Rocket : Missile
                 var hitCorpse = splashHitCollider.GetComponentInParent<Corpse>();
                 if (hitCorpse != null)
                 {
-                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 5f, ForceMode.Force);
                 }
                 var hitEquipWeapon = splashHitCollider.GetComponentInParent<EquipWeapon>();
                 if (hitEquipWeapon != null)
                 {
-                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 5f, ForceMode.Force);
                 }
             }
         }
@@ -127,6 +126,8 @@ public class Rocket : Missile
     public override void Stop()
     {
         meshRenderer.enabled = false;
+        if (smokeInstance != null)
+            smokeInstance.GetComponentInChildren<ParticleSystem>().Stop();
         base.Stop();
     }
 }

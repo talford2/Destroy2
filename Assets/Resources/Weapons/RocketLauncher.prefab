@@ -162,6 +162,7 @@ MonoBehaviour:
   OverHeathCooldownDelay: 0
   CooldownDelay: 0
   CooldownRate: 0
+  Crosshair: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd, type: 3}
   MissileGameObject: {fileID: 191728, guid: 179a713693ea21143b45919f1dcdb4b0, type: 2}
   MissileDamage: 50
   MissilePower: 30000
@@ -242,6 +243,11 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Crosshair
+      value: 
+      objectReference: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135538}

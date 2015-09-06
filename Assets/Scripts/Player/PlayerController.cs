@@ -53,6 +53,7 @@ public class PlayerController : ActorAgent
     private void Start()
     {
         SetUpCamera();
+        HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
     }
 
     private void Update()

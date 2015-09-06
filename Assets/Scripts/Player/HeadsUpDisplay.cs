@@ -24,6 +24,12 @@ public class HeadsUpDisplay : MonoBehaviour
         current = this;
     }
 
+    public void SetCrosshair(Sprite value)
+    {
+        Crosshair.sprite = value;
+
+    }
+
     private void Update()
     {
         Crosshair.color = isTargetInSight ? Color.red : Color.white;
