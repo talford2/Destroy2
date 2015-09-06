@@ -99,9 +99,6 @@ public class Rocket : Missile
             }
             var splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors"));
 
-            var hitCorpses = new List<Corpse>();
-            var hitEquipWeapons = new List<EquipWeapon>();
-
             foreach (var splashHitCollider in splashHitColliders)
             {
                 var hitKillable = splashHitCollider.GetComponentInParent<Killable>();
@@ -109,23 +106,20 @@ public class Rocket : Missile
                 {
                     hitKillable.Damage(splashHitCollider, hit.point, splashHitCollider.transform.position - hit.point, this);
                 }
+            }
+
+            splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors"));
+            foreach (var splashHitCollider in splashHitColliders)
+            {
                 var hitCorpse = splashHitCollider.GetComponentInParent<Corpse>();
                 if (hitCorpse != null)
                 {
-                    if (!hitCorpses.Contains(hitCorpse))
-                    {
-                        splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
-                        hitCorpses.Add(hitCorpse);
-                    }
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
                 }
                 var hitEquipWeapon = splashHitCollider.GetComponentInParent<EquipWeapon>();
                 if (hitEquipWeapon != null)
                 {
-                    if (!hitEquipWeapons.Contains(hitEquipWeapon))
-                    {
-                        splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
-                        hitEquipWeapons.Add(hitEquipWeapon);
-                    }
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
                 }
             }
         }
