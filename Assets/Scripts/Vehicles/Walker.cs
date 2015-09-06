@@ -154,7 +154,7 @@ public class Walker : Vehicle
 		{
 			var step = Instantiate(StepEffect, LeftFoot.position, Quaternion.identity);
 		}
-		PlayerCamera.Current.Shake(0.2f, 0.3f);
+		PlayerCamera.Current.Shake(1f, 5.0f);
 		Debug.Log("LEFT");
 	}
 
@@ -169,7 +169,7 @@ public class Walker : Vehicle
 			var step = Instantiate(StepEffect, RightFoot.position, Quaternion.identity);
 		}
 
-		PlayerCamera.Current.Shake(0.2f, 0.3f);
+		//PlayerCamera.Current.Shake(0.2f, 0.3f);
 		Debug.Log("RIGHT");
 	}
 

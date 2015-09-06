@@ -90,19 +90,45 @@ public class PlayerCamera : MonoBehaviour
 
 	private float shakeCooldown = 0f;
 	private float shakeAmplitude = 0f;
+	private float frequency = 0.5f;
+
+	private float shakeInterval = 0;
+
+	private Vector3 prevShakePos = Vector3.zero;
+	private Vector3 curShakePos = Vector3.zero;
+
 	private void Update()
 	{
+		var frac = Mathf.Clamp(1 - (shakeInterval / frequency), 0, 1);
+
 		if (shakeCooldown > 0)
 		{
-			Cam.transform.localPosition = shakeAmplitude * Random.insideUnitSphere;
 			shakeCooldown -= Time.deltaTime;
+
+			shakeInterval -= Time.deltaTime;
+			if (shakeInterval < 0)
+			{
+				prevShakePos = curShakePos;
+				curShakePos = shakeAmplitude * Random.insideUnitSphere;
+				//Cam.transform.localPosition = shakeAmplitude * Random.insideUnitSphere;
+				shakeInterval = frequency;
+			}
 		}
+		else
+		{
+			curShakePos = Vector3.zero;
+		}
+
+		Cam.transform.localPosition = Vector3.Lerp(prevShakePos, curShakePos, frac);
 	}
 
 	public void Shake(float time, float amplitude)
 	{
 		shakeCooldown = time;
 		shakeAmplitude = amplitude;
+
+		curShakePos = amplitude * Random.insideUnitSphere;
+		//prevShakePos = Vector3.zero;
 	}
 
 	public enum CameraMode
