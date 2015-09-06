@@ -15,6 +15,7 @@ public class PlayerController : ActorAgent
     private Vehicle vehicle;
 
     // Aiming
+    private float maxAimDistance;
     private Vector3 pivotPoint;
     private Vector2 pitchYaw;
     private Vector3 aimAt;
@@ -57,74 +58,78 @@ public class PlayerController : ActorAgent
     private void Update()
     {
         // Movement
-        vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-        var isZoomed = Input.GetButton("Fire2");
-        vehicle.SetRun(Input.GetButton("Fire3"));
-        vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
-
-        // Aiming
-        var maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
-
-        pivotPoint = vehicle.transform.position + vehicle.CameraOffset;
-        pitchYaw = vehicle.GetPitchYaw();
-
-        aimAt = pivotPoint + Quaternion.Euler(Mathf.DeltaAngle(-pitchYaw.x, 0f), Mathf.DeltaAngle(-pitchYaw.y, 0f), 0f) * Vector3.forward * maxAimDistance;
-        var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
-        RaycastHit aimHit;
-        var isTargetInSight = false;
-
-        if (Physics.Raycast(aimRay, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
+        if (vehicle != null)
         {
-            aimAt = aimHit.point;
-            var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
-            if (aimKillable != null)
+            vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+            var isZoomed = Input.GetButton("Fire2");
+            vehicle.SetRun(Input.GetButton("Fire3"));
+            vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+
+            // Aiming
+            maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
+            pivotPoint = vehicle.transform.position + vehicle.CameraOffset;
+            pitchYaw = vehicle.GetPitchYaw();
+
+            aimAt = pivotPoint + Quaternion.Euler(Mathf.DeltaAngle(-pitchYaw.x, 0f), Mathf.DeltaAngle(-pitchYaw.y, 0f), 0f)*Vector3.forward*maxAimDistance;
+            var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
+            RaycastHit aimHit;
+            var isTargetInSight = false;
+
+            if (Physics.Raycast(aimRay, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
             {
-                isTargetInSight = true;
+                aimAt = aimHit.point;
+                var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
+                if (aimKillable != null)
+                {
+                    isTargetInSight = true;
+                }
             }
-        }
 
-        PlayerCamera.Current.SetLookAt(aimAt);
+            // This is incorrect?
+            vehicle.SetAimAt(aimAt);
 
-        // This is incorrect?
-        vehicle.SetAimAt(aimAt);
+            HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
 
-        HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
-
-        if (vehicle.IsLive)
-        {
-            if (isZoomed)
+            if (vehicle.IsLive)
             {
-                PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
-                PlayerCamera.Current.PivotTransform = vehicle.ZoomPoint;
+                if (isZoomed)
+                {
+                    PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
+                    PlayerCamera.Current.PivotTransform = vehicle.ZoomPoint;
+                }
+                else
+                {
+                    PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
+                    SetUpCamera();
+                }
             }
             else
             {
                 PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
                 SetUpCamera();
             }
+
+            // Shooting
+            if (Input.GetButton("Fire1") && !vehicle.IsRun())
+            {
+                vehicle.TriggerPrimaryWeapon();
+            }
+            else
+            {
+                vehicle.ReleasePrimaryWeapon();
+            }
+            Heading = vehicle.transform.forward;
         }
         else
         {
-            PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
-            SetUpCamera();
+            pitchYaw += new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+            aimAt = pivotPoint + Quaternion.Euler(Mathf.DeltaAngle(-pitchYaw.x, 0f), Mathf.DeltaAngle(-pitchYaw.y, 0f), 0f) * Vector3.forward * maxAimDistance;
         }
 
-        // Shooting
-        if (Input.GetButton("Fire1") && !vehicle.IsRun())
-        {
-            vehicle.TriggerPrimaryWeapon();
-        }
-        else
-        {
-            vehicle.ReleasePrimaryWeapon();
-        }
+        PlayerCamera.Current.SetLookAt(aimAt);
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
             Debug.Break();
-        }
-        if (vehicle != null)
-            Heading = vehicle.transform.forward;
     }
 
     public override Vehicle GetVehicle()
