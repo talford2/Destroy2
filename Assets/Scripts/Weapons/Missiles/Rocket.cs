@@ -4,6 +4,8 @@ public class Rocket : Missile
 {
     [Header("Rocket")]
     public float Speed;
+    public float ExplosionPower;
+    public float ExplosionRadius;
 
     private MeshRenderer meshRenderer;
     private Vector3 shootDirection;
@@ -48,7 +50,7 @@ public class Rocket : Missile
         if (!willHit)
         {
             var hitRay = new Ray(from, direction);
-            if (Physics.SphereCast(hitRay, Radius, out hit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors"))) //, ~LayerMask.GetMask("Sensors", "Items", "Corpses", "Effects")))
+            if (Physics.SphereCast(hitRay, Radius, out hit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors")))
             {
                 if (Owner != null)
                 {
@@ -83,6 +85,36 @@ public class Rocket : Missile
             Stop();
             if (Owner == null)
                 Destroy(gameObject);
+        }
+    }
+
+    public override void HandleCollision(RaycastHit hit, Vector3 shootDirection)
+    {
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject != null)
+            {
+                Hit(hit);
+            }
+            var splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors"));
+            foreach (var splashHitCollider in splashHitColliders)
+            {
+                var hitKillable = splashHitCollider.GetComponentInParent<Killable>();
+                if (hitKillable != null)
+                {
+                    hitKillable.Damage(splashHitCollider, hit.point, splashHitCollider.transform.position - hit.point, this);
+                }
+                var hitCorpse = splashHitCollider.GetComponentInParent<Corpse>();
+                if (hitCorpse != null)
+                {
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 10f, ForceMode.Force);
+                }
+                var hitEquipWeapon = splashHitCollider.GetComponentInParent<EquipWeapon>();
+                if (hitEquipWeapon != null)
+                {
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 10f, ForceMode.Force);
+                }
+            }
         }
     }
 

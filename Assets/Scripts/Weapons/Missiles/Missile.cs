@@ -87,7 +87,7 @@ public abstract class Missile : MonoBehaviour
 		return Power;
 	}
 
-	public void HandleCollision(RaycastHit hit, Vector3 shootDirection)
+	public virtual void HandleCollision(RaycastHit hit, Vector3 shootDirection)
 	{
 		if (hit.collider != null)
 		{
