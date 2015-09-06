@@ -96,13 +96,10 @@ public class PlayerCamera : MonoBehaviour
 
 	private float shakeInterval = 0;
 
-	private Vector3 prevShakePos = Vector3.zero;
 	private Vector3 curShakePos = Vector3.zero;
 
 	private void Update()
 	{
-		var frac = Mathf.Clamp(1 - (shakeInterval / frequency), 0, 1);
-
 		if (shakeCooldown > 0)
 		{
 			shakeCooldown -= Time.deltaTime;
@@ -110,9 +107,7 @@ public class PlayerCamera : MonoBehaviour
 			shakeInterval -= Time.deltaTime;
 			if (shakeInterval < 0)
 			{
-				prevShakePos = curShakePos;
-				curShakePos = shakeAmplitude * Random.insideUnitSphere;
-				//Cam.transform.localPosition = shakeAmplitude * Random.insideUnitSphere;
+			    curShakePos = shakeAmplitude*Random.onUnitSphere;
 				shakeInterval = frequency;
 			}
 		}
@@ -120,8 +115,8 @@ public class PlayerCamera : MonoBehaviour
 		{
 			curShakePos = Vector3.zero;
 		}
-
-		Cam.transform.localPosition = Vector3.Lerp(prevShakePos, curShakePos, frac);
+        var frac = Mathf.Clamp(1 - (shakeInterval / frequency), 0f, 1f);
+        Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
 	}
 
 	public void Shake(float time, float amplitude)
