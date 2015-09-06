@@ -17,6 +17,7 @@ public class PlayerController : ActorAgent
     private Vehicle vehicle;
 
     // Aiming
+    private Vector3 crosshairAt;
     private Vector3 screenCentre;
     private Vector3 aimAt;
 
@@ -46,7 +47,7 @@ public class PlayerController : ActorAgent
     {
         if (vehicle != null)
         {
-            PlayerCamera.Current.FocusTransform = vehicle.transform;
+            PlayerCamera.Current.PivotTransform = vehicle.transform;
             PlayerCamera.Current.Distance = vehicle.CameraDistance;
             PlayerCamera.Current.Offset = vehicle.CameraOffset;
         }
@@ -65,37 +66,34 @@ public class PlayerController : ActorAgent
         vehicle.SetRun(Input.GetButton("Fire3"));
         vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
-        var pitchYawTarget = vehicle.GetPitchYaw();
-        var pitchTarget = Mathf.Clamp(pitchYawTarget.x, -40f, 80f);
-        PlayerCamera.Current.SetTargetPitchYaw(pitchTarget, pitchYawTarget.y);
-
         // Aiming
-        var targetRay = PlayerCamera.Current.GetComponent<Camera>().ViewportPointToRay(screenCentre);
-        RaycastHit targetHit;
+        crosshairAt = vehicle.transform.position + vehicle.CameraOffset + Quaternion.Euler(Mathf.DeltaAngle(-vehicle.GetPitchYaw().x, 0f), Mathf.DeltaAngle(-vehicle.GetPitchYaw().y, 0f), 0f) * Vector3.forward * MaxAimDistance;
+        var aimRay = new Ray(vehicle.transform.position + vehicle.CameraOffset, crosshairAt - (vehicle.transform.position + vehicle.CameraOffset));
+        RaycastHit aimHit;
         var isTargetInSight = false;
-        if (Physics.Raycast(targetRay, out targetHit, MaxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
+        if (Physics.Raycast(aimRay, out aimHit, MaxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
         {
-            aimAt = targetHit.point;
-            var aimKillable = targetHit.collider.GetComponentInParent<Killable>();
+            crosshairAt = aimHit.point;
+            var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
             if (aimKillable != null)
             {
                 isTargetInSight = true;
             }
         }
-        else
-        {
-            aimAt = targetRay.GetPoint(MaxAimDistance);
-        }
 
-        vehicle.SetAimAt(aimAt);
+        PlayerCamera.Current.SetLookAt(crosshairAt);
+
+        // This is incorrect!
+        vehicle.SetAimAt(crosshairAt);
 
         HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
+
         if (vehicle.IsLive)
         {
             if (isZoomed)
             {
                 PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
-                PlayerCamera.Current.FocusTransform = vehicle.ZoomPoint;
+                PlayerCamera.Current.PivotTransform = vehicle.ZoomPoint;
             }
             else
             {
@@ -143,5 +141,7 @@ public class PlayerController : ActorAgent
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(aimAt, 0.5f);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(crosshairAt, 0.5f);
     }
 }

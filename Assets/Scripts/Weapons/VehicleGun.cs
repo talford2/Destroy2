@@ -348,6 +348,8 @@ public class VehicleGun : MonoBehaviour
                 var curMissile = missiles[curMissileIndex];
                 curMissile.SetShootPoint(shootPointTransforms[j]);
 
+                //shootAtPosition = GetShootAtPosition(shootPointTransforms[j]);
+
                 var convergedShotDirection = shootAtPosition - shootPointTransforms[j].position;
                 var unconvergedShotDirection = shootAtPosition - shootPointsCentre;
                 shootDirection = GetSpreadDirection(convergedShotDirection * shotConvergence + (1f - shotConvergence) * unconvergedShotDirection);
@@ -381,6 +383,22 @@ public class VehicleGun : MonoBehaviour
 
     private int curShootPointIndex;
 
+    private Vector3 GetShootAtPosition(Transform shootPoint)
+    {
+        Vector3 shootAt;
+        var shootRay = new Ray(shootPoint.position, shootPoint.forward);
+        RaycastHit shootHit;
+        if (Physics.Raycast(shootRay, out shootHit, 1000f, ~LayerMask.GetMask("Player", "Sensors")))
+        {
+            shootAt = shootHit.point;
+        }
+        else
+        {
+            shootAt = shootRay.GetPoint(1000f);
+        }
+        return shootAt;
+    }
+
     public void ShootAlternate()
     {
         var shootPointsCentre = GetShootPointsCentre();
@@ -401,6 +419,8 @@ public class VehicleGun : MonoBehaviour
 
             var curMissile = missiles[curMissileIndex];
             curMissile.SetShootPoint(curShootPoint);
+
+            //shootAtPosition = GetShootAtPosition(curShootPoint);
 
             var convergedShotDirection = shootAtPosition - curShootPoint.position;
             var unconvergedShotDirection = shootAtPosition - shootPointsCentre;

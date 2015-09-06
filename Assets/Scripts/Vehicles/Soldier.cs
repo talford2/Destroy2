@@ -194,7 +194,7 @@ public class Soldier : Vehicle
             if (player != null)
             {
                 PlayerCamera.Current.Offset = Vector3.zero;
-                PlayerCamera.Current.FocusTransform = soldierCorpse.FocalPoint;
+                PlayerCamera.Current.PivotTransform = soldierCorpse.FocalPoint;
                 PlayerCamera.Current.Distance = 30f;
             }
         }

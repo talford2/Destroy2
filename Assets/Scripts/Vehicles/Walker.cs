@@ -72,7 +72,6 @@ public class Walker : Vehicle
 
     private void LateUpdate()
     {
-        //yaw += 25f*Time.deltaTime;
         HeadBone.transform.rotation *= Quaternion.Euler(0f, 0f, headYaw);
     }
 
@@ -189,7 +188,7 @@ public class Walker : Vehicle
             if (player != null)
             {
                 PlayerCamera.Current.Offset = Vector3.zero;
-                PlayerCamera.Current.FocusTransform = walkerCorpse.FocalPoint;
+                PlayerCamera.Current.PivotTransform = walkerCorpse.FocalPoint;
                 PlayerCamera.Current.Distance = 30f;
             }
         }
