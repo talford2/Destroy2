@@ -140,14 +140,14 @@ MonoBehaviour:
   GunId: 0
   GunName: Rocket Launcher
   RoundsPerMinute: 100
-  TriggerTime: .200000003
+  TriggerTime: .600000024
   MissilesPerShot: 1
   IsSimultaneous: 0
-  Spread: {x: 1.5, y: 1.5}
+  Spread: {x: 0, y: 0}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
   ClipCapacity: 20
-  ReloadTime: 0
+  ReloadTime: .200000003
   EquipPrefab: {fileID: 0}
   MaxAimDistance: 1000
   RequireTargetLock: 0
@@ -200,7 +200,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: TriggerTime
-      value: .200000003
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilesPerShot
@@ -220,7 +220,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime
-      value: 0
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Muzzle
@@ -232,11 +232,11 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
     - target: {fileID: 0}
       propertyPath: Spread.x
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Spread.y
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_PlayOnAwake

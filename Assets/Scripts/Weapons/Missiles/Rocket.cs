@@ -9,6 +9,7 @@ public class Rocket : Missile
     public float ExplosionRadius;
 
     private MeshRenderer meshRenderer;
+    private ParticleSystem smokeParticleSystem;
     private Vector3 shootDirection;
     private Vector3 initialVelocity;
     private Vector3 obserationPosition;
@@ -19,6 +20,7 @@ public class Rocket : Missile
     private void Awake()
     {
         meshRenderer = GetComponentInChildren<MeshRenderer>();
+        smokeParticleSystem = GetComponentInChildren<ParticleSystem>();
         Stop();
     }
 
@@ -28,12 +30,11 @@ public class Rocket : Missile
         shootDirection = direction.normalized;
         meshRenderer.enabled = true;
 
+        smokeParticleSystem.Play();
+
         initialVelocity = initVelocity;
 
         CheckForHit(transform.position, shootDirection);
-
-        var velocity = initialVelocity + shootDirection * Speed;
-        //transform.Translate(velocity * Time.deltaTime);
 
         base.Shoot(fromPosition, direction, initVelocity);
     }
@@ -125,6 +126,7 @@ public class Rocket : Missile
     public override void Stop()
     {
         meshRenderer.enabled = false;
+        smokeParticleSystem.Stop();
         base.Stop();
     }
 }
