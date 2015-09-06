@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Rocket : Missile
 {
@@ -97,6 +98,10 @@ public class Rocket : Missile
                 Hit(hit);
             }
             var splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors"));
+
+            var hitCorpses = new List<Corpse>();
+            var hitEquipWeapons = new List<EquipWeapon>();
+
             foreach (var splashHitCollider in splashHitColliders)
             {
                 var hitKillable = splashHitCollider.GetComponentInParent<Killable>();
@@ -107,12 +112,20 @@ public class Rocket : Missile
                 var hitCorpse = splashHitCollider.GetComponentInParent<Corpse>();
                 if (hitCorpse != null)
                 {
-                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 10f, ForceMode.Force);
+                    if (!hitCorpses.Contains(hitCorpse))
+                    {
+                        splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
+                        hitCorpses.Add(hitCorpse);
+                    }
                 }
                 var hitEquipWeapon = splashHitCollider.GetComponentInParent<EquipWeapon>();
                 if (hitEquipWeapon != null)
                 {
-                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 10f, ForceMode.Force);
+                    if (!hitEquipWeapons.Contains(hitEquipWeapon))
+                    {
+                        splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 1f, ForceMode.Force);
+                        hitEquipWeapons.Add(hitEquipWeapon);
+                    }
                 }
             }
         }
