@@ -2,92 +2,112 @@
 
 public class PlayerCamera : MonoBehaviour
 {
-    public Transform PivotTransform;
-    public float Distance = 5f;
-    public Vector3 Offset = new Vector3(0f, 2f, 0);
-    public float CatchupSpeed = 25f;
+	public Transform PivotTransform;
+	public float Distance = 5f;
+	public Vector3 Offset = new Vector3(0f, 2f, 0);
+	public float CatchupSpeed = 25f;
 
-    private float distance;
-    private Vector3 focusPosition;
+	public Camera Cam;
 
-    private Vector3 lookAtPosition;
 
-    private CameraMode mode;
+	private float distance;
+	private Vector3 focusPosition;
 
-    private static PlayerCamera current;
+	private Vector3 lookAtPosition;
 
-    public static PlayerCamera Current
-    {
-        get { return current; }
-    }
+	private CameraMode mode;
 
-    private void Awake()
-    {
-        current = this;
-        distance = Distance;
-        mode = CameraMode.Chase;
-    }
+	private static PlayerCamera current;
 
-    public void SetLookAt(Vector3 position)
-    {
-        lookAtPosition = position;
-    }
+	public static PlayerCamera Current
+	{
+		get { return current; }
+	}
 
-    private void LateUpdate()
-    {
-        switch (mode)
-        {
-            case CameraMode.Chase:
-                Chase(Time.deltaTime);
-                break;
-            case CameraMode.Aim:
-                Aim(Time.deltaTime);
-                break;
-        }
-    }
+	private void Awake()
+	{
+		current = this;
+		distance = Distance;
+		mode = CameraMode.Chase;
+	}
 
-    public void SetMode(CameraMode value)
-    {
-        mode = value;
-    }
+	public void SetLookAt(Vector3 position)
+	{
+		lookAtPosition = position;
+	}
 
-    private void Chase(float deltaTime)
-    {
-        if (PivotTransform != null)
-            focusPosition = PivotTransform.position + Offset;
+	private void LateUpdate()
+	{
+		switch (mode)
+		{
+			case CameraMode.Chase:
+				Chase(Time.deltaTime);
+				break;
+			case CameraMode.Aim:
+				Aim(Time.deltaTime);
+				break;
+		}
+	}
 
-        distance = Mathf.Lerp(distance, Distance, deltaTime);
+	public void SetMode(CameraMode value)
+	{
+		mode = value;
+	}
 
-        var camMinY = 1f;
-        RaycastHit camDownHit;
-        if (Physics.Raycast(new Ray(transform.position, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
-            camMinY = camDownHit.point.y + 0.5f;
+	private void Chase(float deltaTime)
+	{
+		if (PivotTransform != null)
+			focusPosition = PivotTransform.position + Offset;
 
-        var lookAngle = Quaternion.LookRotation(lookAtPosition - (focusPosition + Offset));
-        var targetPitch = lookAngle.eulerAngles.x;
-        var targetYaw = lookAngle.eulerAngles.y;
+		distance = Mathf.Lerp(distance, Distance, deltaTime);
 
-        var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
-        targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);
+		var camMinY = 1f;
+		RaycastHit camDownHit;
+		if (Physics.Raycast(new Ray(transform.position, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
+			camMinY = camDownHit.point.y + 0.5f;
 
-        transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
-        transform.LookAt(lookAtPosition);
-    }
+		var lookAngle = Quaternion.LookRotation(lookAtPosition - (focusPosition + Offset));
+		var targetPitch = lookAngle.eulerAngles.x;
+		var targetYaw = lookAngle.eulerAngles.y;
 
-    private void Aim(float deltaTime)
-    {
-        if (PivotTransform != null)
-            focusPosition = PivotTransform.position;
+		var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
+		targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);
 
-        var targetPosition = focusPosition;
+		transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
+		transform.LookAt(lookAtPosition);
+	}
 
-        transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
-        transform.LookAt(lookAtPosition);
-    }
+	private void Aim(float deltaTime)
+	{
+		if (PivotTransform != null)
+			focusPosition = PivotTransform.position;
 
-    public enum CameraMode
-    {
-        Chase,
-        Aim
-    }
+		var targetPosition = focusPosition;
+
+		transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
+		transform.LookAt(lookAtPosition);
+	}
+
+	private float shakeCooldown = 0f;
+	private float shakeAmplitude = 0f;
+	private void Update()
+	{
+		if (shakeCooldown > 0)
+		{
+			Cam.transform.localPosition = shakeAmplitude * Random.insideUnitSphere;
+			shakeCooldown -= Time.deltaTime;
+		}
+	}
+
+	public void Shake(float time, float amplitude)
+	{
+		shakeCooldown = time;
+		shakeAmplitude = amplitude;
+	}
+
+	public enum CameraMode
+	{
+		Chase,
+		Aim
+	}
 }
