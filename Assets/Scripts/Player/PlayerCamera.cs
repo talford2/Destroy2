@@ -90,13 +90,13 @@ public class PlayerCamera : MonoBehaviour
 		transform.LookAt(lookAtPosition);
 	}
 
-	private float shakeCooldown = 0f;
-	private float shakeAmplitude = 0f;
+	private float shakeCooldown;
+	private float shakeAmplitude;
 	private float shakeFrequency = 0.5f;
 
-	private float shakeTotalTime = 0;
+	private float shakeTotalTime;
 
-	private float shakeInterval = 0;
+	private float shakeInterval;
 
 	private Vector3 curShakePos = Vector3.zero;
 
@@ -130,8 +130,7 @@ public class PlayerCamera : MonoBehaviour
 		shakeAmplitude = amplitude;
 		shakeFrequency = frequency;
 
-		curShakePos = amplitude * Random.insideUnitSphere;
-		//prevShakePos = Vector3.zero;
+		curShakePos = amplitude * Random.onUnitSphere;
 	}
 
 	public enum CameraMode
