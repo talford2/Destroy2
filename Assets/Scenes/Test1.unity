@@ -102,7 +102,6 @@ GameObject:
   - 114: {fileID: 25819866}
   - 114: {fileID: 25819865}
   - 114: {fileID: 25819868}
-  - 114: {fileID: 25819867}
   - 114: {fileID: 25819869}
   - 114: {fileID: 25819870}
   m_Layer: 0
@@ -173,11 +172,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 25819859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.4000015, y: 20, z: -31.4400005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 827958855}
+  m_RootOrder: 0
 --- !u!114 &25819865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,21 +233,6 @@ MonoBehaviour:
   heightDensity: 4.57000017
   startDistance: 69.3099976
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
---- !u!114 &25819867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 25819859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353139a3ec2356147983ac89c3a42be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PivotTransform: {fileID: 0}
-  Distance: 15
-  Offset: {x: 0, y: 8, z: 0}
-  CatchupSpeed: 25
 --- !u!114 &25819868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +583,7 @@ Transform:
   - {fileID: 1016540276}
   - {fileID: 1468552526}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1001 &306341051
 Prefab:
   m_ObjectHideFlags: 0
@@ -800,7 +784,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1001 &397616692
 Prefab:
   m_ObjectHideFlags: 0
@@ -1069,6 +1053,51 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &827958853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 827958855}
+  - 114: {fileID: 827958854}
+  m_Layer: 0
+  m_Name: CameraContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &827958854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827958853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353139a3ec2356147983ac89c3a42be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PivotTransform: {fileID: 0}
+  Distance: 15
+  Offset: {x: 0, y: 8, z: 0}
+  CatchupSpeed: 25
+  Cam: {fileID: 25819863}
+--- !u!4 &827958855
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827958853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.6199989, y: 9.53999996, z: -36.0299988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 25819864}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!4 &981627736 stripped
 Transform:
   m_PrefabParentObject: {fileID: 422534, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
