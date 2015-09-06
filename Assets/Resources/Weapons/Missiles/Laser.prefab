@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitEffect: {fileID: 162874, guid: bbe357db5f640564093d273db3175dd9, type: 2}
+  AttachHitEffect: 1
   CanLock: 0
   Speed: 400
   TrailLength: 20
@@ -124,6 +125,10 @@ Prefab:
       propertyPath: HitEffect
       value: 
       objectReference: {fileID: 162874, guid: bbe357db5f640564093d273db3175dd9, type: 2}
+    - target: {fileID: 0}
+      propertyPath: AttachHitEffect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128166}

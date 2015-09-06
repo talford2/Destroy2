@@ -10,6 +10,7 @@ public abstract class Missile : MonoBehaviour
 
 	[Header("Missile")]
 	public GameObject HitEffect;
+    public bool AttachHitEffect;
 	public bool CanLock;
 
 	protected bool isLive;
@@ -47,16 +48,17 @@ public abstract class Missile : MonoBehaviour
 
 	public virtual void Hit(RaycastHit hit)
 	{
-		if (HitEffect != null)
-		{
-			var hitEffect = (GameObject)Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-			hitEffect.transform.parent = hit.collider.transform;
-		}
+	    if (HitEffect != null)
+	    {
+	        var missileHitEffect = (GameObject) Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+	        if (AttachHitEffect)
+	            missileHitEffect.transform.parent = hit.collider.transform;
+	    }
 
-		var hitterEffect = hit.collider.GetComponentInParent<HitEffect>();
-		if (hitterEffect != null)
+	    var surfaceHitEffect = hit.collider.GetComponentInParent<HitEffect>();
+		if (surfaceHitEffect != null)
 		{
-			var hitterEffectInst = (GameObject)Instantiate(hitterEffect.Effect, hit.point, Quaternion.LookRotation(hit.normal));
+			Instantiate(surfaceHitEffect.Effect, hit.point, Quaternion.LookRotation(hit.normal));
 		}
 		Stop();
 	}
@@ -87,7 +89,7 @@ public abstract class Missile : MonoBehaviour
 		return Power;
 	}
 
-	public virtual void HandleCollision(RaycastHit hit, Vector3 shootDirection)
+	public virtual void HandleCollision(RaycastHit hit, Vector3 direction)
 	{
 		if (hit.collider != null)
 		{
@@ -99,17 +101,17 @@ public abstract class Missile : MonoBehaviour
 			if (hitKillable != null)
 			{
 				Debug.Log("HIT COLLIDER: " + hit.collider.name);
-				hitKillable.Damage(hit.collider, hit.point, shootDirection, this);
+				hitKillable.Damage(hit.collider, hit.point, direction, this);
 			}
 		    var hitCorpse = hit.collider.GetComponentInParent<Corpse>();
 		    if (hitCorpse != null)
 		    {
-                hit.collider.attachedRigidbody.AddForceAtPosition(shootDirection.normalized*Power, hit.point, ForceMode.Force);
+                hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized*Power, hit.point, ForceMode.Force);
 		    }
 		    var hitEquipWeapon = hit.collider.GetComponentInParent<EquipWeapon>();
 		    if (hitEquipWeapon!=null)
 		    {
-                hit.collider.attachedRigidbody.AddForceAtPosition(shootDirection.normalized * Power, hit.point, ForceMode.Force);
+                hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized * Power, hit.point, ForceMode.Force);
 		    }
 		}
 	}

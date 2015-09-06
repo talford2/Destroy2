@@ -14,7 +14,7 @@ public class Rocket : Missile
     private Vector3 obserationPosition;
 
     private bool willHit;
-    private RaycastHit hit;
+    private RaycastHit shootHit;
 
     private void Awake()
     {
@@ -51,11 +51,11 @@ public class Rocket : Missile
         if (!willHit)
         {
             var hitRay = new Ray(from, direction);
-            if (Physics.SphereCast(hitRay, Radius, out hit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors")))
+            if (Physics.SphereCast(hitRay, Radius, out shootHit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors")))
             {
                 if (Owner != null)
                 {
-                    var hitKillable = hit.collider.GetComponentInParent<Killable>();
+                    var hitKillable = shootHit.collider.GetComponentInParent<Killable>();
                     if (hitKillable != null)
                     {
                         if (hitKillable != Owner.GetComponent<Killable>())
@@ -70,7 +70,7 @@ public class Rocket : Missile
         }
         else
         {
-            HandleCollision(hit, shootDirection);
+            HandleCollision(shootHit, shootDirection);
             willHit = false;
         }
     }
@@ -89,14 +89,11 @@ public class Rocket : Missile
         }
     }
 
-    public override void HandleCollision(RaycastHit hit, Vector3 shootDirection)
+    public override void HandleCollision(RaycastHit hit, Vector3 direction)
     {
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject != null)
-            {
-                Hit(hit);
-            }
+            Hit(hit);
             var splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors"));
 
             foreach (var splashHitCollider in splashHitColliders)
