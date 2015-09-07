@@ -91,28 +91,33 @@ public abstract class Missile : MonoBehaviour
 
 	public virtual void HandleCollision(RaycastHit hit, Vector3 direction)
 	{
-		if (hit.collider != null)
-		{
-			if (hit.collider.gameObject != null)
-			{
-				Hit(hit);
-			}
-			var hitKillable = hit.collider.GetComponentInParent<Killable>();
-			if (hitKillable != null)
-			{
-				Debug.Log("HIT COLLIDER: " + hit.collider.name);
-				hitKillable.Damage(hit.collider, hit.point, direction, this);
-			}
-		    var hitCorpse = hit.collider.GetComponentInParent<Corpse>();
-		    if (hitCorpse != null)
-		    {
-                hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized*Power, hit.point, ForceMode.Force);
-		    }
-		    var hitEquipWeapon = hit.collider.GetComponentInParent<EquipWeapon>();
-		    if (hitEquipWeapon!=null)
-		    {
+	    if (hit.collider != null)
+	    {
+	        if (hit.collider.gameObject != null)
+	        {
+	            Hit(hit);
+	        }
+	        var hitKillable = hit.collider.GetComponentInParent<Killable>();
+	        if (hitKillable != null)
+	        {
+	            Debug.Log("HIT COLLIDER: " + hit.collider.name);
+	            hitKillable.Damage(hit.collider, hit.point, direction, this);
+	        }
+	        var hitCorpse = hit.collider.GetComponentInParent<Corpse>();
+	        if (hitCorpse != null)
+	        {
+	            hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized*Power, hit.point, ForceMode.Force);
+	        }
+	        var hitEquipWeapon = hit.collider.GetComponentInParent<EquipWeapon>();
+	        if (hitEquipWeapon != null)
+	        {
+	            hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized*Power, hit.point, ForceMode.Force);
+	        }
+	        var hitShootable = hit.collider.GetComponentInParent<Shootable>();
+	        if (hitShootable != null)
+	        {
                 hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized * Power, hit.point, ForceMode.Force);
-		    }
-		}
+	        }
+	    }
 	}
 }

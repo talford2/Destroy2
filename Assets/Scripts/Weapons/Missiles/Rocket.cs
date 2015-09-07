@@ -128,6 +128,11 @@ public class Rocket : Missile
                 {
                     splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, ExplosionUpwardsModifier, ForceMode.Force);
                 }
+                var hitShootable = hit.collider.GetComponentInParent<Shootable>();
+                if (hitShootable != null)
+                {
+                    hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized * Power, hit.point, ForceMode.Force);
+                }
             }
         }
     }
