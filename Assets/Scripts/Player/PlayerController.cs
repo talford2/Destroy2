@@ -75,7 +75,6 @@ public class PlayerController : ActorAgent
 
             if (Physics.SphereCast(aimRay, 0.5f, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
             {
-                aimAt = aimRay.GetPoint(aimHit.distance);
                 var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
                 if (aimKillable != null)
                 {
