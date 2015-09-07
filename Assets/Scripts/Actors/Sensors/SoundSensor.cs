@@ -11,22 +11,6 @@ public class SoundSensor : MonoBehaviour
         opposingTeam = Targeting.GetOpposingTeam(owner.Team);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        var autoAgent = other.GetComponentInParent<ActorAgent>();
-        if (autoAgent != null)
-        {
-            if (!owner.HasTarget())
-            {
-                if (autoAgent.Team == opposingTeam)
-                {
-                    var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
-                    owner.SetTarget(target);
-                }
-            }
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         var agent = other.GetComponentInParent<ActorAgent>();
@@ -42,6 +26,17 @@ public class SoundSensor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-
+        var autoAgent = other.GetComponentInParent<ActorAgent>();
+        if (autoAgent != null)
+        {
+            if (!owner.HasTarget())
+            {
+                if (autoAgent.Team == opposingTeam)
+                {
+                    var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
+                    owner.SetTarget(target);
+                }
+            }
+        }
     }
 }

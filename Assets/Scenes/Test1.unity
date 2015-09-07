@@ -1699,7 +1699,7 @@ Prefab:
     - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
       propertyPath: WeaponPrefab
       value: 
-      objectReference: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+      objectReference: {fileID: 11413606, guid: 4d301451dbcae5540a540230a5d60743,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de324110515229047a7a21b5cf07e603, type: 2}
