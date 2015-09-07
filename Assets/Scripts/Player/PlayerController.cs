@@ -59,6 +59,9 @@ public class PlayerController : ActorAgent
 
     private void Update()
     {
+        // Aim Camera
+        PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+
         // Movement
         if (vehicle != null)
         {
@@ -66,8 +69,6 @@ public class PlayerController : ActorAgent
             var isZoomed = Input.GetButton("Fire2");
             vehicle.SetRun(Input.GetButton("Fire3"));
             vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
-
-            PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
 
             // Aiming
             maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
