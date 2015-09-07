@@ -91,6 +91,12 @@ public class Rocket : Missile
         }
     }
 
+    private float GetSplashDamage(Vector3 explosionCentre, Vector3 atPosition)
+    {
+        var fromCentre = atPosition - explosionCentre;
+        return Damage*(ExplosionRadius * ExplosionRadius - fromCentre.sqrMagnitude) / (ExplosionRadius * ExplosionRadius);
+    }
+
     public override void HandleCollision(RaycastHit hit, Vector3 direction)
     {
         if (hit.collider != null)
@@ -103,7 +109,9 @@ public class Rocket : Missile
                 var hitKillable = splashHitCollider.GetComponentInParent<Killable>();
                 if (hitKillable != null)
                 {
-                    hitKillable.Damage(splashHitCollider, hit.point, splashHitCollider.transform.position - hit.point, this);
+                    var splashDamage = GetSplashDamage(hit.point, splashHitCollider.transform.position);
+                    Debug.Log("SPLASH DAMAGE: " + splashDamage);
+                    hitKillable.Damage(splashHitCollider, hit.point, splashHitCollider.transform.position - hit.point, ExplosionPower, splashDamage, GetOwner());
                 }
             }
 
