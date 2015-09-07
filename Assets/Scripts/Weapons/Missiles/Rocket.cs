@@ -6,6 +6,7 @@ public class Rocket : Missile
     public float Speed;
     public float ExplosionPower;
     public float ExplosionRadius;
+    public float ExplosionUpwardsModifier;
     public GameObject SmokeEffect;
 
     private MeshRenderer meshRenderer;
@@ -112,12 +113,12 @@ public class Rocket : Missile
                 var hitCorpse = splashHitCollider.GetComponentInParent<Corpse>();
                 if (hitCorpse != null)
                 {
-                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 5f, ForceMode.Force);
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, ExplosionUpwardsModifier, ForceMode.Force);
                 }
                 var hitEquipWeapon = splashHitCollider.GetComponentInParent<EquipWeapon>();
                 if (hitEquipWeapon != null)
                 {
-                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, 5f, ForceMode.Force);
+                    splashHitCollider.attachedRigidbody.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius, ExplosionUpwardsModifier, ForceMode.Force);
                 }
             }
         }

@@ -1694,12 +1694,12 @@ Prefab:
     - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
       propertyPath: VehiclePrefab
       value: 
-      objectReference: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00,
+      objectReference: {fileID: 11421088, guid: 38c445fd579c1964fa782845cb78f46d,
         type: 2}
     - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
       propertyPath: WeaponPrefab
       value: 
-      objectReference: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16,
+      objectReference: {fileID: 11413606, guid: 4d301451dbcae5540a540230a5d60743,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de324110515229047a7a21b5cf07e603, type: 2}
