@@ -12,7 +12,6 @@ public class PlayerCamera : MonoBehaviour
 
 	private float distance;
 	private Vector3 pivotPosition;
-
 	private Vector3 lookAtPosition;
 
 	private CameraMode mode;
@@ -82,16 +81,12 @@ public class PlayerCamera : MonoBehaviour
 		if (Physics.Raycast(new Ray(transform.position, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
 			camMinY = camDownHit.point.y + 0.5f;
 
-		var lookAngle = Quaternion.LookRotation(lookAtPosition - (pivotPosition + Offset));
-		var targetPitch = lookAngle.eulerAngles.x;
-		var targetYaw = lookAngle.eulerAngles.y;
+		var targetLookAngle = Quaternion.LookRotation(lookAtPosition - (pivotPosition + Offset));
+        var targetPitch = targetLookAngle.eulerAngles.x;
+        var targetYaw = targetLookAngle.eulerAngles.y;
 
-		var targetPosition = pivotPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
-		targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);
-
-		transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
-		var targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
-		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, CatchupSpeed * deltaTime);
+	    transform.position = pivotPosition + Quaternion.Euler(targetPitch, targetYaw, 0)*Vector3.forward*-distance;
+        transform.LookAt(lookAtPosition);
 	}
 
 	private void Aim(float deltaTime)
@@ -99,9 +94,7 @@ public class PlayerCamera : MonoBehaviour
 		if (PivotTransform != null)
 			pivotPosition = PivotTransform.position;
 
-		var targetPosition = pivotPosition;
-
-		transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
+	    transform.position = pivotPosition;
 		transform.LookAt(lookAtPosition);
 	}
 
