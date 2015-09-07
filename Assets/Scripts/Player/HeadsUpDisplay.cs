@@ -3,60 +3,72 @@ using UnityEngine.UI;
 
 public class HeadsUpDisplay : MonoBehaviour
 {
-    public Image Crosshair;
+	public Image Crosshair;
 
-    private bool isTargetInSight;
-    private bool isFadeOutCrosshair;
-    private float fadeOutTime;
-    private float fadeOutCooldown;
+	public Image Damage;
 
-    private static HeadsUpDisplay current;
+	private bool isTargetInSight;
+	private bool isFadeOutCrosshair;
+	private float fadeOutTime;
+	private float fadeOutCooldown;
 
-    public static HeadsUpDisplay Current
-    {
-        get { return current; }
-    }
+	private static HeadsUpDisplay current;
 
-    private void Awake()
-    {
-        isTargetInSight = false;
-        isFadeOutCrosshair = false;
-        current = this;
-    }
+	public static HeadsUpDisplay Current
+	{
+		get { return current; }
+	}
 
-    public void SetCrosshair(Sprite value)
-    {
-        Crosshair.sprite = value;
+	private void Awake()
+	{
+		isTargetInSight = false;
+		isFadeOutCrosshair = false;
+		current = this;
+	}
 
-    }
+	public void SetCrosshair(Sprite value)
+	{
+		Crosshair.sprite = value;
+	}
 
-    private void Update()
-    {
-        Crosshair.color = isTargetInSight ? Color.red : Color.white;
-        if (isFadeOutCrosshair)
-        {
-            if (fadeOutCooldown > 0f)
-            {
-                fadeOutCooldown -= Time.deltaTime;
-                Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeOutCooldown/fadeOutTime);
-                if (fadeOutCooldown < 0f)
-                {
-                    Crosshair.enabled = false;
-                }
-            }
-        }
+	public float DamageCooldown = 0;
+	private void Update()
+	{
+		Crosshair.color = isTargetInSight ? Color.red : Color.white;
+		if (isFadeOutCrosshair)
+		{
+			if (fadeOutCooldown > 0f)
+			{
+				fadeOutCooldown -= Time.deltaTime;
+				Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeOutCooldown / fadeOutTime);
+				if (fadeOutCooldown < 0f)
+				{
+					Crosshair.enabled = false;
+				}
+			}
+		}
+		
+		if (DamageCooldown > 0)
+		{
+			DamageCooldown -= Time.deltaTime;
+		}
+		if (DamageCooldown < 0)
+		{
+			DamageCooldown = 0;
+		}
+		
+		Damage.color = new Color(1, 1, 1, Mathf.Clamp(DamageCooldown, 0, 1));
+	}
 
-    }
+	public void SetTargetInSight(bool value)
+	{
+		isTargetInSight = value;
+	}
 
-    public void SetTargetInSight(bool value)
-    {
-        isTargetInSight = value;
-    }
-
-    public void FadeOutCrosshair(float time)
-    {
-        fadeOutTime = time;
-        fadeOutCooldown = time;
-        isFadeOutCrosshair = true;
-    }
+	public void FadeOutCrosshair(float time)
+	{
+		fadeOutTime = time;
+		fadeOutCooldown = time;
+		isFadeOutCrosshair = true;
+	}
 }
