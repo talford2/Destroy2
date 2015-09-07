@@ -117,8 +117,6 @@ public class PlayerController : ActorAgent
         else
         {
             PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
-            pitchYaw += new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-            aimAt = pivotPoint + Quaternion.Euler(Mathf.DeltaAngle(-pitchYaw.x, 0f), Mathf.DeltaAngle(-pitchYaw.y, 0f), 0f) * Vector3.forward * maxAimDistance;
         }
 
         PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));

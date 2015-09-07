@@ -58,6 +58,7 @@ public class NpcSoldierController : AutonomousAgent
         target = value;
         if (value != null)
         {
+            Debug.Log("SET TARGET TO: " + value.name);
             state = NpcSoldierState.Chase;
         }
     }
@@ -136,20 +137,20 @@ public class NpcSoldierController : AutonomousAgent
 
         steerForce += 1f*groupForces.SeparationForce;
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
 
         steerForce += 0.3f*groupForces.CohesiveForce;
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
 
         steerForce += 0.3f*groupForces.AlignmentForce;
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
 
         // Destination Force
         steerForce += 1f*steering.SeekForce(path[curPathIndex]);
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
 
         return steerForce.normalized;
     }
@@ -222,20 +223,20 @@ public class NpcSoldierController : AutonomousAgent
 
         steerForce += 1f*groupForces.SeparationForce;
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
 
         steerForce += 0.3f*groupForces.CohesiveForce;
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
 
         steerForce += 0.3f*groupForces.AlignmentForce;
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
 
         // Destination Force
         steerForce += 1f*steering.SeekForce(path[curPathIndex]);
         if (steerForce.sqrMagnitude > 1f)
-            return steerForce;
+            return steerForce.normalized;
         return steerForce.normalized;
     }
 
@@ -333,11 +334,9 @@ public class NpcSoldierController : AutonomousAgent
         {
             if (targetCandidate.Team == Targeting.GetOpposingTeam(Team))
             {
-                Debug.Log("CHASE ATTACKER!");
                 target = targetCandidate.GetVehicle();
                 SetTarget(target);
                 AlertNeighbours(target);
-                state = NpcSoldierState.Chase;
             }
         }
     }
