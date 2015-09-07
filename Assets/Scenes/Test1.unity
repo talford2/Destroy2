@@ -1080,10 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353139a3ec2356147983ac89c3a42be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PivotTransform: {fileID: 0}
-  Distance: 15
-  Offset: {x: 0, y: 8, z: 0}
-  CatchupSpeed: 25
+  DistanceCatupSpeed: 15
   Cam: {fileID: 25819863}
 --- !u!4 &827958855
 Transform:
@@ -1699,6 +1696,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11421088, guid: 38c445fd579c1964fa782845cb78f46d,
         type: 2}
+    - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
+      propertyPath: WeaponPrefab
+      value: 
+      objectReference: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de324110515229047a7a21b5cf07e603, type: 2}
   m_IsPrefabParent: 0
@@ -2109,6 +2111,11 @@ Prefab:
       propertyPath: Team
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11432188, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: WeaponPrefab
+      value: 
+      objectReference: {fileID: 11413606, guid: ee7c3f491b2b669459c10deb3bda578a,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
   m_IsPrefabParent: 0

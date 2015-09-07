@@ -3,6 +3,7 @@
 public class NpcSoldierController : AutonomousAgent
 {
     public Vehicle VehiclePrefab;
+    public VehicleGun WeaponPrefab;
 
     // Navigation
     private SteeringBehaviour steering;
@@ -40,10 +41,13 @@ public class NpcSoldierController : AutonomousAgent
     {
         vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
-        //vehicle.gameObject.layer = LayerMask.NameToLayer("Player");
         vehicle.OnVehicleDamage += OnVehicleDamaged;
         vehicle.OnVehicleDestroyed += OnVehicleDestroyed;
         vehicle.Initialize();
+
+        if (WeaponPrefab != null)
+            vehicle.SetPrimaryWeapon(WeaponPrefab);
+
         Targeting.AddTargetable(Team, vehicle);
         var neighrbourSensor = GetComponentInChildren<NeighbourSensor>();
         if (neighrbourSensor != null)
@@ -269,16 +273,14 @@ public class NpcSoldierController : AutonomousAgent
 
         var chaseForce = GetChaseForce();
 
-        var pitchYaw = GetSteerToPoint(path[curPathIndex]);
-        vehicle.SetPitchYaw(0f, pitchYaw.y);
-        var forward = Vector3.Dot(chaseForce, vehicle.transform.forward);
-        var strafe = Vector3.Dot(chaseForce, vehicle.transform.right);
-        vehicle.SetMove(forward, strafe);
         Vehicle targetVehicle = null;
         if (target != null)
             targetVehicle = target.GetComponent<Vehicle>();
         if (targetVehicle != null)
         {
+            var pitchYaw = GetSteerToPoint(targetVehicle.transform.position);
+            vehicle.SetPitchYaw(0f, pitchYaw.y);
+
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
             if (toTarget.sqrMagnitude < 50f*50f)
             {
@@ -321,6 +323,10 @@ public class NpcSoldierController : AutonomousAgent
             vehicle.ReleasePrimaryWeapon();
             state = NpcSoldierState.Wander;
         }
+
+        var forward = Vector3.Dot(chaseForce, vehicle.transform.forward);
+        var strafe = Vector3.Dot(chaseForce, vehicle.transform.right);
+        vehicle.SetMove(forward, strafe);
     }
 
     private float GetAimRadius(float distanceSquared)
