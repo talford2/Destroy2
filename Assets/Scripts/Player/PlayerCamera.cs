@@ -67,6 +67,11 @@ public class PlayerCamera : MonoBehaviour
 		mode = value;
 	}
 
+    public CameraMode GetMode()
+    {
+        return mode;
+    }
+
 	private void Chase(float deltaTime)
 	{
 		if (PivotTransform != null)
