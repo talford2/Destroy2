@@ -47,22 +47,21 @@ public class PlayerCamera : MonoBehaviour
         pitchYaw.y += deltaYaw;
     }
 
-
     public void SetPivot(Transform pivot, Vector3 pivotOffset, float pivotDistance)
     {
         offset = pivotOffset;
         targetDistance = pivotDistance;
         if (pivot != pivotTransform)
         {
-            var aimRay = Cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-            RaycastHit aimHit;
-            var aimAt = aimRay.GetPoint(1000f);
-            if (Physics.Raycast(aimRay, out aimHit, 1000f, ~LayerMask.GetMask("Player", "Sensors")))
+            var lookRay = Cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            RaycastHit lookHit;
+            var lookAt = lookRay.GetPoint(1000f);
+            if (Physics.Raycast(lookRay, out lookHit, 1000f, ~LayerMask.GetMask("Player", "Sensors")))
             {
-                aimAt = aimHit.point;
+                lookAt = lookHit.point;
             }
             var pivotFrom = pivot.position + offset + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0)*Vector3.forward*-distance;
-            var angleTo = Quaternion.LookRotation(aimAt - pivotFrom).eulerAngles;
+            var angleTo = Quaternion.LookRotation(lookAt - pivotFrom).eulerAngles;
             pitchYaw = new Vector2(angleTo.x, angleTo.y);
             pivotTransform = pivot;
         }
