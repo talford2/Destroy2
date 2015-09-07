@@ -50,6 +50,10 @@ public class Soldier : Vehicle
 
     public override void LiveUpdate()
     {
+        var lookAngle = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre());
+        pitchTarget = Mathf.LerpAngle(pitchTarget, lookAngle.eulerAngles.x, 5f*Time.deltaTime);
+        yawTarget = Mathf.LerpAngle(yawTarget, lookAngle.eulerAngles.y, 5f * Time.deltaTime);
+
         fallSpeed += -9.81f * Time.deltaTime;
         velocity = Vector3.up * fallSpeed;
         controller.Move(velocity * Time.deltaTime);

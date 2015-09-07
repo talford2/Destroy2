@@ -56,6 +56,10 @@ public class Walker : Vehicle
 
 	public override void LiveUpdate()
 	{
+        var lookAngle = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre());
+        pitchTarget = lookAngle.eulerAngles.x;
+        yawTarget = lookAngle.eulerAngles.y;
+
 		fallSpeed += -9.81f * Time.deltaTime;
 		controller.Move(velocity * Time.deltaTime);
 
@@ -64,6 +68,7 @@ public class Walker : Vehicle
 		var turnSpeed = 2f * speed;
 		var strafeAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget + strafeAngle, 0f), turnSpeed * Time.deltaTime);
+
 		headYaw = Mathf.LerpAngle(headYaw, yawTarget - transform.eulerAngles.y, 5f * Time.deltaTime);
 		meshAnimator.SetFloat("Speed", speed);
 	}

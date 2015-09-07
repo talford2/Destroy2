@@ -65,7 +65,7 @@ public class PlayerController : ActorAgent
         // Movement
         if (vehicle != null)
         {
-            vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+            //vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
             var isZoomed = Input.GetButton("Fire2");
             vehicle.SetRun(Input.GetButton("Fire3"));
             vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
