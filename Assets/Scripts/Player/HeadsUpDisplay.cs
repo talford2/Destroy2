@@ -47,17 +47,17 @@ public class HeadsUpDisplay : MonoBehaviour
 				}
 			}
 		}
-
-		DamageCooldown -= Time.deltaTime;
-
+		
 		if (DamageCooldown > 0)
 		{
-			Damage.color = new Color(1, 1, 1, DamageCooldown);
+			DamageCooldown -= Time.deltaTime;
 		}
-		else
+		if (DamageCooldown < 0)
 		{
 			DamageCooldown = 0;
 		}
+		
+		Damage.color = new Color(1, 1, 1, Mathf.Clamp(DamageCooldown, 0, 1));
 	}
 
 	public void SetTargetInSight(bool value)
