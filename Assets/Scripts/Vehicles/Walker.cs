@@ -190,7 +190,7 @@ public class Walker : Vehicle
 		killPosition = position;
 		killDirection = direction;
 		killPower = power;
-		OnDamage(attacker);
+        OnDamage(hitCollider, position, direction, power, damage, attacker);
 		base.Damage(hitCollider, position, direction, power, damage, attacker);
 	}
 
@@ -199,7 +199,7 @@ public class Walker : Vehicle
 		killPosition = position;
 		killDirection = direction;
 		killPower = missile.GetPower();
-		OnDamage(missile.GetOwner());
+        OnDamage(hitCollider, position, direction, missile.GetPower(), missile.GetDamage(), missile.GetOwner());
 		base.Damage(hitCollider, position, direction, missile);
 	}
 

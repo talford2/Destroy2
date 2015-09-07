@@ -8,7 +8,7 @@ public abstract class Vehicle : Killable
     public Vector3 CameraOffset;
     public Transform ZoomPoint;
 
-    public delegate void OnVehicleDamageEvent(GameObject attacker);
+    public delegate void OnVehicleDamageEvent(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker);
     public event OnVehicleDamageEvent OnVehicleDamage;
 
     public delegate void OnVehicleDestroyedEvent();
@@ -38,11 +38,11 @@ public abstract class Vehicle : Killable
 
     public abstract void ReleasePrimaryWeapon();
 
-    public void OnDamage(GameObject attacker)
+    public void OnDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
         if (OnVehicleDamage != null)
         {
-            OnVehicleDamage(attacker);
+            OnVehicleDamage(hitCollider, position, direction, power, damage, attacker);
         }
     }
 

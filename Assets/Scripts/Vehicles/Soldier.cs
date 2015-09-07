@@ -163,7 +163,7 @@ public class Soldier : Vehicle
         killPosition = position;
         killDirection = direction;
         killPower = power;
-        OnDamage(attacker);
+        OnDamage(hitCollider, position, direction, power, damage, attacker);
         if (hitCollider == HeadCollider)
         {
             Debug.Log("HEAD DAMAGE!");
@@ -180,7 +180,7 @@ public class Soldier : Vehicle
         killPosition = position;
         killDirection = direction;
         killPower = missile.GetPower();
-        OnDamage(missile.GetOwner());
+        OnDamage(hitCollider, position, direction, missile.GetPower(), missile.GetDamage(), missile.GetOwner());
         if (hitCollider == HeadCollider)
         {
             Debug.Log("HEADSHOT!");

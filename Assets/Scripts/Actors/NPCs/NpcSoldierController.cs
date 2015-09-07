@@ -338,7 +338,7 @@ public class NpcSoldierController : AutonomousAgent
         return 2f;
     }
 
-    private void OnVehicleDamaged(GameObject attacker)
+    private void OnVehicleDamaged(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
         var targetCandidate = attacker.GetComponentInParent<ActorAgent>();
         if (targetCandidate != null)

@@ -45,7 +45,7 @@ public class PlayerController : ActorAgent
 		Targeting.AddTargetable(Team, vehicle);
 	}
 
-	private void OnVehicleDamage(GameObject attacker)
+    private void OnVehicleDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
 	{
 		HeadsUpDisplay.Current.DamageCooldown = 1;
 	}
