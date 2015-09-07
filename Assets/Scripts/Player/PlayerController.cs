@@ -69,7 +69,7 @@ public class PlayerController : ActorAgent
             pivotPoint = vehicle.transform.position + vehicle.CameraOffset;
             pitchYaw = vehicle.GetPitchYaw();
 
-            aimAt = pivotPoint + Quaternion.Euler(Mathf.DeltaAngle(-pitchYaw.x, 0f), Mathf.DeltaAngle(-pitchYaw.y, 0f), 0f)*Vector3.forward*maxAimDistance;
+            aimAt = pivotPoint + Quaternion.Euler(-pitchYaw.x, -pitchYaw.y, 0f)*Vector3.forward*maxAimDistance;
             var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
             RaycastHit aimHit;
             var isTargetInSight = false;
@@ -88,7 +88,6 @@ public class PlayerController : ActorAgent
             vehicle.SetAimAt(aimAt);
 
             HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
-
 
             if (isZoomed)
             {
