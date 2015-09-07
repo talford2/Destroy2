@@ -94,7 +94,7 @@ public class Rocket : Missile
     private float GetSplashDamage(Vector3 explosionCentre, Vector3 atPosition)
     {
         var fromCentre = atPosition - explosionCentre;
-        return Damage*(ExplosionRadius * ExplosionRadius - fromCentre.sqrMagnitude) / (ExplosionRadius * ExplosionRadius);
+        return Damage*Mathf.Clamp((ExplosionRadius * ExplosionRadius - fromCentre.sqrMagnitude) / (ExplosionRadius * ExplosionRadius), 0f, 1f);
     }
 
     public override void HandleCollision(RaycastHit hit, Vector3 direction)
