@@ -198,9 +198,8 @@ public class Soldier : Vehicle
             var player = GetComponentInParent<PlayerController>();
             if (player != null)
             {
-                PlayerCamera.Current.Offset = Vector3.zero;
-                PlayerCamera.Current.PivotTransform = soldierCorpse.FocalPoint;
-                PlayerCamera.Current.Distance = 30f;
+                PlayerCamera.Current.DistanceCatupSpeed = 1f;
+                PlayerCamera.Current.SetPivot(soldierCorpse.FocalPoint, Vector3.zero, 30f);
             }
         }
 

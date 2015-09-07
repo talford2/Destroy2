@@ -44,9 +44,7 @@ public class PlayerController : ActorAgent
     {
         if (vehicle != null)
         {
-            PlayerCamera.Current.PivotTransform = vehicle.transform;
-            PlayerCamera.Current.Distance = vehicle.CameraDistance;
-            PlayerCamera.Current.Offset = vehicle.CameraOffset;
+            PlayerCamera.Current.SetPivot(vehicle.transform, vehicle.CameraOffset, vehicle.CameraDistance);
         }
     }
 
@@ -95,7 +93,7 @@ public class PlayerController : ActorAgent
             if (isZoomed)
             {
                 PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
-                PlayerCamera.Current.PivotTransform = vehicle.ZoomPoint;
+                PlayerCamera.Current.SetPivot(vehicle.ZoomPoint, Vector3.zero, 0f);
             }
             else
             {
@@ -121,10 +119,17 @@ public class PlayerController : ActorAgent
             aimAt = pivotPoint + Quaternion.Euler(Mathf.DeltaAngle(-pitchYaw.x, 0f), Mathf.DeltaAngle(-pitchYaw.y, 0f), 0f) * Vector3.forward * maxAimDistance;
         }
 
-        PlayerCamera.Current.SetLookAt(aimAt);
+        PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        //PlayerCamera.Current.SetLookAt(aimAt);
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
             Debug.Break();
+
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            vehicle.Damage(null, Vector3.zero, Vector3.zero, 0f, 1000f, null);
+            Debug.Log("KILL PLAYER!");
+        }
     }
 
     public override Vehicle GetVehicle()

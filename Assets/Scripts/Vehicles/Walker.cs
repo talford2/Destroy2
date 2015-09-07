@@ -207,9 +207,8 @@ public class Walker : Vehicle
 			var player = GetComponentInParent<PlayerController>();
 			if (player != null)
 			{
-				PlayerCamera.Current.Offset = Vector3.zero;
-				PlayerCamera.Current.PivotTransform = walkerCorpse.FocalPoint;
-				PlayerCamera.Current.Distance = 30f;
+			    PlayerCamera.Current.DistanceCatupSpeed = 1f;
+				PlayerCamera.Current.SetPivot(walkerCorpse.FocalPoint, Vector3.zero, 30f);
 			}
 		}
 

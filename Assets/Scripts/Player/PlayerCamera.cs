@@ -2,21 +2,21 @@
 
 public class PlayerCamera : MonoBehaviour
 {
-	public Transform PivotTransform;
-	public float Distance = 5f;
-	public Vector3 Offset = new Vector3(0f, 2f, 0);
-	public float CatchupSpeed = 25f;
+    public float DistanceCatupSpeed = 15f;
+    public Camera Cam;
 
-	public Camera Cam;
+    private Transform pivotTransform;
+    private float targetDistance = 5f;
+    private Vector3 offset = new Vector3(0f, 2f, 0);
 
+    private float distance;
+    private Vector3 pivotPosition;
 
-	private float distance;
-	private Vector3 pivotPosition;
-	private Vector3 lookAtPosition;
+    private Vector2 pitchYaw;
 
-	private CameraMode mode;
+    private CameraMode mode;
 
-	private static PlayerCamera current;
+    private static PlayerCamera current;
 
     // Shake
     private float shakeCooldown;
@@ -29,97 +29,119 @@ public class PlayerCamera : MonoBehaviour
     private float shakeMinDistance;
     private float shakeMaxDistance;
 
-	public static PlayerCamera Current
-	{
-		get { return current; }
-	}
+    public static PlayerCamera Current
+    {
+        get { return current; }
+    }
 
-	private void Awake()
-	{
-		current = this;
-		distance = Distance;
-		mode = CameraMode.Chase;
-	}
+    private void Awake()
+    {
+        current = this;
+        distance = targetDistance;
+        mode = CameraMode.Chase;
+    }
 
-	public void SetLookAt(Vector3 position)
-	{
-		lookAtPosition = position;
-	}
+    public void AddPitchYaw(float deltaPitch, float deltaYaw)
+    {
+        pitchYaw.x -= deltaPitch;
+        pitchYaw.y += deltaYaw;
+    }
 
-	private void LateUpdate()
-	{
-		switch (mode)
-		{
-			case CameraMode.Chase:
-				Chase(Time.deltaTime);
-				break;
-			case CameraMode.Aim:
-				Aim(Time.deltaTime);
-				break;
-		}
-	}
 
-	public void SetMode(CameraMode value)
-	{
-		mode = value;
-	}
+    public void SetPivot(Transform pivot, Vector3 pivotOffset, float pivotDistance)
+    {
+        offset = pivotOffset;
+        targetDistance = pivotDistance;
+        if (pivot != pivotTransform)
+        {
+            var aimRay = Cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            RaycastHit aimHit;
+            var aimAt = aimRay.GetPoint(1000f);
+            if (Physics.Raycast(aimRay, out aimHit, 1000f, ~LayerMask.GetMask("Player", "Sensors")))
+            {
+                aimAt = aimHit.point;
+            }
+            var pivotFrom = pivot.position + offset + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0)*Vector3.forward*-distance;
+            var angleTo = Quaternion.LookRotation(aimAt - pivotFrom).eulerAngles;
+            pitchYaw = new Vector2(angleTo.x, angleTo.y);
+            pivotTransform = pivot;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        switch (mode)
+        {
+            case CameraMode.Chase:
+                Chase(Time.deltaTime);
+                break;
+            case CameraMode.Aim:
+                Aim(Time.deltaTime);
+                break;
+        }
+    }
+
+    public void SetMode(CameraMode value)
+    {
+        mode = value;
+    }
 
     public CameraMode GetMode()
     {
         return mode;
     }
 
-	private void Chase(float deltaTime)
-	{
-		if (PivotTransform != null)
-			pivotPosition = PivotTransform.position + Offset;
+    private void Chase(float deltaTime)
+    {
+        if (pivotTransform != null)
+            pivotPosition = pivotTransform.position + offset;
 
-		distance = Mathf.Lerp(distance, Distance, deltaTime);
+        distance = Mathf.Lerp(distance, targetDistance, DistanceCatupSpeed*deltaTime);
 
-		var camMinY = 1f;
-		RaycastHit camDownHit;
-		if (Physics.Raycast(new Ray(transform.position, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
-			camMinY = camDownHit.point.y + 0.5f;
+        var chasePosition = pivotPosition + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0)*Vector3.forward*-distance;
 
-		var targetLookAngle = Quaternion.LookRotation(lookAtPosition - (pivotPosition + Offset));
-        var targetPitch = targetLookAngle.eulerAngles.x;
-        var targetYaw = targetLookAngle.eulerAngles.y;
+        var camMinY = 0.5f;
+        RaycastHit camDownHit;
+        if (Physics.Raycast(new Ray(chasePosition, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
+            camMinY = camDownHit.point.y + 0.5f;
 
-	    transform.position = pivotPosition + Quaternion.Euler(targetPitch, targetYaw, 0)*Vector3.forward*-distance;
-        transform.LookAt(lookAtPosition);
-	}
+        transform.position = new Vector3(chasePosition.x, Mathf.Clamp(chasePosition.y, camMinY, 100f), chasePosition.z);
+        transform.rotation = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
+    }
 
-	private void Aim(float deltaTime)
-	{
-		if (PivotTransform != null)
-			pivotPosition = PivotTransform.position;
+    private void Aim(float deltaTime)
+    {
+        if (pivotTransform != null)
+            pivotPosition = pivotTransform.position + offset;
 
-	    transform.position = pivotPosition;
-		transform.LookAt(lookAtPosition);
-	}
+        distance = Mathf.Lerp(distance, 0f, DistanceCatupSpeed*deltaTime);
 
-	private void Update()
-	{
-		var totalFrac = shakeCooldown / shakeTotalTime;
+        transform.position = pivotPosition + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0)*Vector3.forward*-distance;
+        transform.rotation = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
+    }
 
-		if (shakeCooldown > 0)
-		{
-			shakeCooldown -= Time.deltaTime;
+    private void Update()
+    {
+        var totalFrac = shakeCooldown/shakeTotalTime;
 
-			shakeInterval -= Time.deltaTime;
-			if (shakeInterval < 0)
-			{
-                curShakePos = GetAmplitude(shakeAt) * totalFrac * Random.onUnitSphere;
-				shakeInterval = shakeFrequency;
-			}
-		}
-		else
-		{
-			curShakePos = Vector3.zero;
-		}
-		var frac = Mathf.Clamp(1 - (shakeInterval / shakeFrequency), 0f, 1f);
-		Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
-	}
+        if (shakeCooldown > 0)
+        {
+            shakeCooldown -= Time.deltaTime;
+
+            shakeInterval -= Time.deltaTime;
+            if (shakeInterval < 0)
+            {
+                curShakePos = GetAmplitude(shakeAt)*totalFrac*Random.onUnitSphere;
+                shakeInterval = shakeFrequency;
+            }
+        }
+        else
+        {
+            curShakePos = Vector3.zero;
+        }
+        var frac = Mathf.Clamp(1 - (shakeInterval/shakeFrequency), 0f, 1f);
+        Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
+    }
 
     private float GetAmplitude(Vector3 position)
     {
@@ -130,21 +152,21 @@ public class PlayerCamera : MonoBehaviour
     }
 
     public void Shake(Vector3 atPosition, float minDistance, float maxDistance, float time, float amplitude, float frequency)
-	{
-	    shakeAt = atPosition;
+    {
+        shakeAt = atPosition;
         shakeMinDistance = minDistance;
-	    shakeMaxDistance = maxDistance;
-		shakeTotalTime = time;
-		shakeCooldown = time;
-		shakeAmplitude = amplitude;
-		shakeFrequency = frequency;
+        shakeMaxDistance = maxDistance;
+        shakeTotalTime = time;
+        shakeCooldown = time;
+        shakeAmplitude = amplitude;
+        shakeFrequency = frequency;
 
-		curShakePos = GetAmplitude(atPosition) * Random.onUnitSphere;
-	}
+        curShakePos = GetAmplitude(atPosition)*Random.onUnitSphere;
+    }
 
-	public enum CameraMode
-	{
-		Chase,
-		Aim
-	}
+    public enum CameraMode
+    {
+        Chase,
+        Aim
+    }
 }
