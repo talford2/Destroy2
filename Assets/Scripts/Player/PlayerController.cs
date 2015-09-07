@@ -69,12 +69,12 @@ public class PlayerController : ActorAgent
             pivotPoint = vehicle.transform.position + vehicle.CameraOffset;
             pitchYaw = vehicle.GetPitchYaw();
 
-            aimAt = pivotPoint + Quaternion.Euler(-pitchYaw.x, -pitchYaw.y, 0f)*Vector3.forward*maxAimDistance;
+            aimAt = pivotPoint + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f)*Vector3.forward*maxAimDistance;
             var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
             RaycastHit aimHit;
             var isTargetInSight = false;
 
-            if (Physics.Raycast(aimRay, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
+            if (Physics.SphereCast(aimRay, 1f, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
             {
                 aimAt = aimHit.point;
                 var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
@@ -110,6 +110,9 @@ public class PlayerController : ActorAgent
                 vehicle.ReleasePrimaryWeapon();
             }
             Heading = vehicle.transform.forward;
+
+            if (Input.GetKeyUp(KeyCode.Q))
+                vehicle.Damage(null, Vector3.zero, Vector3.zero, 0f, 1000f, null);
         }
         else
         {
@@ -119,16 +122,9 @@ public class PlayerController : ActorAgent
         }
 
         PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-        //PlayerCamera.Current.SetLookAt(aimAt);
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
             Debug.Break();
-
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            vehicle.Damage(null, Vector3.zero, Vector3.zero, 0f, 1000f, null);
-            Debug.Log("KILL PLAYER!");
-        }
     }
 
     public override Vehicle GetVehicle()
