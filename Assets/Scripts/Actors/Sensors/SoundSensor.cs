@@ -13,36 +13,29 @@ public class SoundSensor : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!owner.HasTarget())
+        var autoAgent = other.GetComponentInParent<ActorAgent>();
+        if (autoAgent != null)
         {
-            var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
-            owner.SetTarget(target);
+            if (!owner.HasTarget())
+            {
+                if (autoAgent.Team == opposingTeam)
+                {
+                    var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
+                    owner.SetTarget(target);
+                }
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var autoAgent = other.GetComponentInParent<AutonomousAgent>();
-        if (autoAgent != null)
+        var agent = other.GetComponentInParent<ActorAgent>();
+        if (agent != null)
         {
-            if (autoAgent.Team == opposingTeam)
+            if (agent.Team == opposingTeam)
             {
-                var npc = owner.GetComponent<NpcSoldierController>();
                 var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
-                npc.SetTarget(target);
-            }
-        }
-        else
-        {
-            var player = other.GetComponentInParent<PlayerController>();
-            if (player != null)
-            {
-                if (player.Team == opposingTeam)
-                {
-                    var npc = owner.GetComponent<NpcSoldierController>();
-                    var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
-                    npc.SetTarget(target);
-                }
+                owner.SetTarget(target);
             }
         }
     }
