@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class PlayerCamera : MonoBehaviour
 
 
 	private float distance;
-	private Vector3 focusPosition;
+	private Vector3 pivotPosition;
 
 	private Vector3 lookAtPosition;
 
@@ -75,7 +73,7 @@ public class PlayerCamera : MonoBehaviour
 	private void Chase(float deltaTime)
 	{
 		if (PivotTransform != null)
-			focusPosition = PivotTransform.position + Offset;
+			pivotPosition = PivotTransform.position + Offset;
 
 		distance = Mathf.Lerp(distance, Distance, deltaTime);
 
@@ -84,25 +82,24 @@ public class PlayerCamera : MonoBehaviour
 		if (Physics.Raycast(new Ray(transform.position, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
 			camMinY = camDownHit.point.y + 0.5f;
 
-		var lookAngle = Quaternion.LookRotation(lookAtPosition - (focusPosition + Offset));
+		var lookAngle = Quaternion.LookRotation(lookAtPosition - (pivotPosition + Offset));
 		var targetPitch = lookAngle.eulerAngles.x;
 		var targetYaw = lookAngle.eulerAngles.y;
 
-		var targetPosition = focusPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
+		var targetPosition = pivotPosition + Quaternion.Euler(targetPitch, targetYaw, 0) * Vector3.forward * -distance;
 		targetPosition = new Vector3(targetPosition.x, Mathf.Clamp(targetPosition.y, camMinY, 100f), targetPosition.z);
 
 		transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
 		var targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
 		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, CatchupSpeed * deltaTime);
-		transform.LookAt(lookAtPosition);
 	}
 
 	private void Aim(float deltaTime)
 	{
 		if (PivotTransform != null)
-			focusPosition = PivotTransform.position;
+			pivotPosition = PivotTransform.position;
 
-		var targetPosition = focusPosition;
+		var targetPosition = pivotPosition;
 
 		transform.position = Vector3.Lerp(transform.position, targetPosition, CatchupSpeed * deltaTime);
 		transform.LookAt(lookAtPosition);
