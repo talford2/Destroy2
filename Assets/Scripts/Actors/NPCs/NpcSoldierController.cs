@@ -360,7 +360,10 @@ public class NpcSoldierController : AutonomousAgent
             {
                 var autoAgent = neighbour.GetComponent<AutonomousAgent>();
                 if (autoAgent != null)
-                    autoAgent.SetTarget(attacker);
+                {
+                    if (!autoAgent.HasTarget())
+                        autoAgent.SetTarget(attacker);
+                }
             }
         }
     }
