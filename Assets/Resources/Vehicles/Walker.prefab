@@ -890,7 +890,7 @@ MonoBehaviour:
   MaxHealth: 100
   Health: 100
   CameraDistance: 15
-  CameraOffset: {x: 3, y: 8, z: 0}
+  CameraOffset: {x: 3, y: 5, z: 5}
   ZoomPoint: {fileID: 447362}
   ForwardSpeed: 5
   StrafeSpeed: 5
@@ -1002,7 +1002,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: CameraOffset.y
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -1039,6 +1039,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: CameraOffset.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CameraOffset.z
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
