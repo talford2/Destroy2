@@ -51,13 +51,7 @@ public class Walker : Vehicle
 		controller = GetComponent<CharacterController>();
 		meshAnimator = GetComponent<Animator>();
 
-		primaryWeapon = Instantiate(PrimaryWeaponPrefab).GetComponent<VehicleGun>();
-		primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
-		primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
-		primaryWeapon.SetClipRemaining(100);
-		primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
-		primaryWeapon.transform.parent = transform;
-		primaryWeapon.transform.localPosition = Vector3.zero;
+		SetPrimaryWeapon(PrimaryWeaponPrefab);
 	}
 
 	public override void LiveUpdate()
@@ -108,7 +102,20 @@ public class Walker : Vehicle
 		return primaryWeapon.GetShootPointsCentre();
 	}
 
-	public override VehicleGun GetPrimaryWeapon()
+    public override void SetPrimaryWeapon(VehicleGun value)
+    {
+        if (primaryWeapon != null)
+            Destroy(primaryWeapon.gameObject);
+        primaryWeapon = Instantiate(value).GetComponent<VehicleGun>();
+        primaryWeapon.SetVelocityReference(new VelocityReference {Value = velocity});
+        primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
+        primaryWeapon.SetClipRemaining(100);
+        primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
+        primaryWeapon.transform.parent = transform;
+        primaryWeapon.transform.localPosition = Vector3.zero;
+    }
+
+    public override VehicleGun GetPrimaryWeapon()
 	{
 		return primaryWeapon;
 	}

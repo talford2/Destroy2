@@ -30,6 +30,8 @@ public abstract class Vehicle : Killable
 
     public abstract Vector3 GetPrimaryWeaponShootPoint();
 
+    public abstract void SetPrimaryWeapon(VehicleGun value);
+
     public abstract VehicleGun GetPrimaryWeapon();
 
     public abstract void TriggerPrimaryWeapon();

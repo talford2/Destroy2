@@ -3,6 +3,7 @@
 public class PlayerController : ActorAgent
 {
     public Vehicle VehiclePrefab;
+    public VehicleGun WeaponPrefab;
 
     private static PlayerController current;
 
@@ -30,11 +31,15 @@ public class PlayerController : ActorAgent
 
     private void InitVehicle(GameObject prefab)
     {
-        vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
+        vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
         Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
         vehicle.OnVehicleDestroyed += OnDie;
         vehicle.Initialize();
+
+        if (WeaponPrefab != null)
+            vehicle.SetPrimaryWeapon(WeaponPrefab);
+
         Targeting.AddTargetable(Team, vehicle);
     }
 

@@ -43,24 +43,7 @@ public class Soldier : Vehicle
         controller = GetComponent<CharacterController>();
         meshAnimator = GetComponent<Animator>();
 
-        primaryWeapon = Instantiate(PrimaryWeaponPrefab).GetComponent<VehicleGun>();
-
-        if (PrimaryWeaponPrefab.EquipPrefab != null)
-        {
-            var equippedWeapon = Instantiate(PrimaryWeaponPrefab.EquipPrefab);
-            equippedWeapon.transform.parent = WeaponPlaceholder;
-            equippedWeapon.transform.localPosition = Vector3.zero;
-            equippedWeapon.transform.localRotation = Quaternion.identity;
-            PrimaryWeaponShootPoints = equippedWeapon.GetComponent<EquipWeapon>().ShootPoints;
-        }
-
-        primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
-        primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
-        primaryWeapon.SetClipRemaining(100);
-        primaryWeapon.OnShoot += OnShootPrimaryWeapon;
-        primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
-        primaryWeapon.transform.parent = transform;
-        primaryWeapon.transform.localPosition = Vector3.zero;
+        SetPrimaryWeapon(PrimaryWeaponPrefab);
 
         yawTarget = transform.eulerAngles.y;
     }
@@ -104,6 +87,30 @@ public class Soldier : Vehicle
     public override Vector3 GetPrimaryWeaponShootPoint()
     {
         return primaryWeapon.GetShootPointsCentre();
+    }
+
+    public override void SetPrimaryWeapon(VehicleGun value)
+    {
+        if (primaryWeapon!=null)
+            Destroy(primaryWeapon.gameObject);
+        primaryWeapon = Instantiate(value).GetComponent<VehicleGun>();
+
+        if (PrimaryWeaponPrefab.EquipPrefab != null)
+        {
+            var equippedWeapon = Instantiate(value.EquipPrefab);
+            equippedWeapon.transform.parent = WeaponPlaceholder;
+            equippedWeapon.transform.localPosition = Vector3.zero;
+            equippedWeapon.transform.localRotation = Quaternion.identity;
+            PrimaryWeaponShootPoints = equippedWeapon.GetComponent<EquipWeapon>().ShootPoints;
+        }
+
+        primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
+        primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
+        primaryWeapon.SetClipRemaining(100);
+        primaryWeapon.OnShoot += OnShootPrimaryWeapon;
+        primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
+        primaryWeapon.transform.parent = transform;
+        primaryWeapon.transform.localPosition = Vector3.zero;
     }
 
     public override VehicleGun GetPrimaryWeapon()

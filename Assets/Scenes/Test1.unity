@@ -1696,6 +1696,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11421088, guid: 38c445fd579c1964fa782845cb78f46d,
         type: 2}
+    - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
+      propertyPath: WeaponPrefab
+      value: 
+      objectReference: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de324110515229047a7a21b5cf07e603, type: 2}
   m_IsPrefabParent: 0
@@ -2106,6 +2111,11 @@ Prefab:
       propertyPath: Team
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11432188, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
+      propertyPath: WeaponPrefab
+      value: 
+      objectReference: {fileID: 11413606, guid: ee7c3f491b2b669459c10deb3bda578a,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddf286d41454b1a4496072015e199f7b, type: 2}
   m_IsPrefabParent: 0
