@@ -112,7 +112,7 @@ public class PlayerController : ActorAgent
             Heading = vehicle.transform.forward;
 
             if (Input.GetKeyUp(KeyCode.Q))
-                vehicle.Damage(null, Vector3.zero, Vector3.zero, 0f, 1000f, null);
+                vehicle.Damage(null, Vector3.zero, Vector3.up, 0f, 1000f, null);
         }
         else
         {

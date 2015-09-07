@@ -32,12 +32,10 @@ public class SteeringBehaviour
             {
                 if (neighbour != null && neighbour != agent)
                 {
-                    var fromNeighbour = agent.transform.position - neighbour.transform.position;
+                    var fromNeighbour = agent.GetVehicle().transform.position - neighbour.GetVehicle().transform.position;
                     //if (fromNeighbour.sqrMagnitude < avoidDistance * avoidDistance)
                     avoidSum += fromNeighbour.normalized / fromNeighbour.magnitude;
-
-                    cohesiveSum += neighbour.transform.position;
-
+                    cohesiveSum += neighbour.GetVehicle().transform.position;
                     headingSum += neighbour.Heading;
                 }
             }
