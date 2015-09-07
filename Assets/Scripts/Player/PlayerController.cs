@@ -2,146 +2,153 @@
 
 public class PlayerController : ActorAgent
 {
-    public Vehicle VehiclePrefab;
-    public VehicleGun WeaponPrefab;
+	public Vehicle VehiclePrefab;
+	public VehicleGun WeaponPrefab;
 
-    private static PlayerController current;
+	private static PlayerController current;
 
-    public static PlayerController Current
-    {
-        get { return current; }
-    }
+	public static PlayerController Current
+	{
+		get { return current; }
+	}
 
-    // Vehicle
-    private Vehicle vehicle;
+	// Vehicle
+	private Vehicle vehicle;
 
-    // Aiming
-    private float maxAimDistance;
-    private Vector3 aimAt;
+	// Aiming
+	private float maxAimDistance;
+	private Vector3 aimAt;
 
-    private void Awake()
-    {
-        InitVehicle(VehiclePrefab.gameObject);
+	private void Awake()
+	{
+		InitVehicle(VehiclePrefab.gameObject);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 
-        current = this;
-    }
+		current = this;
+	}
 
-    private void InitVehicle(GameObject prefab)
-    {
-        vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
-        vehicle.transform.parent = transform;
-        Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
-        vehicle.OnVehicleDestroyed += OnDie;
-        vehicle.Initialize();
+	private void InitVehicle(GameObject prefab)
+	{
+		vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
+		vehicle.transform.parent = transform;
+		Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
+		vehicle.OnVehicleDestroyed += OnDie;
 
-        if (WeaponPrefab != null)
-            vehicle.SetPrimaryWeapon(WeaponPrefab);
+		vehicle.OnVehicleDamage += OnVehicleDamage;
+		vehicle.Initialize();
 
-        Targeting.AddTargetable(Team, vehicle);
-    }
+		if (WeaponPrefab != null)
+			vehicle.SetPrimaryWeapon(WeaponPrefab);
 
-    private void SetUpCamera()
-    {
-        if (vehicle != null)
-        {
-            PlayerCamera.Current.SetPivot(vehicle.transform, vehicle.CameraOffset, vehicle.CameraDistance);
-        }
-    }
+		Targeting.AddTargetable(Team, vehicle);
+	}
 
-    private void Start()
-    {
-        SetUpCamera();
-        HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
-    }
+	private void OnVehicleDamage(GameObject attacker)
+	{
+		HeadsUpDisplay.Current.DamageCooldown = 1;
+	}
 
-    private void Update()
-    {
-        // Aim Camera
-        PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+	private void SetUpCamera()
+	{
+		if (vehicle != null)
+		{
+			PlayerCamera.Current.SetPivot(vehicle.transform, vehicle.CameraOffset, vehicle.CameraDistance);
+		}
+	}
 
-        // Movement
-        if (vehicle != null)
-        {
-            //vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-            var isZoomed = Input.GetButton("Fire2");
-            vehicle.SetRun(Input.GetButton("Fire3"));
-            vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+	private void Start()
+	{
+		SetUpCamera();
+		HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
+	}
 
-            // Aiming
-            maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
-            var pivotPoint = vehicle.GetPrimaryWeaponShootPoint();
+	private void Update()
+	{
+		// Aim Camera
+		PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
 
-            aimAt = PlayerCamera.Current.GetLookAtPosition();
-            var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
-            RaycastHit aimHit;
-            var isTargetInSight = false;
+		// Movement
+		if (vehicle != null)
+		{
+			//vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+			var isZoomed = Input.GetButton("Fire2");
+			vehicle.SetRun(Input.GetButton("Fire3"));
+			vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
-            if (Physics.SphereCast(aimRay, 0.5f, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
-            {
-                var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
-                if (aimKillable != null)
-                {
-                    isTargetInSight = true;
-                }
-            }
+			// Aiming
+			maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
+			var pivotPoint = vehicle.GetPrimaryWeaponShootPoint();
 
-            // This is incorrect?
-            vehicle.SetAimAt(aimAt);
+			aimAt = PlayerCamera.Current.GetLookAtPosition();
+			var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
+			RaycastHit aimHit;
+			var isTargetInSight = false;
 
-            HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
+			if (Physics.SphereCast(aimRay, 0.5f, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
+			{
+				var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
+				if (aimKillable != null)
+				{
+					isTargetInSight = true;
+				}
+			}
 
-            if (isZoomed)
-            {
-                PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
-                PlayerCamera.Current.SetPivot(vehicle.ZoomPoint, Vector3.zero, 0f);
-            }
-            else
-            {
-                PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
-                SetUpCamera();
-            }
+			// This is incorrect?
+			vehicle.SetAimAt(aimAt);
 
-            // Shooting
-            if (Input.GetButton("Fire1") && !vehicle.IsRun())
-            {
-                vehicle.TriggerPrimaryWeapon();
-            }
-            else
-            {
-                vehicle.ReleasePrimaryWeapon();
-            }
-            Heading = vehicle.transform.forward;
+			HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
 
-            if (Input.GetKeyUp(KeyCode.Q))
-                vehicle.Damage(null, Vector3.zero, Vector3.up, 0f, 1000f, null);
-        }
-        else
-        {
-            PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
-        }
+			if (isZoomed)
+			{
+				PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
+				PlayerCamera.Current.SetPivot(vehicle.ZoomPoint, Vector3.zero, 0f);
+			}
+			else
+			{
+				PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
+				SetUpCamera();
+			}
 
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-            Debug.Break();
-    }
+			// Shooting
+			if (Input.GetButton("Fire1") && !vehicle.IsRun())
+			{
+				vehicle.TriggerPrimaryWeapon();
+			}
+			else
+			{
+				vehicle.ReleasePrimaryWeapon();
+			}
+			Heading = vehicle.transform.forward;
 
-    public override Vehicle GetVehicle()
-    {
-        return vehicle;
-    }
+			if (Input.GetKeyUp(KeyCode.Q))
+				vehicle.Damage(null, Vector3.zero, Vector3.up, 0f, 1000f, null);
+		}
+		else
+		{
+			PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
+		}
 
-    private void OnDie()
-    {
-        Debug.Log("YOU DIED.");
-        Targeting.RemoveTargetable(Team, vehicle);
-        HeadsUpDisplay.Current.FadeOutCrosshair(1f);
-    }
+		if (Input.GetKeyUp(KeyCode.LeftControl))
+			Debug.Break();
+	}
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(aimAt, 0.5f);
-    }
+	public override Vehicle GetVehicle()
+	{
+		return vehicle;
+	}
+
+	private void OnDie()
+	{
+		Debug.Log("YOU DIED.");
+		Targeting.RemoveTargetable(Team, vehicle);
+		HeadsUpDisplay.Current.FadeOutCrosshair(1f);
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.red;
+		Gizmos.DrawSphere(aimAt, 0.5f);
+	}
 }
