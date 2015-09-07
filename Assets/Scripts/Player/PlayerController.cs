@@ -16,8 +16,6 @@ public class PlayerController : ActorAgent
 
     // Aiming
     private float maxAimDistance;
-    private Vector3 pivotPoint;
-    private Vector2 pitchYaw;
     private Vector3 aimAt;
 
     private void Awake()
@@ -64,12 +62,13 @@ public class PlayerController : ActorAgent
             vehicle.SetRun(Input.GetButton("Fire3"));
             vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
+            PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+
             // Aiming
             maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
-            pivotPoint = vehicle.transform.position + vehicle.CameraOffset;
-            pitchYaw = vehicle.GetPitchYaw();
+            var pivotPoint = vehicle.GetPrimaryWeaponShootPoint();
 
-            aimAt = pivotPoint + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f)*Vector3.forward*maxAimDistance;
+            aimAt = PlayerCamera.Current.GetLookAtPosition();
             var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
             RaycastHit aimHit;
             var isTargetInSight = false;
@@ -118,8 +117,6 @@ public class PlayerController : ActorAgent
         {
             PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
         }
-
-        PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
             Debug.Break();
