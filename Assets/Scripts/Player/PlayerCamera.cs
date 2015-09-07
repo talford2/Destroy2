@@ -98,12 +98,13 @@ public class PlayerCamera : MonoBehaviour
 
     private void Chase(float deltaTime)
     {
+        var lookAngle = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
         if (pivotTransform != null)
-            pivotPosition = pivotTransform.position + offset;
+            pivotPosition = pivotTransform.position + lookAngle*offset;
 
         distance = Mathf.Lerp(distance, targetDistance, DistanceCatupSpeed*deltaTime);
 
-        var chasePosition = pivotPosition + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0)*Vector3.forward*-distance;
+        var chasePosition = pivotPosition + lookAngle*Vector3.forward*-distance;
 
         var camMinY = 0.5f;
         RaycastHit camDownHit;
@@ -111,17 +112,18 @@ public class PlayerCamera : MonoBehaviour
             camMinY = camDownHit.point.y + 0.5f;
 
         transform.position = new Vector3(chasePosition.x, Mathf.Clamp(chasePosition.y, camMinY, 100f), chasePosition.z);
-        transform.rotation = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
+        transform.rotation = lookAngle;
     }
 
     private void Aim(float deltaTime)
     {
+        var lookAngle = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
         if (pivotTransform != null)
-            pivotPosition = pivotTransform.position + offset;
+            pivotPosition = pivotTransform.position + lookAngle*offset;
 
         distance = Mathf.Lerp(distance, 0f, DistanceCatupSpeed*deltaTime);
 
-        transform.position = pivotPosition + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0)*Vector3.forward*-distance;
+        transform.position = pivotPosition + lookAngle*Vector3.forward*-distance;
         transform.rotation = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
     }
 

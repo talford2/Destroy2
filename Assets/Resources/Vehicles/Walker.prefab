@@ -890,7 +890,7 @@ MonoBehaviour:
   MaxHealth: 100
   Health: 100
   CameraDistance: 15
-  CameraOffset: {x: 0, y: 8, z: 0}
+  CameraOffset: {x: 3, y: 8, z: 0}
   ZoomPoint: {fileID: 447362}
   ForwardSpeed: 5
   StrafeSpeed: 5
@@ -1036,6 +1036,10 @@ Prefab:
       propertyPath: Effect
       value: 
       objectReference: {fileID: 112998, guid: d0404889c11e8584093580d017cd8395, type: 2}
+    - target: {fileID: 0}
+      propertyPath: CameraOffset.x
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114410}
