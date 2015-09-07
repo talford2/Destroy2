@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Smoke2
-  m_Shader: {fileID: 207, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 208, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -27,4 +27,8 @@ Material:
         first:
           name: _InvFade
         second: 1
-    m_Colors: {}
+    m_Colors:
+      data:
+        first:
+          name: _EmisColor
+        second: {r: .57586211, g: .57586211, b: .57586211, a: 0}
