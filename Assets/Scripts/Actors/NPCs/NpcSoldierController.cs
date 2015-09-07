@@ -63,6 +63,11 @@ public class NpcSoldierController : AutonomousAgent
         }
     }
 
+    public override bool HasTarget()
+    {
+        return target != null;
+    }
+
     private Vector2 GetSteerToPoint(Vector3 point)
     {
         var yawDiff = Vector3.Dot(point - vehicle.transform.position, vehicle.transform.right);

@@ -13,9 +13,11 @@ public class SoundSensor : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        var npc = owner.GetComponent<NpcSoldierController>();
-        var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
-        npc.SetTarget(target);
+        if (!owner.HasTarget())
+        {
+            var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
+            owner.SetTarget(target);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,7 +30,6 @@ public class SoundSensor : MonoBehaviour
                 var npc = owner.GetComponent<NpcSoldierController>();
                 var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
                 npc.SetTarget(target);
-                Debug.Log("SET TARGET!");
             }
         }
         else
@@ -41,7 +42,6 @@ public class SoundSensor : MonoBehaviour
                     var npc = owner.GetComponent<NpcSoldierController>();
                     var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, 50f);
                     npc.SetTarget(target);
-                    Debug.Log("SET TARGET!");
                 }
             }
         }

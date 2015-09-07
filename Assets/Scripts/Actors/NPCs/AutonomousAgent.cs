@@ -6,6 +6,8 @@ public abstract class AutonomousAgent : ActorAgent
 
     public abstract void SetTarget(Killable value);
 
+    public abstract bool HasTarget();
+
     public virtual void AddNeighbour(ActorAgent neighbour)
     {
         if (neighbours==null)
