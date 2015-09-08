@@ -310,7 +310,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 418046}
   m_Layer: 0
-  m_Name: ZoomPoint
+  m_Name: DefaultPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,6 +405,21 @@ GameObject:
   - 4: {fileID: 409428}
   m_Layer: 0
   m_Name: ToeRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &162750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 405384}
+  m_Layer: 0
+  m_Name: ZoomPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,6 +709,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 474394}
   m_RootOrder: 1
+--- !u!4 &405384
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: 2, z: -1.10000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 474158}
+  m_RootOrder: 4
 --- !u!4 &405980
 Transform:
   m_ObjectHideFlags: 1
@@ -764,11 +791,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: 2, z: -1.10000002}
+  m_LocalPosition: {x: 0, y: 1.20000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 474158}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &418474
 Transform:
   m_ObjectHideFlags: 1
@@ -1069,6 +1096,7 @@ Transform:
   - {fileID: 474394}
   - {fileID: 412246}
   - {fileID: 450858}
+  - {fileID: 405384}
   - {fileID: 418046}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1304,9 +1332,10 @@ MonoBehaviour:
   IsLive: 1
   MaxHealth: 20
   Health: 20
-  CameraDistance: 5
-  CameraOffset: {x: .649999976, y: 1.79999995, z: 3.79999995}
-  ZoomPoint: {fileID: 418046}
+  CameraDistance: 1
+  CameraOffset: {x: .800000012, y: .800000012, z: -1}
+  DefaultPivot: {fileID: 418046}
+  ZoomPivot: {fileID: 405384}
   ForwardSpeed: 5
   StrafeSpeed: 5
   PrimaryWeaponPrefab: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16,
@@ -1437,7 +1466,7 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 7e7b72af1fae85648b91f3dd946dbb6e, type: 2}
     - target: {fileID: 0}
       propertyPath: CameraDistance
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: PrimaryWeaponPrefab
@@ -1446,11 +1475,11 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: CameraOffset.z
-      value: 3.79999995
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: CameraOffset.y
-      value: 1.79999995
+      value: .800000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -1478,7 +1507,7 @@ Prefab:
       objectReference: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
     - target: {fileID: 0}
       propertyPath: CameraOffset.x
-      value: .649999976
+      value: .800000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.z

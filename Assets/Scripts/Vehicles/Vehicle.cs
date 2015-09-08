@@ -6,7 +6,8 @@ public abstract class Vehicle : Killable
     public float CameraDistance;
 
     public Vector3 CameraOffset;
-    public Transform ZoomPoint;
+    public Transform DefaultPivot;
+    public Transform ZoomPivot;
 
     public delegate void OnVehicleDamageEvent(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker);
     public event OnVehicleDamageEvent OnVehicleDamage;

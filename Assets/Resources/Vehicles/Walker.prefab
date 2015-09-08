@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447362}
   m_Layer: 0
-  m_Name: ZoomPoint
+  m_Name: ZoomPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,6 +306,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &166358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 438390}
+  m_Layer: 0
+  m_Name: DefaultPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &166580
 GameObject:
   m_ObjectHideFlags: 1
@@ -466,7 +481,7 @@ Transform:
   - {fileID: 442036}
   - {fileID: 442092}
   m_Father: {fileID: 420416}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &404874
 Transform:
   m_ObjectHideFlags: 1
@@ -540,6 +555,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 438390}
   - {fileID: 491460}
   - {fileID: 445624}
   - {fileID: 404868}
@@ -598,6 +614,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 401666}
+  m_RootOrder: 0
+--- !u!4 &438390
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 420416}
   m_RootOrder: 0
 --- !u!4 &442036
 Transform:
@@ -660,7 +688,7 @@ Transform:
   m_Children:
   - {fileID: 424356}
   m_Father: {fileID: 420416}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &447362
 Transform:
   m_ObjectHideFlags: 1
@@ -713,7 +741,7 @@ Transform:
   - {fileID: 470292}
   - {fileID: 404874}
   m_Father: {fileID: 420416}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &470292
 Transform:
   m_ObjectHideFlags: 1
@@ -737,7 +765,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420416}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &486544
 Transform:
   m_ObjectHideFlags: 1
@@ -762,7 +790,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420416}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &495118
 Transform:
   m_ObjectHideFlags: 1
@@ -889,9 +917,10 @@ MonoBehaviour:
   IsLive: 1
   MaxHealth: 100
   Health: 100
-  CameraDistance: 15
-  CameraOffset: {x: 3, y: 5, z: 5}
-  ZoomPoint: {fileID: 447362}
+  CameraDistance: 8
+  CameraOffset: {x: 3, y: 5, z: 0}
+  DefaultPivot: {fileID: 438390}
+  ZoomPivot: {fileID: 447362}
   ForwardSpeed: 5
   StrafeSpeed: 5
   StepSound: {fileID: 8209946}

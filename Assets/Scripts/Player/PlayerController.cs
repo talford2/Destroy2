@@ -54,7 +54,7 @@ public class PlayerController : ActorAgent
 	{
 		if (vehicle != null)
 		{
-			PlayerCamera.Current.SetPivot(vehicle.transform, vehicle.CameraOffset, vehicle.CameraDistance);
+			PlayerCamera.Current.SetPivot(vehicle.DefaultPivot, vehicle.CameraOffset, vehicle.CameraDistance);
             PlayerCamera.Current.TargetZoom = 1f;
 		}
 	}
@@ -105,7 +105,7 @@ public class PlayerController : ActorAgent
 			{
 
 				PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
-				PlayerCamera.Current.SetPivot(vehicle.ZoomPoint, Vector3.zero, 0f);
+				PlayerCamera.Current.SetPivot(vehicle.ZoomPivot, Vector3.zero, 0f);
 			    PlayerCamera.Current.TargetZoom = vehicle.GetPrimaryWeapon().Zoom;
 			}
 			else
