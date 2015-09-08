@@ -343,6 +343,7 @@ GameObject:
   - 143: {fileID: 14319636}
   - 114: {fileID: 11400122}
   - 114: {fileID: 11400574}
+  - 114: {fileID: 11405484}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -1360,6 +1361,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
+--- !u!114 &11405484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7aeca39e8bc8e445b595fde77dd6e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RegenerateRate: 5
+  RegenerateDelay: 3
 --- !u!135 &13524778
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1512,6 +1526,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Center.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RegenerationRate
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

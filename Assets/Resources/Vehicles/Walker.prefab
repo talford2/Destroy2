@@ -622,7 +622,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420416}
@@ -696,7 +696,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108290}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -0, y: -.100000001, z: 2.4000001}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 495118}
@@ -918,7 +918,7 @@ MonoBehaviour:
   MaxHealth: 100
   Health: 100
   CameraDistance: 8
-  CameraOffset: {x: 3, y: 5, z: 0}
+  CameraOffset: {x: 3, y: .5, z: -2}
   DefaultPivot: {fileID: 438390}
   ZoomPivot: {fileID: 447362}
   ForwardSpeed: 5

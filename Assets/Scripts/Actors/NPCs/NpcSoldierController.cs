@@ -41,8 +41,8 @@ public class NpcSoldierController : AutonomousAgent
     {
         vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
-        vehicle.OnDamage += OnVehicleDamaged;
-        vehicle.OnVehicleDestroyed += OnVehicleDestroyed;
+        vehicle.OnDamage += OnVehicleDamage;
+        vehicle.OnDie += OnVehicleDie;
         vehicle.Initialize();
 
         if (WeaponPrefab != null)
@@ -338,7 +338,7 @@ public class NpcSoldierController : AutonomousAgent
         return 2f;
     }
 
-    private void OnVehicleDamaged(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
+    private void OnVehicleDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
         var targetCandidate = attacker.GetComponentInParent<ActorAgent>();
         if (targetCandidate != null)
@@ -352,7 +352,7 @@ public class NpcSoldierController : AutonomousAgent
         }
     }
 
-    private void OnVehicleDestroyed()
+    private void OnVehicleDie(GameObject attacker)
     {
         Targeting.RemoveTargetable(Team, vehicle);
         Destroy(gameObject);

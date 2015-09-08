@@ -34,9 +34,9 @@ public class PlayerController : ActorAgent
 		vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
 		vehicle.transform.parent = transform;
 		Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
-		vehicle.OnVehicleDestroyed += OnDie;
+        vehicle.OnDamage += OnVehicleDamage;
+        vehicle.OnDie += OnVehicleDie;
 
-		vehicle.OnDamage += OnVehicleDamage;
 		vehicle.Initialize();
 
 		if (WeaponPrefab != null)
@@ -142,7 +142,7 @@ public class PlayerController : ActorAgent
 		return vehicle;
 	}
 
-	private void OnDie()
+	private void OnVehicleDie(GameObject attacker)
 	{
 		Debug.Log("YOU DIED.");
 		Targeting.RemoveTargetable(Team, vehicle);
