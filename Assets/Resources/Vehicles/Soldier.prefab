@@ -1333,7 +1333,7 @@ MonoBehaviour:
   MaxHealth: 20
   Health: 20
   CameraDistance: 1
-  CameraOffset: {x: .800000012, y: .800000012, z: -1}
+  CameraOffset: {x: .600000024, y: .5, z: -.100000001}
   DefaultPivot: {fileID: 418046}
   ZoomPivot: {fileID: 405384}
   ForwardSpeed: 5
@@ -1475,11 +1475,11 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: CameraOffset.z
-      value: -1
+      value: -.100000001
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: CameraOffset.y
-      value: .800000012
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -1507,7 +1507,7 @@ Prefab:
       objectReference: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
     - target: {fileID: 0}
       propertyPath: CameraOffset.x
-      value: .800000012
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.z
