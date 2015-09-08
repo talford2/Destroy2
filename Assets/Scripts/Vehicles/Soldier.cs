@@ -31,7 +31,6 @@ public class Soldier : Vehicle
     private float pitchTarget;
     private float yawTarget;
     private Vector3 aimAt;
-    private bool isShooting;
 
     // Locomotion
     private Animator meshAnimator;
@@ -69,7 +68,6 @@ public class Soldier : Vehicle
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
         // Locomotion
         meshAnimator.SetBool("IsAim", !isRunning);
-        meshAnimator.SetBool("IsShooting", isShooting);
         meshAnimator.SetFloat("Speed", move.z);
         meshAnimator.SetFloat("VerticalSpeed", move.z);
         meshAnimator.SetFloat("HorizontalSpeed", move.x);

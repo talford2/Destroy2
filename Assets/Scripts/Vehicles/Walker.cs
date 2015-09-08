@@ -14,7 +14,7 @@ public class Walker : Vehicle
 	public Transform LeftFoot;
 	public Transform RightFoot;
 
-	public Transform HeadBone;
+	
 
 	[Header("Primary Weapon")]
 	public VehicleGun PrimaryWeaponPrefab;
@@ -22,6 +22,9 @@ public class Walker : Vehicle
 
 	[Header("Parts")]
 	public GameObject CorpsePrefab;
+
+    public Transform HeadTransform;
+    public Transform TurretTransform;
 
 	private CharacterController controller;
 	private VehicleGun primaryWeapon;
@@ -39,7 +42,8 @@ public class Walker : Vehicle
 	// Locomotion
 	private Animator meshAnimator;
 	private bool isRunning;
-	private float headYaw;
+	private float headAimYaw;
+    private Quaternion turretAimAngle;
 
 	// Death
 	private Vector3 killPosition;
@@ -69,22 +73,27 @@ public class Walker : Vehicle
 		var strafeAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget + strafeAngle, 0f), turnSpeed * Time.deltaTime);
 
-		headYaw = Mathf.LerpAngle(headYaw, yawTarget - transform.eulerAngles.y, 5f * Time.deltaTime);
+		headAimYaw = Mathf.LerpAngle(headAimYaw, yawTarget - transform.eulerAngles.y, 5f * Time.deltaTime);
+
+        var targetTurretPitch = Quaternion.LookRotation(aimAt - TurretTransform.position);
+        turretAimAngle = Quaternion.Lerp(turretAimAngle, targetTurretPitch, 5f * Time.deltaTime);
+
 		meshAnimator.SetFloat("Speed", speed);
 	}
 
-	private void LateUpdate()
-	{
-		HeadBone.transform.rotation *= Quaternion.Euler(0f, 0f, headYaw);
-	}
+    private void LateUpdate()
+    {
+        HeadTransform.rotation *= Quaternion.Euler(0f, 0f, headAimYaw);
+        TurretTransform.rotation = turretAimAngle*Quaternion.Euler(270f, 0, 0);
+    }
 
-	public override void SetMove(float forward, float strafe)
+    public override void SetMove(float forward, float strafe)
 	{
 		move = new Vector3(strafe, 0f, forward).normalized;
 		//velocity = Vector3.up*fallSpeed;
 		// Note: HeadBone.transform orientation is weird.
-		if (HeadBone != null)
-			velocity = HeadBone.transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + HeadBone.transform.up * -move.z * ForwardSpeed;
+		if (HeadTransform != null)
+			velocity = HeadTransform.transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + HeadTransform.transform.up * -move.z * ForwardSpeed;
 	}
 
 	public override void SetRun(bool value)

@@ -898,13 +898,14 @@ MonoBehaviour:
   StepEffect: {fileID: 109892, guid: 41e2a15e0df1ac84d94d21f0fd2a1c9e, type: 2}
   LeftFoot: {fileID: 415180}
   RightFoot: {fileID: 434716}
-  HeadBone: {fileID: 495118}
   PrimaryWeaponPrefab: {fileID: 11413606, guid: 1648b950cf0c6494e9972981b6209680,
     type: 2}
   PrimaryWeaponShootPoints:
   - {fileID: 421544}
   - {fileID: 444844}
   CorpsePrefab: {fileID: 117372, guid: e51b11bc11fd9a4489b97861de13ffcb, type: 2}
+  HeadTransform: {fileID: 495118}
+  TurretTransform: {fileID: 456346}
 --- !u!114 &11498496
 MonoBehaviour:
   m_ObjectHideFlags: 1
