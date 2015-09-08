@@ -15,6 +15,10 @@ public class Soldier : Vehicle
     public Transform WeaponPlaceholder;
     public GameObject CorpsePrefab;
 
+    public Transform MidTorsoTransform;
+    public Transform UpperTorsoTransform;
+    public Transform HeadTransform;
+
     private CharacterController controller;
     private VehicleGun primaryWeapon;
 
@@ -32,6 +36,11 @@ public class Soldier : Vehicle
     // Locomotion
     private Animator meshAnimator;
     private bool isRunning;
+
+    private Quaternion midTorsoAngle;
+    private Quaternion upperTorsoAngle;
+    private Quaternion headAimAngle;
+    private Quaternion gunAimAngle;
 
     // Death
     private Vector3 killPosition;
@@ -64,6 +73,28 @@ public class Soldier : Vehicle
         meshAnimator.SetFloat("Speed", move.z);
         meshAnimator.SetFloat("VerticalSpeed", move.z);
         meshAnimator.SetFloat("HorizontalSpeed", move.x);
+    }
+
+    public void LateUpdate()
+    {
+        if (!isRunning)
+        {
+            var midTorsoTargetAngle = Quaternion.LookRotation((aimAt - MidTorsoTransform.position)*0.1f);
+            midTorsoAngle = Quaternion.Lerp(midTorsoAngle, midTorsoTargetAngle, 5f*Time.deltaTime);
+            MidTorsoTransform.rotation = midTorsoAngle*Quaternion.Euler(274.5f, 42f, 0);
+
+            var upperTorsoTargetAngle = Quaternion.LookRotation((aimAt - UpperTorsoTransform.position)*0.2f);
+            upperTorsoAngle = Quaternion.Lerp(upperTorsoAngle, upperTorsoTargetAngle, 4f*Time.deltaTime);
+            UpperTorsoTransform.rotation = upperTorsoAngle*Quaternion.Euler(279.3f, 47f, 0);
+
+            var headAimTargetAngle = Quaternion.LookRotation(aimAt - HeadTransform.position);
+            headAimAngle = Quaternion.Lerp(headAimAngle, headAimTargetAngle, 5f*Time.deltaTime);
+            HeadTransform.rotation = headAimAngle*Quaternion.Euler(270f, 47f, 0);
+
+            var gunAimTargetAngle = Quaternion.LookRotation(aimAt - WeaponPlaceholder.position);
+            gunAimAngle = Quaternion.Lerp(gunAimAngle, gunAimTargetAngle, 5f*Time.deltaTime);
+            WeaponPlaceholder.rotation = gunAimAngle*Quaternion.Euler(270f, 0, 0);
+        }
     }
 
     public override void SetMove(float forward, float strafe)

@@ -1316,6 +1316,9 @@ MonoBehaviour:
   HeadCollider: {fileID: 13524778}
   WeaponPlaceholder: {fileID: 465550}
   CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
+  MidTorsoTransform: {fileID: 448698}
+  UpperTorsoTransform: {fileID: 432400}
+  HeadTransform: {fileID: 453892}
 --- !u!114 &11400574
 MonoBehaviour:
   m_ObjectHideFlags: 1
