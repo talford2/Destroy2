@@ -18,6 +18,7 @@ public class VehicleGun : MonoBehaviour
     public float ReloadTime;
     public GameObject EquipPrefab;
     public float MaxAimDistance = 1000f;
+    public float Zoom = 1f;
 
     [Header("Target Locking")]
     public bool RequireTargetLock;

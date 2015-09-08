@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &113928
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 488316}
-  - 82: {fileID: 8257540}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &135538
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +10,23 @@ GameObject:
   - 4: {fileID: 435042}
   - 114: {fileID: 11413606}
   m_Layer: 0
-  m_Name: RocketLauncher
+  m_Name: SniperRifle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &192650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 437680}
+  - 82: {fileID: 8228072}
+  m_Layer: 0
+  m_Name: FireSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,40 +42,40 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 488316}
+  - {fileID: 437680}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &488316
+--- !u!4 &437680
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113928}
+  m_GameObject: {fileID: 192650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435042}
   m_RootOrder: 0
---- !u!82 &8257540
+--- !u!82 &8228072
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113928}
+  m_GameObject: {fileID: 192650}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 617063bbc78c70744beca4440652b6dc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .200000003
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 5
-  MaxDistance: 500
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -138,36 +138,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunId: 0
-  GunName: Rocket Launcher
-  RoundsPerMinute: 100
-  TriggerTime: .600000024
+  GunName: Assault Rifle
+  RoundsPerMinute: 30
+  TriggerTime: 1
   MissilesPerShot: 1
-  IsSimultaneous: 0
+  IsSimultaneous: 1
   Spread: {x: 0, y: 0}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
-  ClipCapacity: 20
-  ReloadTime: .200000003
-  EquipPrefab: {fileID: 0}
+  ClipCapacity: 32
+  ReloadTime: 2
+  EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
-  Zoom: 1
+  Zoom: 4
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
   LockBeep: {fileID: 0}
-  Muzzle: {fileID: 149432, guid: 8ca7e9cc83ba9144ca03bdac4fbb3ecf, type: 2}
-  FireSound: {fileID: 8257540}
+  Muzzle: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
+  FireSound: {fileID: 8228072}
   IsOverHeatable: 0
   OverHeatValue: 0
   HeatPerShot: 0
   OverHeathCooldownDelay: 0
   CooldownDelay: 0
   CooldownRate: 0
-  Crosshair: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd, type: 3}
-  MissileGameObject: {fileID: 191728, guid: 179a713693ea21143b45919f1dcdb4b0, type: 2}
-  MissileDamage: 50
-  MissilePower: 30000
-  MissileRadius: .5
+  Crosshair: {fileID: 21300000, guid: 8c9e4f4bf5c197c43a2d70e328a207ee, type: 3}
+  MissileGameObject: {fileID: 128166, guid: 254945cb03008b54d8d1834f484a3d24, type: 2}
+  MissileDamage: 15
+  MissilePower: 20000
+  MissileRadius: 0
   MissileCount: 20
 --- !u!1001 &100100000
 Prefab:
@@ -179,14 +179,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: MissileGameObject
       value: 
-      objectReference: {fileID: 191728, guid: 179a713693ea21143b45919f1dcdb4b0, type: 2}
+      objectReference: {fileID: 128166, guid: 254945cb03008b54d8d1834f484a3d24, type: 2}
     - target: {fileID: 0}
       propertyPath: MissileDamage
-      value: 50
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilePower
-      value: 30000
+      value: 20000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissileCount
@@ -194,15 +194,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: GunName
-      value: Rocket Launcher
+      value: Assault Rifle
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: RoundsPerMinute
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: TriggerTime
-      value: .600000024
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilesPerShot
@@ -210,7 +210,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: IsSimultaneous
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: HasInfiniteAmmunition
@@ -218,20 +218,44 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ClipCapacity
-      value: 20
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime
-      value: .200000003
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EquipPrefab
+      value: 
+      objectReference: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Muzzle
       value: 
-      objectReference: {fileID: 149432, guid: 8ca7e9cc83ba9144ca03bdac4fbb3ecf, type: 2}
+      objectReference: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
     - target: {fileID: 0}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 617063bbc78c70744beca4440652b6dc, type: 3}
+      objectReference: {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MaxDistance
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: .200000003
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Spread.x
       value: 0
@@ -241,21 +265,13 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
       propertyPath: Crosshair
       value: 
-      objectReference: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd,
+      objectReference: {fileID: 21300000, guid: 8c9e4f4bf5c197c43a2d70e328a207ee,
         type: 3}
     - target: {fileID: 0}
-      propertyPath: AimRadius
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: MissileRadius
-      value: .5
+      propertyPath: Zoom
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

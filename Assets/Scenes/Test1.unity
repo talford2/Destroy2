@@ -1147,6 +1147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceCatupSpeed: 15
   Cam: {fileID: 25819863}
+  TargetZoom: 0
 --- !u!4 &827958855
 Transform:
   m_ObjectHideFlags: 0
@@ -1801,8 +1802,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 414894, guid: de324110515229047a7a21b5cf07e603, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
+      propertyPath: WeaponPrefab
+      value: 
+      objectReference: {fileID: 11413606, guid: ace318dfd803bc041b40482231990f0b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de324110515229047a7a21b5cf07e603, type: 2}
   m_IsPrefabParent: 0

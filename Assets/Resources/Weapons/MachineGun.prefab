@@ -150,6 +150,8 @@ MonoBehaviour:
   ReloadTime: 0
   EquipPrefab: {fileID: 0}
   MaxAimDistance: 1000
+  AimRadius: .699999988
+  Zoom: 1
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
@@ -248,6 +250,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 7ad52e8d4d897a64c816a4ac17737494,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: AimRadius
+      value: .699999988
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135538}

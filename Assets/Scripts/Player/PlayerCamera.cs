@@ -4,7 +4,10 @@ public class PlayerCamera : MonoBehaviour
 {
     public float DistanceCatupSpeed = 15f;
     public Camera Cam;
+    public float TargetZoom;
 
+    private float zoomSpeed = 10f;
+    private float defaultZoom = 60f;
     private Transform pivotTransform;
     private float targetDistance = 5f;
     private Vector3 offset = new Vector3(0f, 2f, 0);
@@ -98,6 +101,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Chase(float deltaTime)
     {
+        Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, defaultZoom/TargetZoom, zoomSpeed*Time.deltaTime);
         var lookAngle = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
         if (pivotTransform != null)
             pivotPosition = pivotTransform.position + lookAngle*offset;
@@ -108,15 +112,16 @@ public class PlayerCamera : MonoBehaviour
 
         var camMinY = 0.5f;
         RaycastHit camDownHit;
-        if (Physics.Raycast(new Ray(chasePosition + 100f * Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
+        if (Physics.Raycast(new Ray(chasePosition + 100f*Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
             camMinY = camDownHit.point.y + 0.5f;
-        
+
         transform.position = new Vector3(chasePosition.x, Mathf.Clamp(chasePosition.y, camMinY, 100f), chasePosition.z);
         transform.rotation = lookAngle;
     }
 
     private void Aim(float deltaTime)
     {
+        Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, defaultZoom/TargetZoom, zoomSpeed*Time.deltaTime);
         var lookAngle = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
         if (pivotTransform != null)
             pivotPosition = pivotTransform.position + lookAngle*offset;

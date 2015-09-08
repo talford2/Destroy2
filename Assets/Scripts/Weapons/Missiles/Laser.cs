@@ -39,7 +39,7 @@ public class Laser : Missile
         CheckForHit(transform.position, shootDirection);
 
         var velocity = initialVelocity + shootDirection * Speed;
-        transform.Translate(velocity * Time.deltaTime);
+        //transform.Translate(velocity * Time.deltaTime);
 
         base.Shoot(fromPosition, direction, initVelocity);
     }
@@ -74,6 +74,7 @@ public class Laser : Missile
         if (!willHit)
         {
             var hitRay = new Ray(from, direction);
+            Debug.Log("SPEED: " + Speed);
             if (Physics.SphereCast(hitRay, Radius, out hit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors"))) //, ~LayerMask.GetMask("Sensors", "Items", "Corpses", "Effects")))
             {
                 if (Owner != null)

@@ -55,6 +55,7 @@ public class PlayerController : ActorAgent
 		if (vehicle != null)
 		{
 			PlayerCamera.Current.SetPivot(vehicle.transform, vehicle.CameraOffset, vehicle.CameraDistance);
+            PlayerCamera.Current.TargetZoom = 1f;
 		}
 	}
 
@@ -67,7 +68,7 @@ public class PlayerController : ActorAgent
 	private void Update()
 	{
 		// Aim Camera
-		PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y") / PlayerCamera.Current.TargetZoom, Input.GetAxis("Mouse X") / PlayerCamera.Current.TargetZoom);
 
 		// Movement
 		if (vehicle != null)
@@ -86,7 +87,7 @@ public class PlayerController : ActorAgent
 			RaycastHit aimHit;
 			var isTargetInSight = false;
 
-			if (Physics.SphereCast(aimRay, 0.5f, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
+			if (Physics.SphereCast(aimRay, vehicle.GetPrimaryWeapon().MissileRadius, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
 			{
 				var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
 				if (aimKillable != null)
@@ -102,8 +103,10 @@ public class PlayerController : ActorAgent
 
 			if (isZoomed)
 			{
+
 				PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
 				PlayerCamera.Current.SetPivot(vehicle.ZoomPoint, Vector3.zero, 0f);
+			    PlayerCamera.Current.TargetZoom = vehicle.GetPrimaryWeapon().Zoom;
 			}
 			else
 			{
@@ -128,6 +131,7 @@ public class PlayerController : ActorAgent
 		else
 		{
 			PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
+		    PlayerCamera.Current.TargetZoom = 1f;
 		}
 
 		if (Input.GetKeyUp(KeyCode.LeftControl))
