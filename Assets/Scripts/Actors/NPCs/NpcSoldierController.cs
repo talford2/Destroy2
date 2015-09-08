@@ -41,7 +41,7 @@ public class NpcSoldierController : AutonomousAgent
     {
         vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
-        vehicle.OnVehicleDamage += OnVehicleDamaged;
+        vehicle.OnDamage += OnVehicleDamaged;
         vehicle.OnVehicleDestroyed += OnVehicleDestroyed;
         vehicle.Initialize();
 

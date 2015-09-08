@@ -9,9 +9,6 @@ public abstract class Vehicle : Killable
     public Transform DefaultPivot;
     public Transform ZoomPivot;
 
-    public delegate void OnVehicleDamageEvent(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker);
-    public event OnVehicleDamageEvent OnVehicleDamage;
-
     public delegate void OnVehicleDestroyedEvent();
     public event OnVehicleDestroyedEvent OnVehicleDestroyed;
 
@@ -38,14 +35,6 @@ public abstract class Vehicle : Killable
     public abstract void TriggerPrimaryWeapon();
 
     public abstract void ReleasePrimaryWeapon();
-
-    public void OnDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
-    {
-        if (OnVehicleDamage != null)
-        {
-            OnVehicleDamage(hitCollider, position, direction, power, damage, attacker);
-        }
-    }
 
     private void OnDestroy()
     {

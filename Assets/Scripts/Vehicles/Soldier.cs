@@ -192,16 +192,12 @@ public class Soldier : Vehicle
         killPosition = position;
         killDirection = direction;
         killPower = power;
-        OnDamage(hitCollider, position, direction, power, damage, attacker);
+        var damageAmount = damage;
         if (hitCollider == HeadCollider)
         {
             Debug.Log("HEAD DAMAGE!");
-            ApplyDamage(damage * 10f, attacker);
         }
-        else
-        {
-            base.Damage(hitCollider, position, direction, power, damage, attacker);
-        }
+        base.Damage(hitCollider, position, direction, power, damageAmount, attacker);
     }
 
     public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, Missile missile)
@@ -209,16 +205,13 @@ public class Soldier : Vehicle
         killPosition = position;
         killDirection = direction;
         killPower = missile.GetPower();
-        OnDamage(hitCollider, position, direction, missile.GetPower(), missile.GetDamage(), missile.GetOwner());
+        var damageAmount = missile.GetDamage();
         if (hitCollider == HeadCollider)
         {
             Debug.Log("HEADSHOT!");
-            ApplyDamage(missile.GetDamage() * 10f, missile.GetOwner());
+            damageAmount *= 10f;
         }
-        else
-        {
-            base.Damage(hitCollider, position, direction, missile);
-        }
+        base.Damage(hitCollider, position, direction, killPower, damageAmount, missile.GetOwner());
     }
 
     public override void Die(GameObject attacker)

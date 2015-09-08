@@ -36,7 +36,7 @@ public class PlayerController : ActorAgent
 		Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
 		vehicle.OnVehicleDestroyed += OnDie;
 
-		vehicle.OnVehicleDamage += OnVehicleDamage;
+		vehicle.OnDamage += OnVehicleDamage;
 		vehicle.Initialize();
 
 		if (WeaponPrefab != null)
@@ -103,10 +103,9 @@ public class PlayerController : ActorAgent
 
 			if (isZoomed)
 			{
-
-				PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
-				PlayerCamera.Current.SetPivot(vehicle.ZoomPivot, Vector3.zero, 0f);
-			    PlayerCamera.Current.TargetZoom = vehicle.GetPrimaryWeapon().Zoom;
+				//PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
+			    PlayerCamera.Current.SetPivot(vehicle.ZoomPivot, vehicle.CameraOffset, 1f);// vehicle.CameraDistance);
+			    PlayerCamera.Current.TargetZoom = 1f; //vehicle.GetPrimaryWeapon().Zoom;
 			}
 			else
 			{
