@@ -150,7 +150,6 @@ MonoBehaviour:
   ReloadTime: 0
   EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
-  AimRadius: .5
   Zoom: 1
   RequireTargetLock: 0
   TargetLockTime: 0
@@ -164,11 +163,11 @@ MonoBehaviour:
   OverHeathCooldownDelay: 0
   CooldownDelay: 0
   CooldownRate: 0
-  Crosshair: {fileID: 21300000, guid: 7ad52e8d4d897a64c816a4ac17737494, type: 3}
+  Crosshair: {fileID: 21300000, guid: b024ae605c0bdd24ea49ad08193a1060, type: 3}
   MissileGameObject: {fileID: 128166, guid: feacc9732b3be2c4284c292f398247db, type: 2}
   MissileDamage: 5
-  MissilePower: 10000
-  MissileRadius: 0
+  MissilePower: 8000
+  MissileRadius: .100000001
   MissileCount: 20
 --- !u!1001 &100100000
 Prefab:
@@ -187,7 +186,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilePower
-      value: 10000
+      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissileCount
@@ -260,11 +259,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Crosshair
       value: 
-      objectReference: {fileID: 21300000, guid: 7ad52e8d4d897a64c816a4ac17737494,
+      objectReference: {fileID: 21300000, guid: b024ae605c0bdd24ea49ad08193a1060,
         type: 3}
     - target: {fileID: 0}
       propertyPath: AimRadius
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissileRadius
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

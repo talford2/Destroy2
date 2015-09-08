@@ -138,19 +138,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunId: 0
-  GunName: Laser Gun
+  GunName: Machine Gun
   RoundsPerMinute: 1400
   TriggerTime: .200000003
   MissilesPerShot: 1
   IsSimultaneous: 0
-  Spread: {x: 1.5, y: 1.5}
+  Spread: {x: 2, y: 1.5}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
   ClipCapacity: 20
   ReloadTime: 0
   EquipPrefab: {fileID: 0}
   MaxAimDistance: 1000
-  AimRadius: .699999988
   Zoom: 1
   RequireTargetLock: 0
   TargetLockTime: 0
@@ -195,7 +194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: GunName
-      value: Laser Gun
+      value: Machine Gun
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: RoundsPerMinute
@@ -235,7 +234,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
     - target: {fileID: 0}
       propertyPath: Spread.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Spread.y

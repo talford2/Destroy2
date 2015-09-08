@@ -167,7 +167,7 @@ MonoBehaviour:
   MissileGameObject: {fileID: 128166, guid: 976e6e5364571144b99ebdd66cfb0287, type: 2}
   MissileDamage: 8
   MissilePower: 5000
-  MissileRadius: .200000003
+  MissileRadius: .100000001
   MissileCount: 20
 --- !u!1001 &100100000
 Prefab:
@@ -275,7 +275,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissileRadius
-      value: .200000003
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

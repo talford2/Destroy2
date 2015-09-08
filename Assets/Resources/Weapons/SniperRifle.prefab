@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunId: 0
-  GunName: Assault Rifle
+  GunName: Sniper Rifle
   RoundsPerMinute: 30
   TriggerTime: 1
   MissilesPerShot: 1
@@ -194,7 +194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: GunName
-      value: Assault Rifle
+      value: Sniper Rifle
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: RoundsPerMinute
