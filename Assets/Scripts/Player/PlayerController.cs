@@ -20,6 +20,9 @@ public class PlayerController : ActorAgent
 	private float maxAimDistance;
 	private Vector3 aimAt;
 
+    // Death
+    private Vector3 diedAtPosition;
+
 	private void Awake()
 	{
 		InitVehicle(VehiclePrefab, WeaponPrefab, transform.position, transform.rotation);
@@ -42,6 +45,8 @@ public class PlayerController : ActorAgent
 
         if (weaponPrefab != null)
             vehicle.SetPrimaryWeapon(weaponPrefab);
+        
+        SetUpCamera();
 
 		Targeting.AddTargetable(Team, vehicle);
 	}
@@ -57,6 +62,7 @@ public class PlayerController : ActorAgent
 		{
 			PlayerCamera.Current.SetPivot(vehicle.DefaultPivot, vehicle.CameraOffset, vehicle.CameraDistance);
             PlayerCamera.Current.TargetZoom = 1f;
+            PlayerCamera.Current.DistanceCatupSpeed = 15f;
 		}
 	}
 
@@ -143,10 +149,9 @@ public class PlayerController : ActorAgent
 		return vehicle;
 	}
 
-    private Vector3 diedAtPosition;
-
 	private void OnVehicleDie(GameObject attacker)
 	{
+	    diedAtPosition = vehicle.transform.position;
 		Debug.Log("YOU DIED.");
 		Targeting.RemoveTargetable(Team, vehicle);
 		HeadsUpDisplay.Current.FadeOutCrosshair(1f);
