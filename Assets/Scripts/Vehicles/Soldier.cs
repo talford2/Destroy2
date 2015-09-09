@@ -65,6 +65,10 @@ public class Soldier : Vehicle
 
         fallSpeed += -9.81f * Time.deltaTime;
         velocity = Vector3.up * fallSpeed;
+
+        if (controller.isGrounded)
+            fallSpeed = 0f;
+
         controller.Move(velocity * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
         // Locomotion
