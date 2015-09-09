@@ -205,6 +205,17 @@ public class NpcSoldierController : AutonomousAgent
             //vehicle.SetMove(0f, 0f);
         }
 
+        // Reconsider target
+        if (targetReconsiderCooldown > 0f)
+        {
+            targetReconsiderCooldown -= Time.deltaTime;
+            if (targetReconsiderCooldown < 0f)
+            {
+                target = Targeting.FindNearest(Targeting.GetOpposingTeam(Team), vehicle.transform.position, 100f);
+                targetReconsiderCooldown = TargetReconsiderRate;
+            }
+        }
+
         if (HasTarget())
         {
             state = NpcSoldierState.Chase;
