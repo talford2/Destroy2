@@ -5,5 +5,7 @@ public abstract class ActorAgent : MonoBehaviour {
 
     public Vector3 Heading;
 
+    public abstract void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation);
+
     public abstract Vehicle GetVehicle();
 }

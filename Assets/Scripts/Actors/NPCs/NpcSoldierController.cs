@@ -35,7 +35,7 @@ public class NpcSoldierController : AutonomousAgent
     private void Awake()
     {
         steering = new SteeringBehaviour(this);
-        InitVehicle(VehiclePrefab.gameObject);
+        InitVehicle(VehiclePrefab, WeaponPrefab, transform.position, transform.rotation);
 
         target = Targeting.FindNearest(Targeting.GetOpposingTeam(Team), vehicle.transform.position, 100f);
         state = NpcSoldierState.Wander;
@@ -43,16 +43,16 @@ public class NpcSoldierController : AutonomousAgent
         AssignWanderPosition();
     }
 
-    private void InitVehicle(GameObject prefab)
+    public override void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
     {
-        vehicle = ((GameObject) Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
+        vehicle = ((GameObject)Instantiate(vehiclePrefab, position, rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
         vehicle.OnDamage += OnVehicleDamage;
         vehicle.OnDie += OnVehicleDie;
         vehicle.Initialize();
 
-        if (WeaponPrefab != null)
-            vehicle.SetPrimaryWeapon(WeaponPrefab);
+        if (weaponPrefab != null)
+            vehicle.SetPrimaryWeapon(weaponPrefab);
 
         Targeting.AddTargetable(Team, vehicle);
         var neighrbourSensor = GetComponentInChildren<NeighbourSensor>();

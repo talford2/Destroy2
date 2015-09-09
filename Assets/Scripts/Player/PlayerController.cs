@@ -33,7 +33,7 @@ public class PlayerController : ActorAgent
 		current = this;
 	}
 
-	public void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
+	public override void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
 	{
 		vehicle = ((GameObject)Instantiate(vehiclePrefab.gameObject, position, rotation)).GetComponent<Vehicle>();
 		vehicle.transform.parent = transform;
