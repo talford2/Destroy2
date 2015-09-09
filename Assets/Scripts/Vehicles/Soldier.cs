@@ -142,8 +142,8 @@ public class Soldier : Vehicle
             equippedPrimaryWeapon.transform.parent = WeaponPlaceholder;
             equippedPrimaryWeapon.transform.localPosition = Vector3.zero;
             equippedPrimaryWeapon.transform.localRotation = Quaternion.identity;
-            PrimaryWeaponShootPoints = equippedPrimaryWeapon.GetComponent<EquipWeapon>().ShootPoints;
         }
+        PrimaryWeaponShootPoints = equippedPrimaryWeapon.GetComponent<EquipWeapon>().ShootPoints;
 
         primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
         primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);

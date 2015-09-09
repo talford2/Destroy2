@@ -24,7 +24,11 @@ public class SoldierCorpse : Corpse
         equippedRigidbody.isKinematic = false;
         equipped.GetComponent<Collider>().enabled = true;
         equipped.transform.parent = null;
-
+        var equipWeapon = equipped.GetComponentInChildren<EquipWeapon>();
+        if (equipWeapon != null)
+        {
+            equipWeapon.EnableCollect();
+        }
         if (parentObject != null)
         {
             equippedRigidbody.angularVelocity = parentObject.angularVelocity;

@@ -156,6 +156,15 @@ public class PlayerController : ActorAgent
         StartCoroutine(Respawn(5f));
 	}
 
+    public void Give(GameObject givePrefab)
+    {
+        var weapon = givePrefab.GetComponent<VehicleGun>();
+        if (weapon != null)
+        {
+            vehicle.SetPrimaryWeapon(weapon);
+        }
+    }
+
     private IEnumerator Respawn(float delay)
     {
         yield return new WaitForSeconds(delay);
