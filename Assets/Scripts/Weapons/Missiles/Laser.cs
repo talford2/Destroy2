@@ -74,7 +74,6 @@ public class Laser : Missile
         if (!willHit)
         {
             var hitRay = new Ray(from, direction);
-            Debug.Log("SPEED: " + Speed);
             if (Physics.SphereCast(hitRay, Radius, out hit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors"))) //, ~LayerMask.GetMask("Sensors", "Items", "Corpses", "Effects")))
             {
                 if (Owner != null)

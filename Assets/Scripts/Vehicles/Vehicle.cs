@@ -9,6 +9,8 @@ public abstract class Vehicle : Killable
     public Transform DefaultPivot;
     public Transform ZoomPivot;
 
+    public float PathAimHeight;
+
     public abstract void Initialize();
 
     public abstract void SetMove(float forward, float strafe);

@@ -5,8 +5,7 @@ public class NpcSoldierController : AutonomousAgent
     public Vehicle VehiclePrefab;
     public VehicleGun WeaponPrefab;
 
-    [Header("Chase Behaviour")]
-    public float TargetReconsiderRate;
+    [Header("Chase Behaviour")] public float TargetReconsiderRate;
 
     // Navigation
     private SteeringBehaviour steering;
@@ -137,7 +136,7 @@ public class NpcSoldierController : AutonomousAgent
         }
         else
         {
-            path = new[] { vehicle.transform.position };
+            path = new[] {vehicle.transform.position};
         }
         curPathIndex = 0;
     }
@@ -178,7 +177,7 @@ public class NpcSoldierController : AutonomousAgent
         vehicle.SetPitchYaw(0f, pitchYaw.y);
         var forward = Vector3.Dot(wanderForce, vehicle.transform.forward);
         var strafe = Vector3.Dot(wanderForce, vehicle.transform.right);
-        vehicle.SetAimAt(path[curPathIndex] + 1.2f*Vector3.up);
+        vehicle.SetAimAt(path[curPathIndex] + vehicle.PathAimHeight*Vector3.up + vehicle.transform.forward);
         vehicle.SetRun(false);
         vehicle.SetMove(forward, strafe);
 
@@ -294,7 +293,7 @@ public class NpcSoldierController : AutonomousAgent
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
             if (toTarget.sqrMagnitude < 50f*50f)
             {
-                var aimAt = targetVehicle.transform.position + Vector3.up + GetAimRadius(toTarget.sqrMagnitude)*Random.insideUnitSphere;
+                var aimAt = targetVehicle.transform.position + targetVehicle.PathAimHeight*Vector3.up + GetAimRadius(toTarget.sqrMagnitude)*Random.insideUnitSphere;
                 var shootFrom = vehicle.GetPrimaryWeaponShootPoint();
                 var aimRay = new Ray(shootFrom, aimAt - shootFrom);
 
@@ -324,7 +323,7 @@ public class NpcSoldierController : AutonomousAgent
             }
             else
             {
-                vehicle.SetAimAt(path[curPathIndex]);
+                vehicle.SetAimAt(path[curPathIndex] + vehicle.PathAimHeight*Vector3.up + vehicle.transform.forward);
                 vehicle.ReleasePrimaryWeapon();
                 vehicle.SetRun(true);
             }
@@ -357,8 +356,8 @@ public class NpcSoldierController : AutonomousAgent
         if (distanceSquared < 5f*5f)
             return 0;
         if (distanceSquared < 30f*30f)
-            return 2*distanceSquared/(30f*30f);
-        return 2f;
+            return 1*distanceSquared/(30f*30f);
+        return 1f;
     }
 
     private void OnVehicleDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
