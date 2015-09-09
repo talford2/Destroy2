@@ -21,6 +21,7 @@ public class Soldier : Vehicle
 
     private CharacterController controller;
     private VehicleGun primaryWeapon;
+    private GameObject equippedPrimaryWeapon;
 
     // Movement
     private Vector3 move;
@@ -135,11 +136,13 @@ public class Soldier : Vehicle
 
         if (PrimaryWeaponPrefab.EquipPrefab != null)
         {
-            var equippedWeapon = Instantiate(value.EquipPrefab);
-            equippedWeapon.transform.parent = WeaponPlaceholder;
-            equippedWeapon.transform.localPosition = Vector3.zero;
-            equippedWeapon.transform.localRotation = Quaternion.identity;
-            PrimaryWeaponShootPoints = equippedWeapon.GetComponent<EquipWeapon>().ShootPoints;
+            if (equippedPrimaryWeapon!=null)
+                Destroy(equippedPrimaryWeapon);
+            equippedPrimaryWeapon = Instantiate(value.EquipPrefab);
+            equippedPrimaryWeapon.transform.parent = WeaponPlaceholder;
+            equippedPrimaryWeapon.transform.localPosition = Vector3.zero;
+            equippedPrimaryWeapon.transform.localRotation = Quaternion.identity;
+            PrimaryWeaponShootPoints = equippedPrimaryWeapon.GetComponent<EquipWeapon>().ShootPoints;
         }
 
         primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });

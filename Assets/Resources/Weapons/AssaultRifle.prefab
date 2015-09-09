@@ -148,7 +148,7 @@ MonoBehaviour:
   HasInfiniteAmmunition: 1
   ClipCapacity: 32
   ReloadTime: 2
-  EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
+  EquipPrefab: {fileID: 135446, guid: d4f4cf88074e73643a576a5dc3dc432b, type: 2}
   MaxAimDistance: 1000
   Zoom: 1
   RequireTargetLock: 0
@@ -227,7 +227,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: EquipPrefab
       value: 
-      objectReference: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
+      objectReference: {fileID: 135446, guid: d4f4cf88074e73643a576a5dc3dc432b, type: 2}
     - target: {fileID: 0}
       propertyPath: m_PlayOnAwake
       value: 0
