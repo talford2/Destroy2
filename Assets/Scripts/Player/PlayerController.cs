@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerController : ActorAgent
 {
@@ -21,7 +22,7 @@ public class PlayerController : ActorAgent
 
 	private void Awake()
 	{
-		InitVehicle(VehiclePrefab.gameObject);
+		InitVehicle(VehiclePrefab.gameObject, transform.position, transform.rotation);
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -29,9 +30,9 @@ public class PlayerController : ActorAgent
 		current = this;
 	}
 
-	private void InitVehicle(GameObject prefab)
+	public void InitVehicle(GameObject prefab, Vector3 position, Quaternion rotation)
 	{
-		vehicle = ((GameObject)Instantiate(prefab, transform.position, transform.rotation)).GetComponent<Vehicle>();
+		vehicle = ((GameObject)Instantiate(prefab, position, rotation)).GetComponent<Vehicle>();
 		vehicle.transform.parent = transform;
 		Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
         vehicle.OnDamage += OnVehicleDamage;
@@ -142,12 +143,22 @@ public class PlayerController : ActorAgent
 		return vehicle;
 	}
 
+    private Vector3 diedAtPosition;
+
 	private void OnVehicleDie(GameObject attacker)
 	{
 		Debug.Log("YOU DIED.");
 		Targeting.RemoveTargetable(Team, vehicle);
 		HeadsUpDisplay.Current.FadeOutCrosshair(1f);
+        StartCoroutine(Respawn(5f));
 	}
+
+    private IEnumerator Respawn(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.FindNearestSpawner(diedAtPosition).Trigger();
+        HeadsUpDisplay.Current.ShowCrosshair();
+    }
 
 	private void OnDrawGizmos()
 	{

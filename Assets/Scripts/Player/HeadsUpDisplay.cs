@@ -71,4 +71,10 @@ public class HeadsUpDisplay : MonoBehaviour
 		fadeOutCooldown = time;
 		isFadeOutCrosshair = true;
 	}
+
+    public void ShowCrosshair()
+    {
+        Crosshair.color = Color.white;
+        Crosshair.enabled = true;
+    }
 }

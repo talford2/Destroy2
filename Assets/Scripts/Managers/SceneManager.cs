@@ -24,4 +24,21 @@ public class SceneManager
             return corpseContainer;
         }
     }
+
+    public static PlayerSpawner FindNearestSpawner(Vector3 position)
+    {
+        PlayerSpawner closestSpawner = null;
+        var closestDistanceSquared = Mathf.Infinity;
+        var spawners = GameObject.FindObjectsOfType<PlayerSpawner>();
+        foreach (var spawner in spawners)
+        {
+            var distSquared = (spawner.transform.position - position).sqrMagnitude;
+            if (distSquared < closestDistanceSquared)
+            {
+                closestSpawner = spawner;
+                closestDistanceSquared = distSquared;
+            }
+        }
+        return closestSpawner;
+    }
 }
