@@ -5,6 +5,9 @@ public class NpcSoldierController : AutonomousAgent
     public Vehicle VehiclePrefab;
     public VehicleGun WeaponPrefab;
 
+    [Header("Chase Behaviour")]
+    public float TargetReconsiderRate;
+
     // Navigation
     private SteeringBehaviour steering;
     private bool reachedPathEnd;
@@ -20,6 +23,7 @@ public class NpcSoldierController : AutonomousAgent
 
     // Chase / Attack
     private Killable target;
+    private float targetReconsiderCooldown;
 
     // Death
     private Vector3 killPosition;
@@ -174,6 +178,7 @@ public class NpcSoldierController : AutonomousAgent
         vehicle.SetPitchYaw(0f, pitchYaw.y);
         var forward = Vector3.Dot(wanderForce, vehicle.transform.forward);
         var strafe = Vector3.Dot(wanderForce, vehicle.transform.right);
+        vehicle.SetAimAt(path[curPathIndex] + 1.2f*Vector3.up);
         vehicle.SetRun(false);
         vehicle.SetMove(forward, strafe);
 
@@ -195,7 +200,12 @@ public class NpcSoldierController : AutonomousAgent
             AssignWanderPosition();
             reachedPathEnd = false;
             curPathIndex = 0;
-            vehicle.SetMove(0f, 0f);
+            //vehicle.SetMove(0f, 0f);
+        }
+
+        if (HasTarget())
+        {
+            state = NpcSoldierState.Chase;
         }
     }
 
@@ -261,6 +271,7 @@ public class NpcSoldierController : AutonomousAgent
                 if (curPathIndex == path.Length)
                 {
                     reachedPathEnd = true;
+                    curPathIndex = 0;
                 }
             }
         }
@@ -268,13 +279,12 @@ public class NpcSoldierController : AutonomousAgent
         if (reachedPathEnd)
         {
             reachedPathEnd = false;
-            curPathIndex = 0;
         }
 
         var chaseForce = GetChaseForce();
 
         Vehicle targetVehicle = null;
-        if (target != null)
+        if (HasTarget())
             targetVehicle = target.GetComponent<Vehicle>();
         if (targetVehicle != null)
         {
@@ -314,19 +324,32 @@ public class NpcSoldierController : AutonomousAgent
             }
             else
             {
+                vehicle.SetAimAt(path[curPathIndex]);
                 vehicle.ReleasePrimaryWeapon();
                 vehicle.SetRun(true);
             }
-        }
-        else
-        {
-            vehicle.ReleasePrimaryWeapon();
-            state = NpcSoldierState.Wander;
         }
 
         var forward = Vector3.Dot(chaseForce, vehicle.transform.forward);
         var strafe = Vector3.Dot(chaseForce, vehicle.transform.right);
         vehicle.SetMove(forward, strafe);
+
+        // Reconsider target
+        if (targetReconsiderCooldown > 0f)
+        {
+            targetReconsiderCooldown -= Time.deltaTime;
+            if (targetReconsiderCooldown < 0f)
+            {
+                target = Targeting.FindNearest(Targeting.GetOpposingTeam(Team), vehicle.transform.position, 100f);
+                targetReconsiderCooldown = TargetReconsiderRate;
+            }
+        }
+
+        if (!HasTarget())
+        {
+            path = null;
+            state = NpcSoldierState.Wander;
+        }
     }
 
     private float GetAimRadius(float distanceSquared)
