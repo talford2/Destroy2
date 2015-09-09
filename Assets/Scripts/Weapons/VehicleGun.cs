@@ -324,6 +324,11 @@ public class VehicleGun : MonoBehaviour
         return shootPointTransforms.Aggregate(Vector3.zero, (current, shootPoint) => current + shootPoint.position) / shootPointTransforms.Length;
     }
 
+    public Vector3 GetShootPointsDirection()
+    {
+        return shootPointTransforms.Aggregate(Vector3.zero, (current, shootPoint) => current + shootPoint.forward)/shootPointTransforms.Length;
+    }
+
     private VelocityReference velocity;
 
     public void SetVelocityReference(VelocityReference velocityReference)

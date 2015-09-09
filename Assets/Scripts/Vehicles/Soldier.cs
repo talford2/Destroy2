@@ -122,6 +122,11 @@ public class Soldier : Vehicle
         return primaryWeapon.GetShootPointsCentre();
     }
 
+    public override Vector3 GetPrimaryWeaponAimDirection()
+    {
+        return primaryWeapon.GetShootPointsDirection();
+    }
+
     public override void SetPrimaryWeapon(VehicleGun value)
     {
         if (primaryWeapon!=null)

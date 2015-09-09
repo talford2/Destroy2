@@ -5,7 +5,10 @@ public class NpcSoldierController : AutonomousAgent
     public Vehicle VehiclePrefab;
     public VehicleGun WeaponPrefab;
 
-    [Header("Chase Behaviour")] public float TargetReconsiderRate;
+    [Header("Chase Behaviour")]
+    public float TargetReconsiderRate;
+    public float AttackDistance;
+    public float AimAngleTolerance = 5f;
 
     // Navigation
     private SteeringBehaviour steering;
@@ -291,29 +294,38 @@ public class NpcSoldierController : AutonomousAgent
             vehicle.SetPitchYaw(0f, pitchYaw.y);
 
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
-            if (toTarget.sqrMagnitude < 50f*50f)
+            if (toTarget.sqrMagnitude < AttackDistance*AttackDistance)
             {
                 var aimAt = targetVehicle.transform.position + targetVehicle.PathAimHeight*Vector3.up + GetAimRadius(toTarget.sqrMagnitude)*Random.insideUnitSphere;
                 var shootFrom = vehicle.GetPrimaryWeaponShootPoint();
                 var aimRay = new Ray(shootFrom, aimAt - shootFrom);
 
-                // Avoid shooting friends
-                RaycastHit aimHit;
-                var dontShoot = false;
-                if (Physics.Raycast(aimRay, out aimHit, 50f, ~LayerMask.GetMask("Sensors")))
-                {
-                    var npc = aimHit.collider.GetComponentInParent<NpcSoldierController>();
-                    if (npc != null)
-                    {
-                        if (npc.Team == Team)
-                            dontShoot = true;
-                    }
-                }
-
                 vehicle.SetAimAt(aimAt);
-                if (!dontShoot)
+
+                var angleToTarget = Vector3.Angle(aimRay.direction, vehicle.GetPrimaryWeaponAimDirection());
+                if (Mathf.Abs(angleToTarget) < AimAngleTolerance)
                 {
-                    vehicle.TriggerPrimaryWeapon();
+                    // Avoid shooting friends
+                    RaycastHit aimHit;
+                    var dontShoot = false;
+                    if (Physics.Raycast(aimRay, out aimHit, AttackDistance, ~LayerMask.GetMask("Sensors")))
+                    {
+                        var npc = aimHit.collider.GetComponentInParent<NpcSoldierController>();
+                        if (npc != null)
+                        {
+                            if (npc.Team == Team)
+                                dontShoot = true;
+                        }
+                    }
+
+                    if (!dontShoot)
+                    {
+                        vehicle.TriggerPrimaryWeapon();
+                    }
+                    else
+                    {
+                        vehicle.ReleasePrimaryWeapon();
+                    }
                 }
                 else
                 {
@@ -327,6 +339,10 @@ public class NpcSoldierController : AutonomousAgent
                 vehicle.ReleasePrimaryWeapon();
                 vehicle.SetRun(true);
             }
+        }
+        else
+        {
+            vehicle.ReleasePrimaryWeapon();
         }
 
         var forward = Vector3.Dot(chaseForce, vehicle.transform.forward);
@@ -362,14 +378,17 @@ public class NpcSoldierController : AutonomousAgent
 
     private void OnVehicleDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
-        var targetCandidate = attacker.GetComponentInParent<ActorAgent>();
-        if (targetCandidate != null)
+        if (attacker != null)
         {
-            if (targetCandidate.Team == Targeting.GetOpposingTeam(Team))
+            var targetCandidate = attacker.GetComponentInParent<ActorAgent>();
+            if (targetCandidate != null)
             {
-                target = targetCandidate.GetVehicle();
-                SetTarget(target);
-                AlertNeighbours(target);
+                if (targetCandidate.Team == Targeting.GetOpposingTeam(Team))
+                {
+                    target = targetCandidate.GetVehicle();
+                    SetTarget(target);
+                    AlertNeighbours(target);
+                }
             }
         }
     }
