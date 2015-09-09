@@ -46,8 +46,6 @@ public class PlayerController : ActorAgent
         if (weaponPrefab != null)
             vehicle.SetPrimaryWeapon(weaponPrefab);
         
-        SetUpCamera();
-
 		Targeting.AddTargetable(Team, vehicle);
 	}
 
