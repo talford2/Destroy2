@@ -2,10 +2,8 @@
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public Vehicle VehiclePrefab;
-
-    public void Trigger()
+    public void Trigger(Vehicle vehiclePrefab, VehicleGun weaponPrefab)
     {
-        PlayerController.Current.InitVehicle(VehiclePrefab.gameObject, transform.position, transform.rotation);
+        PlayerController.Current.InitVehicle(vehiclePrefab, weaponPrefab, transform.position, transform.rotation);
     }
 }

@@ -22,7 +22,7 @@ public class PlayerController : ActorAgent
 
 	private void Awake()
 	{
-		InitVehicle(VehiclePrefab.gameObject, transform.position, transform.rotation);
+		InitVehicle(VehiclePrefab, WeaponPrefab, transform.position, transform.rotation);
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -30,9 +30,9 @@ public class PlayerController : ActorAgent
 		current = this;
 	}
 
-	public void InitVehicle(GameObject prefab, Vector3 position, Quaternion rotation)
+	public void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
 	{
-		vehicle = ((GameObject)Instantiate(prefab, position, rotation)).GetComponent<Vehicle>();
+		vehicle = ((GameObject)Instantiate(vehiclePrefab.gameObject, position, rotation)).GetComponent<Vehicle>();
 		vehicle.transform.parent = transform;
 		Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
         vehicle.OnDamage += OnVehicleDamage;
@@ -40,8 +40,8 @@ public class PlayerController : ActorAgent
 
 		vehicle.Initialize();
 
-		if (WeaponPrefab != null)
-			vehicle.SetPrimaryWeapon(WeaponPrefab);
+        if (weaponPrefab != null)
+            vehicle.SetPrimaryWeapon(weaponPrefab);
 
 		Targeting.AddTargetable(Team, vehicle);
 	}
@@ -156,7 +156,7 @@ public class PlayerController : ActorAgent
     private IEnumerator Respawn(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.FindNearestSpawner(diedAtPosition).Trigger();
+        SceneManager.FindNearestSpawner(diedAtPosition).Trigger(VehiclePrefab, WeaponPrefab);
         HeadsUpDisplay.Current.ShowCrosshair();
     }
 
