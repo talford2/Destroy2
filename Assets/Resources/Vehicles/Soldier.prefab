@@ -1337,6 +1337,7 @@ MonoBehaviour:
   CameraOffset: {x: .800000012, y: .5, z: -.100000001}
   DefaultPivot: {fileID: 418046}
   ZoomPivot: {fileID: 405384}
+  PathAimHeight: 1.20000005
   ForwardSpeed: 5
   StrafeSpeed: 5
   PrimaryWeaponPrefab: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16,
@@ -1530,6 +1531,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: RegenerationRate
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PathAimHeight
+      value: 1.20000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

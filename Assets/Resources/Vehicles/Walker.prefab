@@ -921,6 +921,7 @@ MonoBehaviour:
   CameraOffset: {x: 3, y: .5, z: -2}
   DefaultPivot: {fileID: 438390}
   ZoomPivot: {fileID: 447362}
+  PathAimHeight: 4
   ForwardSpeed: 5
   StrafeSpeed: 5
   StepSound: {fileID: 8209946}
@@ -1073,6 +1074,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: CameraOffset.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PathAimHeight
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
