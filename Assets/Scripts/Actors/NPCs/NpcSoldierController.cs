@@ -45,7 +45,7 @@ public class NpcSoldierController : AutonomousAgent
 
     public override void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
     {
-        vehicle = ((GameObject)Instantiate(vehiclePrefab, position, rotation)).GetComponent<Vehicle>();
+        vehicle = ((GameObject)Instantiate(vehiclePrefab.gameObject, position, rotation)).GetComponent<Vehicle>();
         vehicle.transform.parent = transform;
         vehicle.OnDamage += OnVehicleDamage;
         vehicle.OnDie += OnVehicleDie;

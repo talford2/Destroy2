@@ -104,7 +104,7 @@ MonoBehaviour:
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
   WeaponPrefab: {fileID: 0}
   TargetReconsiderRate: 3
-  AttackDistance: 50
+  AttackDistance: 80
   AimAngleTolerance: 5
 --- !u!114 &11469418
 MonoBehaviour:
@@ -201,7 +201,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: AttackDistance
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
