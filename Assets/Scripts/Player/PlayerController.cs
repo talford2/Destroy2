@@ -20,6 +20,9 @@ public class PlayerController : ActorAgent
 	private float maxAimDistance;
 	private Vector3 aimAt;
 
+    // Collecting
+    private bool isCollecting;
+
     // Death
     private Vector3 diedAtPosition;
 
@@ -82,6 +85,7 @@ public class PlayerController : ActorAgent
 			var isZoomed = Input.GetButton("Fire2");
 			vehicle.SetRun(Input.GetButton("Fire3"));
 			vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+		    isCollecting = Input.GetButton("Collect");
 
 			// Aiming
 			maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
@@ -141,6 +145,11 @@ public class PlayerController : ActorAgent
 		if (Input.GetKeyUp(KeyCode.LeftControl))
 			Debug.Break();
 	}
+
+    public bool IsCollecting()
+    {
+        return isCollecting;
+    }
 
 	public override Vehicle GetVehicle()
 	{

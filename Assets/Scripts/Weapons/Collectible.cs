@@ -25,7 +25,7 @@ public class Collectible : MonoBehaviour
         triggerCollider.enabled = Enabled;
         if (occupyingPlayer != null)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (occupyingPlayer.IsCollecting())
             {
                 if (OnCollect != null)
                 {
