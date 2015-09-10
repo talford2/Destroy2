@@ -11,4 +11,12 @@ public class Utility {
             SetLayerRecursively(trans, layer);
         }
     }
+
+    public static bool IsInFrontOfCamera(Camera camera, Vector3 position)
+    {
+        if (camera == null)
+            return false;
+        var dotProduct = Vector3.Dot(position - camera.transform.position, camera.transform.forward);
+        return dotProduct > 0f;
+    }
 }
