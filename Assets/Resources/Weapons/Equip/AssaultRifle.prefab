@@ -46,6 +46,7 @@ GameObject:
   - 4: {fileID: 433822}
   - 135: {fileID: 13578650}
   - 114: {fileID: 11486078}
+  - 114: {fileID: 11450546}
   m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
@@ -166,6 +167,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11450546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc55d97b73ebd3c4bbf716a6037d1591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collectible: {fileID: 11486078}
+  TopLeft: {fileID: 2800000, guid: 8e8c30fe329ec4c488dac342970c41fb, type: 3}
+  TopRight: {fileID: 2800000, guid: 48f1c7883451ed849987a9f1b92ab673, type: 3}
+  BottomLeft: {fileID: 2800000, guid: 9465cd8217237d440b9ee099ac60694b, type: 3}
+  BottomRight: {fileID: 2800000, guid: f1da1f567259eb44cbdc12026b78f71e, type: 3}
 --- !u!114 &11454794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +244,26 @@ Prefab:
       propertyPath: GivePrefab
       value: 
       objectReference: {fileID: 135538, guid: ee7c3f491b2b669459c10deb3bda578a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Collectible
+      value: 
+      objectReference: {fileID: 11486078}
+    - target: {fileID: 0}
+      propertyPath: TopLeft
+      value: 
+      objectReference: {fileID: 2800000, guid: 8e8c30fe329ec4c488dac342970c41fb, type: 3}
+    - target: {fileID: 0}
+      propertyPath: TopRight
+      value: 
+      objectReference: {fileID: 2800000, guid: 48f1c7883451ed849987a9f1b92ab673, type: 3}
+    - target: {fileID: 0}
+      propertyPath: BottomLeft
+      value: 
+      objectReference: {fileID: 2800000, guid: 9465cd8217237d440b9ee099ac60694b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: BottomRight
+      value: 
+      objectReference: {fileID: 2800000, guid: f1da1f567259eb44cbdc12026b78f71e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135446}
