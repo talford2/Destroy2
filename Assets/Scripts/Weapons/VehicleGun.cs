@@ -20,6 +20,10 @@ public class VehicleGun : MonoBehaviour
     public float MaxAimDistance = 1000f;
     public float Zoom = 1f;
 
+    [Header("Feedback")]
+    [Tooltip("X represents the pitch and Y represents the yaw in degrees.")]
+    public Vector2 KickPitchYaw;
+
     [Header("Target Locking")]
     public bool RequireTargetLock;
     public float TargetLockTime;
@@ -154,9 +158,6 @@ public class VehicleGun : MonoBehaviour
             {
                 if (clipRemaining > 0)
                 {
-                    if (OnShootFinished != null)
-                        OnShootFinished();
-
                     if (IsSimultaneous)
                     {
                         ShootAll();
@@ -165,12 +166,14 @@ public class VehicleGun : MonoBehaviour
                     {
                         ShootAlternate();
                     }
+                    if (OnShootFinished != null)
+                        OnShootFinished();
                     isReleased = false;
                     //lockedTarget = null;
                     lockTargetCooldown = TargetLockTime;
                     fireCooldown = fireRate;
                 }
-                else
+                if (clipRemaining == 0)
                 {
                     if (OnClipEmpty != null)
                         OnClipEmpty();
@@ -384,11 +387,13 @@ public class VehicleGun : MonoBehaviour
                 ? OverHeathCooldownDelay
                 : CooldownDelay;
         }
-        clipRemaining--;
-
         fireCooldown = fireRate;
-        if (OnShoot != null)
-            OnShoot();
+        if (clipRemaining > 0)
+        {
+            if (OnShoot != null)
+                OnShoot();
+        }
+        clipRemaining--;
     }
 
     private int curShootPointIndex;
@@ -455,11 +460,13 @@ public class VehicleGun : MonoBehaviour
                 ? OverHeathCooldownDelay
                 : CooldownDelay;
         }
-        clipRemaining--;
-
         fireCooldown = fireRate;
-        if (OnShoot != null)
-            OnShoot();
+        if (clipRemaining > 0)
+        {
+            if (OnShoot != null)
+                OnShoot();
+        }
+        clipRemaining--;
     }
 
     private void Reload()

@@ -114,7 +114,7 @@ public class PlayerController : ActorAgent
 			{
 				//PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
 			    PlayerCamera.Current.SetPivot(vehicle.ZoomPivot, vehicle.CameraOffset, 1f);// vehicle.CameraDistance);
-			    PlayerCamera.Current.TargetZoom = 1f; //vehicle.GetPrimaryWeapon().Zoom;
+			    PlayerCamera.Current.TargetZoom = vehicle.GetPrimaryWeapon().Zoom;
 			}
 			else
 			{

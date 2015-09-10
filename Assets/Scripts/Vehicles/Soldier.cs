@@ -153,6 +153,7 @@ public class Soldier : Vehicle
         primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
         primaryWeapon.SetClipRemaining(100);
         primaryWeapon.OnShoot += OnShootPrimaryWeapon;
+        primaryWeapon.OnClipEmpty += OnEmptyPrimaryWeapon;
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
         primaryWeapon.transform.parent = transform;
         primaryWeapon.transform.localPosition = Vector3.zero;
@@ -187,11 +188,32 @@ public class Soldier : Vehicle
     public override void ReleasePrimaryWeapon()
     {
         primaryWeapon.ReleaseTriggerShoot();
+        var player = GetComponentInParent<PlayerController>();
+        if (player != null)
+        {
+            PlayerCamera.Current.RestorePitchYaw();
+        }
     }
 
     private void OnShootPrimaryWeapon()
     {
         meshAnimator.SetTrigger("Shoot");
+        var player = GetComponentInParent<PlayerController>();
+        if (player != null)
+        {
+            Debug.Log("KICK!");
+            PlayerCamera.Current.AddTemporaryPitchYaw(Random.Range(0, primaryWeapon.KickPitchYaw.x), Random.Range(-primaryWeapon.KickPitchYaw.y / 2f, primaryWeapon.KickPitchYaw.y / 2f));
+        }
+    }
+
+    private void OnEmptyPrimaryWeapon()
+    {
+        Debug.Log("CLIP EMPTY");
+        var player = GetComponentInParent<PlayerController>();
+        if (player != null)
+        {
+            PlayerCamera.Current.RestorePitchYaw();
+        }
     }
 
     private void OnReloadPrimaryFinish()

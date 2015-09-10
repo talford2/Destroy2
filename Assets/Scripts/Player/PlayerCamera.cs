@@ -17,6 +17,10 @@ public class PlayerCamera : MonoBehaviour
 
     private Vector2 pitchYaw;
 
+    // Weapon Kick
+    private Vector2 targetTempPitchYaw;
+    private Vector2 tempPitchYaw;
+
     private CameraMode mode;
 
     private static PlayerCamera current;
@@ -48,6 +52,20 @@ public class PlayerCamera : MonoBehaviour
     {
         pitchYaw.x -= deltaPitch;
         pitchYaw.y += deltaYaw;
+    }
+
+    private bool restorePitchYaw;
+
+    public void AddTemporaryPitchYaw(float deltaPitch, float deltaYaw)
+    {
+        targetTempPitchYaw.x -= deltaPitch;
+        targetTempPitchYaw.y += deltaYaw;
+        restorePitchYaw = false;
+    }
+
+    public void RestorePitchYaw()
+    {
+        restorePitchYaw = true;
     }
 
     public Vector3 GetLookAtPosition()
@@ -101,8 +119,12 @@ public class PlayerCamera : MonoBehaviour
 
     private void Chase(float deltaTime)
     {
+
+        tempPitchYaw = Vector2.Lerp(tempPitchYaw, targetTempPitchYaw, 10f*Time.deltaTime);
+        var usePitchYaw = pitchYaw + tempPitchYaw;
+
         Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, defaultZoom/TargetZoom, zoomSpeed*Time.deltaTime);
-        var lookAngle = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
+        var lookAngle = Quaternion.Euler(usePitchYaw.x, usePitchYaw.y, 0f);
         if (pivotTransform != null)
             pivotPosition = pivotTransform.position + lookAngle*offset;
 
@@ -117,6 +139,9 @@ public class PlayerCamera : MonoBehaviour
 
         transform.position = new Vector3(chasePosition.x, Mathf.Clamp(chasePosition.y, camMinY, 100f), chasePosition.z);
         transform.rotation = lookAngle;
+
+        if (restorePitchYaw)
+            targetTempPitchYaw = Vector2.Lerp(targetTempPitchYaw, Vector2.zero, 2f*Time.deltaTime);
     }
 
     private void Aim(float deltaTime)

@@ -72,6 +72,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 5
@@ -151,6 +152,7 @@ MonoBehaviour:
   EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
   Zoom: 1
+  KickPitchYaw: {x: 1, y: 1}
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
@@ -268,6 +270,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: MissileRadius
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: KickPitchYaw.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: KickPitchYaw.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
