@@ -171,6 +171,7 @@ public class PlayerController : ActorAgent
         if (weapon != null)
         {
             vehicle.SetPrimaryWeapon(weapon);
+            HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
         }
     }
 
