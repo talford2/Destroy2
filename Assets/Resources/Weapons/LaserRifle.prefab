@@ -141,18 +141,18 @@ MonoBehaviour:
   GunId: 0
   GunName: Laser Rifle
   RoundsPerMinute: 200
-  TriggerTime: .200000003
+  TriggerTime: .300000012
   MissilesPerShot: 1
   IsSimultaneous: 1
   Spread: {x: 0, y: 0}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
-  ClipCapacity: 20
-  ReloadTime: 0
+  ClipCapacity: 1
+  ReloadTime: .300000012
   EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
   Zoom: 1
-  KickPitchYaw: {x: 1, y: 1}
+  KickPitchYaw: {x: 1, y: .600000024}
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
@@ -204,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: TriggerTime
-      value: .200000003
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilesPerShot
@@ -220,11 +220,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ClipCapacity
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime
-      value: 0
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EquipPrefab
@@ -277,7 +277,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: KickPitchYaw.y
-      value: 1
+      value: .600000024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
