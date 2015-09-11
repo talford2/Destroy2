@@ -149,7 +149,8 @@ public class Soldier : Vehicle
             PrimaryWeaponShootPoints = equippedPrimaryWeapon.GetComponent<EquipWeapon>().ShootPoints;
         }
 
-        primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
+        primaryWeapon.SetVelocityReference(new VelocityReference { Value = Vector3.zero });
+        //primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
         primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
         primaryWeapon.SetClipRemaining(100);
         primaryWeapon.OnShoot += OnShootPrimaryWeapon;
