@@ -203,7 +203,10 @@ public class Soldier : Vehicle
         if (player != null)
         {
             Debug.Log("KICK!");
-            PlayerCamera.Current.AddTemporaryPitchYaw(Random.Range(0, primaryWeapon.KickPitchYaw.x), Random.Range(-primaryWeapon.KickPitchYaw.y / 2f, primaryWeapon.KickPitchYaw.y / 2f));
+            var pitch = primaryWeapon.NonRandomPitch
+                ? primaryWeapon.KickPitchYaw.x
+                : Random.Range(0, primaryWeapon.KickPitchYaw.x);
+            PlayerCamera.Current.AddTemporaryPitchYaw(pitch, Random.Range(-primaryWeapon.KickPitchYaw.y / 2f, primaryWeapon.KickPitchYaw.y / 2f));
         }
     }
 

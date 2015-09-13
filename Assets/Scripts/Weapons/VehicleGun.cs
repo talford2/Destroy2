@@ -23,6 +23,7 @@ public class VehicleGun : MonoBehaviour
     [Header("Feedback")]
     [Tooltip("X represents the pitch and Y represents the yaw in degrees.")]
     public Vector2 KickPitchYaw;
+    public bool NonRandomPitch;
 
     [Header("Target Locking")]
     public bool RequireTargetLock;
