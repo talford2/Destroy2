@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 422534}
   - 114: {fileID: 11432188}
   m_Layer: 0
-  m_Name: NpcSoldier
+  m_Name: GoodNpcSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b306bb2e3c9d7794ab3701b80638b3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Team: 1
+  Team: 0
   Heading: {x: 0, y: 0, z: 0}
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
   WeaponPrefab: {fileID: 0}
@@ -193,7 +193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Team
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: TargetReconsiderRate
