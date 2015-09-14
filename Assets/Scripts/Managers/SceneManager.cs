@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class SceneManager
 {
     private static Transform missileContainer;
     private static Transform corpseContainer;
 
-    public static Transform MissileContainer 
+    public static Transform MissileContainer
     {
         get
         {
@@ -29,7 +30,7 @@ public class SceneManager
     {
         PlayerSpawner closestSpawner = null;
         var closestDistanceSquared = Mathf.Infinity;
-        var spawners = GameObject.FindObjectsOfType<PlayerSpawner>();
+        var spawners = GameObject.FindObjectsOfType<PlayerSpawner>().Where(s => s.IsSafe);
         foreach (var spawner in spawners)
         {
             var distSquared = (spawner.transform.position - position).sqrMagnitude;
