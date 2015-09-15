@@ -15,8 +15,16 @@ public class Spawner : MonoBehaviour
     private IEnumerator Spawn(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Instantiate(SpawnPrefab, transform.position, transform.rotation);
-        Debug.Log("SPAWN!!!");
+        var targetableCount = Targeting.GetTargetableCount();
+        if (targetableCount < 50)
+        {
+            Instantiate(SpawnPrefab, transform.position, transform.rotation);
+            Debug.Log("SPAWN!!! TARGETABLE COUNT: " + targetableCount);
+        }
+        else
+        {
+            Debug.Log("DON'T SPAWN, TARGETABLE COUNT: " + targetableCount);
+        }
         StartCoroutine(Spawn(Frequency));
     }
 }

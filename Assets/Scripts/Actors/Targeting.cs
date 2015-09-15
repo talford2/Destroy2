@@ -25,6 +25,19 @@ public class Targeting {
         //Debug.Log("- TEAM: " + team + " COUNT: " + targetables[team].Count);
     }
 
+    public static int GetTargetableCount()
+    {
+        var targetableCount = 0;
+        foreach (var team in targetables.Keys)
+        {
+            if (targetables.ContainsKey(team))
+            {
+                targetableCount += targetables[team].Count;
+            }
+        }
+        return targetableCount;
+    }
+
     public static Killable FindNearest(Team team, Vector3 fromPosition, float maxDistance)
     {
         Killable target = null;
