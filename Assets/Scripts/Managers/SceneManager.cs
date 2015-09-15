@@ -46,24 +46,11 @@ public class SceneManager
 
     public static PlayerSpawner FindSafeSpawner(Vector3 position)
     {
-        PlayerSpawner safestSpawner = null;
-        var safestScore = Mathf.Infinity;
         var enemySquareWeight = 100f;
         var spawners = GameObject.FindObjectsOfType<PlayerSpawner>();
 
         var sortedSpawners = spawners.OrderBy(spawner => (spawner.transform.position - position).sqrMagnitude + spawner.EnemyCount*spawner.EnemyCount*enemySquareWeight);
-        /*
-        foreach (var spawner in spawners)
-        {
-            var safetyScore = (spawner.transform.position - position).sqrMagnitude + spawner.EnemyCount*spawner.EnemyCount*enemySquareWeight;
-            if (safetyScore < safestScore)
-            {
-                safestSpawner = spawner;
-                safestScore = safetyScore;
-            }
-        }
-        */
+
         return sortedSpawners.FirstOrDefault();
-        //return safestSpawner;
     }
 }

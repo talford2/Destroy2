@@ -178,7 +178,8 @@ public class PlayerController : ActorAgent
     private IEnumerator Respawn(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.FindNearestSpawner(diedAtPosition).Trigger(VehiclePrefab, WeaponPrefab);
+        SceneManager.FindSafeSpawner(diedAtPosition).Trigger(VehiclePrefab, WeaponPrefab);
+        //SceneManager.FindNearestSpawner(diedAtPosition).Trigger(VehiclePrefab, WeaponPrefab);
         HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
         HeadsUpDisplay.Current.ShowCrosshair();
     }
