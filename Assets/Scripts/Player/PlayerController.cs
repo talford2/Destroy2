@@ -189,4 +189,15 @@ public class PlayerController : ActorAgent
 		Gizmos.color = Color.red;
 		Gizmos.DrawSphere(aimAt, 0.5f);
 	}
+
+    private void OnGUI()
+    {
+        var ammoStyle = new GUIStyle
+        {
+            alignment = TextAnchor.MiddleRight,
+            normal = {textColor = Color.white},
+            fontSize = 20
+        };
+        GUI.Label(new Rect(Screen.width - 120f, Screen.height - 40f, 100f, 30f), string.Format("{0} / {1}", vehicle.GetPrimaryWeapon().GetClipRemaining(), vehicle.GetPrimaryWeapon().ClipCapacity), ammoStyle);
+    }
 }

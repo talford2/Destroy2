@@ -49,8 +49,14 @@ public class SceneManager
         var enemySquareWeight = 100f;
         var spawners = GameObject.FindObjectsOfType<PlayerSpawner>();
 
-        var sortedSpawners = spawners.OrderBy(spawner => (spawner.transform.position - position).sqrMagnitude + spawner.EnemyCount*spawner.EnemyCount*enemySquareWeight);
+        foreach (var spawner in spawners)
+        {
+            Debug.Log(spawner.name +  " SCORE: " + spawner.EnemyCount*spawner.EnemyCount*enemySquareWeight);
+        }
 
-        return sortedSpawners.FirstOrDefault();
+        var sortedSpawners = spawners.OrderBy(spawner => (spawner.transform.position - position).sqrMagnitude).OrderBy(spawner => spawner.EnemyCount*spawner.EnemyCount*enemySquareWeight);
+        var safest = sortedSpawners.FirstOrDefault();
+        Debug.Log("CHOSEN: " + safest.name);
+        return safest;
     }
 }
