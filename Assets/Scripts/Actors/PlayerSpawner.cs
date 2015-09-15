@@ -9,6 +9,11 @@ public class PlayerSpawner : MonoBehaviour
         get { return SafeSensor.GetIsSafe(); }
     }
 
+    public int EnemyCount
+    {
+        get { return SafeSensor.GetEnemyAgentCount(); }
+    }
+
     private void Awake()
     {
         SafeSensor.SetTeam(Team.Good);

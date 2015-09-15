@@ -21,6 +21,13 @@ public class SafeSensor : MonoBehaviour
         return isSafe;
     }
 
+    public int GetEnemyAgentCount()
+    {
+        if (enemyAgents == null)
+            return 0;
+        return enemyAgents.Count;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var agent = other.GetComponentInParent<ActorAgent>();
