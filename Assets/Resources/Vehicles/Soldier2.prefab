@@ -585,22 +585,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &148574
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 492312}
-  - 137: {fileID: 13793440}
-  m_Layer: 0
-  m_Name: SpaceMarine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &150486
 GameObject:
   m_ObjectHideFlags: 1
@@ -1627,7 +1611,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412734}
-  - {fileID: 492312}
   m_Father: {fileID: 413810}
   m_RootOrder: 5
 --- !u!4 &441198
@@ -2083,18 +2066,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425768}
   m_RootOrder: 1
---- !u!4 &492312
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148574}
-  m_LocalRotation: {x: 8.14603425e-08, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.24501157, z: 5.44211822e-08}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 441056}
-  m_RootOrder: 1
 --- !u!4 &494012
 Transform:
   m_ObjectHideFlags: 1
@@ -2347,73 +2318,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_DirtyAABB: 1
---- !u!137 &13793440
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148574}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 3c84c860209e1c146ab755952350f9b8, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 0
-  m_Mesh: {fileID: 4300004, guid: 09b5cad4021e5ec4f85a427b86d32a5c, type: 3}
-  m_Bones:
-  - {fileID: 451100}
-  - {fileID: 412734}
-  - {fileID: 464244}
-  - {fileID: 406972}
-  - {fileID: 468914}
-  - {fileID: 419026}
-  - {fileID: 461288}
-  - {fileID: 487094}
-  - {fileID: 413426}
-  - {fileID: 446506}
-  - {fileID: 455564}
-  - {fileID: 441294}
-  - {fileID: 498490}
-  - {fileID: 469482}
-  - {fileID: 417972}
-  - {fileID: 425768}
-  - {fileID: 487552}
-  - {fileID: 464138}
-  - {fileID: 445208}
-  - {fileID: 409766}
-  - {fileID: 409632}
-  - {fileID: 495576}
-  - {fileID: 455024}
-  - {fileID: 474228}
-  - {fileID: 450538}
-  - {fileID: 433492}
-  - {fileID: 441374}
-  - {fileID: 451574}
-  - {fileID: 468820}
-  - {fileID: 472810}
-  - {fileID: 436518}
-  - {fileID: 441198}
-  m_BlendShapeWeights: []
-  m_RootBone: {fileID: 412734}
-  m_AABB:
-    m_Center: {x: .000982016325, y: -.183022171, z: -.0161949098}
-    m_Extent: {x: .937684655, y: .921290398, z: .160424799}
-  m_DirtyAABB: 0
 --- !u!143 &14329024
 CharacterController:
   m_ObjectHideFlags: 1
@@ -2442,6 +2346,10 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300004, guid: 09b5cad4021e5ec4f85a427b86d32a5c, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187754}
