@@ -53,7 +53,13 @@ public class Rocket : Missile
         if (!willHit)
         {
             var hitRay = new Ray(from, direction);
-            if (Physics.SphereCast(hitRay, Radius, out shootHit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors")))
+            RaycastHit missileSensorHit;
+            if (Physics.SphereCast(hitRay, Radius, out missileSensorHit, Speed * Time.deltaTime, LayerMask.GetMask("MissileSensors")))
+            {
+                var sensor = missileSensorHit.collider.GetComponentInParent<MissileSensor>();
+                sensor.Trigger(this);
+            }
+            if (Physics.SphereCast(hitRay, Radius, out shootHit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors", "MissileSensors")))
             {
                 if (Owner != null)
                 {
@@ -102,7 +108,7 @@ public class Rocket : Missile
         if (hit.collider != null)
         {
             Hit(hit);
-            var splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors"));
+            var splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors", "MissileSensors"));
 
             foreach (var splashHitCollider in splashHitColliders)
             {
@@ -115,7 +121,7 @@ public class Rocket : Missile
                 }
             }
 
-            splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors"));
+            splashHitColliders = Physics.OverlapSphere(hit.point, ExplosionRadius, ~LayerMask.GetMask("Sensors", "MissileSensors"));
             foreach (var splashHitCollider in splashHitColliders)
             {
                 var hitCorpse = splashHitCollider.GetComponentInParent<Corpse>();

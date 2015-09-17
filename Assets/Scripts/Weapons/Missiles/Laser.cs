@@ -74,7 +74,13 @@ public class Laser : Missile
         if (!willHit)
         {
             var hitRay = new Ray(from, direction);
-            if (Physics.SphereCast(hitRay, Radius, out hit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors"))) //, ~LayerMask.GetMask("Sensors", "Items", "Corpses", "Effects")))
+            RaycastHit missileSensorHit;
+            if (Physics.SphereCast(hitRay, Radius, out missileSensorHit, Speed*Time.deltaTime, LayerMask.GetMask("MissileSensors")))
+            {
+                var sensor = missileSensorHit.collider.GetComponentInParent<MissileSensor>();
+                sensor.Trigger(this);
+            }
+            if (Physics.SphereCast(hitRay, Radius, out hit, Speed * Time.deltaTime, ~LayerMask.GetMask("Sensors", "MissileSensors"))) //, ~LayerMask.GetMask("Sensors", "Items", "Corpses", "Effects")))
             {
                 if (Owner != null)
                 {

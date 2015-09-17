@@ -73,7 +73,7 @@ public class PlayerCamera : MonoBehaviour
         var lookRay = Cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit lookHit;
         var lookAt = lookRay.GetPoint(1000f);
-        if (Physics.Raycast(lookRay, out lookHit, 1000f, ~LayerMask.GetMask("Player", "Sensors")))
+        if (Physics.Raycast(lookRay, out lookHit, 1000f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
         {
             lookAt = lookHit.point;
         }
@@ -134,7 +134,7 @@ public class PlayerCamera : MonoBehaviour
 
         var camMinY = 0.5f;
         RaycastHit camDownHit;
-        if (Physics.Raycast(new Ray(chasePosition + 100f*Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors")))
+        if (Physics.Raycast(new Ray(chasePosition + 100f*Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
             camMinY = camDownHit.point.y + 0.5f;
 
         transform.position = new Vector3(chasePosition.x, Mathf.Clamp(chasePosition.y, camMinY, 100f), chasePosition.z);
