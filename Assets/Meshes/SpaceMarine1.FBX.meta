@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 09b5cad4021e5ec4f85a427b86d32a5c
+timeCreated: 1442494910
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: AnkleLeft
+    100002: AnkleRight
+    100004: Fingers1Left
+    100006: Fingers1Right
+    100008: Fingers2Left
+    100010: Fingers2Left 1
+    100012: Fingers2Right
+    100014: Fingers2Right 1
+    100016: FootLeft
+    100018: FootRight
+    100020: GunPlaceholder
+    100022: Head
+    100024: LowerArmLeft
+    100026: LowerArmRight
+    100028: LowerLegLeft
+    100030: LowerLegRight
+    100032: MidTorso
+    100034: Neck
+    100036: Pelvis
+    100038: Plane001
+    100040: Plane002
+    100042: ShoulderLeft
+    100044: ShoulderRight
+    100046: SpaceMarine
+    100048: //RootNode
+    100050: ThumbLeft
+    100052: ThumbRight
+    100054: ToeLeft
+    100056: ToeRight
+    100058: UpperArmLeft
+    100060: UpperArmRight
+    100062: UpperLegLeft
+    100064: UpperLegRight
+    100066: UpperTorso
+    100068: WristLeft
+    100070: WristRight
+    400000: AnkleLeft
+    400002: AnkleRight
+    400004: Fingers1Left
+    400006: Fingers1Right
+    400008: Fingers2Left
+    400010: Fingers2Left 1
+    400012: Fingers2Right
+    400014: Fingers2Right 1
+    400016: FootLeft
+    400018: FootRight
+    400020: GunPlaceholder
+    400022: Head
+    400024: LowerArmLeft
+    400026: LowerArmRight
+    400028: LowerLegLeft
+    400030: LowerLegRight
+    400032: MidTorso
+    400034: Neck
+    400036: Pelvis
+    400038: Plane001
+    400040: Plane002
+    400042: ShoulderLeft
+    400044: ShoulderRight
+    400046: SpaceMarine
+    400048: //RootNode
+    400050: ThumbLeft
+    400052: ThumbRight
+    400054: ToeLeft
+    400056: ToeRight
+    400058: UpperArmLeft
+    400060: UpperArmRight
+    400062: UpperLegLeft
+    400064: UpperLegRight
+    400066: UpperTorso
+    400068: WristLeft
+    400070: WristRight
+    2300000: Plane001
+    2300002: Plane002
+    3300000: Plane001
+    3300002: Plane002
+    4300000: Plane001
+    4300002: Plane002
+    4300004: SpaceMarine
+    9500000: //RootNode
+    13700000: SpaceMarine
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
