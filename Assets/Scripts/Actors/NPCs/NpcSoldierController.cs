@@ -61,6 +61,9 @@ public class NpcSoldierController : AutonomousAgent
         var soundSensor = GetComponentInChildren<SoundSensor>();
         if (soundSensor != null)
             soundSensor.transform.parent = vehicle.transform;
+        var missileSensor = GetComponentInChildren<MissileSensor>();
+        if (missileSensor != null)
+            missileSensor.transform.parent = vehicle.transform;
     }
 
     public override void SetTarget(Killable value)
