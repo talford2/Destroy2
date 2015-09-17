@@ -18,7 +18,7 @@ public class MissileSensor : MonoBehaviour
         var missileOwner = missile.GetOwner();
         if (missileOwner != null)
         {
-            var missileOwnerActor = missileOwner.GetComponent<ActorAgent>();
+            var missileOwnerActor = missileOwner.GetComponentInParent<ActorAgent>();
             if (missileOwnerActor != null)
             {
                 if (missileOwnerActor.Team == opposingTeam)
