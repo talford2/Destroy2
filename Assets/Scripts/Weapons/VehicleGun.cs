@@ -404,7 +404,7 @@ public class VehicleGun : MonoBehaviour
         Vector3 shootAt;
         var shootRay = new Ray(shootPoint.position, shootPoint.forward);
         RaycastHit shootHit;
-        if (Physics.Raycast(shootRay, out shootHit, MaxAimDistance, ~LayerMask.GetMask("Player", "Sensors")))
+        if (Physics.Raycast(shootRay, out shootHit, MaxAimDistance, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
         {
             shootAt = shootHit.point;
         }

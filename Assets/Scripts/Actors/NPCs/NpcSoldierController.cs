@@ -319,7 +319,7 @@ public class NpcSoldierController : AutonomousAgent
                     // Avoid shooting friends
                     RaycastHit aimHit;
                     var dontShoot = false;
-                    if (Physics.Raycast(aimRay, out aimHit, AttackDistance, ~LayerMask.GetMask("Sensors")))
+                    if (Physics.Raycast(aimRay, out aimHit, AttackDistance, ~LayerMask.GetMask("Sensors", "MissileSensors")))
                     {
                         var npc = aimHit.collider.GetComponentInParent<ActorAgent>();
                         if (npc != null)
