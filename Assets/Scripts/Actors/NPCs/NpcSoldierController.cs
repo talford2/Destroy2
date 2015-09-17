@@ -321,10 +321,16 @@ public class NpcSoldierController : AutonomousAgent
                     var dontShoot = false;
                     if (Physics.Raycast(aimRay, out aimHit, AttackDistance, ~LayerMask.GetMask("Sensors")))
                     {
-                        var npc = aimHit.collider.GetComponentInParent<NpcSoldierController>();
+                        var npc = aimHit.collider.GetComponentInParent<ActorAgent>();
                         if (npc != null)
                         {
                             if (npc.Team == Team)
+                                dontShoot = true;
+                        }
+                        else
+                        {
+                            var hitDistance = aimHit.distance;
+                            if (hitDistance*hitDistance < toTarget.sqrMagnitude)
                                 dontShoot = true;
                         }
                         var tooClose = vehicle.GetPrimaryWeapon().SplashRadius() + 5f;
