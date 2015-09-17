@@ -186,6 +186,11 @@ public class Soldier : Vehicle
         }
     }
 
+    public override void ReloadPrimaryWeapon(int rounds)
+    {
+        primaryWeapon.TriggerReload(rounds);
+    }
+
     public override void ReleasePrimaryWeapon()
     {
         primaryWeapon.ReleaseTriggerShoot();
