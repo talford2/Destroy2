@@ -35,5 +35,7 @@ public abstract class Vehicle : Killable
 
     public abstract void TriggerPrimaryWeapon();
 
+    public abstract void ReloadPrimaryWeapon(int rounds);
+
     public abstract void ReleasePrimaryWeapon();
 }

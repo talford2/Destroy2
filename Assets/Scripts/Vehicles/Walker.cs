@@ -160,7 +160,12 @@ public class Walker : Vehicle
 		}
 	}
 
-	public override void ReleasePrimaryWeapon()
+    public override void ReloadPrimaryWeapon(int rounds)
+    {
+        primaryWeapon.TriggerReload(rounds);
+    }
+
+    public override void ReleasePrimaryWeapon()
 	{
 		primaryWeapon.ReleaseTriggerShoot();
 	}

@@ -123,15 +123,22 @@ public class PlayerController : ActorAgent
 			}
 
 			// Shooting
-			if (Input.GetButton("Fire1") && !vehicle.IsRun())
-			{
-				vehicle.TriggerPrimaryWeapon();
-			}
-			else
-			{
-				vehicle.ReleasePrimaryWeapon();
-			}
-			Heading = vehicle.transform.forward;
+		    if (!vehicle.GetPrimaryWeapon().GetIsReloading())
+		    {
+		        if (Input.GetButton("Fire1") && !vehicle.IsRun())
+		        {
+		            vehicle.TriggerPrimaryWeapon();
+		        }
+		        else
+		        {
+		            vehicle.ReleasePrimaryWeapon();
+		        }
+		        if (Input.GetButton("Reload"))
+		        {
+		            vehicle.ReloadPrimaryWeapon(vehicle.GetPrimaryWeapon().ClipCapacity - vehicle.GetPrimaryWeapon().GetClipRemaining());
+		        }
+		    }
+		    Heading = vehicle.transform.forward;
 
 			if (Input.GetKeyUp(KeyCode.Q))
 				vehicle.Damage(null, Vector3.zero, Vector3.up, 0f, 1000f, null);
