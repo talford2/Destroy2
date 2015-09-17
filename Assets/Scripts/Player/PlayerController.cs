@@ -172,11 +172,29 @@ public class PlayerController : ActorAgent
         StartCoroutine(Respawn(5f));
 	}
 
+    private IEnumerator EnableDropped(EquipWeapon droppedWeapon, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        droppedWeapon.EnableCollect();
+    }
+
     public void Give(GameObject givePrefab)
     {
         var weapon = givePrefab.GetComponent<VehicleGun>();
         if (weapon != null)
         {
+            // Drop current weapon
+            var solderVehicle = vehicle.GetComponent<Soldier>();
+            if (solderVehicle != null)
+            {
+                var equipped = solderVehicle.GetEquipped();
+                var dropEquipped = ((GameObject)Instantiate(vehicle.GetPrimaryWeapon().EquipPrefab, equipped.transform.position, equipped.transform.rotation)).GetComponent<EquipWeapon>();
+                dropEquipped.GetComponent<MeshCollider>().enabled = true;
+                var droppedRigidBody = dropEquipped.GetComponent<Rigidbody>();
+                droppedRigidBody.isKinematic = false;
+                droppedRigidBody.AddForce(Vector3.up*5f + vehicle.transform.right*5f, ForceMode.Impulse);
+                StartCoroutine(EnableDropped(dropEquipped, 1f));
+            }
             vehicle.SetPrimaryWeapon(weapon);
             HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
         }

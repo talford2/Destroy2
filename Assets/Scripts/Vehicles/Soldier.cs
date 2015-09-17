@@ -165,6 +165,11 @@ public class Soldier : Vehicle
         return primaryWeapon;
     }
 
+    public GameObject GetEquipped()
+    {
+        return equippedPrimaryWeapon;
+    }
+
     public override void SetPitchYaw(float pitch, float yaw)
     {
         pitchTarget -= pitch;
