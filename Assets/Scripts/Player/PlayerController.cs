@@ -96,7 +96,7 @@ public class PlayerController : ActorAgent
 			RaycastHit aimHit;
 			var isTargetInSight = false;
 
-			if (Physics.SphereCast(aimRay, vehicle.GetPrimaryWeapon().MissileRadius, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors", "MssileSensors")))
+			if (Physics.SphereCast(aimRay, vehicle.GetPrimaryWeapon().MissileRadius, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
 			{
 				var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
 				if (aimKillable != null)
