@@ -327,6 +327,9 @@ public class NpcSoldierController : AutonomousAgent
                             if (npc.Team == Team)
                                 dontShoot = true;
                         }
+                        var tooClose = vehicle.GetPrimaryWeapon().SplashRadius() + 5f;
+                        if (aimHit.distance < tooClose)
+                            dontShoot = true;
                     }
 
                     if (!dontShoot)

@@ -509,4 +509,12 @@ public class VehicleGun : MonoBehaviour
     {
         return fireCooldown <= 0;
     }
+
+    public float SplashRadius()
+    {
+        var rocket = MissileGameObject.GetComponent<Rocket>();
+        if (rocket != null)
+            return rocket.ExplosionRadius;
+        return 0f;
+    }
 }
