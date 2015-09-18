@@ -46,10 +46,12 @@ public class HeadsUpDisplay : MonoBehaviour
 			if (fadeOutCooldown > 0f)
 			{
 				fadeOutCooldown -= Time.deltaTime;
-				Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeOutCooldown / fadeOutTime);
+                Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeOutCooldown / fadeOutTime);
+                ReloadCrosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeOutCooldown / fadeOutTime);
 				if (fadeOutCooldown < 0f)
 				{
 					Crosshair.enabled = false;
+				    ReloadCrosshair.enabled = false;
 				}
 			}
 		}
@@ -98,6 +100,8 @@ public class HeadsUpDisplay : MonoBehaviour
     public void ShowCrosshair()
     {
         Crosshair.color = Color.white;
+        ReloadCrosshair.color = Color.white;
         Crosshair.enabled = true;
+        ReloadCrosshair.enabled = false;
     }
 }
