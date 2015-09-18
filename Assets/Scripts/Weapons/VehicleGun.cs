@@ -47,6 +47,7 @@ public class VehicleGun : MonoBehaviour
 
     [Header("GUI")]
     public Sprite Crosshair;
+    public Sprite ReloadCrosshair;
 
     [Header("Missiles")]
     public GameObject MissileGameObject;
@@ -493,6 +494,11 @@ public class VehicleGun : MonoBehaviour
     public bool GetIsReloading()
     {
         return isReloading;
+    }
+
+    public float GetReloadProgress()
+    {
+        return Mathf.Clamp01(reloadCooldown/ReloadTime);
     }
 
     public float GetHeat()

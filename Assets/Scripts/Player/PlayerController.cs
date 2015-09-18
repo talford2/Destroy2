@@ -71,6 +71,9 @@ public class PlayerController : ActorAgent
 	{
 		SetUpCamera();
 		HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
+	    var reloadCrosshair = vehicle.GetPrimaryWeapon().ReloadCrosshair;
+        if (reloadCrosshair!=null)
+            HeadsUpDisplay.Current.SetReloadCrosshair(reloadCrosshair);
 	}
 
 	private void Update()
@@ -136,6 +139,15 @@ public class PlayerController : ActorAgent
 		        if (Input.GetButton("Reload"))
 		        {
 		            vehicle.ReloadPrimaryWeapon(vehicle.GetPrimaryWeapon().ClipCapacity - vehicle.GetPrimaryWeapon().GetClipRemaining());
+		        }
+                HeadsUpDisplay.Current.ShowNormal();
+		    }
+		    else
+		    {
+		        if (vehicle.GetPrimaryWeapon().ReloadCrosshair != null)
+		        {
+		            HeadsUpDisplay.Current.ShowReload();
+		            HeadsUpDisplay.Current.SetReloadProgress(vehicle.GetPrimaryWeapon().GetReloadProgress());
 		        }
 		    }
 		    Heading = vehicle.transform.forward;

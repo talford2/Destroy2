@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HeadsUpDisplay : MonoBehaviour
 {
 	public Image Crosshair;
+    public Image ReloadCrosshair;
 
 	public Image Damage;
 
@@ -30,6 +31,11 @@ public class HeadsUpDisplay : MonoBehaviour
 	{
 		Crosshair.sprite = value;
 	}
+
+    public void SetReloadCrosshair(Sprite value)
+    {
+        ReloadCrosshair.sprite = value;
+    }
 
 	public float DamageCooldown = 0;
 	private void Update()
@@ -59,6 +65,23 @@ public class HeadsUpDisplay : MonoBehaviour
 		
 		Damage.color = new Color(1, 1, 1, Mathf.Clamp(DamageCooldown, 0, 1));
 	}
+
+    public void ShowReload()
+    {
+        Crosshair.enabled = false;
+        ReloadCrosshair.enabled = true;
+    }
+
+    public void ShowNormal()
+    {
+        ReloadCrosshair.enabled = false;
+        Crosshair.enabled = true;
+    }
+
+    public void SetReloadProgress(float progress)
+    {
+        ReloadCrosshair.fillAmount = Mathf.Clamp01(progress);
+    }
 
 	public void SetTargetInSight(bool value)
 	{
