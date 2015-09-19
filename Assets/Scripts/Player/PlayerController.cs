@@ -5,6 +5,7 @@ public class PlayerController : ActorAgent
 {
 	public Vehicle VehiclePrefab;
 	public VehicleGun WeaponPrefab;
+    public int KillCount { get; set; }
 
 	private static PlayerController current;
 
@@ -236,5 +237,6 @@ public class PlayerController : ActorAgent
             fontSize = 20
         };
         GUI.Label(new Rect(Screen.width - 120f, Screen.height - 40f, 100f, 30f), string.Format("{0} / {1}", vehicle.GetPrimaryWeapon().GetClipRemaining(), vehicle.GetPrimaryWeapon().ClipCapacity), ammoStyle);
+        GUI.Label(new Rect(Screen.width - 120f, 20f, 100f, 30f), string.Format("{0}", KillCount), ammoStyle);
     }
 }
