@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 09b5cad4021e5ec4f85a427b86d32a5c
-timeCreated: 1442494910
+timeCreated: 1442674723
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -555,6 +555,14 @@ ModelImporter:
         modified: 0
     - boneName: Bip001 R Finger22
       humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bip001 Neck
+      humanName: Neck
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
