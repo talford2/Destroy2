@@ -12,14 +12,14 @@ public class NeighbourSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var autoAgent = other.GetComponentInParent<AutonomousAgent>();
+        var autoAgent = other.GetComponentInParent<ActorAgent>();
         if (autoAgent != null)
             owner.AddNeighbour(autoAgent);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var autoAgent = other.GetComponentInParent<AutonomousAgent>();
+        var autoAgent = other.GetComponentInParent<ActorAgent>();
         if (autoAgent != null)
             owner.RemoveNeighbour(autoAgent);
     }

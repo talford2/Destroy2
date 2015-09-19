@@ -32,11 +32,15 @@ public class SteeringBehaviour
             {
                 if (neighbour != null && neighbour != agent)
                 {
-                    var fromNeighbour = agent.GetVehicle().transform.position - neighbour.GetVehicle().transform.position;
-                    //if (fromNeighbour.sqrMagnitude < avoidDistance * avoidDistance)
-                    avoidSum += fromNeighbour.normalized / fromNeighbour.magnitude;
-                    cohesiveSum += neighbour.GetVehicle().transform.position;
-                    headingSum += neighbour.Heading;
+                    var neighbourVehicle = neighbour.GetVehicle();
+                    if (neighbourVehicle != null)
+                    {
+                        var fromNeighbour = agent.GetVehicle().transform.position - neighbourVehicle.transform.position;
+                        //if (fromNeighbour.sqrMagnitude < avoidDistance * avoidDistance)
+                        avoidSum += fromNeighbour.normalized/fromNeighbour.magnitude;
+                        cohesiveSum += neighbour.GetVehicle().transform.position;
+                        headingSum += neighbour.Heading;
+                    }
                 }
             }
             return new GroupForces

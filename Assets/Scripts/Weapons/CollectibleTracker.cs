@@ -85,6 +85,7 @@ public class CollectibleTracker : MonoBehaviour
         }
     }
 
+    // TODO: Need to move this work to UI its heavy!
     private void OnGUI()
     {
         if (PlayerController.Current.GetVehicle() != null)
