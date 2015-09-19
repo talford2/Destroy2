@@ -209,14 +209,18 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: '
-
-      Imported file ''SpaceMarine1'' conversion failed: Cannot find root motion transform
-      ''Ground''
-
-
-'
-    animationImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Bip001 Pelvis' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Bip001 Spine' has translation
+      animation that will be discarded.\n\t'Bip001 Spine' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Bip001 Neck' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Bip001
+      L Clavicle' has translation animation that will be discarded.\n\t'Bip001 R Clavicle'
+      has translation animation that will be discarded.\n\t'Bip001 L Thigh' has translation
+      animation that will be discarded.\n\t'Bip001 R Thigh' has translation animation
+      that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -225,203 +229,7 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Idle
-      takeName: Take 001
-      firstFrame: 10
-      lastFrame: 11.6000004
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Ground
-        weight: 1
-      - path: Ground/Pelvis
-        weight: 1
-      - path: Ground/Pelvis/MidTorso
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
-          1
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
-          1
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/GunPlaceholder
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
-        weight: 1
-      - path: SpaceMarine
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: Walk
-      takeName: Take 001
-      firstFrame: 10
-      lastFrame: 30
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Ground
-        weight: 1
-      - path: Ground/Pelvis
-        weight: 1
-      - path: Ground/Pelvis/MidTorso
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/Neck/Head
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/Fingers1Left/Fingers2Left/Fingers2Left
-          1
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderLeft/UpperArmLeft/LowerArmLeft/WristLeft/ThumbLeft
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/Fingers1Right/Fingers2Right/Fingers2Right
-          1
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/GunPlaceholder
-        weight: 1
-      - path: Ground/Pelvis/MidTorso/UpperTorso/ShoulderRight/UpperArmRight/LowerArmRight/WristRight/ThumbRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegLeft/LowerLegLeft/AnkleLeft/FootLeft/ToeLeft
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight
-        weight: 1
-      - path: Ground/Pelvis/UpperLegRight/LowerLegRight/AnkleRight/FootRight/ToeRight
-        weight: 1
-      - path: SpaceMarine
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -445,7 +253,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human:
