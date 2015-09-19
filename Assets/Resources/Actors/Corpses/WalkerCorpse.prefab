@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418198}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftFootHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418454}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - 4: {fileID: 499542}
   - 54: {fileID: 5477738}
   - 59: {fileID: 5970624}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FootLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 443050}
   - 65: {fileID: 6547788}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightFootCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 456160}
   - 65: {fileID: 6552578}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerLegRightCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - 4: {fileID: 431882}
   - 54: {fileID: 5403204}
   - 144: {fileID: 14422740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperLegLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 499608}
   - 65: {fileID: 6591166}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HeadMainCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightFootHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406468}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightToe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - 4: {fileID: 459624}
   - 114: {fileID: 11413000}
   - 114: {fileID: 11477866}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WalkerCorpse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 492092}
   - 65: {fileID: 6553560}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HeadWingRightCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495966}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468290}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - 4: {fileID: 409124}
   - 54: {fileID: 5420810}
   - 144: {fileID: 14435548}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerLegRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - 4: {fileID: 447296}
   - 54: {fileID: 5464084}
   - 59: {fileID: 5924162}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FootRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 494666}
   - 65: {fileID: 6551272}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurretCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 471210}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - 4: {fileID: 410590}
   - 54: {fileID: 5456798}
   - 59: {fileID: 5999640}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurretBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - 4: {fileID: 415144}
   - 54: {fileID: 5427210}
   - 144: {fileID: 14498724}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperLegRightBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454810}
   - 95: {fileID: 9581626}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - 4: {fileID: 449112}
   - 54: {fileID: 5432800}
   - 144: {fileID: 14492800}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerLegLeftBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - 4: {fileID: 498044}
   - 54: {fileID: 5410746}
   - 65: {fileID: 6518696}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PelvisBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 478674}
   - 65: {fileID: 6576222}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperLeftLegCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 476744}
   - 65: {fileID: 6525810}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HeadWingLeftCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 416066}
   - 65: {fileID: 6517062}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftFootCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 472216}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftToe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 445246}
   - 137: {fileID: 13772204}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416138}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486546}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightFootDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469712}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456332}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 440470}
   - 65: {fileID: 6598162}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerLegLeftCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494040}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftFootDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491306}
   - 65: {fileID: 6568304}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperRightLegCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - 4: {fileID: 407116}
   - 54: {fileID: 5461640}
   - 59: {fileID: 5912850}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HeadBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1692,6 +1692,10 @@ Prefab:
       propertyPath: Effect
       value: 
       objectReference: {fileID: 112998, guid: d0404889c11e8584093580d017cd8395, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117372}

@@ -11,7 +11,7 @@ GameObject:
   - 136: {fileID: 13660788}
   - 54: {fileID: 5409270}
   - 144: {fileID: 14421694}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 450204}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WristLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 136: {fileID: 13610526}
   - 54: {fileID: 5423952}
   - 144: {fileID: 14490264}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - 136: {fileID: 13613292}
   - 54: {fileID: 5448384}
   - 144: {fileID: 14428758}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperLegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402104}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 434366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AnkleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425894}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fingers1Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456184}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fingers1Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469194}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - 135: {fileID: 13508118}
   - 54: {fileID: 5428622}
   - 144: {fileID: 14436990}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437720}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fingers2Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - 136: {fileID: 13689210}
   - 54: {fileID: 5427366}
   - 144: {fileID: 14459916}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480824}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406378}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FootLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425534}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShoulderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466596}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ThumbRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 488940}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FootHelperLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432906}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ThumbLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 486114}
   - 137: {fileID: 13704550}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - 136: {fileID: 13641400}
   - 54: {fileID: 5463642}
   - 144: {fileID: 14402044}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerLegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423160}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WristRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464826}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 434710}
   - 33: {fileID: 3352696}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GunPlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 485874}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FootRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - 4: {fileID: 456740}
   - 65: {fileID: 6503178}
   - 54: {fileID: 5456084}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - 136: {fileID: 13652008}
   - 54: {fileID: 5491174}
   - 144: {fileID: 14441076}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484158}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fingers2Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FootHelperRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447966}
   - 95: {fileID: 9580300}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 451476}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fingers2Left 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426122}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK Chain001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474834}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MidTorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458058}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AnkleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   - 4: {fileID: 484540}
   - 114: {fileID: 11403872}
   - 114: {fileID: 11494630}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SoldierCorpse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   - 136: {fileID: 13652536}
   - 54: {fileID: 5473154}
   - 144: {fileID: 14477666}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 454936}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fingers2Right 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ToeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   - 136: {fileID: 13649958}
   - 54: {fileID: 5449698}
   - 144: {fileID: 14466698}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440380}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ToeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 448912}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HandHelperRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490040}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HandHelperLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477600}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShoulderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - 65: {fileID: 6558262}
   - 54: {fileID: 5400960}
   - 144: {fileID: 14421264}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperTorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,6 +2129,10 @@ Prefab:
       propertyPath: Effect
       value: 
       objectReference: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163440}
