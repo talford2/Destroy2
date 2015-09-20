@@ -1911,6 +1911,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 09b5cad4021e5ec4f85a427b86d32a5c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 104782}
