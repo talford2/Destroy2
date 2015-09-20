@@ -2868,7 +2868,7 @@ Prefab:
     - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
       propertyPath: VehiclePrefab
       value: 
-      objectReference: {fileID: 11484540, guid: 7e36c677bd788904da5595975a93ceea,
+      objectReference: {fileID: 11456038, guid: b817ffaa9c7885445bc10cacf9867167,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de324110515229047a7a21b5cf07e603, type: 2}
