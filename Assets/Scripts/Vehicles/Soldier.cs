@@ -208,11 +208,11 @@ public class Soldier : Vehicle
 
     private void OnShootPrimaryWeapon()
     {
+        // TODO: Make kick more gradual by multiplying by amount that increases with each shot until trigger is released.
         meshAnimator.SetTrigger("Shoot");
         var player = GetComponentInParent<PlayerController>();
         if (player != null)
         {
-            Debug.Log("KICK!");
             var pitch = primaryWeapon.NonRandomPitch
                 ? primaryWeapon.KickPitchYaw.x
                 : Random.Range(0, primaryWeapon.KickPitchYaw.x);

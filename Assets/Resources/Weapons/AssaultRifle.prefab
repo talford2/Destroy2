@@ -152,7 +152,7 @@ MonoBehaviour:
   EquipPrefab: {fileID: 135446, guid: d4f4cf88074e73643a576a5dc3dc432b, type: 2}
   MaxAimDistance: 1000
   Zoom: 1
-  KickPitchYaw: {x: .200000003, y: .800000012}
+  KickPitchYaw: {x: .150000006, y: .400000006}
   NonRandomPitch: 0
   RequireTargetLock: 0
   TargetLockTime: 0
@@ -283,11 +283,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: KickPitchYaw.x
-      value: .200000003
+      value: .150000006
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: KickPitchYaw.y
-      value: .800000012
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadCrosshair
