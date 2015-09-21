@@ -57,40 +57,43 @@ public class CollectibleTracker : MonoBehaviour
 
     private void Update()
     {
+        oldFadeTarget = fadeTarget;
         if (PlayerController.Current.GetVehicle() != null)
         {
-            oldFadeTarget = fadeTarget;
             fadeTarget = toCamera.sqrMagnitude < fadeDistanceSquared ? 1f : 0f;
-
-            if (Math.Abs(fadeTarget - oldFadeTarget) > 0.1f)
-            {
-                fadeCooldown = fadeTime;
-            }
-
-            if (fadeCooldown > 0f)
-            {
-                fadeCooldown -= Time.deltaTime;
-                if (fadeCooldown < 0f)
-                {
-                    fadeFraction = fadeTarget;
-                    var fadeColour = new Color(1f, 1f, 1f, fadeFraction);
-                    highlightStyle.normal.textColor = fadeColour;
-                }
-                else
-                {
-                    fadeFraction = fadeTarget > 0f
-                        ? 1f - Mathf.Clamp01(fadeCooldown/fadeTime)
-                        : Mathf.Clamp01(fadeCooldown/fadeTime);
-
-                    var fadeColour = new Color(1f, 1f, 1f, fadeFraction);
-                    highlightStyle.normal.textColor = fadeColour;
-                }
-            }
-            toCamera = PlayerCamera.Current.transform.position - transform.position;
-            toCameraDistance = toCamera.magnitude;
-            //label = string.Format("{0:f1}", toPlayerDistance);
-
         }
+        else
+        {
+            fadeTarget = 0f;
+        }
+
+        if (Math.Abs(fadeTarget - oldFadeTarget) > 0.1f)
+        {
+            fadeCooldown = fadeTime;
+        }
+
+        if (fadeCooldown > 0f)
+        {
+            fadeCooldown -= Time.deltaTime;
+            if (fadeCooldown < 0f)
+            {
+                fadeFraction = fadeTarget;
+                var fadeColour = new Color(1f, 1f, 1f, fadeFraction);
+                highlightStyle.normal.textColor = fadeColour;
+            }
+            else
+            {
+                fadeFraction = fadeTarget > 0f
+                    ? 1f - Mathf.Clamp01(fadeCooldown/fadeTime)
+                    : Mathf.Clamp01(fadeCooldown/fadeTime);
+
+                var fadeColour = new Color(1f, 1f, 1f, fadeFraction);
+                highlightStyle.normal.textColor = fadeColour;
+            }
+        }
+        toCamera = PlayerCamera.Current.transform.position - transform.position;
+        toCameraDistance = toCamera.magnitude;
+        //label = string.Format("{0:f1}", toPlayerDistance);
     }
 
     private void LateUpdate()
