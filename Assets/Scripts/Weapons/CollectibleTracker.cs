@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollectibleTracker : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class CollectibleTracker : MonoBehaviour
     public Texture2D TopRight;
     public Texture2D BottomLeft;
     public Texture2D BottomRight;
+
+    // UI
+    public Canvas TrackerCanvas;
+    public Image TrackerImage;
+    public Text TrackerLabel;
 
     // HUD Highlighting
     private string label;
@@ -46,6 +52,7 @@ public class CollectibleTracker : MonoBehaviour
         toCamera = PlayerCamera.Current.transform.position - transform.position;
         var fadeColour = new Color(1f, 1f, 1f, toCamera.sqrMagnitude < fadeDistanceSquared ? 1f : 0f);
         highlightStyle.normal.textColor = fadeColour;
+        TrackerCanvas.transform.parent = HeadsUpDisplay.Current.transform;
     }
 
     private void Update()
@@ -82,9 +89,32 @@ public class CollectibleTracker : MonoBehaviour
             toCamera = PlayerCamera.Current.transform.position - transform.position;
             toCameraDistance = toCamera.magnitude;
             //label = string.Format("{0:f1}", toPlayerDistance);
+
         }
     }
 
+    private void LateUpdate()
+    {
+        if (Utility.IsInFrontOfCamera(PlayerCamera.Current.Cam, transform.position))
+        {
+            TrackerCanvas.enabled = Collectible.Enabled;
+            if (TrackerCanvas.enabled)
+            {
+                TrackerLabel.text = label;
+                var screenPoint = PlayerCamera.Current.Cam.WorldToScreenPoint(transform.position);
+                TrackerImage.transform.position = screenPoint;
+                TrackerLabel.transform.position = screenPoint + Vector3.up * 2f;
+                TrackerLabel.color = new Color(1f, 1f, 1f, fadeFraction);
+                TrackerImage.color = new Color(1f, 1f, 1f, fadeFraction);
+            }
+        }
+        else
+        {
+            TrackerCanvas.enabled = false;
+        }
+    }
+
+    /*
     // TODO: Need to move this work to UI its heavy!
     private void OnGUI()
     {
@@ -111,4 +141,5 @@ public class CollectibleTracker : MonoBehaviour
             }
         }
     }
+    */
 }

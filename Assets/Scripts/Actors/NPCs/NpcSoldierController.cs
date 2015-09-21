@@ -419,12 +419,15 @@ public class NpcSoldierController : AutonomousAgent
     private void OnVehicleDie(GameObject attacker)
     {
         Targeting.RemoveTargetable(Team, vehicle);
-        var playerAttacker = attacker.GetComponentInParent<PlayerController>();
-        if (playerAttacker != null)
+        if (attacker != null)
         {
-            if (Team != playerAttacker.Team)
+            var playerAttacker = attacker.GetComponentInParent<PlayerController>();
+            if (playerAttacker != null)
             {
-                playerAttacker.KillCount ++;
+                if (Team != playerAttacker.Team)
+                {
+                    playerAttacker.KillCount ++;
+                }
             }
         }
         Destroy(gameObject);
