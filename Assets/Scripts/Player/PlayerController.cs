@@ -98,21 +98,23 @@ public class PlayerController : ActorAgent
 			aimAt = PlayerCamera.Current.GetLookAtPosition();
 			var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
 			RaycastHit aimHit;
-			var isTargetInSight = false;
+			var targetInSightType = HeadsUpDisplay.InSightType.None;
 
 			if (Physics.SphereCast(aimRay, vehicle.GetPrimaryWeapon().MissileRadius, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
 			{
-				var aimKillable = aimHit.collider.GetComponentInParent<Killable>();
+				var aimKillable = aimHit.collider.GetComponentInParent<ActorAgent>();
 				if (aimKillable != null)
 				{
-					isTargetInSight = true;
+				    targetInSightType = aimKillable.Team == Team
+                        ? HeadsUpDisplay.InSightType.Friendly
+                        : HeadsUpDisplay.InSightType.Enemy;
 				}
 			}
 
 			// This is incorrect?
 			vehicle.SetAimAt(aimAt);
 
-			HeadsUpDisplay.Current.SetTargetInSight(isTargetInSight);
+            HeadsUpDisplay.Current.SetTargetInSight(targetInSightType);
 
 			if (isZoomed)
 			{

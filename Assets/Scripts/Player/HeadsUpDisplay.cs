@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HeadsUpDisplay : MonoBehaviour
@@ -8,7 +9,8 @@ public class HeadsUpDisplay : MonoBehaviour
 
 	public Image Damage;
 
-	private bool isTargetInSight;
+	private InSightType inSightType;
+    private bool isFriendlyInSight;
 	private bool isFadeOutCrosshair;
 	private float fadeOutTime;
 	private float fadeOutCooldown;
@@ -22,7 +24,7 @@ public class HeadsUpDisplay : MonoBehaviour
 
 	private void Awake()
 	{
-		isTargetInSight = false;
+		inSightType = InSightType.None;
 		isFadeOutCrosshair = false;
 		current = this;
 	}
@@ -40,8 +42,19 @@ public class HeadsUpDisplay : MonoBehaviour
 	public float DamageCooldown = 0;
 	private void Update()
 	{
-		Crosshair.color = isTargetInSight ? Color.red : Color.white;
-		if (isFadeOutCrosshair)
+	    switch (inSightType)
+	    {
+	        case InSightType.Enemy:
+	            Crosshair.color = Color.red;
+	            break;
+	        case InSightType.Friendly:
+	            Crosshair.color = new Color(0.5f, 0.7f, 1f, 1f);
+	            break;
+	        default:
+	            Crosshair.color = Color.white;
+	            break;
+	    }
+	    if (isFadeOutCrosshair)
 		{
 			if (fadeOutCooldown > 0f)
 			{
@@ -85,9 +98,9 @@ public class HeadsUpDisplay : MonoBehaviour
         ReloadCrosshair.fillAmount = Mathf.Clamp01(progress);
     }
 
-	public void SetTargetInSight(bool value)
+	public void SetTargetInSight(InSightType value)
 	{
-		isTargetInSight = value;
+		inSightType = value;
 	}
 
 	public void FadeOutCrosshair(float time)
@@ -103,5 +116,12 @@ public class HeadsUpDisplay : MonoBehaviour
         ReloadCrosshair.color = Color.white;
         Crosshair.enabled = true;
         ReloadCrosshair.enabled = false;
+    }
+
+    public enum InSightType
+    {
+        None,
+        Enemy,
+        Friendly
     }
 }
