@@ -2858,18 +2858,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 414894, guid: de324110515229047a7a21b5cf07e603, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 27
       objectReference: {fileID: 0}
-    - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
-      propertyPath: WeaponPrefab
-      value: 
-      objectReference: {fileID: 11413606, guid: ee7c3f491b2b669459c10deb3bda578a,
-        type: 2}
-    - target: {fileID: 11410612, guid: de324110515229047a7a21b5cf07e603, type: 2}
-      propertyPath: VehiclePrefab
-      value: 
-      objectReference: {fileID: 11456038, guid: b817ffaa9c7885445bc10cacf9867167,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de324110515229047a7a21b5cf07e603, type: 2}
   m_IsPrefabParent: 0
