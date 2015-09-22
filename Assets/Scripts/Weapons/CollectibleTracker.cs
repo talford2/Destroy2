@@ -1,4 +1,5 @@
 ﻿using System;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,14 +7,13 @@ public class CollectibleTracker : MonoBehaviour
 {
     public Collectible Collectible;
 
-    public Texture2D TopLeft;
-    public Texture2D TopRight;
-    public Texture2D BottomLeft;
-    public Texture2D BottomRight;
-
     // UI
+    public Image TopLeft;
+    public Image TopRight;
+    public Image BottomLeft;
+    public Image BottomRight;
+
     public Canvas TrackerCanvas;
-    public Image TrackerImage;
     public Text TrackerLabel;
 
     // HUD Highlighting
@@ -111,10 +111,23 @@ public class CollectibleTracker : MonoBehaviour
             {
                 TrackerLabel.text = label;
                 var screenPoint = PlayerCamera.Current.Cam.WorldToScreenPoint(transform.position);
-                TrackerImage.transform.position = screenPoint;
-                TrackerLabel.transform.position = screenPoint + Vector3.up * 2f;
-                TrackerLabel.color = new Color(1f, 1f, 1f, fadeFraction);
-                TrackerImage.color = new Color(1f, 1f, 1f, fadeFraction);
+
+                var offsetScale = 4f*Mathf.Clamp(10f - toCameraDistance, 0f, 80f);
+
+                TopLeft.transform.position = screenPoint + offsetScale*new Vector3(-1f, 1f, 0);
+                TopRight.transform.position = screenPoint + offsetScale*new Vector3(1f, 1f, 0);
+                BottomLeft.transform.position = screenPoint + offsetScale*new Vector3(-1f, -1f, 0);
+                BottomRight.transform.position = screenPoint + offsetScale*new Vector3(1f, -1f, 0);
+
+                TrackerLabel.transform.position = screenPoint + offsetScale*new Vector3(0, 1f, 0) + new Vector3(0, 10f, 0f);
+
+                var fadeColor = new Color(1f, 1f, 1f, fadeFraction);
+                TopLeft.color = fadeColor;
+                TopRight.color = fadeColor;
+                BottomLeft.color = fadeColor;
+                BottomRight.color = fadeColor;
+
+                TrackerLabel.color = fadeColor;
             }
         }
         else
