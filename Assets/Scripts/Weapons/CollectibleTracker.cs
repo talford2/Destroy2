@@ -96,6 +96,12 @@ public class CollectibleTracker : MonoBehaviour
         //label = string.Format("{0:f1}", toPlayerDistance);
     }
 
+    public void Hide()
+    {
+        TrackerCanvas.enabled = false;
+        Debug.Log("YEH");
+    }
+
     private void LateUpdate()
     {
         if (Utility.IsInFrontOfCamera(PlayerCamera.Current.Cam, transform.position))

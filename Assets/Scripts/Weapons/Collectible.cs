@@ -10,6 +10,7 @@ public class Collectible : MonoBehaviour
     public delegate void OnCollectEvent();
     public OnCollectEvent OnCollect;
 
+    private CollectibleTracker tracker;
     private SphereCollider triggerCollider;
     private PlayerController occupyingPlayer;
 
@@ -17,6 +18,7 @@ public class Collectible : MonoBehaviour
 	{
 	    triggerCollider = GetComponent<SphereCollider>();
 	    triggerCollider.enabled = Enabled;
+	    tracker = GetComponentInChildren<CollectibleTracker>();
 	}
 
     private void Update()
@@ -27,6 +29,10 @@ public class Collectible : MonoBehaviour
             if (occupyingPlayer.IsCollecting())
             {
                 Enabled = false;
+                if (tracker != null)
+                {
+                    tracker.Hide();
+                }
                 if (OnCollect != null)
                 {
                     occupyingPlayer.Give(GivePrefab);
