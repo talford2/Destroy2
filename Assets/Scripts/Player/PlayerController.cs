@@ -212,6 +212,7 @@ public class PlayerController : ActorAgent
             }
             vehicle.SetPrimaryWeapon(weapon);
             HeadsUpDisplay.Current.SetCrosshair(vehicle.GetPrimaryWeapon().Crosshair);
+            HeadsUpDisplay.Current.SetReloadCrosshair(vehicle.GetPrimaryWeapon().ReloadCrosshair);
         }
     }
 

@@ -52,13 +52,13 @@ public class CollectibleTracker : MonoBehaviour
         toCamera = PlayerCamera.Current.transform.position - transform.position;
         var fadeColour = new Color(1f, 1f, 1f, toCamera.sqrMagnitude < fadeDistanceSquared ? 1f : 0f);
         highlightStyle.normal.textColor = fadeColour;
-        TrackerCanvas.transform.parent = HeadsUpDisplay.Current.transform;
+        TrackerCanvas.transform.SetParent(HeadsUpDisplay.Current.transform);
     }
 
     private void Update()
     {
         oldFadeTarget = fadeTarget;
-        if (PlayerController.Current.GetVehicle() != null)
+        if (PlayerController.Current.GetVehicle() != null && Collectible.Enabled)
         {
             fadeTarget = toCamera.sqrMagnitude < fadeDistanceSquared ? 1f : 0f;
         }

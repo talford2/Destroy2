@@ -26,6 +26,7 @@ public class Collectible : MonoBehaviour
         {
             if (occupyingPlayer.IsCollecting())
             {
+                Enabled = false;
                 if (OnCollect != null)
                 {
                     occupyingPlayer.Give(GivePrefab);
