@@ -151,12 +151,14 @@ MonoBehaviour:
   ReloadTime: .300000012
   EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
-  Zoom: 1
+  Zoom: 1.5
   KickPitchYaw: {x: 1, y: .600000024}
+  NonRandomPitch: 0
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
   LockBeep: {fileID: 0}
+  AimtHeight: 1.20000005
   Muzzle: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
   FireSound: {fileID: 8228072}
   IsOverHeatable: 0
@@ -166,6 +168,7 @@ MonoBehaviour:
   CooldownDelay: 0
   CooldownRate: 0
   Crosshair: {fileID: 21300000, guid: b024ae605c0bdd24ea49ad08193a1060, type: 3}
+  ReloadCrosshair: {fileID: 0}
   MissileGameObject: {fileID: 128166, guid: feacc9732b3be2c4284c292f398247db, type: 2}
   MissileDamage: 5
   MissilePower: 8000
@@ -278,6 +281,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: KickPitchYaw.y
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Zoom
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AimtHeight
+      value: 1.20000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

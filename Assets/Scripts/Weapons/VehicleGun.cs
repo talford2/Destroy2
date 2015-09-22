@@ -32,6 +32,9 @@ public class VehicleGun : MonoBehaviour
     public bool IsTargeting { get; set; }
     public AudioClip LockBeep;
 
+    [Header("AI")]
+    public float AimtHeight;
+
     [Header("Effects")]
     public GameObject Muzzle;
     public AudioSource FireSound;

@@ -158,6 +158,7 @@ MonoBehaviour:
   TargetLockTime: 0
   MaxLockRange: 0
   LockBeep: {fileID: 0}
+  AimtHeight: 1.20000005
   Muzzle: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
   FireSound: {fileID: 8228072}
   IsOverHeatable: 0
@@ -294,6 +295,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 50c82e0985467ae408cfe49f4a38a60d,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: AimtHeight
+      value: 1.20000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135538}

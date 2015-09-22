@@ -158,6 +158,7 @@ MonoBehaviour:
   TargetLockTime: 0
   MaxLockRange: 0
   LockBeep: {fileID: 0}
+  AimtHeight: 1.5
   Muzzle: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
   FireSound: {fileID: 8228072}
   IsOverHeatable: 0
@@ -167,6 +168,7 @@ MonoBehaviour:
   CooldownDelay: 0
   CooldownRate: 0
   Crosshair: {fileID: 21300000, guid: 8c9e4f4bf5c197c43a2d70e328a207ee, type: 3}
+  ReloadCrosshair: {fileID: 0}
   MissileGameObject: {fileID: 128166, guid: 254945cb03008b54d8d1834f484a3d24, type: 2}
   MissileDamage: 15
   MissilePower: 20000
@@ -291,6 +293,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: NonRandomPitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AimtHeight
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

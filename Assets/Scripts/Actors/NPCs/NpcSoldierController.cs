@@ -310,7 +310,7 @@ public class NpcSoldierController : AutonomousAgent
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
             if (toTarget.sqrMagnitude < AttackDistance*AttackDistance)
             {
-                var aimAt = targetVehicle.transform.position + targetVehicle.PathAimHeight*Vector3.up + GetAimRadius(toTarget.sqrMagnitude)*Random.insideUnitSphere;
+                var aimAt = targetVehicle.transform.position + vehicle.GetPrimaryWeapon().AimtHeight*Vector3.up + GetAimRadius(toTarget.sqrMagnitude)*Random.insideUnitSphere;
                 var shootFrom = vehicle.GetPrimaryWeaponShootPoint();
                 var aimRay = new Ray(shootFrom, aimAt - shootFrom);
 
