@@ -85,8 +85,8 @@ public class Rocket : Missile
 
     public override void AlwaysUpdate()
     {
-        if (PlayerController.Current != null)
-            obserationPosition = PlayerController.Current.transform.position;
+        if (PlayerController.Current.GetVehicle() != null)
+            obserationPosition = PlayerController.Current.GetVehicle().transform.position;
 
         var fromObservationPosition = transform.position - obserationPosition;
         if (fromObservationPosition.sqrMagnitude > DeactivateDistance * DeactivateDistance)
