@@ -283,7 +283,7 @@ public class SpaceMarine : Vehicle
         var soldierCorpse = corpse.GetComponent<SpaceMarineCorpse>();
         if (soldierCorpse != null)
         {
-            //soldierCorpse.Equip(primaryWeapon.EquipPrefab);
+            soldierCorpse.Equip(primaryWeapon.EquipPrefab);
             var player = GetComponentInParent<PlayerController>();
             if (player != null)
             {
