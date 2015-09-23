@@ -1605,7 +1605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 129460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f97909872616c8408b03b45dd0df7e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 692d160ea48f29e4aab297d827e9b61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsLive: 1
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   PrimaryWeaponShootPoints: []
   HeadCollider: {fileID: 13535742}
   WeaponPlaceholder: {fileID: 432192}
-  CorpsePrefab: {fileID: 163440, guid: 0803975ced5e60c42aa971a55c1c01aa, type: 2}
+  CorpsePrefab: {fileID: 159482, guid: 647940712ce953b4b9eb6a3f22816b1a, type: 2}
   MidTorsoTransform: {fileID: 459006}
   UpperTorsoTransform: {fileID: 461714}
   HeadTransform: {fileID: 403198}
@@ -1748,6 +1748,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CorpsePrefab
+      value: 
+      objectReference: {fileID: 159482, guid: 647940712ce953b4b9eb6a3f22816b1a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129460}
