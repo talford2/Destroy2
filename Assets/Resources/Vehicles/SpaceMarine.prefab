@@ -281,6 +281,8 @@ GameObject:
   - 95: {fileID: 9597094}
   - 143: {fileID: 14394742}
   - 114: {fileID: 11458004}
+  - 114: {fileID: 11478250}
+  - 114: {fileID: 11433442}
   m_Layer: 0
   m_Name: SpaceMarine
   m_TagString: Untagged
@@ -1597,6 +1599,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11433442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7aeca39e8bc8e445b595fde77dd6e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RegenerateRate: 5
+  RegenerateDelay: 3
 --- !u!114 &11458004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1627,6 +1642,18 @@ MonoBehaviour:
   MidTorsoTransform: {fileID: 459006}
   UpperTorsoTransform: {fileID: 461714}
   HeadTransform: {fileID: 403198}
+--- !u!114 &11478250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2e83932b00f2f44a88e997c3e0c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
 --- !u!135 &13535742
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1752,6 +1779,10 @@ Prefab:
       propertyPath: CorpsePrefab
       value: 
       objectReference: {fileID: 159482, guid: 647940712ce953b4b9eb6a3f22816b1a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 163292, guid: 4b01f169abef74741a42a5ec01098b4c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129460}
