@@ -576,6 +576,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &167684
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 483116}
+  m_Layer: 0
+  m_Name: GunPlaceholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &170900
 GameObject:
   m_ObjectHideFlags: 1
@@ -1004,6 +1019,7 @@ Transform:
   - {fileID: 478298}
   - {fileID: 463790}
   - {fileID: 461266}
+  - {fileID: 483116}
   m_Father: {fileID: 486886}
   m_RootOrder: 0
 --- !u!4 &433462
@@ -1497,6 +1513,18 @@ Transform:
   - {fileID: 486886}
   m_Father: {fileID: 422226}
   m_RootOrder: 0
+--- !u!4 &483116
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167684}
+  m_LocalRotation: {x: -.114003971, y: -.0798264071, z: .567994297, w: -.811180294}
+  m_LocalPosition: {x: -.100000001, y: .0199999996, z: .0500000007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 432192}
+  m_RootOrder: 3
 --- !u!4 &486430
 Transform:
   m_ObjectHideFlags: 1
@@ -1637,7 +1665,7 @@ MonoBehaviour:
     type: 2}
   PrimaryWeaponShootPoints: []
   HeadCollider: {fileID: 13535742}
-  WeaponPlaceholder: {fileID: 432192}
+  WeaponPlaceholder: {fileID: 483116}
   CorpsePrefab: {fileID: 159482, guid: 647940712ce953b4b9eb6a3f22816b1a, type: 2}
   MidTorsoTransform: {fileID: 459006}
   UpperTorsoTransform: {fileID: 461714}
