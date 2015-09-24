@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class NpcSoldierController : AutonomousAgent
+public class NpcWalkerController : AutonomousAgent
 {
     public Vehicle VehiclePrefab;
     public VehicleGun WeaponPrefab;
@@ -29,7 +29,6 @@ public class NpcSoldierController : AutonomousAgent
     // Chase / Attack
     private Killable target;
     private float targetReconsiderCooldown;
-    private bool inCover;
 
     // Death
     private Vector3 killPosition;
@@ -355,26 +354,7 @@ public class NpcSoldierController : AutonomousAgent
         {
             var targetPosition = targetVehicle.transform.position;
             var toTarget = targetPosition - vehicle.transform.position;
-            var destination = targetPosition - 10f * toTarget.normalized;
-
-            var detectedCover = GetDetectedCover();
-            inCover = false;
-            if (detectedCover.Any())
-            {
-                Debug.Log("THERE IS COVER NEAR BY!");
-                var closestCover = detectedCover.OrderBy(c => (c.transform.position - vehicle.transform.position).sqrMagnitude).First();
-                var toClosestCover = closestCover.transform.position - vehicle.transform.position;
-                if (toClosestCover.sqrMagnitude > closestCover.Radius*closestCover.Radius)
-                {
-                    Debug.Log("GO FOR COVER!");
-                    destination = closestCover.transform.position;
-                }
-                else
-                {
-                    inCover = true;
-                    destination = closestCover.transform.position - closestCover.Radius * toTarget.normalized;
-                }
-            }
+            var destination = targetPosition - (vehicle.GetPrimaryWeapon().SplashRadius() + 1f)*toTarget.normalized;
 
             var navPath = new NavMeshPath();
             if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
@@ -533,18 +513,9 @@ public class NpcSoldierController : AutonomousAgent
     {
         if (distanceSquared < 5f*5f)
             return 0;
-        if (inCover)
-        {
-            if (distanceSquared < 30f*30f)
-                return 1f*distanceSquared/(30f*30f);
-            return 1f;
-        }
-        else
-        {
-            if (distanceSquared < 30f * 30f)
-                return 1.5f * distanceSquared / (30f * 30f);
-            return 1.5f;
-        }
+        if (distanceSquared < 30f*30f)
+            return 1*distanceSquared/(30f*30f);
+        return 1f;
     }
 
     private void OnVehicleDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)

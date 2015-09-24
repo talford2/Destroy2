@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof (SphereCollider))]
 public class NeighbourSensor : MonoBehaviour
@@ -15,6 +16,9 @@ public class NeighbourSensor : MonoBehaviour
         var autoAgent = other.GetComponentInParent<ActorAgent>();
         if (autoAgent != null)
             owner.AddNeighbour(autoAgent);
+        var cover = other.GetComponentInParent<Cover>();
+        if (cover != null)
+            owner.AddDetectedCover(cover);
     }
 
     private void OnTriggerExit(Collider other)
@@ -22,5 +26,8 @@ public class NeighbourSensor : MonoBehaviour
         var autoAgent = other.GetComponentInParent<ActorAgent>();
         if (autoAgent != null)
             owner.RemoveNeighbour(autoAgent);
+        var cover = other.GetComponentInParent<Cover>();
+        if (cover != null)
+            owner.RemoveDetectedCover(cover);
     }
 }

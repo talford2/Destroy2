@@ -35,7 +35,8 @@ public class SafeSensor : MonoBehaviour
         {
             if (agent.Team == opposingTeam)
             {
-                enemyAgents.Add(agent);
+                if (!enemyAgents.Contains(agent))
+                    enemyAgents.Add(agent);
                 isSafe = false;
                 Debug.Log("AGENTS: " + enemyAgents.Count);
             }

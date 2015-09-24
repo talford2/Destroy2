@@ -137,13 +137,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 151946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b306bb2e3c9d7794ab3701b80638b3ab, type: 3}
+  m_Script: {fileID: 11500000, guid: e391ca5dcd44c0449a52ce1bf1d3321b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Team: 1
   Heading: {x: 0, y: 0, z: 0}
   VehiclePrefab: {fileID: 11421088, guid: 38c445fd579c1964fa782845cb78f46d, type: 2}
   WeaponPrefab: {fileID: 11413606, guid: 4d301451dbcae5540a540230a5d60743, type: 2}
+  DefaultFollowPlayer: 0
   TargetReconsiderRate: 3
   AttackDistance: 80
   AimAngleTolerance: 5
