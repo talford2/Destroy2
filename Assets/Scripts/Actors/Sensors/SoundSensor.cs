@@ -14,7 +14,7 @@ public class SoundSensor : MonoBehaviour
         opposingTeam = Targeting.GetOpposingTeam(owner.Team);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         var agent = other.GetComponentInParent<ActorAgent>();
         if (agent != null)
