@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 public class SoundSensor : MonoBehaviour
@@ -7,22 +8,30 @@ public class SoundSensor : MonoBehaviour
     private AutonomousAgent owner;
     private Team opposingTeam;
 
+    private List<Collider> inColliders;
+
     private void Start()
     {
         triggerCollider = GetComponent<SphereCollider>();
         owner = GetComponentInParent<AutonomousAgent>();
         opposingTeam = Targeting.GetOpposingTeam(owner.Team);
+
+        inColliders = new List<Collider>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var agent = other.GetComponentInParent<ActorAgent>();
-        if (agent != null)
+        if (!inColliders.Contains(other))
         {
-            if (agent.Team == opposingTeam)
+            inColliders.Add(other);
+            var agent = other.GetComponentInParent<ActorAgent>();
+            if (agent != null)
             {
-                var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, triggerCollider.radius);
-                owner.SetTarget(target);
+                if (agent.Team == opposingTeam)
+                {
+                    var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, triggerCollider.radius);
+                    owner.SetTarget(target);
+                }
             }
         }
     }
@@ -41,5 +50,6 @@ public class SoundSensor : MonoBehaviour
                 }
             }
         }
+        inColliders.Remove(other);
     }
 }

@@ -8,7 +8,6 @@ public class NeighbourSensor : MonoBehaviour
     private AutonomousAgent owner;
 
     private List<Collider> inColliders;
-    //private List<Collider> outColliders;
 
     private void Awake()
     {
@@ -41,5 +40,6 @@ public class NeighbourSensor : MonoBehaviour
         var cover = other.GetComponentInParent<Cover>();
         if (cover != null)
             owner.RemoveDetectedCover(cover);
+        inColliders.Remove(other);
     }
 }
