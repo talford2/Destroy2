@@ -26,6 +26,8 @@ public abstract class AutonomousAgent : ActorAgent
 
     public virtual List<ActorAgent> GetNeighbours()
     {
+        if (neighbours == null)
+            neighbours = new List<ActorAgent>();
         return neighbours;
     }
 

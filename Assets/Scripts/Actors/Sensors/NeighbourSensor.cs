@@ -11,7 +11,7 @@ public class NeighbourSensor : MonoBehaviour
         owner = GetComponentInParent<AutonomousAgent>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         var autoAgent = other.GetComponentInParent<ActorAgent>();
         if (autoAgent != null)

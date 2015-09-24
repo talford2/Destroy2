@@ -72,7 +72,7 @@ public class NpcSoldierController : AutonomousAgent
         target = value;
         if (value != null)
         {
-            Debug.Log("SET TARGET TO: " + value.name);
+            //Debug.Log("SET TARGET TO: " + value.name);
             state = NpcSoldierState.Chase;
         }
     }
@@ -361,12 +361,10 @@ public class NpcSoldierController : AutonomousAgent
             inCover = false;
             if (detectedCover.Any())
             {
-                Debug.Log("THERE IS COVER NEAR BY!");
                 var closestCover = detectedCover.OrderBy(c => (c.transform.position - vehicle.transform.position).sqrMagnitude).First();
                 var toClosestCover = closestCover.transform.position - vehicle.transform.position;
                 if (toClosestCover.sqrMagnitude > closestCover.Radius*closestCover.Radius)
                 {
-                    Debug.Log("GO FOR COVER!");
                     destination = closestCover.transform.position;
                 }
                 else

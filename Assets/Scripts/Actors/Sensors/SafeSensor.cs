@@ -38,7 +38,7 @@ public class SafeSensor : MonoBehaviour
                 if (!enemyAgents.Contains(agent))
                     enemyAgents.Add(agent);
                 isSafe = false;
-                Debug.Log("AGENTS: " + enemyAgents.Count);
+                //Debug.Log("AGENTS: " + enemyAgents.Count);
             }
         }
     }
@@ -51,7 +51,7 @@ public class SafeSensor : MonoBehaviour
             if (agent.Team == opposingTeam)
             {
                 enemyAgents.Remove(agent);
-                Debug.Log("AGENTS: " + enemyAgents.Count);
+                //Debug.Log("AGENTS: " + enemyAgents.Count);
                 if (enemyAgents.Count == 0)
                     isSafe = true;
             }
