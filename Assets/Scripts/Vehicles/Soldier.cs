@@ -35,6 +35,7 @@ public class Soldier : Vehicle
 
     // Locomotion
     private Animator meshAnimator;
+    private bool isCrouching;
     private bool isRunning;
 
     private Quaternion midTorsoAngle;
@@ -76,11 +77,23 @@ public class Soldier : Vehicle
         meshAnimator.SetFloat("Speed", move.z);
         meshAnimator.SetFloat("VerticalSpeed", move.z);
         meshAnimator.SetFloat("HorizontalSpeed", move.x);
+        meshAnimator.SetBool("IsCrouched", isCrouching);
+
+        if (isCrouching)
+        {
+            controller.height = 1.2f;
+            controller.center = new Vector3(0, 0.6f, 0);
+        }
+        else
+        {
+            controller.height = 1.5f;
+            controller.center = new Vector3(0, 0.85f, 0);
+        }
     }
 
     public void LateUpdate()
     {
-        if (!isRunning)
+        if (!isRunning && !isCrouching)
         {
             var midTorsoTargetAngle = Quaternion.LookRotation((aimAt - MidTorsoTransform.position)*0.1f);
             midTorsoAngle = Quaternion.Lerp(midTorsoAngle, midTorsoTargetAngle, 5f*Time.deltaTime);
@@ -89,7 +102,6 @@ public class Soldier : Vehicle
             var upperTorsoTargetAngle = Quaternion.LookRotation((aimAt - UpperTorsoTransform.position)*0.2f);
             upperTorsoAngle = Quaternion.Lerp(upperTorsoAngle, upperTorsoTargetAngle, 4f*Time.deltaTime);
             UpperTorsoTransform.rotation = upperTorsoAngle*Quaternion.Euler(279.3f, 47f, 0);
-
             var headAimTargetAngle = Quaternion.LookRotation(aimAt - HeadTransform.position);
             headAimAngle = Quaternion.Lerp(headAimAngle, headAimTargetAngle, 5f*Time.deltaTime);
             HeadTransform.rotation = headAimAngle*Quaternion.Euler(270f, 47f, 0);
@@ -105,6 +117,11 @@ public class Soldier : Vehicle
         move = new Vector3(strafe, 0f, forward);
         //velocity = Vector3.up*fallSpeed;
         //velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
+    }
+
+    public override void SetCrouch(bool value)
+    {
+        isCrouching = value;
     }
 
     public override void SetRun(bool value)

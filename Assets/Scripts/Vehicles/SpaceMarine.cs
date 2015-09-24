@@ -109,6 +109,10 @@ public class SpaceMarine : Vehicle
         //velocity = transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + transform.forward * move.z * ForwardSpeed;
     }
 
+    public override void SetCrouch(bool value)
+    {
+    }
+
     public override void SetRun(bool value)
     {
         isRunning = value;

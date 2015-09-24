@@ -46,7 +46,7 @@ GameObject:
   m_Layer: 0
   m_Name: GoodNpcSoldier
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -144,6 +144,7 @@ MonoBehaviour:
   Heading: {x: 0, y: 0, z: 0}
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
   WeaponPrefab: {fileID: 0}
+  DefaultFollowPlayer: 0
   TargetReconsiderRate: 3
   AttackDistance: 80
   AimAngleTolerance: 5

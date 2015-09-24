@@ -5,6 +5,8 @@ public class NpcSoldierController : AutonomousAgent
     public Vehicle VehiclePrefab;
     public VehicleGun WeaponPrefab;
 
+    public bool DefaultFollowPlayer;
+
     [Header("Chase Behaviour")]
     public float TargetReconsiderRate;
     public float AttackDistance;
@@ -37,10 +39,7 @@ public class NpcSoldierController : AutonomousAgent
         steering = new SteeringBehaviour(this);
         InitVehicle(VehiclePrefab, WeaponPrefab, transform.position, transform.rotation);
 
-        target = Targeting.FindNearest(Targeting.GetOpposingTeam(Team), vehicle.transform.position, 100f);
-        state = NpcSoldierState.Wander;
-
-        AssignWanderPosition();
+        SetNoTargetState();
     }
 
     public override void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
@@ -81,6 +80,20 @@ public class NpcSoldierController : AutonomousAgent
         return target != null;
     }
 
+    private void SetNoTargetState()
+    {
+        path = null;
+        if (DefaultFollowPlayer)
+        {
+            state = NpcSoldierState.Follow;
+        }
+        else
+        {
+            state = NpcSoldierState.Wander;
+            AssignWanderPosition();
+        }
+    }
+
     private Vector2 GetSteerToPoint(Vector3 point)
     {
         var yawDiff = Vector3.Dot(point - vehicle.transform.position, vehicle.transform.right);
@@ -119,6 +132,9 @@ public class NpcSoldierController : AutonomousAgent
         switch (state)
         {
             case NpcSoldierState.Idle:
+                break;
+            case NpcSoldierState.Follow:
+                Follow();
                 break;
             case NpcSoldierState.Wander:
                 Wander();
@@ -184,6 +200,109 @@ public class NpcSoldierController : AutonomousAgent
         var forward = Vector3.Dot(wanderForce, vehicle.transform.forward);
         var strafe = Vector3.Dot(wanderForce, vehicle.transform.right);
         vehicle.SetAimAt(path[curPathIndex] + vehicle.PathAimHeight*Vector3.up + vehicle.transform.forward);
+        vehicle.SetRun(false);
+        vehicle.SetMove(forward, strafe);
+
+        if (!reachedPathEnd)
+        {
+            var toPathDestination = path[curPathIndex] - vehicle.transform.position;
+            if (toPathDestination.sqrMagnitude <= 1f)
+            {
+                curPathIndex++;
+                if (curPathIndex == path.Length)
+                {
+                    reachedPathEnd = true;
+                }
+            }
+        }
+
+        if (reachedPathEnd)
+        {
+            AssignWanderPosition();
+            reachedPathEnd = false;
+            curPathIndex = 0;
+            //vehicle.SetMove(0f, 0f);
+        }
+
+        // Reconsider target
+        if (targetReconsiderCooldown > 0f)
+        {
+            targetReconsiderCooldown -= Time.deltaTime;
+            if (targetReconsiderCooldown < 0f)
+            {
+                target = Targeting.FindNearest(Targeting.GetOpposingTeam(Team), vehicle.transform.position, 100f);
+                targetReconsiderCooldown = TargetReconsiderRate;
+            }
+        }
+
+        if (HasTarget())
+        {
+            state = NpcSoldierState.Chase;
+        }
+    }
+
+    private void AssignFollowPosition()
+    {
+        var playerVehicle = PlayerController.Current.GetVehicle();
+        Vector3 destination;
+        if (playerVehicle != null)
+        {
+            destination = playerVehicle.transform.position;
+        }
+        else
+        {
+            var randomSpherePoint = Random.insideUnitSphere;
+            destination = vehicle.transform.position + vehicle.transform.forward * 10f + 10f * new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
+        }
+        var navPath = new NavMeshPath();
+        if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
+        {
+            path = navPath.corners;
+        }
+        else
+        {
+            path = new[] { vehicle.transform.position };
+        }
+        curPathIndex = 0;
+    }
+
+    private Vector3 GetFollowForce()
+    {
+        var groupForces = steering.CalculateGroupForces(GetNeighbours());
+
+        var steerForce = Vector3.zero;
+
+        steerForce += 1f * groupForces.SeparationForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce.normalized;
+
+        steerForce += 0.3f * groupForces.CohesiveForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce.normalized;
+
+        steerForce += 0.3f * groupForces.AlignmentForce;
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce.normalized;
+
+        // Destination Force
+        steerForce += 1f * steering.SeekForce(path[curPathIndex]);
+        if (steerForce.sqrMagnitude > 1f)
+            return steerForce.normalized;
+
+        return steerForce.normalized;
+    }
+
+    private void Follow()
+    {
+        if (path == null)
+            AssignFollowPosition();
+        var followForce = GetFollowForce();
+
+        var pitchYaw = GetSteerToPoint(path[curPathIndex]);
+        vehicle.SetPitchYaw(0f, pitchYaw.y);
+        var forward = Vector3.Dot(followForce, vehicle.transform.forward);
+        var strafe = Vector3.Dot(followForce, vehicle.transform.right);
+        vehicle.SetAimAt(path[curPathIndex] + vehicle.PathAimHeight * Vector3.up + vehicle.transform.forward);
         vehicle.SetRun(false);
         vehicle.SetMove(forward, strafe);
 
@@ -385,8 +504,7 @@ public class NpcSoldierController : AutonomousAgent
 
         if (!HasTarget())
         {
-            path = null;
-            state = NpcSoldierState.Wander;
+            SetNoTargetState();
         }
     }
 
@@ -466,6 +584,7 @@ public class NpcSoldierController : AutonomousAgent
     public enum NpcSoldierState
     {
         Idle,
+        Follow,
         Wander,
         Chase
     }

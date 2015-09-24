@@ -19,6 +19,8 @@ public abstract class Vehicle : Killable
 
     public abstract Vector2 GetPitchYaw();
 
+    public abstract void SetCrouch(bool value);
+
     public abstract void SetRun(bool value);
 
     public abstract bool IsRun();

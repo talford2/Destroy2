@@ -89,6 +89,7 @@ public class PlayerController : ActorAgent
 			var isZoomed = Input.GetButton("Fire2");
 			vehicle.SetRun(Input.GetButton("Fire3"));
 			vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+            vehicle.SetCrouch(Input.GetButton("Crouch"));
 		    isCollecting = Input.GetButton("Collect");
 
 			// Aiming

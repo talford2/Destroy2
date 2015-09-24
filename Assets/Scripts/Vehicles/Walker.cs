@@ -96,7 +96,11 @@ public class Walker : Vehicle
 			velocity = HeadTransform.transform.right * move.x * StrafeSpeed + Vector3.up * fallSpeed + HeadTransform.transform.up * -move.z * ForwardSpeed;
 	}
 
-	public override void SetRun(bool value)
+    public override void SetCrouch(bool value)
+    {
+    }
+
+    public override void SetRun(bool value)
 	{
 		isRunning = value;
 	}
