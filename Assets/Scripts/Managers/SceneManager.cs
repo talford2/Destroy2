@@ -59,4 +59,6 @@ public class SceneManager
         Debug.Log("CHOSEN: " + safest.name);
         return safest;
     }
+
+    public static int CollectibleCount { get; set; }
 }

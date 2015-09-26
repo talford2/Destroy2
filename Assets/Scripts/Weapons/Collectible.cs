@@ -19,6 +19,7 @@ public class Collectible : MonoBehaviour
 	    triggerCollider = GetComponent<SphereCollider>();
 	    triggerCollider.enabled = Enabled;
 	    tracker = GetComponentInChildren<CollectibleTracker>();
+	    SceneManager.CollectibleCount++;
 	}
 
     private void Update()
@@ -65,5 +66,10 @@ public class Collectible : MonoBehaviour
                 occupyingPlayer = null;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.CollectibleCount--;
     }
 }
