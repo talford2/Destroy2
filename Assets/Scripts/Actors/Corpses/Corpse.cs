@@ -5,6 +5,8 @@ public abstract class Corpse : MonoBehaviour
 	public float MinLifeTime = 10f;
 	private float lifeCooldown = 0;
 
+	public Renderer RenderObject;
+
 	public Transform FocalPoint;
 
 	private void Awake()
@@ -14,10 +16,13 @@ public abstract class Corpse : MonoBehaviour
 
 	public void Update()
 	{
-		lifeCooldown -= Time.deltaTime;
-		if (lifeCooldown < 0 && !gameObject.GetComponent<Renderer>().isVisible)
+		if (RenderObject != null)
 		{
-			Destroy(gameObject);
+			lifeCooldown -= Time.deltaTime;
+			if (lifeCooldown < 0 && !RenderObject.isVisible)
+			{
+				Destroy(gameObject);
+			}
 		}
 	}
 }

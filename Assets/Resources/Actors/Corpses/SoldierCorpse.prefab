@@ -1492,6 +1492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8217cbb0dd41cee469f65fa92b43b248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinLifeTime: 10
+  RenderObject: {fileID: 13704550}
   FocalPoint: {fileID: 474834}
   GunPlaceholder: {fileID: 434710}
 --- !u!114 &11494630
