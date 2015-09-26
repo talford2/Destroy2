@@ -29,7 +29,7 @@ public class EquipWeapon : MonoBehaviour
 		if (collectible.Enabled)
 		{
 			lifeCooldown -= Time.deltaTime;
-			if (lifeCooldown < 0)
+			if (lifeCooldown < 0 && !gameObject.GetComponent<Renderer>().isVisible)
 			{
 				Destroy(gameObject);
 			}
