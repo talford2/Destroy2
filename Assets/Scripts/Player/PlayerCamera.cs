@@ -71,6 +71,7 @@ public class PlayerCamera : MonoBehaviour
     public Vector3 GetLookAtPosition()
     {
         var lookRay = Cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        lookRay.origin += lookRay.direction*distance;
         RaycastHit lookHit;
         var lookAt = lookRay.GetPoint(1000f);
         if (Physics.Raycast(lookRay, out lookHit, 1000f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
