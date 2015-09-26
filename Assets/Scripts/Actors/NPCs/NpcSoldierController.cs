@@ -346,6 +346,8 @@ public class NpcSoldierController : AutonomousAgent
         }
     }
 
+    private Vector3 lastTargetPosition;
+
     private void AssignChasePosition()
     {
         Vehicle targetVehicle = null;
@@ -354,37 +356,41 @@ public class NpcSoldierController : AutonomousAgent
         if (targetVehicle != null)
         {
             var targetPosition = targetVehicle.transform.position;
-            var toTarget = targetPosition - vehicle.transform.position;
-            var destination = targetPosition - 10f * toTarget.normalized;
-
-            var detectedCover = GetDetectedCover();
-            inCover = false;
-            if (detectedCover.Any())
+            if ((targetPosition - lastTargetPosition).sqrMagnitude > 1f)
             {
-                var closestCover = detectedCover.OrderBy(c => (c.transform.position - vehicle.transform.position).sqrMagnitude).First();
-                var toClosestCover = closestCover.transform.position - vehicle.transform.position;
-                if (toClosestCover.sqrMagnitude > closestCover.Radius*closestCover.Radius)
+                var toTarget = targetPosition - vehicle.transform.position;
+                var destination = targetPosition - 10f*toTarget.normalized;
+
+                var detectedCover = GetDetectedCover();
+                inCover = false;
+                if (detectedCover.Any())
                 {
-                    destination = closestCover.transform.position;
+                    var closestCover = detectedCover.OrderBy(c => (c.transform.position - vehicle.transform.position).sqrMagnitude).First();
+                    var toClosestCover = closestCover.transform.position - vehicle.transform.position;
+                    if (toClosestCover.sqrMagnitude > closestCover.Radius*closestCover.Radius)
+                    {
+                        destination = closestCover.transform.position;
+                    }
+                    else
+                    {
+                        inCover = true;
+                        destination = closestCover.transform.position - closestCover.Radius*toTarget.normalized;
+                    }
+                }
+
+                var navPath = new NavMeshPath();
+                if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
+                {
+                    path = navPath.corners;
+                    curPathIndex = 0;
                 }
                 else
                 {
-                    inCover = true;
-                    destination = closestCover.transform.position - closestCover.Radius * toTarget.normalized;
+                    path = new[] {vehicle.transform.position};
+                    curPathIndex = 0;
                 }
             }
-
-            var navPath = new NavMeshPath();
-            if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
-            {
-                path = navPath.corners;
-                curPathIndex = 0;
-            }
-            else
-            {
-                path = new[] {vehicle.transform.position};
-                curPathIndex = 0;
-            }
+            lastTargetPosition = targetPosition;
         }
     }
 
