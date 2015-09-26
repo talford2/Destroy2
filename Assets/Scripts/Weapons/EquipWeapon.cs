@@ -2,25 +2,42 @@
 
 public class EquipWeapon : MonoBehaviour
 {
-    public Transform[] ShootPoints;
+	public Transform[] ShootPoints;
 
-    private Collectible collectible;
+	private Collectible collectible;
 
-    private void Awake()
-    {
-        collectible = GetComponentInChildren<Collectible>();
-        if (collectible != null)
-            collectible.OnCollect += OnCollect;
-    }
+	public float MinLifeTime = 15f;
+	private float lifeCooldown = 0;
 
-    public void EnableCollect()
-    {
-        if (collectible != null)
-            collectible.Enabled = true;
-    }
+	private void Awake()
+	{
+		collectible = GetComponentInChildren<Collectible>();
+		if (collectible != null)
+			collectible.OnCollect += OnCollect;
 
-    public void OnCollect()
-    {
-        Destroy(gameObject);
-    }
+		lifeCooldown = MinLifeTime;
+	}
+
+	public void EnableCollect()
+	{
+		if (collectible != null)
+			collectible.Enabled = true;
+	}
+
+	public void Update()
+	{
+		if (enabled)
+		{
+			lifeCooldown -= Time.deltaTime;
+			if (lifeCooldown < 0)
+			{
+				Destroy(gameObject);
+			}
+		}
+	}
+
+	public void OnCollect()
+	{
+		Destroy(gameObject);
+	}
 }
