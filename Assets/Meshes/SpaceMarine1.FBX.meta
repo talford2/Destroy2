@@ -97,6 +97,7 @@ ModelImporter:
     100178: Bip001 Spine
     100180: Bip001 Spine1
     100182: Bip001 Spine2
+    100184: GunHolder
     400000: AnkleLeft
     400002: AnkleRight
     400004: Fingers1Left
@@ -189,6 +190,7 @@ ModelImporter:
     400178: Bip001 Spine
     400180: Bip001 Spine1
     400182: Bip001 Spine2
+    400184: GunHolder
     2300000: Plane001
     2300002: Plane002
     3300000: Plane001
