@@ -345,6 +345,8 @@ public class NpcWalkerController : AutonomousAgent
         }
     }
 
+    private Vector3 lastTargetPosition;
+
     private void AssignChasePosition()
     {
         Vehicle targetVehicle = null;
@@ -353,20 +355,24 @@ public class NpcWalkerController : AutonomousAgent
         if (targetVehicle != null)
         {
             var targetPosition = targetVehicle.transform.position;
-            var toTarget = targetPosition - vehicle.transform.position;
-            var destination = targetPosition - (vehicle.GetPrimaryWeapon().SplashRadius() + 1f)*toTarget.normalized;
+            if ((targetPosition - lastTargetPosition).sqrMagnitude > 1f)
+            {
+                var toTarget = targetPosition - vehicle.transform.position;
+                var destination = targetPosition - (vehicle.GetPrimaryWeapon().SplashRadius() + 1f)*toTarget.normalized;
 
-            var navPath = new NavMeshPath();
-            if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
-            {
-                path = navPath.corners;
-                curPathIndex = 0;
+                var navPath = new NavMeshPath();
+                if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
+                {
+                    path = navPath.corners;
+                    curPathIndex = 0;
+                }
+                else
+                {
+                    path = new[] {vehicle.transform.position};
+                    curPathIndex = 0;
+                }
             }
-            else
-            {
-                path = new[] {vehicle.transform.position};
-                curPathIndex = 0;
-            }
+            lastTargetPosition = targetPosition;
         }
     }
 
