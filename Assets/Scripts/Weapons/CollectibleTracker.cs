@@ -135,6 +135,12 @@ public class CollectibleTracker : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (TrackerCanvas != null)
+            Destroy(TrackerCanvas.gameObject);
+    }
+
     /*
     // TODO: Need to move this work to UI its heavy!
     private void OnGUI()
