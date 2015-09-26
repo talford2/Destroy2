@@ -26,7 +26,7 @@ public class EquipWeapon : MonoBehaviour
 
 	public void Update()
 	{
-		if (enabled)
+		if (collectible.Enabled)
 		{
 			lifeCooldown -= Time.deltaTime;
 			if (lifeCooldown < 0)
