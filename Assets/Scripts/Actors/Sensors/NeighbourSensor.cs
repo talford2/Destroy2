@@ -20,26 +20,34 @@ public class NeighbourSensor : MonoBehaviour
         if (!inColliders.Contains(other))
         {
             inColliders.Add(other);
-            var autoAgent = other.GetComponentInParent<ActorAgent>();
-            if (autoAgent != null)
-                owner.AddNeighbour(autoAgent);
-            var cover = other.GetComponentInParent<Cover>();
-            if (cover != null)
+            var detectable = other.GetComponent<Detectable>();
+            if (detectable != null)
             {
-                Debug.Log("FOUND COVER!");
-                owner.AddDetectedCover(cover);
+                var autoAgent = detectable.GetOwner();
+                if (autoAgent != null)
+                    owner.AddNeighbour(autoAgent);
+                var cover = detectable.GetCover();
+                if (cover != null)
+                {
+                    Debug.Log("FOUND COVER!");
+                    owner.AddDetectedCover(cover);
+                }
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var autoAgent = other.GetComponentInParent<ActorAgent>();
-        if (autoAgent != null)
-            owner.RemoveNeighbour(autoAgent);
-        var cover = other.GetComponentInParent<Cover>();
-        if (cover != null)
-            owner.RemoveDetectedCover(cover);
+        var detectable = other.GetComponent<Detectable>();
+        if (detectable != null)
+        {
+            var autoAgent = detectable.GetOwner();
+            if (autoAgent != null)
+                owner.RemoveNeighbour(autoAgent);
+            var cover = detectable.GetCover();
+            if (cover != null)
+                owner.RemoveDetectedCover(cover);
+        }
         inColliders.Remove(other);
     }
 }

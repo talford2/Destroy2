@@ -24,13 +24,17 @@ public class SoundSensor : MonoBehaviour
         if (!inColliders.Contains(other))
         {
             inColliders.Add(other);
-            var agent = other.GetComponentInParent<ActorAgent>();
-            if (agent != null)
+            var detectable = other.GetComponent<Detectable>();
+            if (detectable != null)
             {
-                if (agent.Team == opposingTeam)
+                var agent = detectable.GetOwner();
+                if (agent != null)
                 {
-                    var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, triggerCollider.radius);
-                    owner.SetTarget(target);
+                    if (agent.Team == opposingTeam)
+                    {
+                        var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, triggerCollider.radius);
+                        owner.SetTarget(target);
+                    }
                 }
             }
         }
@@ -38,15 +42,19 @@ public class SoundSensor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var autoAgent = other.GetComponentInParent<ActorAgent>();
-        if (autoAgent != null)
+        var detectable = other.GetComponent<Detectable>();
+        if (detectable != null)
         {
-            if (!owner.HasTarget())
+            var autoAgent = detectable.GetOwner();
+            if (autoAgent != null)
             {
-                if (autoAgent.Team == opposingTeam)
+                if (!owner.HasTarget())
                 {
-                    var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, triggerCollider.radius);
-                    owner.SetTarget(target);
+                    if (autoAgent.Team == opposingTeam)
+                    {
+                        var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, triggerCollider.radius);
+                        owner.SetTarget(target);
+                    }
                 }
             }
         }

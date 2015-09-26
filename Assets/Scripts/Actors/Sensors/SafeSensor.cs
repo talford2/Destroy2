@@ -30,30 +30,38 @@ public class SafeSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var agent = other.GetComponentInParent<ActorAgent>();
-        if (agent != null)
+        var detectable = other.GetComponent<Detectable>();
+        if (detectable != null)
         {
-            if (agent.Team == opposingTeam)
+            var agent = detectable.GetOwner();
+            if (agent != null)
             {
-                if (!enemyAgents.Contains(agent))
-                    enemyAgents.Add(agent);
-                isSafe = false;
-                //Debug.Log("AGENTS: " + enemyAgents.Count);
+                if (agent.Team == opposingTeam)
+                {
+                    if (!enemyAgents.Contains(agent))
+                        enemyAgents.Add(agent);
+                    isSafe = false;
+                    //Debug.Log("AGENTS: " + enemyAgents.Count);
+                }
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var agent = other.GetComponentInParent<ActorAgent>();
-        if (agent != null)
+        var detectable = other.GetComponent<Detectable>();
+        if (detectable != null)
         {
-            if (agent.Team == opposingTeam)
+            var agent = detectable.GetOwner();
+            if (agent != null)
             {
-                enemyAgents.Remove(agent);
-                //Debug.Log("AGENTS: " + enemyAgents.Count);
-                if (enemyAgents.Count == 0)
-                    isSafe = true;
+                if (agent.Team == opposingTeam)
+                {
+                    enemyAgents.Remove(agent);
+                    //Debug.Log("AGENTS: " + enemyAgents.Count);
+                    if (enemyAgents.Count == 0)
+                        isSafe = true;
+                }
             }
         }
     }
