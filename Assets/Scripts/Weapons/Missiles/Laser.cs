@@ -113,8 +113,11 @@ public class Laser : Missile
         if (fromObservationPosition.sqrMagnitude > DeactivateDistance * DeactivateDistance)
         {
             Stop();
-            if (Owner == null)
-                Destroy(gameObject);
+        }
+        if (Owner == null)
+        {
+            if (!isLive)
+                Destroy(gameObject, 10f);
         }
     }
 
