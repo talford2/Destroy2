@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootPoints:
   - {fileID: 454428}
+  MinLifeTime: 15
 --- !u!114 &11427678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -709,6 +710,10 @@ Prefab:
       propertyPath: BottomRight
       value: 
       objectReference: {fileID: 2800000, guid: f1da1f567259eb44cbdc12026b78f71e, type: 3}
+    - target: {fileID: 0}
+      propertyPath: MinLifeTime
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 161070}
