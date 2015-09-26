@@ -6,7 +6,7 @@ public class Detectable : MonoBehaviour
     private ActorAgent owner;
     private Cover cover;
 
-    private void Awake()
+    private void Start()
     {
         owner = GetComponentInParent<ActorAgent>();
         cover = GetComponentInParent<Cover>();

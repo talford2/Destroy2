@@ -72,6 +72,7 @@ GameObject:
   - 143: {fileID: 14390588}
   - 114: {fileID: 11421088}
   - 114: {fileID: 11498496}
+  - 54: {fileID: 5479796}
   m_Layer: 0
   m_Name: Walker
   m_TagString: Untagged
@@ -847,6 +848,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 404868}
   m_RootOrder: 0
+--- !u!54 &5479796
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114410}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &8209946
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1211,6 +1227,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

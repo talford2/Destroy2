@@ -1,14 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof (SphereCollider))]
 public class SoundSensor : MonoBehaviour
 {
+    public float CheckFrequency = 2f;
+
     private SphereCollider triggerCollider;
     private AutonomousAgent owner;
     private Team opposingTeam;
 
-    private List<Collider> inColliders;
+    private List<Collider> lastColliders;
 
     private void Start()
     {
@@ -16,9 +20,32 @@ public class SoundSensor : MonoBehaviour
         owner = GetComponentInParent<AutonomousAgent>();
         opposingTeam = Targeting.GetOpposingTeam(owner.Team);
 
-        inColliders = new List<Collider>();
+        lastColliders = new List<Collider>();
+        StartCoroutine(CheckInside(Random.Range(1f, 2f)));
     }
 
+    private IEnumerator CheckInside(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        var recentColliders = Physics.OverlapSphere(transform.position, triggerCollider.radius, LayerMask.GetMask("Detectable")).ToList();
+
+        var enteredColliders = recentColliders.Except(lastColliders).ToList();
+        var exitedColliders = lastColliders.Except(recentColliders).ToList();
+
+        if (enteredColliders.Count > 0 || exitedColliders.Count > 0)
+        {
+            if (!owner.HasTarget())
+            {
+                var target = Targeting.FindNearest(opposingTeam, owner.GetVehicle().transform.position, triggerCollider.radius);
+                owner.SetTarget(target);
+            }
+        }
+
+        lastColliders = recentColliders;
+        StartCoroutine(CheckInside(CheckFrequency));
+    }
+
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (!inColliders.Contains(other))
@@ -60,4 +87,5 @@ public class SoundSensor : MonoBehaviour
         }
         inColliders.Remove(other);
     }
+    */
 }
