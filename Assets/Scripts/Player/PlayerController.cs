@@ -49,7 +49,8 @@ public class PlayerController : ActorAgent
 
         if (weaponPrefab != null)
             vehicle.SetPrimaryWeapon(weaponPrefab);
-        
+	    vehicle.MaxHealth *= 2f;
+        vehicle.Health = vehicle.MaxHealth;
 		Targeting.AddTargetable(Team, vehicle);
 	}
 

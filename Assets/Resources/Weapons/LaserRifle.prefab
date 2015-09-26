@@ -170,8 +170,8 @@ MonoBehaviour:
   Crosshair: {fileID: 21300000, guid: b024ae605c0bdd24ea49ad08193a1060, type: 3}
   ReloadCrosshair: {fileID: 0}
   MissileGameObject: {fileID: 128166, guid: feacc9732b3be2c4284c292f398247db, type: 2}
-  MissileDamage: 5
-  MissilePower: 8000
+  MissileDamage: 10
+  MissilePower: 4000
   MissileRadius: .100000001
   MissileCount: 5
 --- !u!1001 &100100000
@@ -187,11 +187,11 @@ Prefab:
       objectReference: {fileID: 128166, guid: feacc9732b3be2c4284c292f398247db, type: 2}
     - target: {fileID: 0}
       propertyPath: MissileDamage
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilePower
-      value: 8000
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissileCount
