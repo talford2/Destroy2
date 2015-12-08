@@ -19,6 +19,8 @@ public class Soldier : Vehicle
     public Transform UpperTorsoTransform;
     public Transform HeadTransform;
 
+    public AudioClip HeadShotSound;
+
     private CharacterController controller;
     private VehicleGun primaryWeapon;
     private GameObject equippedPrimaryWeapon;
@@ -275,6 +277,7 @@ public class Soldier : Vehicle
         {
             Debug.Log("HEADSHOT!");
             damageAmount *= 10f;
+            AudioSource.PlayClipAtPoint(HeadShotSound, position);
         }
         base.Damage(hitCollider, position, direction, killPower, damageAmount, missile.GetOwner());
     }
