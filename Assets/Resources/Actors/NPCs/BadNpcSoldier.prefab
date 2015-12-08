@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Team: 1
   Heading: {x: 0, y: 0, z: 0}
-  VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
+  VehiclePrefab: {fileID: 11400122, guid: fc70977a93dfbb4449843cc113678821, type: 2}
   WeaponPrefab: {fileID: 0}
   DefaultFollowPlayer: 0
   TargetReconsiderRate: 3
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1b73a8154f75a449e3633b592cdc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CheckFrequency: .5
+  CheckFrequency: 0.5
 --- !u!114 &11476298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,6 +267,11 @@ Prefab:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: VehiclePrefab
+      value: 
+      objectReference: {fileID: 11400122, guid: fc70977a93dfbb4449843cc113678821,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151946}

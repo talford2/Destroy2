@@ -68,7 +68,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 75594484a7f374d4eb42036848e8777e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .200000003
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -97,6 +97,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -107,6 +108,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -117,6 +119,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -127,6 +130,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11413606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,24 +145,24 @@ MonoBehaviour:
   GunId: 0
   GunName: Laser Rifle
   RoundsPerMinute: 200
-  TriggerTime: .300000012
+  TriggerTime: 0.3
   MissilesPerShot: 1
   IsSimultaneous: 1
   Spread: {x: 0, y: 0}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
   ClipCapacity: 1
-  ReloadTime: .300000012
+  ReloadTime: 0.3
   EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
   Zoom: 1.5
-  KickPitchYaw: {x: 1, y: .600000024}
+  KickPitchYaw: {x: 1, y: 0.6}
   NonRandomPitch: 0
   RequireTargetLock: 0
   TargetLockTime: 0
   MaxLockRange: 0
   LockBeep: {fileID: 0}
-  AimtHeight: 1.20000005
+  AimtHeight: 1.2
   Muzzle: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
   FireSound: {fileID: 8228072}
   IsOverHeatable: 0
@@ -172,7 +176,7 @@ MonoBehaviour:
   MissileGameObject: {fileID: 128166, guid: feacc9732b3be2c4284c292f398247db, type: 2}
   MissileDamage: 10
   MissilePower: 4000
-  MissileRadius: .100000001
+  MissileRadius: 0.1
   MissileCount: 5
 --- !u!1001 &100100000
 Prefab:
@@ -207,7 +211,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: TriggerTime
-      value: .300000012
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilesPerShot
@@ -289,6 +293,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: AimtHeight
       value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

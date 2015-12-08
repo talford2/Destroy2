@@ -168,6 +168,9 @@ public class PlayerController : ActorAgent
 
 		if (Input.GetKeyUp(KeyCode.LeftControl))
 			Debug.Break();
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+            Application.Quit();
 	}
 
     public bool IsCollecting()
