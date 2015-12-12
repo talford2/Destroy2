@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 435042}
   - 114: {fileID: 11413606}
   m_Layer: 0
-  m_Name: LaserRifle
+  m_Name: LaserGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,19 +40,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunId: 0
-  GunName: Laser Rifle
-  RoundsPerMinute: 200
-  TriggerTime: 0.3
+  GunName: Laser Gun
+  RoundsPerMinute: 1000
+  TriggerTime: 0
   MissilesPerShot: 1
-  IsSimultaneous: 1
-  Spread: {x: 0, y: 0}
+  IsSimultaneous: 0
+  Spread: {x: 1, y: 1}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
   ClipCapacity: 1
-  ReloadTime: 0.3
+  ReloadTime: 0
   EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
-  Zoom: 1.5
+  Zoom: 1
   KickPitchYaw: {x: 1, y: 0.6}
   NonRandomPitch: 0
   RequireTargetLock: 0
@@ -105,15 +105,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: GunName
-      value: Laser Rifle
+      value: Laser Gun
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: RoundsPerMinute
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: TriggerTime
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilesPerShot
@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: IsSimultaneous
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: HasInfiniteAmmunition
@@ -133,7 +133,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime
-      value: .300000012
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EquipPrefab
@@ -190,7 +190,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Zoom
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: AimtHeight
@@ -212,6 +212,14 @@ Prefab:
       propertyPath: FireSounds.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 75594484a7f374d4eb42036848e8777e, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Spread.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Spread.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135538}
