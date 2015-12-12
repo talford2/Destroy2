@@ -26,6 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 441488}
   - 114: {fileID: 11439858}
+  - 114: {fileID: 11416210}
   m_Layer: 0
   m_Name: BloodSplatter
   m_TagString: Untagged
@@ -161,6 +162,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &11416210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5383f6fe2c4176499d17caf67c42755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 105906, guid: da11be75f5336b04cbf3d15f2e5b5ea9, type: 2}
 --- !u!114 &11439858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1678,6 +1691,10 @@ Prefab:
       propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
       value: .0500000045
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Prefab
+      value: 
+      objectReference: {fileID: 105906, guid: da11be75f5336b04cbf3d15f2e5b5ea9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163292}
