@@ -74,7 +74,7 @@ MonoBehaviour:
   MissileGameObject: {fileID: 128166, guid: 254945cb03008b54d8d1834f484a3d24, type: 2}
   MissileDamage: 15
   MissilePower: 20000
-  MissileRadius: 0
+  MissileRadius: 0.1
   MissileCount: 5
 --- !u!1001 &100100000
 Prefab:
@@ -208,6 +208,10 @@ Prefab:
       propertyPath: FireSounds.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: MissileRadius
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135538}
