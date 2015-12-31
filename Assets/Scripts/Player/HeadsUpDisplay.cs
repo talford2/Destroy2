@@ -48,7 +48,7 @@ public class HeadsUpDisplay : MonoBehaviour
 	            Crosshair.color = Color.red;
 	            break;
 	        case InSightType.Friendly:
-	            Crosshair.color = new Color(0.5f, 0.7f, 1f, 1f);
+	            Crosshair.color = new Color(0.1f, 0.3f, 1f, 1f);
 	            break;
 	        default:
 	            Crosshair.color = Color.white;
