@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class HeadsUpDisplay : MonoBehaviour
@@ -54,6 +53,7 @@ public class HeadsUpDisplay : MonoBehaviour
 	            Crosshair.color = Color.white;
 	            break;
 	    }
+
 	    if (isFadeOutCrosshair)
 		{
 			if (fadeOutCooldown > 0f)
@@ -105,9 +105,12 @@ public class HeadsUpDisplay : MonoBehaviour
 
 	public void FadeOutCrosshair(float time)
 	{
-		fadeOutTime = time;
-		fadeOutCooldown = time;
-		isFadeOutCrosshair = true;
+	    if (!isFadeOutCrosshair)
+	    {
+	        fadeOutTime = time;
+	        fadeOutCooldown = time;
+	        isFadeOutCrosshair = true;
+	    }
 	}
 
     public void ShowCrosshair()
@@ -116,6 +119,7 @@ public class HeadsUpDisplay : MonoBehaviour
         ReloadCrosshair.color = Color.white;
         Crosshair.enabled = true;
         ReloadCrosshair.enabled = false;
+        isFadeOutCrosshair = false;
     }
 
     public enum InSightType

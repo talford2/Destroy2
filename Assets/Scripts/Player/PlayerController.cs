@@ -78,100 +78,112 @@ public class PlayerController : ActorAgent
             HeadsUpDisplay.Current.SetReloadCrosshair(reloadCrosshair);
 	}
 
-	private void Update()
-	{
-		// Aim Camera
-        PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y") / PlayerCamera.Current.TargetZoom, Input.GetAxis("Mouse X") / PlayerCamera.Current.TargetZoom);
+    private void Update()
+    {
+        // Aim Camera
+        PlayerCamera.Current.AddPitchYaw(Input.GetAxis("Mouse Y")/PlayerCamera.Current.TargetZoom, Input.GetAxis("Mouse X")/PlayerCamera.Current.TargetZoom);
 
-		// Movement
-		if (vehicle != null)
-		{
-			//vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-			var isZoomed = Input.GetButton("Fire2");
-			vehicle.SetRun(Input.GetButton("Fire3"));
-			vehicle.SetMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+        // Movement
+        if (vehicle != null)
+        {
+            var isRun = Input.GetButton("Fire3");
+            //vehicle.SetPitchYaw(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+            var isZoomed = Input.GetButton("Fire2");
+            var move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            vehicle.SetRun(isRun);
+            vehicle.SetMove(move.y, move.x);
             vehicle.SetCrouch(Input.GetButton("Crouch"));
-		    isCollecting = Input.GetButton("Collect");
+            isCollecting = Input.GetButton("Collect");
 
-			// Aiming
-			maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
-			var pivotPoint = vehicle.GetPrimaryWeaponShootPoint();
+            // Aiming
+            maxAimDistance = vehicle.GetPrimaryWeapon().MaxAimDistance;
+            var pivotPoint = vehicle.GetPrimaryWeaponShootPoint();
 
-			aimAt = PlayerCamera.Current.GetLookAtPosition();
-			var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
-			RaycastHit aimHit;
-			var targetInSightType = HeadsUpDisplay.InSightType.None;
+            aimAt = PlayerCamera.Current.GetLookAtPosition();
+            var aimRay = new Ray(pivotPoint, aimAt - pivotPoint);
+            RaycastHit aimHit;
+            var targetInSightType = HeadsUpDisplay.InSightType.None;
 
-			if (Physics.SphereCast(aimRay, vehicle.GetPrimaryWeapon().MissileRadius, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
-			{
-				var aimKillable = aimHit.collider.GetComponentInParent<ActorAgent>();
-				if (aimKillable != null)
-				{
-				    targetInSightType = aimKillable.Team == Team
+            if (Physics.SphereCast(aimRay, vehicle.GetPrimaryWeapon().MissileRadius, out aimHit, maxAimDistance, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
+            {
+                var aimKillable = aimHit.collider.GetComponentInParent<ActorAgent>();
+                if (aimKillable != null)
+                {
+                    targetInSightType = aimKillable.Team == Team
                         ? HeadsUpDisplay.InSightType.Friendly
                         : HeadsUpDisplay.InSightType.Enemy;
-				}
-			}
+                }
+            }
 
-			// This is incorrect?
-			vehicle.SetAimAt(aimAt);
+            // This is incorrect?
+            vehicle.SetAimAt(aimAt);
 
             HeadsUpDisplay.Current.SetTargetInSight(targetInSightType);
 
-			if (isZoomed)
-			{
-				//PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
-			    PlayerCamera.Current.SetPivot(vehicle.ZoomPivot, vehicle.CameraOffset, 1f);// vehicle.CameraDistance);
-			    PlayerCamera.Current.TargetZoom = vehicle.GetPrimaryWeapon().Zoom;
-			}
-			else
-			{
-				PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
-				SetUpCamera();
-			}
+            if (isRun && move.sqrMagnitude > 0.1f)
+            {
+                HeadsUpDisplay.Current.FadeOutCrosshair(0.2f);
+            }
+            else
+            {
+                HeadsUpDisplay.Current.ShowCrosshair();
+            }
 
-			// Shooting
-		    if (!vehicle.GetPrimaryWeapon().GetIsReloading())
-		    {
-		        if (Input.GetButton("Fire1") && !vehicle.IsRun())
-		        {
-		            vehicle.TriggerPrimaryWeapon();
-		        }
-		        else
-		        {
-		            vehicle.ReleasePrimaryWeapon();
-		        }
-		        if (Input.GetButton("Reload"))
-		        {
-		            vehicle.ReloadPrimaryWeapon(vehicle.GetPrimaryWeapon().ClipCapacity - vehicle.GetPrimaryWeapon().GetClipRemaining());
-		        }
-                HeadsUpDisplay.Current.ShowNormal();
-		    }
-		    else
-		    {
-		        if (vehicle.GetPrimaryWeapon().ReloadCrosshair != null)
-		        {
-		            HeadsUpDisplay.Current.ShowReload();
-		            HeadsUpDisplay.Current.SetReloadProgress(vehicle.GetPrimaryWeapon().GetReloadProgress());
-		        }
-		    }
-		    Heading = vehicle.transform.forward;
+            if (!isRun && isZoomed)
+            {
+                //PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Aim);
+                PlayerCamera.Current.SetPivot(vehicle.ZoomPivot, vehicle.CameraOffset, 1f); // vehicle.CameraDistance);
+                PlayerCamera.Current.TargetZoom = vehicle.GetPrimaryWeapon().Zoom;
+            }
+            else
+            {
+                PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
+                SetUpCamera();
+            }
 
-			if (Input.GetKeyUp(KeyCode.Q))
-				vehicle.Damage(null, Vector3.zero, Vector3.up, 0f, 1000f, null);
-		}
-		else
-		{
-			PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
-		    PlayerCamera.Current.TargetZoom = 1f;
-		}
+            // Shooting
+            if (!vehicle.GetPrimaryWeapon().GetIsReloading())
+            {
+                if (Input.GetButton("Fire1") && !vehicle.IsRun())
+                {
+                    vehicle.TriggerPrimaryWeapon();
+                }
+                else
+                {
+                    vehicle.ReleasePrimaryWeapon();
+                }
+                if (Input.GetButton("Reload"))
+                {
+                    vehicle.ReloadPrimaryWeapon(vehicle.GetPrimaryWeapon().ClipCapacity - vehicle.GetPrimaryWeapon().GetClipRemaining());
+                }
+                if (!isRun)
+                    HeadsUpDisplay.Current.ShowNormal();
+            }
+            else
+            {
+                if (vehicle.GetPrimaryWeapon().ReloadCrosshair != null)
+                {
+                    HeadsUpDisplay.Current.ShowReload();
+                    HeadsUpDisplay.Current.SetReloadProgress(vehicle.GetPrimaryWeapon().GetReloadProgress());
+                }
+            }
+            Heading = vehicle.transform.forward;
 
-		if (Input.GetKeyUp(KeyCode.LeftControl))
-			Debug.Break();
+            if (Input.GetKeyUp(KeyCode.Q))
+                vehicle.Damage(null, Vector3.zero, Vector3.up, 0f, 1000f, null);
+        }
+        else
+        {
+            PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
+            PlayerCamera.Current.TargetZoom = 1f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+            Debug.Break();
 
         if (Input.GetKeyUp(KeyCode.Escape))
             Application.Quit();
-	}
+    }
 
     public bool IsCollecting()
     {
