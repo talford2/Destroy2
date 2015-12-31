@@ -10,7 +10,8 @@ public class HeadsUpDisplay : MonoBehaviour
 
 	private InSightType inSightType;
     private bool isFriendlyInSight;
-	private bool isFadeOutCrosshair;
+	private bool isFadeCrosshair;
+    private int fadeDirection;
 	private float fadeOutTime;
 	private float fadeOutCooldown;
 
@@ -24,7 +25,7 @@ public class HeadsUpDisplay : MonoBehaviour
 	private void Awake()
 	{
 		inSightType = InSightType.None;
-		isFadeOutCrosshair = false;
+		isFadeCrosshair = false;
 		current = this;
 	}
 
@@ -44,27 +45,37 @@ public class HeadsUpDisplay : MonoBehaviour
 	    switch (inSightType)
 	    {
 	        case InSightType.Enemy:
-	            Crosshair.color = Color.red;
+	            Crosshair.color = new Color(1f, 0f, 0f, Crosshair.color.a);
 	            break;
 	        case InSightType.Friendly:
-	            Crosshair.color = new Color(0.1f, 0.3f, 1f, 1f);
+	            Crosshair.color = new Color(0.1f, 0.3f, 1f, Crosshair.color.a);
 	            break;
 	        default:
-	            Crosshair.color = Color.white;
+	            Crosshair.color = new Color(1f, 1f, 1f, Crosshair.color.a);
 	            break;
 	    }
 
-	    if (isFadeOutCrosshair)
+	    if (isFadeCrosshair)
 		{
 			if (fadeOutCooldown > 0f)
 			{
 				fadeOutCooldown -= Time.deltaTime;
-                Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeOutCooldown / fadeOutTime);
-                ReloadCrosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeOutCooldown / fadeOutTime);
+			    float fadeFraction;
+			    if (fadeDirection < 0)
+			    {
+			        fadeFraction = Mathf.Clamp01(fadeOutCooldown/fadeOutTime);
+			    }
+			    else
+			    {
+                    fadeFraction = 1f - Mathf.Clamp01(fadeOutCooldown / fadeOutTime);
+			    }
+                Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeFraction);
+                ReloadCrosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeFraction);
 				if (fadeOutCooldown < 0f)
 				{
-					Crosshair.enabled = false;
-				    ReloadCrosshair.enabled = false;
+				    isFadeCrosshair = false;
+				    //Crosshair.enabled = false;
+				    //ReloadCrosshair.enabled = false;
 				}
 			}
 		}
@@ -103,15 +114,27 @@ public class HeadsUpDisplay : MonoBehaviour
 		inSightType = value;
 	}
 
-	public void FadeOutCrosshair(float time)
-	{
-	    if (!isFadeOutCrosshair)
-	    {
-	        fadeOutTime = time;
-	        fadeOutCooldown = time;
-	        isFadeOutCrosshair = true;
-	    }
-	}
+    public void FadeOutCrosshair(float time)
+    {
+        if (!isFadeCrosshair && fadeDirection != -1)
+        {
+            fadeOutTime = time;
+            fadeOutCooldown = time;
+            fadeDirection = -1;
+            isFadeCrosshair = true;
+        }
+    }
+
+    public void FadeInCrosshair(float time)
+    {
+        if (!isFadeCrosshair && fadeDirection != 1)
+        {
+            fadeOutTime = time;
+            fadeOutCooldown = time;
+            fadeDirection = 1;
+            isFadeCrosshair = true;
+        }
+    }
 
     public void ShowCrosshair()
     {
@@ -119,7 +142,7 @@ public class HeadsUpDisplay : MonoBehaviour
         ReloadCrosshair.color = Color.white;
         Crosshair.enabled = true;
         ReloadCrosshair.enabled = false;
-        isFadeOutCrosshair = false;
+        isFadeCrosshair = false;
     }
 
     public enum InSightType

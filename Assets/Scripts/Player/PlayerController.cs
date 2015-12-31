@@ -126,7 +126,8 @@ public class PlayerController : ActorAgent
             }
             else
             {
-                HeadsUpDisplay.Current.ShowCrosshair();
+                HeadsUpDisplay.Current.FadeInCrosshair(0.2f);
+                //HeadsUpDisplay.Current.ShowCrosshair();
             }
 
             if (!isRun && isZoomed)
@@ -157,7 +158,9 @@ public class PlayerController : ActorAgent
                     vehicle.ReloadPrimaryWeapon(vehicle.GetPrimaryWeapon().ClipCapacity - vehicle.GetPrimaryWeapon().GetClipRemaining());
                 }
                 if (!isRun)
+                {
                     HeadsUpDisplay.Current.ShowNormal();
+                }
             }
             else
             {
