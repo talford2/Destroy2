@@ -26,6 +26,8 @@ public class Walker : Vehicle
     public Transform HeadTransform;
     public Transform TurretTransform;
 
+    public GameObject CorpseExplosionPrefab;
+
 	private CharacterController controller;
 	private VehicleGun primaryWeapon;
 
@@ -261,6 +263,8 @@ public class Walker : Vehicle
 			}
 		}
 
+	    var killHitPoint = transform.position;
+
 		foreach (var corpseCollider in corpseColliders)
 		{
 			var killRay = new Ray(killPosition - 5f * killDirection.normalized, killDirection);
@@ -268,8 +272,11 @@ public class Walker : Vehicle
 			if (corpseCollider.Raycast(killRay, out killHit, 10f))
 			{
 				corpseCollider.attachedRigidbody.AddForceAtPosition(killDirection.normalized * killPower, killHit.point, ForceMode.Force);
+			    killHitPoint = killHit.point;
 			}
 		}
+
+	    Instantiate(CorpseExplosionPrefab, killHitPoint, Quaternion.identity);
 
 		base.Die(attacker);
 		Destroy(gameObject);
