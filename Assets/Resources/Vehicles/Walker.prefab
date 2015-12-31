@@ -1018,7 +1018,7 @@ MonoBehaviour:
   CorpsePrefab: {fileID: 117372, guid: e51b11bc11fd9a4489b97861de13ffcb, type: 2}
   HeadTransform: {fileID: 495118}
   TurretTransform: {fileID: 456346}
-  CorpseExplosionPrefab: {fileID: 127098, guid: 1f9ae5338f395f241a6ebf456a3678f1,
+  CorpseExplosionPrefab: {fileID: 150984, guid: ecd2b4e2edbff9a4a81ee8969d047bd0,
     type: 2}
 --- !u!114 &11498496
 MonoBehaviour:
@@ -1248,7 +1248,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: CorpseExplosionPrefab
       value: 
-      objectReference: {fileID: 127098, guid: 1f9ae5338f395f241a6ebf456a3678f1, type: 2}
+      objectReference: {fileID: 150984, guid: ecd2b4e2edbff9a4a81ee8969d047bd0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114410}
