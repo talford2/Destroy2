@@ -159,7 +159,7 @@ public class NpcSoldierController : AutonomousAgent
             speechCooldown -= Time.deltaTime;
             if (speechCooldown < 0f)
             {
-                var sounds = GetComponent<SoldierSounds>();
+                var sounds = vehicle.GetComponent<SoldierSounds>();
                 if (sounds != null)
                 {
                     sounds.SightCall();
