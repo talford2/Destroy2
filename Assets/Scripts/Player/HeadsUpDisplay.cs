@@ -19,6 +19,8 @@ public class HeadsUpDisplay : MonoBehaviour
     private float hitTime;
     private float hitCooldown;
 
+    private GUIStyle ammoStyle;
+
 	private static HeadsUpDisplay current;
 
 	public static HeadsUpDisplay Current
@@ -32,6 +34,15 @@ public class HeadsUpDisplay : MonoBehaviour
 		isFadeCrosshair = false;
 		current = this;
 	    HitCrosshair.enabled = false;
+
+	    var hudFont = Resources.Load<Font>("Fonts/EU____");
+        ammoStyle = new GUIStyle
+        {
+            alignment = TextAnchor.MiddleRight,
+            normal = { textColor = Color.white },
+            font = hudFont,
+            fontSize = 30
+        };
 	}
 
 	public void SetCrosshair(Sprite value)
@@ -167,6 +178,16 @@ public class HeadsUpDisplay : MonoBehaviour
         hitTime = time;
         hitCooldown = hitTime;
         HitCrosshair.color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    private void OnGUI()
+    {
+        var vehicle = PlayerController.Current.GetVehicle();
+        if (vehicle != null)
+        {
+            GUI.Label(new Rect(Screen.width - 120f, Screen.height - 40f, 100f, 30f), string.Format("{0} / {1}", vehicle.GetPrimaryWeapon().GetClipRemaining(), vehicle.GetPrimaryWeapon().ClipCapacity), ammoStyle);
+            GUI.Label(new Rect(Screen.width - 120f, 30f, 100f, 30f), string.Format("{0}", PlayerController.Current.KillCount), ammoStyle);
+        }
     }
 
     public enum InSightType
