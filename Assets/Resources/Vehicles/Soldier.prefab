@@ -1444,6 +1444,10 @@ MonoBehaviour:
   RightSteps:
   - {fileID: 8300000, guid: eb194668c0619ad4080aaf4c8a3c3764, type: 3}
   - {fileID: 8300000, guid: 6ca292ce4bf0ac542a10a5259019ebd3, type: 3}
+  HurtCries:
+  - {fileID: 8300000, guid: b949fc3c0042b6043b3b0a2c781a0d1a, type: 3}
+  - {fileID: 8300000, guid: 1956cdb5b27fca64b9feef7d9ac8a141, type: 3}
+  - {fileID: 8300000, guid: 46ef4d07a2186934bb102d681dae399a, type: 3}
 --- !u!114 &11486732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1574,6 +1578,10 @@ Prefab:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: HurtCries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: RightSteps.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1674,6 +1682,18 @@ Prefab:
       propertyPath: RightSteps.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 6ca292ce4bf0ac542a10a5259019ebd3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: HurtCries.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b949fc3c0042b6043b3b0a2c781a0d1a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: HurtCries.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1956cdb5b27fca64b9feef7d9ac8a141, type: 3}
+    - target: {fileID: 0}
+      propertyPath: HurtCries.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 46ef4d07a2186934bb102d681dae399a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147068}
