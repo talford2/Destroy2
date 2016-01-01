@@ -26,6 +26,6 @@ public class SoldierSounds : MonoBehaviour
 
     private void HurtCry(Collider hitcollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
-        AudioSource.PlayClipAtPoint(HurtCries[Random.Range(0, HurtCries.Count)], transform.position);
+        AudioSource.PlayClipAtPoint(HurtCries[Random.Range(0, HurtCries.Count)], transform.position + Vector3.up, 100f);
     }
 }
