@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SoldierSounds : MonoBehaviour
 {
+    public GameObject WorldSoundPrefab;
+
     public List<AudioClip> LeftSteps;
     public List<AudioClip> RightSteps;
 
@@ -26,6 +28,7 @@ public class SoldierSounds : MonoBehaviour
 
     private void HurtCry(Collider hitcollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
-        AudioSource.PlayClipAtPoint(HurtCries[Random.Range(0, HurtCries.Count)], transform.position + Vector3.up, 100f);
+        var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position + Vector3.up, Quaternion.identity)).GetComponent<WorldSound>();
+        worldSound.PlayClip(HurtCries[Random.Range(0, HurtCries.Count)]);
     }
 }

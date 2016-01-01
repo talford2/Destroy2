@@ -1438,6 +1438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bf636757914ee4682a71c403b195e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorldSoundPrefab: {fileID: 180252, guid: d27a09747cf2f0d409f405d337999301, type: 2}
   LeftSteps:
   - {fileID: 8300000, guid: 4d9fcdebb7d617b41b86858b63f57175, type: 3}
   - {fileID: 8300000, guid: d1d5e01a71ee30a4daf919c397f2c14f, type: 3}
@@ -1698,6 +1699,10 @@ Prefab:
       propertyPath: HurtCries.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 46ef4d07a2186934bb102d681dae399a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: WorldSoundPrefab
+      value: 
+      objectReference: {fileID: 180252, guid: d27a09747cf2f0d409f405d337999301, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147068}
