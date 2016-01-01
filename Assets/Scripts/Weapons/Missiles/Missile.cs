@@ -102,6 +102,13 @@ public abstract class Missile : MonoBehaviour
 	        {
 	            Debug.Log("HIT COLLIDER: " + hit.collider.name);
 	            hitKillable.Damage(hit.collider, hit.point, direction, this);
+	            if (PlayerController.Current.GetVehicle() != null)
+	            {
+	                if (GetOwner() == PlayerController.Current.GetVehicle().gameObject)
+	                {
+	                    PlayerController.Current.OnTargetHit();
+	                }
+	            }
 	        }
 	        var hitCorpse = hit.collider.GetComponentInParent<Corpse>();
 	        if (hitCorpse != null)

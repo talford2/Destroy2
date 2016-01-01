@@ -5,7 +5,7 @@ public class HeadsUpDisplay : MonoBehaviour
 {
 	public Image Crosshair;
     public Image ReloadCrosshair;
-
+    public Image HitCrosshair;
 	public Image Damage;
 
 	private InSightType inSightType;
@@ -14,6 +14,9 @@ public class HeadsUpDisplay : MonoBehaviour
     private int fadeDirection;
 	private float fadeOutTime;
 	private float fadeOutCooldown;
+
+    private bool isShowHit;
+    private float hitCooldown;
 
 	private static HeadsUpDisplay current;
 
@@ -27,6 +30,7 @@ public class HeadsUpDisplay : MonoBehaviour
 		inSightType = InSightType.None;
 		isFadeCrosshair = false;
 		current = this;
+	    HitCrosshair.enabled = false;
 	}
 
 	public void SetCrosshair(Sprite value)
@@ -79,6 +83,15 @@ public class HeadsUpDisplay : MonoBehaviour
 				}
 			}
 		}
+
+	    if (hitCooldown >= 0f)
+	    {
+	        hitCooldown -= Time.deltaTime;
+	        if (hitCooldown < 0)
+	        {
+	            HitCrosshair.enabled = false;
+	        }
+	    }
 		
 		if (DamageCooldown > 0)
 		{
@@ -143,6 +156,12 @@ public class HeadsUpDisplay : MonoBehaviour
         Crosshair.enabled = true;
         ReloadCrosshair.enabled = false;
         isFadeCrosshair = false;
+    }
+
+    public void ShowHit(float time)
+    {
+        HitCrosshair.enabled = true;
+        hitCooldown = time;
     }
 
     public enum InSightType

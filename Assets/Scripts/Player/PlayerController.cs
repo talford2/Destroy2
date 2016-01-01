@@ -78,6 +78,11 @@ public class PlayerController : ActorAgent
             HeadsUpDisplay.Current.SetReloadCrosshair(reloadCrosshair);
 	}
 
+    public void OnTargetHit()
+    {
+        HeadsUpDisplay.Current.ShowHit(0.2f);
+    }
+
     private void Update()
     {
         // Aim Camera
