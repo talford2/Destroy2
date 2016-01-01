@@ -362,6 +362,7 @@ GameObject:
   - 114: {fileID: 11400574}
   - 114: {fileID: 11405484}
   - 54: {fileID: 5470200}
+  - 114: {fileID: 11437888}
   m_Layer: 0
   m_Name: Soldier2
   m_TagString: Untagged
@@ -1426,6 +1427,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RegenerateRate: 5
   RegenerateDelay: 3
+--- !u!114 &11437888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bf636757914ee4682a71c403b195e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSteps:
+  - {fileID: 8300000, guid: 4d9fcdebb7d617b41b86858b63f57175, type: 3}
+  - {fileID: 8300000, guid: d1d5e01a71ee30a4daf919c397f2c14f, type: 3}
+  RightSteps:
+  - {fileID: 8300000, guid: eb194668c0619ad4080aaf4c8a3c3764, type: 3}
+  - {fileID: 8300000, guid: 6ca292ce4bf0ac542a10a5259019ebd3, type: 3}
 --- !u!114 &11486732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1552,6 +1570,14 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: LeftSteps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RightSteps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7e7b72af1fae85648b91f3dd946dbb6e, type: 2}
@@ -1636,6 +1662,22 @@ Prefab:
       propertyPath: HeadShotSound
       value: 
       objectReference: {fileID: 8300000, guid: 49d3ae78811afc343a65151fa5adaecb, type: 3}
+    - target: {fileID: 0}
+      propertyPath: LeftSteps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d9fcdebb7d617b41b86858b63f57175, type: 3}
+    - target: {fileID: 0}
+      propertyPath: LeftSteps.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: d1d5e01a71ee30a4daf919c397f2c14f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: RightSteps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: eb194668c0619ad4080aaf4c8a3c3764, type: 3}
+    - target: {fileID: 0}
+      propertyPath: RightSteps.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ca292ce4bf0ac542a10a5259019ebd3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147068}
