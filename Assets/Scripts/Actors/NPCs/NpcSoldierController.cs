@@ -38,7 +38,7 @@ public class NpcSoldierController : AutonomousAgent
 
     // Random Speech
     private readonly float minSpeechTime = 10f;
-    private readonly float maxSpeechTime = 360f;
+    private readonly float maxSpeechTime = 120f;
     private float speechCooldown;
 
     private void Awake()
