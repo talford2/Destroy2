@@ -1449,6 +1449,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b949fc3c0042b6043b3b0a2c781a0d1a, type: 3}
   - {fileID: 8300000, guid: 1956cdb5b27fca64b9feef7d9ac8a141, type: 3}
   - {fileID: 8300000, guid: 46ef4d07a2186934bb102d681dae399a, type: 3}
+  SightCalls:
+  - {fileID: 8300000, guid: c3edac5bfae4fc9419ecab52991ef7a8, type: 3}
+  - {fileID: 8300000, guid: f9aa3a463ef871b4a98f3d5923457b99, type: 3}
+  - {fileID: 8300000, guid: a62e022be75a71e4287a14b411fc92d5, type: 3}
+  - {fileID: 8300000, guid: 31200c958387db2479333f64a058f10a, type: 3}
+  - {fileID: 8300000, guid: 60513eead68046045baf5f775875c104, type: 3}
 --- !u!114 &11486732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1587,6 +1593,10 @@ Prefab:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: SightCalls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7e7b72af1fae85648b91f3dd946dbb6e, type: 2}
@@ -1699,6 +1709,26 @@ Prefab:
       propertyPath: WorldSoundPrefab
       value: 
       objectReference: {fileID: 180252, guid: d27a09747cf2f0d409f405d337999301, type: 2}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c3edac5bfae4fc9419ecab52991ef7a8, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f9aa3a463ef871b4a98f3d5923457b99, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a62e022be75a71e4287a14b411fc92d5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 31200c958387db2479333f64a058f10a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 60513eead68046045baf5f775875c104, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147068}
