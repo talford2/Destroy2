@@ -1455,6 +1455,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a62e022be75a71e4287a14b411fc92d5, type: 3}
   - {fileID: 8300000, guid: 31200c958387db2479333f64a058f10a, type: 3}
   - {fileID: 8300000, guid: 60513eead68046045baf5f775875c104, type: 3}
+  - {fileID: 8300000, guid: a3d98431c63b4004289107df0819c1a5, type: 3}
+  - {fileID: 8300000, guid: 64816eeff388b9f46825bc3dbcb8c961, type: 3}
+  - {fileID: 8300000, guid: 536ff778d0d565841a895b30649435ad, type: 3}
+  - {fileID: 8300000, guid: 8acf905e3451fd14ebfd52e5425d0cba, type: 3}
+  - {fileID: 8300000, guid: 6456892f5a78ef147b1f3906595a1a15, type: 3}
 --- !u!114 &11486732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1594,7 +1599,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: SightCalls.Array.size
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Controller
@@ -1729,6 +1734,26 @@ Prefab:
       propertyPath: SightCalls.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: 60513eead68046045baf5f775875c104, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: a3d98431c63b4004289107df0819c1a5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 64816eeff388b9f46825bc3dbcb8c961, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 536ff778d0d565841a895b30649435ad, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8acf905e3451fd14ebfd52e5425d0cba, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SightCalls.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6456892f5a78ef147b1f3906595a1a15, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147068}
