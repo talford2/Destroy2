@@ -262,7 +262,7 @@ public class PlayerController : ActorAgent
         {
             alignment = TextAnchor.MiddleRight,
             normal = {textColor = Color.white},
-            fontSize = 20
+            fontSize = 30
         };
         GUI.Label(new Rect(Screen.width - 120f, Screen.height - 40f, 100f, 30f), string.Format("{0} / {1}", vehicle.GetPrimaryWeapon().GetClipRemaining(), vehicle.GetPrimaryWeapon().ClipCapacity), ammoStyle);
         GUI.Label(new Rect(Screen.width - 120f, 20f, 100f, 30f), string.Format("{0}", KillCount), ammoStyle);
