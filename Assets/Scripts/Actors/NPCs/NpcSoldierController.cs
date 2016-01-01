@@ -37,8 +37,8 @@ public class NpcSoldierController : AutonomousAgent
     private float killPower;
 
     // Random Speech
-    private readonly float minSpeechTime = 30f;
-    private readonly float maxSpeechTime = 60f;
+    private readonly float minSpeechTime = 10f;
+    private readonly float maxSpeechTime = 360f;
     private float speechCooldown;
 
     private void Awake()
@@ -47,6 +47,8 @@ public class NpcSoldierController : AutonomousAgent
         InitVehicle(VehiclePrefab, WeaponPrefab, transform.position, transform.rotation);
 
         SetNoTargetState();
+
+        speechCooldown = Random.Range(minSpeechTime, maxSpeechTime);
     }
 
     public override void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
