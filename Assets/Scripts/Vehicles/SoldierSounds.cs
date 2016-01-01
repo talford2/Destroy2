@@ -9,7 +9,8 @@ public class SoldierSounds : MonoBehaviour
     public List<AudioClip> RightSteps;
 
     public List<AudioClip> HurtCries;
-    public List<AudioClip> SightCalls;
+    public List<AudioClip> AlertCalls;
+    public List<AudioClip> RandomSpeech;
 
     private void Awake()
     {
@@ -33,9 +34,15 @@ public class SoldierSounds : MonoBehaviour
         worldSound.PlayClip(HurtCries[Random.Range(0, HurtCries.Count)]);
     }
 
-    public void SightCall()
+    public void AlertCall()
     {
         var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position + Vector3.up, Quaternion.identity)).GetComponent<WorldSound>();
-        worldSound.PlayClip(SightCalls[Random.Range(0, SightCalls.Count)]);
+        worldSound.PlayClip(AlertCalls[Random.Range(0, AlertCalls.Count)]);
+    }
+
+    public void RandomSpeak()
+    {
+        var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position + Vector3.up, Quaternion.identity)).GetComponent<WorldSound>();
+        worldSound.PlayClip(RandomSpeech[Random.Range(0, RandomSpeech.Count)]);
     }
 }

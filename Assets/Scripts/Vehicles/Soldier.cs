@@ -228,7 +228,7 @@ public class Soldier : Vehicle
     public override void AlertNeighbours()
     {
         var sounds = GetComponent<SoldierSounds>();
-        sounds.SightCall();
+        sounds.AlertCall();
     }
 
     private void OnShootPrimaryWeapon()

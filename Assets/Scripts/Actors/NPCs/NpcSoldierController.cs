@@ -162,7 +162,7 @@ public class NpcSoldierController : AutonomousAgent
                 var sounds = vehicle.GetComponent<SoldierSounds>();
                 if (sounds != null)
                 {
-                    sounds.SightCall();
+                    sounds.RandomSpeak();
                     speechCooldown = Random.Range(minSpeechTime, maxSpeechTime);
                 }
             }
