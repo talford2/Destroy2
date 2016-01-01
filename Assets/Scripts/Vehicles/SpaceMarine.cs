@@ -213,6 +213,10 @@ public class SpaceMarine : Vehicle
         }
     }
 
+    public override void AlertNeighbours()
+    {
+    }
+
     private void OnShootPrimaryWeapon()
     {
         // TODO: Make kick more gradual by multiplying by amount that increases with each shot until trigger is released.

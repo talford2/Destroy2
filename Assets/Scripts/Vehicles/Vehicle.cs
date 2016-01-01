@@ -40,4 +40,6 @@ public abstract class Vehicle : Killable
     public abstract void ReloadPrimaryWeapon(int rounds);
 
     public abstract void ReleasePrimaryWeapon();
+
+    public abstract void AlertNeighbours();
 }

@@ -225,6 +225,12 @@ public class Soldier : Vehicle
         }
     }
 
+    public override void AlertNeighbours()
+    {
+        var sounds = GetComponent<SoldierSounds>();
+        sounds.SightCall();
+    }
+
     private void OnShootPrimaryWeapon()
     {
         // TODO: Make kick more gradual by multiplying by amount that increases with each shot until trigger is released.

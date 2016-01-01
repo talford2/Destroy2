@@ -587,6 +587,7 @@ public class NpcSoldierController : AutonomousAgent
 
     private void AlertNeighbours(Killable attacker)
     {
+        vehicle.AlertNeighbours();
         foreach (var neighbour in GetNeighbours())
         {
             if (neighbour != null)

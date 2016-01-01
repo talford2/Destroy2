@@ -176,7 +176,11 @@ public class Walker : Vehicle
 		primaryWeapon.ReleaseTriggerShoot();
 	}
 
-	private void OnReloadPrimaryFinish()
+    public override void AlertNeighbours()
+    {
+    }
+
+    private void OnReloadPrimaryFinish()
 	{
 		primaryWeapon.SetClipRemaining(primaryWeapon.ClipCapacity);
 	}
