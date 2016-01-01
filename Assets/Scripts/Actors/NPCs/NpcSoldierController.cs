@@ -36,6 +36,11 @@ public class NpcSoldierController : AutonomousAgent
     private Vector3 killDirection;
     private float killPower;
 
+    // Random Speech
+    private readonly float minSpeechTime = 30f;
+    private readonly float maxSpeechTime = 60f;
+    private float speechCooldown;
+
     private void Awake()
     {
         steering = new SteeringBehaviour(this);
@@ -146,6 +151,20 @@ public class NpcSoldierController : AutonomousAgent
                 break;
         }
         lastState = state;
+
+        if (speechCooldown >= 0f)
+        {
+            speechCooldown -= Time.deltaTime;
+            if (speechCooldown < 0f)
+            {
+                var sounds = GetComponent<SoldierSounds>();
+                if (sounds != null)
+                {
+                    sounds.SightCall();
+                    speechCooldown = Random.Range(minSpeechTime, maxSpeechTime);
+                }
+            }
+        }
     }
 
     private void AssignWanderPosition()
