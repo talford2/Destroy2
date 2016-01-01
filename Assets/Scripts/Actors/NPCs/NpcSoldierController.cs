@@ -419,6 +419,9 @@ public class NpcSoldierController : AutonomousAgent
         return steerForce.normalized;
     }
 
+    private bool isAttacking;
+    private bool wasAttacking;
+
     private void Chase()
     {
         AssignChasePosition();
@@ -454,6 +457,13 @@ public class NpcSoldierController : AutonomousAgent
             var toTarget = targetVehicle.transform.position - GetVehicle().transform.position;
             if (toTarget.sqrMagnitude < AttackDistance*AttackDistance)
             {
+                isAttacking = true;
+
+                if (isAttacking != wasAttacking)
+                {
+                    vehicle.AlertNeighbours();
+                }
+
                 var aimAt = targetVehicle.transform.position + vehicle.GetPrimaryWeapon().AimtHeight*Vector3.up + GetAimRadius(toTarget.sqrMagnitude)*Random.insideUnitSphere;
                 var shootFrom = vehicle.GetPrimaryWeaponShootPoint();
                 var aimRay = new Ray(shootFrom, aimAt - shootFrom);
@@ -502,6 +512,7 @@ public class NpcSoldierController : AutonomousAgent
             }
             else
             {
+                isAttacking = false;
                 vehicle.SetAimAt(path[curPathIndex] + vehicle.PathAimHeight*Vector3.up + vehicle.transform.forward);
                 vehicle.ReleasePrimaryWeapon();
                 vehicle.SetRun(true);
@@ -509,8 +520,11 @@ public class NpcSoldierController : AutonomousAgent
         }
         else
         {
+            isAttacking = false;
             vehicle.ReleasePrimaryWeapon();
         }
+
+        wasAttacking = isAttacking;
 
         var forward = Vector3.Dot(chaseForce, vehicle.transform.forward);
         var strafe = Vector3.Dot(chaseForce, vehicle.transform.right);
