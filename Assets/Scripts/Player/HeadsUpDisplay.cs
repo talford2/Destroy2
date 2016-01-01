@@ -16,6 +16,7 @@ public class HeadsUpDisplay : MonoBehaviour
 	private float fadeOutCooldown;
 
     private bool isShowHit;
+    private float hitTime;
     private float hitCooldown;
 
 	private static HeadsUpDisplay current;
@@ -87,6 +88,8 @@ public class HeadsUpDisplay : MonoBehaviour
 	    if (hitCooldown >= 0f)
 	    {
 	        hitCooldown -= Time.deltaTime;
+	        var hitAlpha = hitCooldown/hitTime;
+	        HitCrosshair.color = new Color(1f, 1f, 1f, hitAlpha);
 	        if (hitCooldown < 0)
 	        {
 	            HitCrosshair.enabled = false;
@@ -161,7 +164,9 @@ public class HeadsUpDisplay : MonoBehaviour
     public void ShowHit(float time)
     {
         HitCrosshair.enabled = true;
-        hitCooldown = time;
+        hitTime = time;
+        hitCooldown = hitTime;
+        HitCrosshair.color = new Color(1f, 1f, 1f, 1f);
     }
 
     public enum InSightType
