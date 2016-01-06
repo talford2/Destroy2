@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunId: 0
-  GunName: Walker Rocket Launcher
+  GunName: Rocket Launcher
   RoundsPerMinute: 60
   TriggerTime: 0.6
   MissilesPerShot: 1
@@ -105,7 +105,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: GunName
-      value: Walker Rocket Launcher
+      value: Rocket Launcher
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: RoundsPerMinute

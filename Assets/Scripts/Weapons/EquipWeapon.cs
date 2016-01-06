@@ -4,10 +4,11 @@ public class EquipWeapon : MonoBehaviour
 {
 	public Transform[] ShootPoints;
 
-	private Collectible collectible;
-
+    public bool DoNotDestroy = false;
 	public float MinLifeTime = 15f;
 	private float lifeCooldown = 0;
+	
+    private Collectible collectible;
 
 	private void Awake()
 	{
@@ -26,7 +27,7 @@ public class EquipWeapon : MonoBehaviour
 
 	public void Update()
 	{
-		if (collectible.Enabled)
+		if (collectible.Enabled && !DoNotDestroy)
 		{
 			lifeCooldown -= Time.deltaTime;
 			if (lifeCooldown < 0 && !gameObject.GetComponent<Renderer>().isVisible)
