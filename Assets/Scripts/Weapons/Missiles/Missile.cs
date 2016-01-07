@@ -100,7 +100,7 @@ public abstract class Missile : MonoBehaviour
 	        var hitKillable = hit.collider.GetComponentInParent<Killable>();
 	        if (hitKillable != null)
 	        {
-	            Debug.Log("HIT COLLIDER: " + hit.collider.name);
+	            //Debug.Log("HIT COLLIDER: " + hit.collider.name);
 	            hitKillable.Damage(hit.collider, hit.point, direction, this);
 	            if (PlayerController.Current.GetVehicle() != null)
 	            {

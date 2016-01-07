@@ -19,7 +19,7 @@ public class Pod : Vehicle {
     public float LandHitForce = 10000f;
 
     private Rigidbody rBody;
-    private bool hasSpawned;
+    //private bool hasSpawned;
     private VehicleGun primaryWeapon;
 
     private Vector3 aimAt;
@@ -33,37 +33,32 @@ public class Pod : Vehicle {
 
     public override void LiveUpdate()
     {
-        if (!hasSpawned)
+        // steering facing direction
+        var lookAngle = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre());
+        yawTarget = Mathf.LerpAngle(yawTarget, lookAngle.eulerAngles.y, 5f*Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
+
+        HeadsUpDisplay.Current.HideCrosshair();
+        var hitRay = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+
+        if (Physics.Raycast(hitRay, out hit, 20f, LayerMask.GetMask("Player")))
         {
-            // steering facing direction
-            var lookAngle = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre());
-            yawTarget = Mathf.LerpAngle(yawTarget, lookAngle.eulerAngles.y, 5f * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
+            var inviisbleDestruct = hit.collider.GetComponentInParent<InvisibleDestruct>();
+            if (inviisbleDestruct != null)
+                Destroy(inviisbleDestruct.gameObject);
+        }
 
-            HeadsUpDisplay.Current.HideCrosshair();
-            var hitRay = new Ray(transform.position, Vector3.down);
-            RaycastHit hit;
-
-            if (Physics.Raycast(hitRay, out hit, Mathf.Abs(rBody.velocity.y), ~LayerMask.GetMask("Terrain", "Sensors", "MissileSensors")))
-            {
-                Debug.Log(hit.collider.name);
-                var inviisbleDestruct = hit.collider.GetComponentInParent<InvisibleDestruct>();
-                if (inviisbleDestruct != null)
-                    Destroy(inviisbleDestruct.gameObject);
-            }
-
-            if (Physics.Raycast(hitRay, out hit, 0.5f, LayerMask.GetMask("Terrain")))
-            {
-                transform.position = hit.point;
-                WorldSounds.PlayClipAt(transform.position, LandSounds[Random.Range(0, LandSounds.Count)]);
-                Land();
-                Instantiate(LandEffectPrefab, transform.position, Quaternion.identity);
-                TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab);
-                hasSpawned = true;
-                Targeting.RemoveTargetable(Team.Good, GetComponent<Killable>());
-                Destroy(this);
-                GetComponent<Rigidbody>().isKinematic = true;
-            }
+        if (Physics.Raycast(hitRay, out hit, Mathf.Abs(rBody.velocity.y*Time.deltaTime + 0.5f), LayerMask.GetMask("Terrain", "Player")))
+        {
+            transform.position = hit.point;
+            WorldSounds.PlayClipAt(transform.position, LandSounds[Random.Range(0, LandSounds.Count)]);
+            Land();
+            Instantiate(LandEffectPrefab, transform.position, Quaternion.identity);
+            TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab);
+            Targeting.RemoveTargetable(Team.Good, GetComponent<Killable>());
+            rBody.isKinematic = true;
+            Destroy(this);
         }
     }
 
