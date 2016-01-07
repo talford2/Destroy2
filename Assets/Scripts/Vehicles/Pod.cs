@@ -14,6 +14,9 @@ public class Pod : Vehicle {
     [Header("Landing")]
     public GameObject LandEffectPrefab;
     public List<AudioClip> LandSounds;
+    public float LandHitForceRadius = 5f;
+    public float LandHitUpwardModifier = 1f;
+    public float LandHitForce = 10000f;
 
     private Rigidbody rBody;
     private bool hasSpawned;
@@ -53,6 +56,7 @@ public class Pod : Vehicle {
             {
                 transform.position = hit.point;
                 WorldSounds.PlayClipAt(transform.position, LandSounds[Random.Range(0, LandSounds.Count)]);
+                Land();
                 Instantiate(LandEffectPrefab, transform.position, Quaternion.identity);
                 TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab);
                 hasSpawned = true;
@@ -60,6 +64,43 @@ public class Pod : Vehicle {
                 Destroy(this);
                 GetComponent<Rigidbody>().isKinematic = true;
             }
+        }
+    }
+
+    private void Land()
+    {
+        var splashHitColliders = Physics.OverlapSphere(transform.position, LandHitForceRadius, ~LayerMask.GetMask("Sensors", "MissileSensors", "Player"));
+
+        foreach (var splashHitCollider in splashHitColliders)
+        {
+            var hitKillable = splashHitCollider.GetComponentInParent<Killable>();
+            if (hitKillable != null)
+            {
+                var splashDamage = 150f;
+                hitKillable.Damage(splashHitCollider, transform.position, splashHitCollider.transform.position - transform.position, LandHitForce, splashDamage, PlayerController.Current.gameObject);
+            }
+        }
+
+        splashHitColliders = Physics.OverlapSphere(transform.position, LandHitForceRadius, ~LayerMask.GetMask("Sensors", "MissileSensors"));
+        foreach (var splashHitCollider in splashHitColliders)
+        {
+            var hitCorpse = splashHitCollider.GetComponentInParent<Corpse>();
+            if (hitCorpse != null)
+            {
+                splashHitCollider.attachedRigidbody.AddExplosionForce(LandHitForce, transform.position, LandHitForceRadius, LandHitUpwardModifier, ForceMode.Force);
+            }
+            var hitEquipWeapon = splashHitCollider.GetComponentInParent<EquipWeapon>();
+            if (hitEquipWeapon != null)
+            {
+                splashHitCollider.attachedRigidbody.AddExplosionForce(LandHitForce, transform.position, LandHitForceRadius, LandHitUpwardModifier, ForceMode.Force);
+            }
+            /*
+            var hitShootable = hit.collider.GetComponentInParent<Shootable>();
+            if (hitShootable != null)
+            {
+                hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized * Power, transform.position, ForceMode.Force);
+            }
+            */
         }
     }
 
