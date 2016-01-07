@@ -94,13 +94,11 @@ public class Pod : Vehicle {
             {
                 splashHitCollider.attachedRigidbody.AddExplosionForce(LandHitForce, transform.position, LandHitForceRadius, LandHitUpwardModifier, ForceMode.Force);
             }
-            /*
-            var hitShootable = hit.collider.GetComponentInParent<Shootable>();
+            var hitShootable = splashHitCollider.GetComponentInParent<Shootable>();
             if (hitShootable != null)
             {
-                hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized * Power, transform.position, ForceMode.Force);
+                splashHitCollider.attachedRigidbody.AddExplosionForce(LandHitForce, transform.position, LandHitForceRadius, LandHitUpwardModifier, ForceMode.Force);
             }
-            */
         }
     }
 
