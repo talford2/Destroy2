@@ -15,16 +15,40 @@ public class Pod : Vehicle {
     public GameObject LandEffectPrefab;
     public List<AudioClip> LandSounds;
 
+    private Rigidbody rBody;
     private bool hasSpawned;
     private VehicleGun primaryWeapon;
+
+    private Vector3 aimAt;
+    //private float pitchTarget;
+    private float yawTarget;
+
+    private void Awake()
+    {
+        rBody = GetComponent<Rigidbody>();
+    }
 
     public override void LiveUpdate()
     {
         if (!hasSpawned)
         {
+            // steering facing direction
+            var lookAngle = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre());
+            yawTarget = Mathf.LerpAngle(yawTarget, lookAngle.eulerAngles.y, 5f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
+
             HeadsUpDisplay.Current.HideCrosshair();
             var hitRay = new Ray(transform.position, Vector3.down);
             RaycastHit hit;
+
+            if (Physics.Raycast(hitRay, out hit, Mathf.Abs(rBody.velocity.y), ~LayerMask.GetMask("Terrain", "Sensors", "MissileSensors")))
+            {
+                Debug.Log(hit.collider.name);
+                var inviisbleDestruct = hit.collider.GetComponentInParent<InvisibleDestruct>();
+                if (inviisbleDestruct != null)
+                    Destroy(inviisbleDestruct.gameObject);
+            }
+
             if (Physics.Raycast(hitRay, out hit, 0.5f, LayerMask.GetMask("Terrain")))
             {
                 transform.position = hit.point;
@@ -50,6 +74,8 @@ public class Pod : Vehicle {
 
     public override void SetPitchYaw(float pitch, float yaw)
     {
+        //pitchTarget -= pitch;
+        yawTarget += yaw;
     }
 
     public override Vector2 GetPitchYaw()
@@ -72,6 +98,7 @@ public class Pod : Vehicle {
 
     public override void SetAimAt(Vector3 position)
     {
+        aimAt = position;
     }
 
     public override Vector3 GetPrimaryWeaponShootPoint()
