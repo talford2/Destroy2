@@ -139,8 +139,14 @@ public class Walker : Vehicle
         primaryWeapon.transform.parent = transform;
         primaryWeapon.transform.localPosition = Vector3.zero;
 
-        if (HeadsUpDisplay.Current != null)
-            HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
+        if (PlayerController.Current != null && PlayerController.Current.GetVehicle() == this)
+        {
+            if (HeadsUpDisplay.Current != null)
+            {
+                HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
+                HeadsUpDisplay.Current.FadeInCrosshair(0.5f);
+            }
+        }
     }
 
     public override VehicleGun GetPrimaryWeapon()

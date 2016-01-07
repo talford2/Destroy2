@@ -178,10 +178,13 @@ public class Soldier : Vehicle
         primaryWeapon.transform.parent = transform;
         primaryWeapon.transform.localPosition = Vector3.zero;
 
-        if (HeadsUpDisplay.Current != null)
+        if (PlayerController.Current != null && PlayerController.Current.GetVehicle() == this)
         {
-            HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
-            HeadsUpDisplay.Current.FadeInCrosshair(0.5f);
+            if (HeadsUpDisplay.Current != null)
+            {
+                HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
+                HeadsUpDisplay.Current.FadeInCrosshair(0.5f);
+            }
         }
     }
 

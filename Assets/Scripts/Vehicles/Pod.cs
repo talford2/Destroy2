@@ -162,9 +162,12 @@ public class Pod : Vehicle {
         primaryWeapon.transform.parent = transform;
         primaryWeapon.transform.localPosition = Vector3.zero;
 
-        if (HeadsUpDisplay.Current != null)
+        if (PlayerController.Current != null && PlayerController.Current.GetVehicle() == this)
         {
-            HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
+            if (HeadsUpDisplay.Current != null)
+            {
+                HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
+            }
         }
     }
 
