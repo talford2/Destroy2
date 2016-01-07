@@ -17,6 +17,7 @@ public class Pod : Vehicle {
     {
         if (!hasSpawned)
         {
+            HeadsUpDisplay.Current.HideCrosshair();
             var hitRay = new Ray(transform.position, Vector3.down);
             RaycastHit hit;
             if (Physics.Raycast(hitRay, out hit, 0.5f, LayerMask.GetMask("Terrain")))
@@ -89,7 +90,9 @@ public class Pod : Vehicle {
         primaryWeapon.transform.localPosition = Vector3.zero;
 
         if (HeadsUpDisplay.Current != null)
+        {
             HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
+        }
     }
 
     public override VehicleGun GetPrimaryWeapon()

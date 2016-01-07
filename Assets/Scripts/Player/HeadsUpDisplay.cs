@@ -12,8 +12,8 @@ public class HeadsUpDisplay : MonoBehaviour
     private bool isFriendlyInSight;
 	private bool isFadeCrosshair;
     private int fadeDirection;
-	private float fadeOutTime;
-	private float fadeOutCooldown;
+	private float fadeTime;
+	private float fadeCooldown;
 
     private bool isShowHit;
     private float hitTime;
@@ -73,21 +73,21 @@ public class HeadsUpDisplay : MonoBehaviour
 
 	    if (isFadeCrosshair)
 		{
-			if (fadeOutCooldown > 0f)
+			if (fadeCooldown > 0f)
 			{
-				fadeOutCooldown -= Time.deltaTime;
+				fadeCooldown -= Time.deltaTime;
 			    float fadeFraction;
 			    if (fadeDirection < 0)
 			    {
-			        fadeFraction = Mathf.Clamp01(fadeOutCooldown/fadeOutTime);
+			        fadeFraction = Mathf.Clamp01(fadeCooldown/fadeTime);
 			    }
 			    else
 			    {
-                    fadeFraction = 1f - Mathf.Clamp01(fadeOutCooldown / fadeOutTime);
+                    fadeFraction = 1f - Mathf.Clamp01(fadeCooldown / fadeTime);
 			    }
                 Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeFraction);
                 ReloadCrosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeFraction);
-				if (fadeOutCooldown < 0f)
+				if (fadeCooldown < 0f)
 				{
 				    isFadeCrosshair = false;
 				    //Crosshair.enabled = false;
@@ -145,8 +145,8 @@ public class HeadsUpDisplay : MonoBehaviour
     {
         if (!isFadeCrosshair && fadeDirection != -1)
         {
-            fadeOutTime = time;
-            fadeOutCooldown = time;
+            fadeTime = time;
+            fadeCooldown = time;
             fadeDirection = -1;
             isFadeCrosshair = true;
         }
@@ -156,8 +156,8 @@ public class HeadsUpDisplay : MonoBehaviour
     {
         if (!isFadeCrosshair && fadeDirection != 1)
         {
-            fadeOutTime = time;
-            fadeOutCooldown = time;
+            fadeTime = time;
+            fadeCooldown = time;
             fadeDirection = 1;
             isFadeCrosshair = true;
         }
@@ -170,6 +170,16 @@ public class HeadsUpDisplay : MonoBehaviour
         Crosshair.enabled = true;
         ReloadCrosshair.enabled = false;
         isFadeCrosshair = false;
+        fadeDirection = 1;
+    }
+
+    public void HideCrosshair()
+    {
+        Crosshair.enabled = false;
+        ReloadCrosshair.enabled = false;
+        HitCrosshair.enabled = false;
+        isFadeCrosshair = false;
+        fadeDirection = -1;
     }
 
     public void ShowHit(float time)

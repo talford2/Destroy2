@@ -208,7 +208,7 @@ public class PlayerController : ActorAgent
 	    diedAtPosition = vehicle.transform.position;
 		Debug.Log("YOU DIED.");
 		Targeting.RemoveTargetable(Team, vehicle);
-		HeadsUpDisplay.Current.FadeOutCrosshair(1f);
+		HeadsUpDisplay.Current.FadeOutCrosshair(0.5f);
         StartCoroutine(Respawn(5f));
 	}
 
