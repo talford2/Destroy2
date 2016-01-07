@@ -55,7 +55,7 @@ public class Pod : Vehicle {
             WorldSounds.PlayClipAt(transform.position, LandSounds[Random.Range(0, LandSounds.Count)]);
             Land();
             Instantiate(LandEffectPrefab, transform.position, Quaternion.identity);
-            TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab);
+            TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab, 0.3f);
             Targeting.RemoveTargetable(Team.Good, GetComponent<Killable>());
             rBody.isKinematic = true;
             Destroy(this);
@@ -100,6 +100,10 @@ public class Pod : Vehicle {
     public override void Initialize()
     {
         SetPrimaryWeapon(PrimaryWeaponPrefab);
+
+        var lookYaw = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre()).eulerAngles.y;
+        yawTarget = lookYaw;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, lookYaw, transform.eulerAngles.z);
     }
 
     public override void SetMove(float forward, float strafe)

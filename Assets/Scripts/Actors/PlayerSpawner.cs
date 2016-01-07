@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -24,8 +25,14 @@ public class PlayerSpawner : MonoBehaviour
         PlayerController.Current.InitVehicle(vehiclePrefab, weaponPrefab, transform.position, transform.rotation);
     }
 
-    public void TriggerAndDestroy(Vehicle vehiclePrefab, VehicleGun weaponPrefab)
+    public void TriggerAndDestroy(Vehicle vehiclePrefab, VehicleGun weaponPrefab, float delay)
     {
+        StartCoroutine(SpawnAndDestroy(vehiclePrefab, weaponPrefab, delay));
+    }
+
+    private IEnumerator SpawnAndDestroy(Vehicle vehiclePrefab, VehicleGun weaponPrefab, float delay)
+    {
+        yield return new WaitForSeconds(delay);
         PlayerController.Current.InitVehicle(vehiclePrefab, weaponPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
