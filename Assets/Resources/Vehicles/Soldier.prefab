@@ -1440,11 +1440,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorldSoundPrefab: {fileID: 180252, guid: d27a09747cf2f0d409f405d337999301, type: 2}
   LeftSteps:
-  - {fileID: 8300000, guid: 4d9fcdebb7d617b41b86858b63f57175, type: 3}
-  - {fileID: 8300000, guid: d1d5e01a71ee30a4daf919c397f2c14f, type: 3}
+  - {fileID: 8300000, guid: 3cfc991ddc1c59940a11f6b8772ab373, type: 3}
+  - {fileID: 8300000, guid: b10b205d42d4ddb41958d705a5892ce7, type: 3}
   RightSteps:
-  - {fileID: 8300000, guid: eb194668c0619ad4080aaf4c8a3c3764, type: 3}
-  - {fileID: 8300000, guid: 6ca292ce4bf0ac542a10a5259019ebd3, type: 3}
+  - {fileID: 8300000, guid: b3e6369b35a9d51479092ac608f8a1e7, type: 3}
+  - {fileID: 8300000, guid: e70d6b0ddc45cc749947c59d4aef2946, type: 3}
   HurtCries:
   - {fileID: 8300000, guid: b949fc3c0042b6043b3b0a2c781a0d1a, type: 3}
   - {fileID: 8300000, guid: 1956cdb5b27fca64b9feef7d9ac8a141, type: 3}
@@ -1695,19 +1695,19 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: LeftSteps.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 4d9fcdebb7d617b41b86858b63f57175, type: 3}
+      objectReference: {fileID: 8300000, guid: 3cfc991ddc1c59940a11f6b8772ab373, type: 3}
     - target: {fileID: 0}
       propertyPath: LeftSteps.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: d1d5e01a71ee30a4daf919c397f2c14f, type: 3}
+      objectReference: {fileID: 8300000, guid: b10b205d42d4ddb41958d705a5892ce7, type: 3}
     - target: {fileID: 0}
       propertyPath: RightSteps.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: eb194668c0619ad4080aaf4c8a3c3764, type: 3}
+      objectReference: {fileID: 8300000, guid: b3e6369b35a9d51479092ac608f8a1e7, type: 3}
     - target: {fileID: 0}
       propertyPath: RightSteps.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 6ca292ce4bf0ac542a10a5259019ebd3, type: 3}
+      objectReference: {fileID: 8300000, guid: e70d6b0ddc45cc749947c59d4aef2946, type: 3}
     - target: {fileID: 0}
       propertyPath: HurtCries.Array.data[0]
       value: 
