@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Pod : Vehicle {
     [Header("Primary Weapon")]
@@ -9,6 +10,11 @@ public class Pod : Vehicle {
     public PlayerSpawner TriggerSpawner;
     public Vehicle VehiclePrefab;
     public VehicleGun WeaponPrefab;
+
+    [Header("Landing")]
+    public GameObject LandEffectPrefab;
+    public GameObject WorldSoundPrefab;
+    public List<AudioClip> LandSounds;
 
     private bool hasSpawned;
     private VehicleGun primaryWeapon;
@@ -23,6 +29,9 @@ public class Pod : Vehicle {
             if (Physics.Raycast(hitRay, out hit, 0.5f, LayerMask.GetMask("Terrain")))
             {
                 transform.position = hit.point;
+                var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position, Quaternion.identity)).GetComponent<WorldSound>();
+                worldSound.PlayClip(LandSounds[Random.Range(0, LandSounds.Count)]);
+                Instantiate(LandEffectPrefab, transform.position, Quaternion.identity);
                 TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab);
                 hasSpawned = true;
                 Targeting.RemoveTargetable(Team.Good, GetComponent<Killable>());

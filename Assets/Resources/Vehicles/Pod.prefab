@@ -566,6 +566,12 @@ MonoBehaviour:
   TriggerSpawner: {fileID: 11426234}
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
   WeaponPrefab: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16, type: 2}
+  LandEffectPrefab: {fileID: 137480, guid: 0c7cc23e2b71e9047ba683b9568edd83, type: 2}
+  WorldSoundPrefab: {fileID: 180252, guid: d27a09747cf2f0d409f405d337999301, type: 2}
+  LandSounds:
+  - {fileID: 8300000, guid: 4654d344331f33c46b5e2482942b09ad, type: 3}
+  - {fileID: 8300000, guid: 42f6db5e29a6ae44a9f88b4237bad0c1, type: 3}
+  - {fileID: 8300000, guid: a34866460efd4404486a69336a975943, type: 3}
 --- !u!114 &11426234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -610,6 +616,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: LandSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -639,6 +649,26 @@ Prefab:
       propertyPath: CameraOffset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: LandEffectPrefab
+      value: 
+      objectReference: {fileID: 137480, guid: 0c7cc23e2b71e9047ba683b9568edd83, type: 2}
+    - target: {fileID: 0}
+      propertyPath: WorldSoundPrefab
+      value: 
+      objectReference: {fileID: 180252, guid: d27a09747cf2f0d409f405d337999301, type: 2}
+    - target: {fileID: 0}
+      propertyPath: LandSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4654d344331f33c46b5e2482942b09ad, type: 3}
+    - target: {fileID: 0}
+      propertyPath: LandSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 42f6db5e29a6ae44a9f88b4237bad0c1, type: 3}
+    - target: {fileID: 0}
+      propertyPath: LandSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a34866460efd4404486a69336a975943, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108834}
