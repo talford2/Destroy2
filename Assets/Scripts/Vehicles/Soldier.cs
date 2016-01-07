@@ -153,13 +153,13 @@ public class Soldier : Vehicle
 
     public override void SetPrimaryWeapon(VehicleGun value)
     {
-        if (primaryWeapon!=null)
+        if (primaryWeapon != null)
             Destroy(primaryWeapon.gameObject);
         primaryWeapon = Instantiate(value).GetComponent<VehicleGun>();
 
         if (PrimaryWeaponPrefab.EquipPrefab != null)
         {
-            if (equippedPrimaryWeapon!=null)
+            if (equippedPrimaryWeapon != null)
                 Destroy(equippedPrimaryWeapon);
             equippedPrimaryWeapon = Instantiate(value.EquipPrefab);
             equippedPrimaryWeapon.transform.parent = WeaponPlaceholder;
@@ -168,7 +168,7 @@ public class Soldier : Vehicle
             PrimaryWeaponShootPoints = equippedPrimaryWeapon.GetComponent<EquipWeapon>().ShootPoints;
         }
 
-        primaryWeapon.SetVelocityReference(new VelocityReference { Value = Vector3.zero });
+        primaryWeapon.SetVelocityReference(new VelocityReference {Value = Vector3.zero});
         //primaryWeapon.SetVelocityReference(new VelocityReference { Value = velocity });
         primaryWeapon.InitGun(PrimaryWeaponShootPoints, gameObject);
         primaryWeapon.SetClipRemaining(100);
@@ -177,6 +177,9 @@ public class Soldier : Vehicle
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
         primaryWeapon.transform.parent = transform;
         primaryWeapon.transform.localPosition = Vector3.zero;
+
+        if (HeadsUpDisplay.Current != null)
+            HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
     }
 
     public override VehicleGun GetPrimaryWeapon()

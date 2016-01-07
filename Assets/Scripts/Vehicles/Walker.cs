@@ -138,6 +138,9 @@ public class Walker : Vehicle
         primaryWeapon.OnFinishReload += OnReloadPrimaryFinish;
         primaryWeapon.transform.parent = transform;
         primaryWeapon.transform.localPosition = Vector3.zero;
+
+        if (HeadsUpDisplay.Current != null)
+            HeadsUpDisplay.Current.SetCrosshair(primaryWeapon.Crosshair);
     }
 
     public override VehicleGun GetPrimaryWeapon()

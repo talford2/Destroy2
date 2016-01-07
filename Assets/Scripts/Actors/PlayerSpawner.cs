@@ -23,4 +23,10 @@ public class PlayerSpawner : MonoBehaviour
     {
         PlayerController.Current.InitVehicle(vehiclePrefab, weaponPrefab, transform.position, transform.rotation);
     }
+
+    public void TriggerAndDestroy(Vehicle vehiclePrefab, VehicleGun weaponPrefab)
+    {
+        PlayerController.Current.InitVehicle(vehiclePrefab, weaponPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
 }

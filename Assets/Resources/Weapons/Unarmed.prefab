@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &135538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435042}
+  - 114: {fileID: 11413606}
+  m_Layer: 0
+  m_Name: Unarmed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11413606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f6373a39929c64e82e7df0ec142cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunId: 0
+  GunName: None
+  RoundsPerMinute: 0
+  TriggerTime: 1
+  MissilesPerShot: 1
+  IsSimultaneous: 1
+  Spread: {x: 0, y: 0}
+  WarmUpTime: 0
+  HasInfiniteAmmunition: 1
+  ClipCapacity: 0
+  ReloadTime: 2
+  EquipPrefab: {fileID: 135446, guid: d4f4cf88074e73643a576a5dc3dc432b, type: 2}
+  MaxAimDistance: 1000
+  Zoom: 1
+  KickPitchYaw: {x: 0, y: 0}
+  NonRandomPitch: 0
+  RequireTargetLock: 0
+  TargetLockTime: 0
+  MaxLockRange: 0
+  LockBeep: {fileID: 0}
+  AimtHeight: 0
+  Muzzle: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
+  FireSounds:
+  - {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
+  IsOverHeatable: 0
+  OverHeatValue: 0
+  HeatPerShot: 0
+  OverHeathCooldownDelay: 0
+  CooldownDelay: 0
+  CooldownRate: 0
+  Crosshair: {fileID: 21300000, guid: 1b19ab6c82096c34ea08ef1344d08457, type: 3}
+  ReloadCrosshair: {fileID: 0}
+  MissileGameObject: {fileID: 128166, guid: 976e6e5364571144b99ebdd66cfb0287, type: 2}
+  MissileDamage: 0
+  MissilePower: 0
+  MissileRadius: 0
+  MissileCount: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: FireSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissileGameObject
+      value: 
+      objectReference: {fileID: 128166, guid: 976e6e5364571144b99ebdd66cfb0287, type: 2}
+    - target: {fileID: 0}
+      propertyPath: MissileDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissilePower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissileCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: GunName
+      value: None
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RoundsPerMinute
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: TriggerTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissilesPerShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: IsSimultaneous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: HasInfiniteAmmunition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ClipCapacity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ReloadTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EquipPrefab
+      value: 
+      objectReference: {fileID: 135446, guid: d4f4cf88074e73643a576a5dc3dc432b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Muzzle
+      value: 
+      objectReference: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MaxDistance
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Spread.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Spread.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Crosshair
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b19ab6c82096c34ea08ef1344d08457,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: AimRadius
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissileRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: KickPitchYaw.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: KickPitchYaw.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ReloadCrosshair
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AimtHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: FireSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Zoom
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 135538}
+  m_IsPrefabParent: 1

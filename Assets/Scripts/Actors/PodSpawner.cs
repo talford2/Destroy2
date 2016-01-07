@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Pod : MonoBehaviour
+public class PodSpawner : MonoBehaviour
 {
     public Spawner TriggerSpawner;
 
