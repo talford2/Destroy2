@@ -7,6 +7,8 @@ public class HeadsUpDisplay : MonoBehaviour
     public Image ReloadCrosshair;
     public Image HitCrosshair;
 	public Image Damage;
+    public Text AmmunitionText;
+    public Text KillCountText;
 
 	private InSightType inSightType;
     private bool isFriendlyInSight;
@@ -95,6 +97,13 @@ public class HeadsUpDisplay : MonoBehaviour
 				}
 			}
 		}
+
+        var vehicle = PlayerController.Current.GetVehicle();
+        if (vehicle != null)
+        {
+            KillCountText.text = string.Format("{0}", PlayerController.Current.KillCount);
+            AmmunitionText.text = string.Format("{0} / {1}", vehicle.GetPrimaryWeapon().GetClipRemaining(), vehicle.GetPrimaryWeapon().ClipCapacity);
+        }
 
 	    if (hitCooldown >= 0f)
 	    {
@@ -188,16 +197,6 @@ public class HeadsUpDisplay : MonoBehaviour
         hitTime = time;
         hitCooldown = hitTime;
         HitCrosshair.color = new Color(1f, 1f, 1f, 1f);
-    }
-
-    private void OnGUI()
-    {
-        var vehicle = PlayerController.Current.GetVehicle();
-        if (vehicle != null)
-        {
-            GUI.Label(new Rect(Screen.width - 120f, Screen.height - 40f, 100f, 30f), string.Format("{0} / {1}", vehicle.GetPrimaryWeapon().GetClipRemaining(), vehicle.GetPrimaryWeapon().ClipCapacity), ammoStyle);
-            GUI.Label(new Rect(Screen.width - 120f, 30f, 100f, 30f), string.Format("{0}", PlayerController.Current.KillCount), ammoStyle);
-        }
     }
 
     public enum InSightType
