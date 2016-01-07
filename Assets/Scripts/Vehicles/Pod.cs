@@ -13,7 +13,6 @@ public class Pod : Vehicle {
 
     [Header("Landing")]
     public GameObject LandEffectPrefab;
-    public GameObject WorldSoundPrefab;
     public List<AudioClip> LandSounds;
 
     private bool hasSpawned;
@@ -29,8 +28,7 @@ public class Pod : Vehicle {
             if (Physics.Raycast(hitRay, out hit, 0.5f, LayerMask.GetMask("Terrain")))
             {
                 transform.position = hit.point;
-                var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position, Quaternion.identity)).GetComponent<WorldSound>();
-                worldSound.PlayClip(LandSounds[Random.Range(0, LandSounds.Count)]);
+                WorldSounds.PlayClipAt(transform.position, LandSounds[Random.Range(0, LandSounds.Count)]);
                 Instantiate(LandEffectPrefab, transform.position, Quaternion.identity);
                 TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab);
                 hasSpawned = true;

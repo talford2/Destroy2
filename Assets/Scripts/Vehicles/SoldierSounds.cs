@@ -30,19 +30,16 @@ public class SoldierSounds : MonoBehaviour
 
     private void HurtCry(Collider hitcollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
     {
-        var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position + Vector3.up, Quaternion.identity)).GetComponent<WorldSound>();
-        worldSound.PlayClip(HurtCries[Random.Range(0, HurtCries.Count)]);
+        WorldSounds.PlayClipAt(transform.position + Vector3.up, HurtCries[Random.Range(0, AlertCalls.Count)]);
     }
 
     public void AlertCall()
     {
-        var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position + Vector3.up, Quaternion.identity)).GetComponent<WorldSound>();
-        worldSound.PlayClip(AlertCalls[Random.Range(0, AlertCalls.Count)]);
+        WorldSounds.PlayClipAt(transform.position + Vector3.up, AlertCalls[Random.Range(0, AlertCalls.Count)]);
     }
 
     public void RandomSpeak()
     {
-        var worldSound = ((GameObject)Instantiate(WorldSoundPrefab, transform.position + Vector3.up, Quaternion.identity)).GetComponent<WorldSound>();
-        worldSound.PlayClip(RandomSpeech[Random.Range(0, RandomSpeech.Count)]);
+        WorldSounds.PlayClipAt(transform.position + Vector3.up, RandomSpeech[Random.Range(0, AlertCalls.Count)]);
     }
 }
