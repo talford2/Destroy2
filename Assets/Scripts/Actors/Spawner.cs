@@ -5,11 +5,13 @@ public class Spawner : MonoBehaviour
 {
     public GameObject SpawnPrefab;
     public float Frequency;
-
+    public bool StartOn = true;
+    public bool SpawnOnce;
 
     private void Awake()
     {
-        StartCoroutine(Spawn(Frequency));
+        if (StartOn)
+            Trigger(Frequency);
     }
 
     private IEnumerator Spawn(float delay)
@@ -25,6 +27,12 @@ public class Spawner : MonoBehaviour
         {
             Debug.Log("DON'T SPAWN, TARGETABLE COUNT: " + targetableCount);
         }
-        StartCoroutine(Spawn(Frequency));
+        if (!SpawnOnce)
+            Trigger(Frequency);
+    }
+
+    public void Trigger(float delay)
+    {
+        StartCoroutine(Spawn(delay));
     }
 }
