@@ -6,6 +6,9 @@ public class Pod : Vehicle {
     public VehicleGun PrimaryWeaponPrefab;
     public Transform[] PrimaryWeaponShootPoints;
 
+    [Header("Movement")]
+    public float Speed = 80f;
+
     [Header("Spawner")]
     public PlayerSpawner TriggerSpawner;
     public Vehicle VehiclePrefab;
@@ -29,6 +32,7 @@ public class Pod : Vehicle {
     private void Awake()
     {
         rBody = GetComponent<Rigidbody>();
+        rBody.isKinematic = true;
     }
 
     public override void LiveUpdate()
@@ -37,6 +41,8 @@ public class Pod : Vehicle {
         var lookAngle = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre());
         yawTarget = Mathf.LerpAngle(yawTarget, lookAngle.eulerAngles.y, 5f*Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
+
+        transform.position += Speed*Vector3.down*Time.deltaTime;
 
         HeadsUpDisplay.Current.HideCrosshair();
         var hitRay = new Ray(transform.position, Vector3.down);
@@ -49,7 +55,7 @@ public class Pod : Vehicle {
                 Destroy(inviisbleDestruct.gameObject);
         }
 
-        if (Physics.Raycast(hitRay, out hit, Mathf.Abs(rBody.velocity.y*Time.deltaTime + 0.5f), LayerMask.GetMask("Terrain", "Player")))
+        if (Physics.Raycast(hitRay, out hit, Mathf.Abs(Speed*Time.deltaTime + 0.5f), LayerMask.GetMask("Terrain", "Player")))
         {
             transform.position = hit.point;
             WorldSounds.PlayClipAt(transform.position, LandSounds[Random.Range(0, LandSounds.Count)]);
@@ -57,7 +63,6 @@ public class Pod : Vehicle {
             Instantiate(LandEffectPrefab, transform.position, Quaternion.identity);
             TriggerSpawner.TriggerAndDestroy(VehiclePrefab, WeaponPrefab, 0.3f);
             Targeting.RemoveTargetable(Team.Good, GetComponent<Killable>());
-            rBody.isKinematic = true;
             Destroy(this);
         }
     }
