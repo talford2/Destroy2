@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 0
-  GivePrefab: {fileID: 135538, guid: 908c69f8fb6203e40bcdff5ea715af16, type: 2}
+  GivePrefab: {fileID: 135538, guid: b67dee48c2046e34cbf336d323729a1f, type: 2}
 --- !u!114 &11489544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,6 +723,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e61e38153f266b447bd0cb3fb50a0700, type: 2}
+    - target: {fileID: 0}
+      propertyPath: GivePrefab
+      value: 
+      objectReference: {fileID: 135538, guid: b67dee48c2046e34cbf336d323729a1f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 161070}
