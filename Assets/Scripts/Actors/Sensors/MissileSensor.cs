@@ -14,7 +14,7 @@ public class MissileSensor : MonoBehaviour
 
     public void Trigger(Missile missile)
     {
-        Debug.Log("MISSILE SENSOR TRIGGERED!!!!");
+        //Debug.Log("MISSILE SENSOR TRIGGERED!!!!");
         var missileOwner = missile.GetOwner();
         if (missileOwner != null)
         {

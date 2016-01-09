@@ -205,7 +205,7 @@ public class Walker : Vehicle
             var step = Instantiate(StepEffect, LeftFoot.position, Quaternion.identity);
         }
         PlayerCamera.Current.Shake(LeftFoot.position, 20f, 100f, 0.2f, 0.4f, 0.05f);
-        Debug.Log("LEFT");
+        //Debug.Log("LEFT");
     }
 
     private void RightFootStomp()
@@ -220,7 +220,7 @@ public class Walker : Vehicle
         }
 
         PlayerCamera.Current.Shake(RightFoot.position, 20f, 100f, 0.2f, 0.4f, 0.05f);
-        Debug.Log("RIGHT");
+        //Debug.Log("RIGHT");
     }
 
     public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)

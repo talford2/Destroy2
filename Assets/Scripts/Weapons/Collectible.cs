@@ -40,7 +40,7 @@ public class Collectible : MonoBehaviour
 					OnCollect();
 				}
 			}
-			Debug.Log("PLAYER CAN COLLECT!");
+			//Debug.Log("PLAYER CAN COLLECT!");
 		}
 
 	}

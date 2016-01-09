@@ -21,19 +21,12 @@ public class Pod : Vehicle {
     public float LandHitUpwardModifier = 1f;
     public float LandHitForce = 10000f;
 
-    private Rigidbody rBody;
     //private bool hasSpawned;
     private VehicleGun primaryWeapon;
 
     private Vector3 aimAt;
     //private float pitchTarget;
     private float yawTarget;
-
-    private void Awake()
-    {
-        rBody = GetComponent<Rigidbody>();
-        rBody.isKinematic = true;
-    }
 
     public override void LiveUpdate()
     {

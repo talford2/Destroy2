@@ -79,7 +79,7 @@ public class SafeSensor : MonoBehaviour
             }
         }
 
-        Debug.Log("ENEMIES: " + enemyAgents.Count);
+        //Debug.Log("ENEMIES: " + enemyAgents.Count);
 
         lastColliders = recentColliders;
         StartCoroutine(CheckInside(CheckFrequency));
