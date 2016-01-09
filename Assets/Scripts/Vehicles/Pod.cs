@@ -17,6 +17,7 @@ public class Pod : Vehicle {
     [Header("Landing")]
     public GameObject LandEffectPrefab;
     public List<AudioClip> LandSounds;
+    public float LandingSplashDamage = 150f;
     public float LandHitForceRadius = 5f;
     public float LandHitUpwardModifier = 1f;
     public float LandHitForce = 10000f;
@@ -69,8 +70,7 @@ public class Pod : Vehicle {
             var hitKillable = splashHitCollider.GetComponentInParent<Killable>();
             if (hitKillable != null)
             {
-                var splashDamage = 150f;
-                hitKillable.Damage(splashHitCollider, transform.position, splashHitCollider.transform.position - transform.position, LandHitForce, splashDamage, PlayerController.Current.gameObject);
+                hitKillable.Damage(splashHitCollider, transform.position, splashHitCollider.transform.position - transform.position, LandHitForce, LandingSplashDamage, PlayerController.Current.gameObject);
             }
         }
 
