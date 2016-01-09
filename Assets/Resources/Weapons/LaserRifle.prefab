@@ -42,13 +42,13 @@ MonoBehaviour:
   GunId: 0
   GunName: Laser Rifle
   RoundsPerMinute: 200
-  TriggerTime: 0.3
+  TriggerTime: 0.01
   MissilesPerShot: 1
   IsSimultaneous: 1
   Spread: {x: 0, y: 0}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
-  ClipCapacity: 1
+  ClipCapacity: 100
   ReloadTime: 0.3
   EquipPrefab: {fileID: 161070, guid: 03012da192f78c747a20e83fb597c000, type: 2}
   MaxAimDistance: 1000
@@ -113,7 +113,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: TriggerTime
-      value: 0.3
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissilesPerShot
@@ -129,7 +129,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ClipCapacity
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime
