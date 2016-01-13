@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.079}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404208}
@@ -106,8 +106,8 @@ MonoBehaviour:
   HitEffect: {fileID: 162874, guid: d41b972f73635fd4a85427bb5a6db3af, type: 2}
   AttachHitEffect: 1
   CanLock: 0
-  Speed: 400
-  TrailLength: 20
+  Speed: 300
+  TrailLength: 10
 --- !u!120 &12067742
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -176,7 +176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Speed
-      value: 400
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
@@ -184,7 +184,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 2afe4e64ad1986d4b8bfe6bf48b63870, type: 2}
     - target: {fileID: 0}
       propertyPath: TrailLength
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: HitEffect
