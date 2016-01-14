@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &135538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435042}
+  - 114: {fileID: 11413606}
+  m_Layer: 0
+  m_Name: GrenadeLauncher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11413606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f6373a39929c64e82e7df0ec142cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunId: 0
+  GunName: Grenade Launcher
+  RoundsPerMinute: 60
+  TriggerTime: 0.6
+  MissilesPerShot: 1
+  IsSimultaneous: 0
+  Spread: {x: 0, y: 0}
+  WarmUpTime: 0
+  HasInfiniteAmmunition: 1
+  ClipCapacity: 20
+  ReloadTime: 0.2
+  EquipPrefab: {fileID: 161070, guid: 3b9801395ee2ae049b1486df351c2854, type: 2}
+  MaxAimDistance: 1000
+  Zoom: 1
+  KickPitchYaw: {x: 5, y: 1}
+  NonRandomPitch: 1
+  RequireTargetLock: 0
+  TargetLockTime: 0
+  MaxLockRange: 0
+  LockBeep: {fileID: 0}
+  AimtHeight: 0
+  Muzzle: {fileID: 149432, guid: 8ca7e9cc83ba9144ca03bdac4fbb3ecf, type: 2}
+  FireSounds:
+  - {fileID: 8300000, guid: 69b9a0a753f62e147a2db4736ee21e59, type: 3}
+  IsOverHeatable: 0
+  OverHeatValue: 0
+  HeatPerShot: 0
+  OverHeathCooldownDelay: 0
+  CooldownDelay: 0
+  CooldownRate: 0
+  Crosshair: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd, type: 3}
+  ReloadCrosshair: {fileID: 0}
+  MissileGameObject: {fileID: 191728, guid: 8ab483eca05eee84baa21afdefea2b1d, type: 2}
+  MissileDamage: 70
+  MissilePower: 30000
+  MissileRadius: 0.5
+  MissileCount: 5
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: FireSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissileGameObject
+      value: 
+      objectReference: {fileID: 191728, guid: 8ab483eca05eee84baa21afdefea2b1d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: MissileDamage
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissilePower
+      value: 30000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissileCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: GunName
+      value: Grenade Launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RoundsPerMinute
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: TriggerTime
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissilesPerShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: IsSimultaneous
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: HasInfiniteAmmunition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ClipCapacity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ReloadTime
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Muzzle
+      value: 
+      objectReference: {fileID: 149432, guid: 8ca7e9cc83ba9144ca03bdac4fbb3ecf, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 617063bbc78c70744beca4440652b6dc, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Spread.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Spread.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Crosshair
+      value: 
+      objectReference: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: AimRadius
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MissileRadius
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EquipPrefab
+      value: 
+      objectReference: {fileID: 161070, guid: 3b9801395ee2ae049b1486df351c2854, type: 2}
+    - target: {fileID: 0}
+      propertyPath: KickPitchYaw.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: KickPitchYaw.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: NonRandomPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: FireSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 69b9a0a753f62e147a2db4736ee21e59, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 135538}
+  m_IsPrefabParent: 1
