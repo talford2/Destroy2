@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinLifeTime: 10
-  RenderObject: {fileID: 0}
+  RenderObject: {fileID: 13772204}
   FocalPoint: {fileID: 498044}
 --- !u!114 &11477866
 MonoBehaviour:
