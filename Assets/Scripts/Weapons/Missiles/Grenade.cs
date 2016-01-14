@@ -23,6 +23,7 @@ public class Grenade : Missile
     public override void Shoot(Vector3 fromPosition, Vector3 direction, Vector3 initVelocity)
     {
         //transform.position = fromPosition;
+        rBody.rotation = Quaternion.LookRotation(direction);
         rBody.position = fromPosition;
         rBody.isKinematic = false;
         rBody.AddForce(direction*LaunchForce);
