@@ -40,6 +40,6 @@ public class SoldierSounds : MonoBehaviour
 
     public void RandomSpeak()
     {
-        WorldSounds.PlayClipAt(transform.position + Vector3.up, RandomSpeech[Random.Range(0, AlertCalls.Count)]);
+        WorldSounds.PlayClipAt(transform.position + Vector3.up, RandomSpeech[Random.Range(0, RandomSpeech.Count)]);
     }
 }
