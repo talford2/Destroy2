@@ -48,8 +48,8 @@ MonoBehaviour:
   Spread: {x: 0, y: 0}
   WarmUpTime: 0
   HasInfiniteAmmunition: 1
-  ClipCapacity: 20
-  ReloadTime: 0.2
+  ClipCapacity: 6
+  ReloadTime: 0.5
   EquipPrefab: {fileID: 161070, guid: 3b9801395ee2ae049b1486df351c2854, type: 2}
   MaxAimDistance: 1000
   Zoom: 1
@@ -69,13 +69,13 @@ MonoBehaviour:
   OverHeathCooldownDelay: 0
   CooldownDelay: 0
   CooldownRate: 0
-  Crosshair: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd, type: 3}
+  Crosshair: {fileID: 21300000, guid: bd997971b9808694bab01f2fa4edd105, type: 3}
   ReloadCrosshair: {fileID: 0}
   MissileGameObject: {fileID: 191728, guid: 8ab483eca05eee84baa21afdefea2b1d, type: 2}
   MissileDamage: 70
   MissilePower: 30000
   MissileRadius: 0.5
-  MissileCount: 5
+  MissileCount: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -101,7 +101,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MissileCount
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: GunName
@@ -129,11 +129,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ClipCapacity
-      value: 20
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ReloadTime
-      value: .200000003
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Muzzle
@@ -158,7 +158,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Crosshair
       value: 
-      objectReference: {fileID: 21300000, guid: 93b5a276a757f2642a28ddbd8f8f5fcd,
+      objectReference: {fileID: 21300000, guid: bd997971b9808694bab01f2fa4edd105,
         type: 3}
     - target: {fileID: 0}
       propertyPath: AimRadius

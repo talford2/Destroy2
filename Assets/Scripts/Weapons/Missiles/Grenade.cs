@@ -26,7 +26,7 @@ public class Grenade : Missile
         rBody.rotation = Quaternion.LookRotation(direction);
         rBody.position = fromPosition;
         rBody.isKinematic = false;
-        rBody.AddForce(direction*LaunchForce);
+        rBody.AddForce(direction*LaunchForce + Vector3.up*200f);
         meshRenderer.enabled = true;
         lifeCooldown = ExplodeTime;
         base.Shoot(fromPosition, direction, initVelocity);
