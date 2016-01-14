@@ -171,8 +171,17 @@ public class NpcSoldierController : AutonomousAgent
 
     private void AssignWanderPosition()
     {
+        var nearestTarget = Targeting.FindNearest(Targeting.GetOpposingTeam(Team), vehicle.transform.position, float.PositiveInfinity);
+        Vector3 wanderTo;
         var randomSpherePoint = Random.insideUnitSphere;
-        var wanderTo = vehicle.transform.position + vehicle.transform.forward*10f + 10f*new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
+        if (nearestTarget != null)
+        {
+            wanderTo = (vehicle.transform.position - nearestTarget.transform.position) + 30f * new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
+        }
+        else
+        {
+            wanderTo = vehicle.transform.position + vehicle.transform.forward * 10f + 10f * new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
+        }
 
         var navPath = new NavMeshPath();
         if (NavMesh.CalculatePath(vehicle.transform.position, wanderTo, NavMesh.AllAreas, navPath))
