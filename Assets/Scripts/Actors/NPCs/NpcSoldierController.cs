@@ -508,6 +508,12 @@ public class NpcSoldierController : AutonomousAgent
                     var dontShoot = false;
                     if (Physics.Raycast(aimRay, out aimHit, AttackDistance, ~LayerMask.GetMask("Sensors", "MissileSensors")))
                     {
+                        if (aimHit.collider.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+                        {
+                            if (aimHit.distance < 2f)
+                                dontShoot = true;
+                        }
+
                         var npc = aimHit.collider.GetComponentInParent<ActorAgent>();
                         if (npc != null)
                         {
