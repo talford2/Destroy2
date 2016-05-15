@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e8ce721c2abe2c64f8e98975bb0486b9
-timeCreated: 1463317837
+guid: 9486a80683a32ca48b2669a59c25ccab
+timeCreated: 1463318979
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -45,7 +45,8 @@ ModelImporter:
     100074: Box041
     100076: Box042
     100078: Box043
-    100080: //RootNode
+    100080: Box044
+    100082: //RootNode
     400000: Box001
     400002: Box002
     400004: Box005
@@ -86,7 +87,8 @@ ModelImporter:
     400074: Box041
     400076: Box042
     400078: Box043
-    400080: //RootNode
+    400080: Box044
+    400082: //RootNode
     2300000: Box001
     2300002: Box002
     2300004: Box005
@@ -127,6 +129,7 @@ ModelImporter:
     2300074: Box041
     2300076: Box042
     2300078: Box043
+    2300080: Box044
     3300000: Box001
     3300002: Box002
     3300004: Box005
@@ -167,6 +170,7 @@ ModelImporter:
     3300074: Box041
     3300076: Box042
     3300078: Box043
+    3300080: Box044
     4300000: Box001
     4300002: Box002
     4300004: Box005
@@ -207,6 +211,7 @@ ModelImporter:
     4300074: Box041
     4300076: Box042
     4300078: Box043
+    4300080: Box044
     9500000: //RootNode
   materials:
     importMaterials: 1
