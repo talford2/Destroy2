@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9486a80683a32ca48b2669a59c25ccab
-timeCreated: 1463318979
+guid: 851c9bae3e1fa4848afc210f10bb53cd
+timeCreated: 1463320401
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -46,7 +46,26 @@ ModelImporter:
     100076: Box042
     100078: Box043
     100080: Box044
-    100082: //RootNode
+    100082: Box045
+    100084: Box046
+    100086: Box047
+    100088: Box048
+    100090: Box049
+    100092: Box050
+    100094: Box051
+    100096: Box052
+    100098: Box053
+    100100: Box054
+    100102: Box055
+    100104: Box056
+    100106: Box057
+    100108: Box058
+    100110: Box059
+    100112: Box060
+    100114: Box061
+    100116: Box062
+    100118: Box063
+    100120: //RootNode
     400000: Box001
     400002: Box002
     400004: Box005
@@ -88,7 +107,26 @@ ModelImporter:
     400076: Box042
     400078: Box043
     400080: Box044
-    400082: //RootNode
+    400082: Box045
+    400084: Box046
+    400086: Box047
+    400088: Box048
+    400090: Box049
+    400092: Box050
+    400094: Box051
+    400096: Box052
+    400098: Box053
+    400100: Box054
+    400102: Box055
+    400104: Box056
+    400106: Box057
+    400108: Box058
+    400110: Box059
+    400112: Box060
+    400114: Box061
+    400116: Box062
+    400118: Box063
+    400120: //RootNode
     2300000: Box001
     2300002: Box002
     2300004: Box005
@@ -130,6 +168,25 @@ ModelImporter:
     2300076: Box042
     2300078: Box043
     2300080: Box044
+    2300082: Box045
+    2300084: Box046
+    2300086: Box047
+    2300088: Box048
+    2300090: Box049
+    2300092: Box050
+    2300094: Box051
+    2300096: Box052
+    2300098: Box053
+    2300100: Box054
+    2300102: Box055
+    2300104: Box056
+    2300106: Box057
+    2300108: Box058
+    2300110: Box059
+    2300112: Box060
+    2300114: Box061
+    2300116: Box062
+    2300118: Box063
     3300000: Box001
     3300002: Box002
     3300004: Box005
@@ -171,6 +228,25 @@ ModelImporter:
     3300076: Box042
     3300078: Box043
     3300080: Box044
+    3300082: Box045
+    3300084: Box046
+    3300086: Box047
+    3300088: Box048
+    3300090: Box049
+    3300092: Box050
+    3300094: Box051
+    3300096: Box052
+    3300098: Box053
+    3300100: Box054
+    3300102: Box055
+    3300104: Box056
+    3300106: Box057
+    3300108: Box058
+    3300110: Box059
+    3300112: Box060
+    3300114: Box061
+    3300116: Box062
+    3300118: Box063
     4300000: Box001
     4300002: Box002
     4300004: Box005
@@ -212,7 +288,25 @@ ModelImporter:
     4300076: Box042
     4300078: Box043
     4300080: Box044
-    9500000: //RootNode
+    4300082: Box045
+    4300084: Box046
+    4300086: Box047
+    4300088: Box048
+    4300090: Box049
+    4300092: Box050
+    4300094: Box051
+    4300096: Box052
+    4300098: Box053
+    4300100: Box054
+    4300102: Box055
+    4300104: Box056
+    4300106: Box057
+    4300108: Box058
+    4300110: Box059
+    4300112: Box060
+    4300114: Box061
+    4300116: Box062
+    4300118: Box063
   materials:
     importMaterials: 1
     materialName: 0
@@ -271,7 +365,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
