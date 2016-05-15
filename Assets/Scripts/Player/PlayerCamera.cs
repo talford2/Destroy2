@@ -135,7 +135,7 @@ public class PlayerCamera : MonoBehaviour
 
         var camMinY = 0.5f;
         RaycastHit camDownHit;
-        if (Physics.Raycast(new Ray(chasePosition + 100f*Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
+        if (Physics.Raycast(new Ray(chasePosition + 100f*Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors", "Terrain")))
             camMinY = camDownHit.point.y + 0.5f;
 
         transform.position = new Vector3(chasePosition.x, Mathf.Clamp(chasePosition.y, camMinY, 100f), chasePosition.z);
