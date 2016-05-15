@@ -36,4 +36,10 @@ public class PlayerSpawner : MonoBehaviour
         PlayerController.Current.InitVehicle(vehiclePrefab, weaponPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, 0f, transform.position.z));
+    }
 }
