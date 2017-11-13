@@ -143,6 +143,8 @@ public class Rocket : Missile
                     hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized * Power, hit.point, ForceMode.Force);
                 }
             }
+
+            PlayerCamera.Current.Shake(hit.point, 10f, 80f, 0.3f, 2f, 0f);
         }
     }
 
