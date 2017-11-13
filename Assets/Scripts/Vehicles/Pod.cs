@@ -28,15 +28,22 @@ public class Pod : Vehicle {
     private Vector3 aimAt;
     //private float pitchTarget;
     private float yawTarget;
+    private float acceleration = 100f;
+    private void Awake()
+    {
+        //transform.position += Vector3.up * 300f;
+    }
 
     public override void LiveUpdate()
     {
         // steering facing direction
         var lookAngle = Quaternion.LookRotation(aimAt - primaryWeapon.GetShootPointsCentre());
-        yawTarget = Mathf.LerpAngle(yawTarget, lookAngle.eulerAngles.y, 5f*Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f*Time.deltaTime);
+        yawTarget = Mathf.LerpAngle(yawTarget, lookAngle.eulerAngles.y, 5f * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, yawTarget, 0f), 25f * Time.deltaTime);
 
-        transform.position += Speed*Vector3.down*Time.deltaTime;
+        Speed += acceleration * Time.deltaTime;
+
+        transform.position += Speed * Vector3.down * Time.deltaTime;
 
         HeadsUpDisplay.Current.HideCrosshair();
         var hitRay = new Ray(transform.position, Vector3.down);
@@ -49,7 +56,7 @@ public class Pod : Vehicle {
                 Destroy(inviisbleDestruct.gameObject);
         }
 
-        if (Physics.Raycast(hitRay, out hit, Mathf.Abs(Speed*Time.deltaTime + 0.5f), LayerMask.GetMask("Terrain", "Player")))
+        if (Physics.Raycast(hitRay, out hit, Mathf.Abs(Speed * Time.deltaTime + 0.5f), LayerMask.GetMask("Terrain", "Player")))
         {
             transform.position = hit.point;
             WorldSounds.PlayClipAt(transform.position, LandSounds[Random.Range(0, LandSounds.Count)]);
@@ -93,6 +100,8 @@ public class Pod : Vehicle {
                 splashHitCollider.attachedRigidbody.AddExplosionForce(LandHitForce, transform.position, LandHitForceRadius, LandHitUpwardModifier, ForceMode.Force);
             }
         }
+
+        PlayerCamera.Current.Shake(transform.position, 100f, 1000f, 0.3f, 5f, 0f);
     }
 
     public override void Initialize()

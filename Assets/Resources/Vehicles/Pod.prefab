@@ -586,7 +586,7 @@ MonoBehaviour:
     type: 2}
   PrimaryWeaponShootPoints:
   - {fileID: 452312}
-  Speed: 50
+  Speed: 100
   TriggerSpawner: {fileID: 11426234}
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
   WeaponPrefab: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16, type: 2}

@@ -34,6 +34,10 @@ public class PlayerSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         PlayerController.Current.InitVehicle(vehiclePrefab, weaponPrefab, transform.position, transform.rotation);
+
+        HeadsUpDisplay.Current.FadeInAmmunition();
+        HeadsUpDisplay.Current.FadeInKillCount();
+
         Destroy(gameObject);
     }
 

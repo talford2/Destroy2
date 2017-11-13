@@ -92,6 +92,9 @@ public class Grenade : Missile
         {
             var missileHitEffect = (GameObject)Instantiate(HitEffect, position, Quaternion.identity);
         }
+
+        PlayerCamera.Current.Shake(position, 10f, 80f, 0.3f, 2f, 0f);
+
         Stop();
     }
 

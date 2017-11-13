@@ -26,6 +26,8 @@ public class PlayerCamera : MonoBehaviour
     private static PlayerCamera current;
 
     // Shake
+    public CameraShake Shaker;
+    /*
     private float shakeCooldown;
     private float shakeAmplitude;
     private float shakeFrequency = 0.5f;
@@ -35,6 +37,7 @@ public class PlayerCamera : MonoBehaviour
     private Vector3 shakeAt;
     private float shakeMinDistance;
     private float shakeMaxDistance;
+    */
 
     public static PlayerCamera Current
     {
@@ -160,46 +163,12 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        var totalFrac = shakeCooldown / shakeTotalTime;
-
-        if (shakeCooldown > 0)
-        {
-            shakeCooldown -= Time.deltaTime;
-
-            shakeInterval -= Time.deltaTime;
-            if (shakeInterval < 0)
-            {
-                curShakePos = GetAmplitude(shakeAt) * totalFrac * Random.onUnitSphere;
-                shakeInterval = shakeFrequency;
-            }
-        }
-        else
-        {
-            curShakePos = Vector3.zero;
-        }
-        var frac = Mathf.Clamp(1 - (shakeInterval / shakeFrequency), 0f, 1f);
-        Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
-    }
-
-    private float GetAmplitude(Vector3 position)
-    {
-        var distSquared = (position - Cam.transform.position).sqrMagnitude;
-        if (distSquared < shakeMaxDistance * shakeMaxDistance)
-            return shakeAmplitude / Mathf.Clamp(distSquared - (shakeMinDistance * shakeMinDistance), 1f, shakeMaxDistance * shakeMaxDistance);
-        return 0f;
+        Shaker.ShakeUpdate();
     }
 
     public void Shake(Vector3 atPosition, float minDistance, float maxDistance, float time, float amplitude, float frequency)
     {
-        shakeAt = atPosition;
-        shakeMinDistance = minDistance;
-        shakeMaxDistance = maxDistance;
-        shakeTotalTime = time;
-        shakeCooldown = time;
-        shakeAmplitude = amplitude;
-        shakeFrequency = frequency;
-
-        curShakePos = GetAmplitude(atPosition) * Random.onUnitSphere;
+        Shaker.Trigger(time, atPosition, maxDistance, minDistance, amplitude);
     }
 
     public enum CameraMode

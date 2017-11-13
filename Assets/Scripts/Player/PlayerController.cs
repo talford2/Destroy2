@@ -51,7 +51,7 @@ public class PlayerController : ActorAgent
 	    vehicle.MaxHealth *= 2f;
         vehicle.Health = vehicle.MaxHealth;
 		Targeting.AddTargetable(Team, vehicle);
-	}
+    }
 
     private void OnVehicleDamage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
 	{
@@ -221,6 +221,8 @@ public class PlayerController : ActorAgent
 		Debug.Log("YOU DIED.");
 		Targeting.RemoveTargetable(Team, vehicle);
 		HeadsUpDisplay.Current.FadeOutCrosshair(0.5f);
+        HeadsUpDisplay.Current.FadeOutAmmunition();
+        HeadsUpDisplay.Current.FadeOutKillCount();
         timeOfDeath = Time.time;
         isDead = true;
 	}
