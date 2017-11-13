@@ -39,6 +39,7 @@ public class EquipWeapon : MonoBehaviour
 
 	public void OnCollect()
 	{
+        collectible.OnCollect -= OnCollect;
 		Destroy(gameObject);
 	}
 }

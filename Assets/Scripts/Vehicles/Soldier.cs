@@ -269,7 +269,7 @@ public class Soldier : Vehicle
         primaryWeapon.SetClipRemaining(primaryWeapon.ClipCapacity);
     }
 
-    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
+    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, Missile missile)
     {
         killPosition = position;
         killDirection = direction;
@@ -279,7 +279,7 @@ public class Soldier : Vehicle
         {
             Debug.Log("HEAD DAMAGE!");
         }
-        base.Damage(hitCollider, position, direction, power, damageAmount, attacker);
+        base.Damage(hitCollider, position, direction, power, damageAmount, missile);
     }
 
     public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, Missile missile)
@@ -294,7 +294,7 @@ public class Soldier : Vehicle
             damageAmount *= 10f;
             AudioSource.PlayClipAtPoint(HeadShotSound, position);
         }
-        base.Damage(hitCollider, position, direction, killPower, damageAmount, missile.GetOwner());
+        base.Damage(hitCollider, position, direction, killPower, damageAmount, missile);
     }
 
     public override void Die(GameObject attacker)
@@ -319,10 +319,10 @@ public class Soldier : Vehicle
             }
         }
 
-        var liveParts = transform.FindChild("Ground").GetComponentsInChildren<Transform>();
+        var liveParts = transform.Find("Ground").GetComponentsInChildren<Transform>();
         var corpseColliders = corpse.GetComponentsInChildren<Collider>();
 
-        var deadParts = corpse.transform.FindChild("Soldier").GetComponentsInChildren<Transform>();
+        var deadParts = corpse.transform.Find("Soldier").GetComponentsInChildren<Transform>();
         foreach (var livePart in liveParts)
         {
             foreach (var deadPart in deadParts)

@@ -183,8 +183,8 @@ public class NpcSoldierController : AutonomousAgent
             wanderTo = vehicle.transform.position + vehicle.transform.forward * 10f + 10f * new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
         }
 
-        var navPath = new NavMeshPath();
-        if (NavMesh.CalculatePath(vehicle.transform.position, wanderTo, NavMesh.AllAreas, navPath))
+        var navPath = new UnityEngine.AI.NavMeshPath();
+        if (UnityEngine.AI.NavMesh.CalculatePath(vehicle.transform.position, wanderTo, UnityEngine.AI.NavMesh.AllAreas, navPath))
         {
             path = navPath.corners;
         }
@@ -286,8 +286,8 @@ public class NpcSoldierController : AutonomousAgent
             var randomSpherePoint = Random.insideUnitSphere;
             destination = vehicle.transform.position + vehicle.transform.forward * 10f + 10f * new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.z);
         }
-        var navPath = new NavMeshPath();
-        if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
+        var navPath = new UnityEngine.AI.NavMeshPath();
+        if (UnityEngine.AI.NavMesh.CalculatePath(vehicle.transform.position, destination, UnityEngine.AI.NavMesh.AllAreas, navPath))
         {
             path = navPath.corners;
         }
@@ -408,8 +408,8 @@ public class NpcSoldierController : AutonomousAgent
                     }
                 }
 
-                var navPath = new NavMeshPath();
-                if (NavMesh.CalculatePath(vehicle.transform.position, destination, NavMesh.AllAreas, navPath))
+                var navPath = new UnityEngine.AI.NavMeshPath();
+                if (UnityEngine.AI.NavMesh.CalculatePath(vehicle.transform.position, destination, UnityEngine.AI.NavMesh.AllAreas, navPath))
                 {
                     path = navPath.corners;
                     curPathIndex = 0;
@@ -628,7 +628,7 @@ public class NpcSoldierController : AutonomousAgent
             {
                 if (Team != playerAttacker.Team)
                 {
-                    playerAttacker.KillCount ++;
+                    Player.Current.KillCount++;
                 }
             }
         }

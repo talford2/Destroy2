@@ -37,4 +37,9 @@ public class Utility {
         var selfDestructor = obj.AddComponent<SelfDestructor>();
         selfDestructor.Cooldown = audioSource.clip.length;
     }
+
+    public static Color ColorAlpha(Color color, float alpha)
+    {
+        return new Color(color.r, color.g, color.b, alpha);
+    }
 }

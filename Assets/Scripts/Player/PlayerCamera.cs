@@ -71,7 +71,7 @@ public class PlayerCamera : MonoBehaviour
     public Vector3 GetLookAtPosition()
     {
         var lookRay = Cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        lookRay.origin += lookRay.direction*distance;
+        lookRay.origin += lookRay.direction * distance;
         RaycastHit lookHit;
         var lookAt = lookRay.GetPoint(1000f);
         if (Physics.Raycast(lookRay, out lookHit, 1000f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors")))
@@ -88,7 +88,7 @@ public class PlayerCamera : MonoBehaviour
         if (pivot != pivotTransform)
         {
             var lookAt = GetLookAtPosition();
-            var pivotFrom = pivot.position + offset + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0)*Vector3.forward*-distance;
+            var pivotFrom = pivot.position + offset + Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0) * Vector3.forward * -distance;
             var angleTo = Quaternion.LookRotation(lookAt - pivotFrom).eulerAngles;
             pitchYaw = new Vector2(angleTo.x, angleTo.y);
             pivotTransform = pivot;
@@ -121,46 +121,46 @@ public class PlayerCamera : MonoBehaviour
     private void Chase(float deltaTime)
     {
 
-        tempPitchYaw = Vector2.Lerp(tempPitchYaw, targetTempPitchYaw, 10f*Time.deltaTime);
+        tempPitchYaw = Vector2.Lerp(tempPitchYaw, targetTempPitchYaw, 10f * Time.deltaTime);
         var usePitchYaw = pitchYaw + tempPitchYaw;
 
-        Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, defaultZoom/TargetZoom, zoomSpeed*Time.deltaTime);
+        Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, defaultZoom / TargetZoom, zoomSpeed * Time.deltaTime);
         var lookAngle = Quaternion.Euler(usePitchYaw.x, usePitchYaw.y, 0f);
         if (pivotTransform != null)
-            pivotPosition = pivotTransform.position + lookAngle*offset;
+            pivotPosition = pivotTransform.position + lookAngle * offset;
 
-        distance = Mathf.Lerp(distance, targetDistance, DistanceCatupSpeed*deltaTime);
+        distance = Mathf.Lerp(distance, targetDistance, DistanceCatupSpeed * deltaTime);
 
-        var chasePosition = pivotPosition + lookAngle*Vector3.forward*-distance;
+        var chasePosition = pivotPosition + lookAngle * Vector3.forward * -distance;
 
         var camMinY = 0.5f;
         RaycastHit camDownHit;
-        if (Physics.Raycast(new Ray(chasePosition + 100f*Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors", "Terrain")))
+        if (Physics.Raycast(new Ray(chasePosition + 100f * Vector3.up, Vector3.down), out camDownHit, 100f, ~LayerMask.GetMask("Player", "Sensors", "MissileSensors", "Terrain")))
             camMinY = camDownHit.point.y + 0.5f;
 
         transform.position = new Vector3(chasePosition.x, Mathf.Clamp(chasePosition.y, camMinY, 100f), chasePosition.z);
         transform.rotation = lookAngle;
 
         if (restorePitchYaw)
-            targetTempPitchYaw = Vector2.Lerp(targetTempPitchYaw, Vector2.zero, 2f*Time.deltaTime);
+            targetTempPitchYaw = Vector2.Lerp(targetTempPitchYaw, Vector2.zero, 2f * Time.deltaTime);
     }
 
     private void Aim(float deltaTime)
     {
-        Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, defaultZoom/TargetZoom, zoomSpeed*Time.deltaTime);
+        Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, defaultZoom / TargetZoom, zoomSpeed * Time.deltaTime);
         var lookAngle = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
         if (pivotTransform != null)
-            pivotPosition = pivotTransform.position + lookAngle*offset;
+            pivotPosition = pivotTransform.position + lookAngle * offset;
 
-        distance = Mathf.Lerp(distance, 0f, DistanceCatupSpeed*deltaTime);
+        distance = Mathf.Lerp(distance, 0f, DistanceCatupSpeed * deltaTime);
 
-        transform.position = pivotPosition + lookAngle*Vector3.forward*-distance;
+        transform.position = pivotPosition + lookAngle * Vector3.forward * -distance;
         transform.rotation = Quaternion.Euler(pitchYaw.x, pitchYaw.y, 0f);
     }
 
     private void Update()
     {
-        var totalFrac = shakeCooldown/shakeTotalTime;
+        var totalFrac = shakeCooldown / shakeTotalTime;
 
         if (shakeCooldown > 0)
         {
@@ -169,7 +169,7 @@ public class PlayerCamera : MonoBehaviour
             shakeInterval -= Time.deltaTime;
             if (shakeInterval < 0)
             {
-                curShakePos = GetAmplitude(shakeAt)*totalFrac*Random.onUnitSphere;
+                curShakePos = GetAmplitude(shakeAt) * totalFrac * Random.onUnitSphere;
                 shakeInterval = shakeFrequency;
             }
         }
@@ -177,15 +177,15 @@ public class PlayerCamera : MonoBehaviour
         {
             curShakePos = Vector3.zero;
         }
-        var frac = Mathf.Clamp(1 - (shakeInterval/shakeFrequency), 0f, 1f);
+        var frac = Mathf.Clamp(1 - (shakeInterval / shakeFrequency), 0f, 1f);
         Cam.transform.localPosition = Vector3.Slerp(Cam.transform.localPosition, curShakePos, frac);
     }
 
     private float GetAmplitude(Vector3 position)
     {
         var distSquared = (position - Cam.transform.position).sqrMagnitude;
-        if (distSquared < shakeMaxDistance*shakeMaxDistance)
-            return shakeAmplitude/Mathf.Clamp(distSquared - (shakeMinDistance*shakeMinDistance), 1f, shakeMaxDistance*shakeMaxDistance);
+        if (distSquared < shakeMaxDistance * shakeMaxDistance)
+            return shakeAmplitude / Mathf.Clamp(distSquared - (shakeMinDistance * shakeMinDistance), 1f, shakeMaxDistance * shakeMaxDistance);
         return 0f;
     }
 
@@ -199,7 +199,7 @@ public class PlayerCamera : MonoBehaviour
         shakeAmplitude = amplitude;
         shakeFrequency = frequency;
 
-        curShakePos = GetAmplitude(atPosition)*Random.onUnitSphere;
+        curShakePos = GetAmplitude(atPosition) * Random.onUnitSphere;
     }
 
     public enum CameraMode

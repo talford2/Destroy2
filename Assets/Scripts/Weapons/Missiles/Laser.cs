@@ -40,6 +40,7 @@ public class Laser : Missile
 
         var velocity = initialVelocity + shootDirection * Speed;
         //transform.Translate(velocity * Time.deltaTime);
+        Debug.Log("OWNER: " + GetOwner());
 
         base.Shoot(fromPosition, direction, initVelocity);
     }

@@ -70,7 +70,7 @@ public class Pod : Vehicle {
             var hitKillable = splashHitCollider.GetComponentInParent<Killable>();
             if (hitKillable != null)
             {
-                hitKillable.Damage(splashHitCollider, transform.position, splashHitCollider.transform.position - transform.position, LandHitForce, LandingSplashDamage, PlayerController.Current.gameObject);
+                hitKillable.Damage(splashHitCollider, transform.position, splashHitCollider.transform.position - transform.position, LandHitForce, LandingSplashDamage, null);
             }
         }
 

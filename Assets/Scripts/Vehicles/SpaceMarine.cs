@@ -251,7 +251,7 @@ public class SpaceMarine : Vehicle
         primaryWeapon.SetClipRemaining(primaryWeapon.ClipCapacity);
     }
 
-    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
+    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, Missile missile)
     {
         killPosition = position;
         killDirection = direction;
@@ -261,7 +261,7 @@ public class SpaceMarine : Vehicle
         {
             Debug.Log("HEAD DAMAGE!");
         }
-        base.Damage(hitCollider, position, direction, power, damageAmount, attacker);
+        base.Damage(hitCollider, position, direction, power, damageAmount, missile);
     }
 
     public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, Missile missile)
@@ -275,7 +275,7 @@ public class SpaceMarine : Vehicle
             Debug.Log("HEADSHOT!");
             damageAmount *= 10f;
         }
-        base.Damage(hitCollider, position, direction, killPower, damageAmount, missile.GetOwner());
+        base.Damage(hitCollider, position, direction, killPower, damageAmount, missile);
     }
 
     public override void Die(GameObject attacker)
@@ -300,10 +300,10 @@ public class SpaceMarine : Vehicle
             }
         }
 
-        var liveParts = transform.FindChild("Bip001").GetComponentsInChildren<Transform>();
+        var liveParts = transform.Find("Bip001").GetComponentsInChildren<Transform>();
         var corpseColliders = corpse.GetComponentsInChildren<Collider>();
 
-        var deadParts = corpse.transform.FindChild("SpaceMarine1").GetComponentsInChildren<Transform>();
+        var deadParts = corpse.transform.Find("SpaceMarine1").GetComponentsInChildren<Transform>();
         foreach (var livePart in liveParts)
         {
             foreach (var deadPart in deadParts)

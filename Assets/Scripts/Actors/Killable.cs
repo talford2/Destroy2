@@ -27,13 +27,13 @@ public abstract class Killable : MonoBehaviour
 
     public abstract void LiveUpdate();
 
-    public virtual void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
+    public virtual void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, Missile missile)
     {
         if (IsLive)
         {
-            ApplyDamage(damage, attacker);
+            ApplyDamage(damage, missile.GetOwner());
             if (OnDamage != null)
-                OnDamage(hitCollider, position, direction, power, damage, attacker);
+                OnDamage(hitCollider, position, direction, power, damage, missile.GetOwner());
         }
     }
 

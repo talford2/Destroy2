@@ -120,7 +120,7 @@ public class Rocket : Missile
                 {
                     var splashDamage = GetSplashDamage(hit.point, splashHitCollider.transform.position);
                     Debug.Log("SPLASH DAMAGE: " + splashDamage);
-                    hitKillable.Damage(splashHitCollider, hit.point, splashHitCollider.transform.position - hit.point, ExplosionPower, splashDamage, GetOwner());
+                    hitKillable.Damage(splashHitCollider, hit.point, splashHitCollider.transform.position - hit.point, ExplosionPower, splashDamage, this);
                 }
             }
 

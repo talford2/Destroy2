@@ -223,12 +223,12 @@ public class Walker : Vehicle
         //Debug.Log("RIGHT");
     }
 
-    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, GameObject attacker)
+    public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, float power, float damage, Missile missile)
 	{
 		killPosition = position;
 		killDirection = direction;
 		killPower = power;
-		base.Damage(hitCollider, position, direction, power, damage, attacker);
+		base.Damage(hitCollider, position, direction, power, damage, missile);
 	}
 
 	public override void Damage(Collider hitCollider, Vector3 position, Vector3 direction, Missile missile)
@@ -260,10 +260,10 @@ public class Walker : Vehicle
 			}
 		}
 
-		var liveParts = transform.FindChild("Ground").GetComponentsInChildren<Transform>();
+		var liveParts = transform.Find("Ground").GetComponentsInChildren<Transform>();
 		var corpseColliders = corpse.GetComponentsInChildren<Collider>();
 
-		var deadParts = corpse.transform.FindChild("Walker").GetComponentsInChildren<Transform>();
+		var deadParts = corpse.transform.Find("Walker").GetComponentsInChildren<Transform>();
 		foreach (var livePart in liveParts)
 		{
 			foreach (var deadPart in deadParts)

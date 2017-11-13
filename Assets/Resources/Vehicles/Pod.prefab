@@ -5,12 +5,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 438678}
-  - 33: {fileID: 3306814}
-  - 65: {fileID: 6541952}
-  - 23: {fileID: 2341652}
+  - component: {fileID: 438678}
+  - component: {fileID: 3306814}
+  - component: {fileID: 6541952}
+  - component: {fileID: 2341652}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -23,11 +23,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 472680}
-  - 114: {fileID: 11417048}
-  - 114: {fileID: 11412958}
+  - component: {fileID: 472680}
+  - component: {fileID: 11417048}
+  - component: {fileID: 11412958}
   m_Layer: 0
   m_Name: Pod
   m_TagString: Untagged
@@ -40,11 +40,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 412694}
-  - 114: {fileID: 11426234}
-  - 54: {fileID: 5452842}
+  - component: {fileID: 412694}
+  - component: {fileID: 11426234}
+  - component: {fileID: 5452842}
   m_Layer: 0
   m_Name: PlayerSpawner
   m_TagString: Untagged
@@ -57,12 +57,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 414330}
-  - 33: {fileID: 3376622}
-  - 65: {fileID: 6539386}
-  - 23: {fileID: 2322372}
+  - component: {fileID: 414330}
+  - component: {fileID: 3376622}
+  - component: {fileID: 6539386}
+  - component: {fileID: 2322372}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -75,12 +75,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 419938}
-  - 33: {fileID: 3301580}
-  - 65: {fileID: 6544436}
-  - 23: {fileID: 2321332}
+  - component: {fileID: 419938}
+  - component: {fileID: 3301580}
+  - component: {fileID: 6544436}
+  - component: {fileID: 2321332}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -93,11 +93,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 463556}
-  - 135: {fileID: 13591568}
-  - 114: {fileID: 11444918}
+  - component: {fileID: 463556}
+  - component: {fileID: 13591568}
+  - component: {fileID: 11444918}
   m_Layer: 9
   m_Name: SafeSensor
   m_TagString: Untagged
@@ -110,9 +110,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 452312}
+  - component: {fileID: 452312}
   m_Layer: 0
   m_Name: ShootPoint
   m_TagString: Untagged
@@ -125,12 +125,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 443794}
-  - 33: {fileID: 3377998}
-  - 65: {fileID: 6514672}
-  - 23: {fileID: 2301256}
+  - component: {fileID: 443794}
+  - component: {fileID: 3377998}
+  - component: {fileID: 6514672}
+  - component: {fileID: 2301256}
   m_Layer: 0
   m_Name: Wall (2)
   m_TagString: Untagged
@@ -143,12 +143,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 449152}
-  - 33: {fileID: 3323498}
-  - 65: {fileID: 6531810}
-  - 23: {fileID: 2350738}
+  - component: {fileID: 449152}
+  - component: {fileID: 3323498}
+  - component: {fileID: 6531810}
+  - component: {fileID: 2350738}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -169,6 +169,7 @@ Transform:
   - {fileID: 463556}
   m_Father: {fileID: 472680}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &414330
 Transform:
   m_ObjectHideFlags: 1
@@ -181,6 +182,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472680}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &419938
 Transform:
   m_ObjectHideFlags: 1
@@ -193,6 +195,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472680}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &438678
 Transform:
   m_ObjectHideFlags: 1
@@ -205,6 +208,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472680}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &443794
 Transform:
   m_ObjectHideFlags: 1
@@ -217,6 +221,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472680}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449152
 Transform:
   m_ObjectHideFlags: 1
@@ -229,6 +234,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472680}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &452312
 Transform:
   m_ObjectHideFlags: 1
@@ -241,6 +247,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472680}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &463556
 Transform:
   m_ObjectHideFlags: 1
@@ -253,6 +260,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412694}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &472680
 Transform:
   m_ObjectHideFlags: 1
@@ -272,6 +280,7 @@ Transform:
   - {fileID: 419938}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2301256
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -281,22 +290,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 8cd023a61c1d04d4796b603005c5f6a9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2321332
 MeshRenderer:
@@ -307,22 +322,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 8cd023a61c1d04d4796b603005c5f6a9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2322372
 MeshRenderer:
@@ -333,22 +354,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 8cd023a61c1d04d4796b603005c5f6a9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2341652
 MeshRenderer:
@@ -359,22 +386,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 8cd023a61c1d04d4796b603005c5f6a9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2350738
 MeshRenderer:
@@ -385,22 +418,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 8cd023a61c1d04d4796b603005c5f6a9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3301580
 MeshFilter:
@@ -536,8 +575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLive: 1
-  MaxHealth: 100
-  Health: 100
+  MaxHealth: 2000
+  Health: 2000
   CameraDistance: 10
   CameraOffset: {x: 0, y: 0, z: 0}
   DefaultPivot: {fileID: 452312}
@@ -547,7 +586,7 @@ MonoBehaviour:
     type: 2}
   PrimaryWeaponShootPoints:
   - {fileID: 452312}
-  Speed: 80
+  Speed: 50
   TriggerSpawner: {fileID: 11426234}
   VehiclePrefab: {fileID: 11400122, guid: c64e7f19a7d10ef4c9f4cc999490ad00, type: 2}
   WeaponPrefab: {fileID: 11413606, guid: 908c69f8fb6203e40bcdff5ea715af16, type: 2}
@@ -556,6 +595,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4654d344331f33c46b5e2482942b09ad, type: 3}
   - {fileID: 8300000, guid: 42f6db5e29a6ae44a9f88b4237bad0c1, type: 3}
   - {fileID: 8300000, guid: a34866460efd4404486a69336a975943, type: 3}
+  LandingSplashDamage: 150
   LandHitForceRadius: 5
   LandHitUpwardModifier: 1
   LandHitForce: 10000
@@ -675,6 +715,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Speed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HeadsUpDisplay : MonoBehaviour
@@ -10,6 +11,9 @@ public class HeadsUpDisplay : MonoBehaviour
     public Text AmmunitionText;
     public Text KillCountText;
 
+    public Color EnemyCrosshair;
+    public Color FriendlyCrosshair;
+
 	private InSightType inSightType;
     private bool isFriendlyInSight;
 	private bool isFadeCrosshair;
@@ -20,6 +24,8 @@ public class HeadsUpDisplay : MonoBehaviour
     private bool isShowHit;
     private float hitTime;
     private float hitCooldown;
+
+    private Dictionary<InSightType, Color> insightCrosshairColours;
 
     private GUIStyle ammoStyle;
 
@@ -36,6 +42,13 @@ public class HeadsUpDisplay : MonoBehaviour
 		isFadeCrosshair = false;
 		current = this;
 	    HitCrosshair.enabled = false;
+
+        insightCrosshairColours = new Dictionary<InSightType, Color>
+        {
+            { InSightType.None, Color.white },
+            { InSightType.Friendly, FriendlyCrosshair },
+            { InSightType.Enemy, EnemyCrosshair }
+        };
 
 	    var hudFont = Resources.Load<Font>("Fonts/EU____");
         ammoStyle = new GUIStyle
@@ -58,50 +71,40 @@ public class HeadsUpDisplay : MonoBehaviour
     }
 
 	public float DamageCooldown = 0;
+
 	private void Update()
 	{
-	    switch (inSightType)
-	    {
-	        case InSightType.Enemy:
-	            Crosshair.color = new Color(1f, 0f, 0f, Crosshair.color.a);
-	            break;
-	        case InSightType.Friendly:
-	            Crosshair.color = new Color(0.1f, 0.3f, 1f, Crosshair.color.a);
-	            break;
-	        default:
-	            Crosshair.color = new Color(1f, 1f, 1f, Crosshair.color.a);
-	            break;
-	    }
+        Crosshair.color = Utility.ColorAlpha(insightCrosshairColours[inSightType], Crosshair.color.a);
 
-	    if (isFadeCrosshair)
-		{
-			if (fadeCooldown > 0f)
-			{
-				fadeCooldown -= Time.deltaTime;
-			    float fadeFraction;
-			    if (fadeDirection < 0)
-			    {
-			        fadeFraction = Mathf.Clamp01(fadeCooldown/fadeTime);
-			    }
-			    else
-			    {
+        if (isFadeCrosshair)
+        {
+            if (fadeCooldown > 0f)
+            {
+                fadeCooldown -= Time.deltaTime;
+                float fadeFraction;
+                if (fadeDirection < 0)
+                {
+                    fadeFraction = Mathf.Clamp01(fadeCooldown / fadeTime);
+                }
+                else
+                {
                     fadeFraction = 1f - Mathf.Clamp01(fadeCooldown / fadeTime);
-			    }
-                Crosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeFraction);
-                ReloadCrosshair.color = new Color(Crosshair.color.r, Crosshair.color.g, Crosshair.color.b, fadeFraction);
-				if (fadeCooldown < 0f)
-				{
-				    isFadeCrosshair = false;
-				    //Crosshair.enabled = false;
-				    //ReloadCrosshair.enabled = false;
-				}
-			}
-		}
+                }
+                Crosshair.color = Utility.ColorAlpha(Crosshair.color, fadeFraction);
+                ReloadCrosshair.color = Utility.ColorAlpha(Crosshair.color, fadeFraction);
+                if (fadeCooldown < 0f)
+                {
+                    isFadeCrosshair = false;
+                    //Crosshair.enabled = false;
+                    //ReloadCrosshair.enabled = false;
+                }
+            }
+        }
 
         var vehicle = PlayerController.Current.GetVehicle();
         if (vehicle != null)
         {
-            KillCountText.text = string.Format("{0}", PlayerController.Current.KillCount);
+            KillCountText.text = string.Format("{0}", Player.Current.KillCount);
             AmmunitionText.text = string.Format("{0} / {1}", vehicle.GetPrimaryWeapon().GetClipRemaining(), vehicle.GetPrimaryWeapon().ClipCapacity);
         }
 

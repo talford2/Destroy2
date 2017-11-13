@@ -29,6 +29,7 @@ public class Grenade : Missile
         rBody.AddForce(direction*LaunchForce + Vector3.up*200f);
         meshRenderer.enabled = true;
         lifeCooldown = ExplodeTime;
+        Debug.Log("OWNER: " + GetOwner());
         base.Shoot(fromPosition, direction, initVelocity);
     }
 
@@ -55,7 +56,14 @@ public class Grenade : Missile
             {
                 var splashDamage = GetSplashDamage(position, splashHitCollider.transform.position);
                 Debug.Log("SPLASH DAMAGE: " + splashDamage);
-                hitKillable.Damage(splashHitCollider, position, splashHitCollider.transform.position - position, ExplosionPower, splashDamage, GetOwner());
+                if (PlayerController.Current.GetVehicle() != null)
+                {
+                    if (GetOwner() == PlayerController.Current.GetVehicle().gameObject)
+                    {
+                        PlayerController.Current.OnTargetHit();
+                    }
+                }
+                hitKillable.Damage(splashHitCollider, position, splashHitCollider.transform.position - position, ExplosionPower, splashDamage, this);
             }
         }
 

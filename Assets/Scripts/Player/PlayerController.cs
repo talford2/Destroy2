@@ -5,7 +5,6 @@ public class PlayerController : ActorAgent
 {
 	public Vehicle VehiclePrefab;
 	public VehicleGun WeaponPrefab;
-    public int KillCount { get; set; }
 
 	private static PlayerController current;
 
@@ -39,7 +38,7 @@ public class PlayerController : ActorAgent
 
 	public override void InitVehicle(Vehicle vehiclePrefab, VehicleGun weaponPrefab, Vector3 position, Quaternion rotation)
 	{
-		vehicle = ((GameObject)Instantiate(vehiclePrefab.gameObject, position, rotation)).GetComponent<Vehicle>();
+		vehicle = Instantiate(vehiclePrefab.gameObject, position, rotation).GetComponent<Vehicle>();
 		vehicle.transform.parent = transform;
 		Utility.SetLayerRecursively(vehicle.transform, LayerMask.NameToLayer("Player"));
         vehicle.OnDamage += OnVehicleDamage;
@@ -184,6 +183,16 @@ public class PlayerController : ActorAgent
         {
             PlayerCamera.Current.SetMode(PlayerCamera.CameraMode.Chase);
             PlayerCamera.Current.TargetZoom = 1f;
+
+            if (isDead && Input.GetButton("Fire1"))
+            {
+                Debug.LogFormat("TIMEDIFF: {0:f2}", (Time.time - timeOfDeath));
+                if ((Time.time - timeOfDeath) > 3f)
+                {
+                    isDead = false;
+                    StartCoroutine(Respawn(0f));
+                }
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
@@ -203,13 +212,17 @@ public class PlayerController : ActorAgent
 		return vehicle;
 	}
 
+    private float timeOfDeath;
+    private bool isDead;
+
 	private void OnVehicleDie(GameObject attacker)
 	{
 	    diedAtPosition = vehicle.transform.position;
 		Debug.Log("YOU DIED.");
 		Targeting.RemoveTargetable(Team, vehicle);
 		HeadsUpDisplay.Current.FadeOutCrosshair(0.5f);
-        StartCoroutine(Respawn(5f));
+        timeOfDeath = Time.time;
+        isDead = true;
 	}
 
     private IEnumerator EnableDropped(EquipWeapon droppedWeapon, float delay)
@@ -233,6 +246,7 @@ public class PlayerController : ActorAgent
                 var droppedRigidBody = dropEquipped.GetComponent<Rigidbody>();
                 droppedRigidBody.isKinematic = false;
                 droppedRigidBody.AddForce(Vector3.up*5f + vehicle.transform.right*5f, ForceMode.Impulse);
+                droppedRigidBody.AddRelativeTorque(Vector3.up * 5f - Vector3.right * 25f);
                 StartCoroutine(EnableDropped(dropEquipped, 1f));
             }
             vehicle.SetPrimaryWeapon(weapon);
