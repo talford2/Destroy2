@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 11485668}
   - component: {fileID: 11411212}
   - component: {fileID: 11430946}
+  - component: {fileID: 225271955106882826}
   m_Layer: 5
   m_Name: KillCountBack
   m_TagString: Untagged
@@ -64,6 +65,7 @@ GameObject:
   - component: {fileID: 11484768}
   - component: {fileID: 11405338}
   - component: {fileID: 11453054}
+  - component: {fileID: 225914926554095390}
   m_Layer: 5
   m_Name: AmmunitionBack
   m_TagString: Untagged
@@ -308,7 +310,9 @@ MonoBehaviour:
   ReloadCrosshair: {fileID: 11463202}
   HitCrosshair: {fileID: 11447350}
   Damage: {fileID: 11413314}
+  AmmunitionContainer: {fileID: 225914926554095390}
   AmmunitionText: {fileID: 11458206}
+  KillCountContainer: {fileID: 225271955106882826}
   KillCountText: {fileID: 11477136}
   EnemyCrosshair: {r: 1, g: 0, b: 0, a: 1}
   FriendlyCrosshair: {r: 0, g: 0.37931037, b: 1, a: 1}
@@ -792,3 +796,25 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112960}
   m_IsPrefabParent: 1
+--- !u!225 &225271955106882826
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116368}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!225 &225914926554095390
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123402}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
