@@ -22,14 +22,14 @@ public class Utility {
         return dotProduct > 0f;
     }
 
-    public static void PlaySoundAt(AudioClip clip, Vector3 position)
+    public static void PlaySoundAt(AudioClip clip, Vector3 position, float volume = 1f)
     {
         var obj = new GameObject("TempSound");
         obj.transform.position = position;
         var audioSource = obj.AddComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.spatialBlend = 1f;
-        audioSource.volume = 1f;
+        audioSource.volume = volume;
         audioSource.maxDistance = 500f;
         audioSource.minDistance = 5f;
         audioSource.Play();

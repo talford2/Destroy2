@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 435042}
-  - 114: {fileID: 11413606}
+  - component: {fileID: 435042}
+  - component: {fileID: 11413606}
   m_Layer: 0
   m_Name: AssaultRifle
   m_TagString: Untagged
@@ -28,6 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11413606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,6 +64,7 @@ MonoBehaviour:
   Muzzle: {fileID: 149432, guid: 235ae6acc9a6eda4890278ac9a5ed4ed, type: 2}
   FireSounds:
   - {fileID: 8300000, guid: 36472f54cd0bc9c4fa55298f2ad32cb3, type: 3}
+  FireSoundVolume: 0.2
   IsOverHeatable: 0
   OverHeatValue: 0
   HeatPerShot: 0

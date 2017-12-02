@@ -38,6 +38,7 @@ public class VehicleGun : MonoBehaviour
     [Header("Effects")]
     public GameObject Muzzle;
     public List<AudioClip> FireSounds;
+    public float FireSoundVolume = 1f;
 
     // Overheating
     [Header("Overheating")]
@@ -379,7 +380,7 @@ public class VehicleGun : MonoBehaviour
                 curMissile.Shoot(shootPointTransforms[j].position, shootDirection.normalized, velocity.Value);
 
                 if (FireSounds.Any()) // && !FireSound.isPlaying)
-                    Utility.PlaySoundAt(FireSounds[Random.Range(0, FireSounds.Count)], shootPointTransforms[j].position);
+                    Utility.PlaySoundAt(FireSounds[Random.Range(0, FireSounds.Count)], shootPointTransforms[j].position, FireSoundVolume);
 
                 if (muzzleInstances != null)
                     muzzleInstances[j].Flash();
